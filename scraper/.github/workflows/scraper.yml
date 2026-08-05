@@ -1,11 +1,22 @@
 name: DataTrack Scraper
 
 on:
-  # 每天凌晨執行
+  # 排程執行 (預設每日)
   schedule:
     - cron: '0 18 * * *'  # UTC 18:00 = 台灣凌晨 02:00
-  # 也可以手動觸發
+  # 手動觸發
   workflow_dispatch:
+    inputs:
+      schedule:
+        description: '選擇排程'
+        required: true
+        default: 'daily'
+        type: choice
+        options:
+          - daily
+          - weekly
+          - biweekly
+          - disabled
   # 推送時執行
   push:
     branches:
@@ -20,8 +31,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -47,7 +56,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           
           # 檢查是否有變更
-          if git diff --quiet datatrack_data.json datatrack_dashboard.html; then
+          if git diff --quiet datatrack_data.json datatrack_dashboard.html 2>/dev/null; then
             echo "No changes to commit"
           else
             git add datatrack_data.json datatrack_dashboard.html
