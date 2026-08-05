@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📈 股票資訊儀表板 - 專業整合版</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(135deg, #0f0f23, #1a1a2e); min-height: 100vh; color: #fff; }
+        
+        /* 頂部導航 */
+        .topnav { position: fixed; top: 0; left: 0; right: 0; background: rgba(15,15,35,0.95); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 10px; }
+        .topnav h1 { font-size: 18px; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .nav-links a { color: #aaa; text-decoration: none; font-size: 13px; padding: 6px 12px; border-radius: 15px; transition: all 0.3s; }
+        .nav-links a:hover, .nav-links a.active { background: rgba(0,212,255,0.2); color: #00d4ff; }
+        
+        /* 主內容 */
+        .main { padding: 70px 15px 20px; max-width: 1600px; margin: 0 auto; }
+        
+        /* 頁面 */
+        .page { display: none; }
+        .page.active { display: block; }
+        
+        /* 網格 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 15px; }
+        
+        /* 卡片 */
+        .card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s; }
+        .card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .card-icon { font-size: 24px; }
+        .card-title { font-size: 16px; font-weight: 600; }
+        
+        /* 數據 */
+        .data-row { display: flex; justify-content: space-between; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 6px; margin: 4px 0; font-size: 13px; }
+        .data-label { color: #aaa; }
+        .change { font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
+        .up { color: #00c853; background: rgba(0,200,83,0.15); }
+        .down { color: #ff1744; background: rgba(255,23,68,0.15); }
+        
+        /* 返回按鈕 */
+        .back { display: inline-flex; align-items: center; gap: 6px; color: #00d4ff; background: rgba(0,212,255,0.1); padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 15px; font-size: 14px; }
+        
+        /* 區塊標題 */
+        .section { font-size: 18px; font-weight: 600; margin: 20px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #00d4ff; }
+        
+        /* 表格 */
+        .table { width: 100%; border-collapse: collapse; }
+        .table th, .table td { padding: 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
+        .table th { color: #888; font-size: 11px; text-transform: uppercase; }
+        .table tr:hover { background: rgba(255,255,255,0.05); cursor: pointer; }
+        
+        /* 指標卡片 */
+        .indicator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .indicator { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border-left: 3px solid #00d4ff; cursor: pointer; transition: all 0.3s; }
+        .indicator:hover { background: rgba(255,255,255,0.08); }
+        .indicator-title { font-weight: 600; color: #00d4ff; font-size: 13px; margin-bottom: 6px; }
+        .indicator-desc { font-size: 11px; color: #aaa; line-height: 1.5; }
+        
+        /* 新聞 */
+        .news-item { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border-left: 3px solid #7c3aed; margin-bottom: 8px; cursor: pointer; }
+        .news-item:hover { background: rgba(255,255,255,0.08); }
+        .news-item.important { border-left-color: #ff5252; }
+        .news-tag { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(124,58,237,0.3); color: #a78bfa; margin-bottom: 6px; display: inline-block; }
+        .news-item.important .news-tag { background: rgba(255,23,68,0.3); color: #ff5252; }
+        .news-title { font-size: 13px; line-height: 1.4; }
+        
+        /* 彈出視窗 */
+        .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal.active { display: flex; }
+        .modal-content { background: linear-gradient(135deg, #1a1a2e, #0f0f23); border-radius: 12px; padding: 20px; max-width: 500px; width: 90%; max-height: 70vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); }
+        .modal-title { font-size: 18px; font-weight: 600; color: #00d4ff; margin-bottom: 15px; }
+        .modal-body { font-size: 13px; line-height: 1.6; color: #ccc; }
+        .modal-close { float: right; background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
+        
+        /* 載入中 */
+        .loading { text-align: center; padding: 40px; color: #888; }
+        
+        /* DataTrack 數據區域 */
+        .datatrack-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .datatrack-title { font-size: 16px; color: #7c3aed; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        
+        /* 統計 */
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
+        .stat { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center; }
+        .stat-value { font-size: 20px; font-weight: 700; color: #00d4ff; }
+        .stat-label { font-size: 11px; color: #888; margin-top: 4px; }
+        
+        @media (max-width: 768px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <h1>📈 股票資訊儀表板</h1>
+        <div class="nav-links">
+            <a href="#" class="active" onclick="showPage('dashboard')">🏠 總覽</a>
+            <a href="#" onclick="showPage('tw')">🇹🇼 台股</a>
+            <a href="#" onclick="showPage('us')">🇺🇸 美股</a>
+            <a href="#" onclick="showPage('macro')">📊 總經</a>
+            <a href="#" onclick="showPage('industry')">🔬 產業</a>
+            <a href="#" onclick="showPage('datatrack')">📊 DataTrack</a>
+        </div>
+    </nav>
+
+    <div class="main">
+        <!-- 總覽頁面 -->
+        <div class="page active" id="page-dashboard">
+            <div class="stats">
+                <div class="stat"><div class="stat-value">44,549</div><div class="stat-label">台灣加權</div></div>
+                <div class="stat"><div class="stat-value">+2.74%</div><div class="stat-label">漲幅</div></div>
+                <div class="stat"><div class="stat-value">26,584</div><div class="stat-label">NASDAQ</div></div>
+                <div class="stat"><div class="stat-value">+2.59%</div><div class="stat-label">美股漲幅</div></div>
+            </div>
+            
+            <div class="grid">
+                <div class="card" onclick="showPage('tw')">
+                    <div class="card-header"><span class="card-icon">🇹🇼</span><span class="card-title">台灣股市</span></div>
+                    <div class="data-row"><span class="data-label">加權</span><span>44,549<span class="change up">+2.74%</span></span></div>
+                    <div class="data-row"><span class="data-label">台灣50</span><span>41,680<span class="change up">+3.33%</span></span></div>
+                </div>
+                <div class="card" onclick="showPage('us')">
+                    <div class="card-header"><span class="card-icon">🇺🇸</span><span class="card-title">美國股市</span></div>
+                    <div class="data-row"><span class="data-label">道瓊</span><span>54,085<span class="change up">+1.71%</span></span></div>
+                    <div class="data-row"><span class="data-label">NASDAQ</span><span>26,584<span class="change up">+2.59%</span></span></div>
+                </div>
+                <div class="card" onclick="showPage('macro')">
+                    <div class="card-header"><span class="card-icon">📊</span><span class="card-title">總體經濟</span></div>
+                    <div class="data-row"><span class="data-label">ISM PMI</span><span>55.6<span class="change up">擴張</span></span></div>
+                    <div class="data-row"><span class="data-label">美元/台幣</span><span>32.5</span></div>
+                </div>
+                <div class="card" onclick="showPage('datatrack')">
+                    <div class="card-header"><span class="card-icon">📈</span><span class="card-title">DataTrack</span></div>
+                    <div class="data-row"><span class="data-label">總指標數</span><span id="dt-count">載入中...</span></div>
+                    <div class="data-row"><span class="data-label">分類數</span><span id="dt-cats">--</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 台股頁面 -->
+        <div class="page" id="page-tw">
+            <div class="back" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section">🇹🇼 台灣股市</div>
+            <table class="table"><thead><tr><th>指數</th><th>價格</th><th>漲跌</th><th>今年</th></tr></thead>
+                <tbody>
+                    <tr onclick="showModal('twii')"><td>台灣加權</td><td>44,549</td><td><span class="change up">+2.74%</span></td><td>+53.8%</td></tr>
+                    <tr><td>台灣50</td><td>41,680</td><td><span class="change up">+3.33%</span></td><td>+59.9%</td></tr>
+                    <tr><td>櫃買</td><td>385</td><td><span class="change up">+2.33%</span></td><td>+38.9%</td></tr>
+                </tbody>
+            </table>
+            <div class="section">🏆 權值股</div>
+            <table class="table"><thead><tr><th>代號</th><th>名稱</th><th>價格</th><th>漲跌</th></tr></thead>
+                <tbody>
+                    <tr onclick="showModal('2330')"><td>2330</td><td>台積電</td><td>2,395</td><td><span class="change up">+3.23%</span></td></tr>
+                    <tr onclick="showModal('2454')"><td>2454</td><td>聯發科</td><td>4,005</td><td><span class="change up">+3.62%</span></td></tr>
+                    <tr onclick="showModal('2317')"><td>2317</td><td>鴻海</td><td>258</td><td><span class="change up">+3.20%</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 美股頁面 -->
+        <div class="page" id="page-us">
+            <div class="back" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section">🇺🇸 美國股市</div>
+            <table class="table"><thead><tr><th>指數</th><th>價格</th><th>漲跌</th><th>今年</th></tr></thead>
+                <tbody>
+                    <tr><td>道瓊</td><td>54,085</td><td><span class="change up">+1.71%</span></td><td>+12.5%</td></tr>
+                    <tr><td>S&P 500</td><td>7,736</td><td><span class="change up">+1.79%</span></td><td>+13.0%</td></tr>
+                    <tr><td>NASDAQ</td><td>26,584</td><td><span class="change up">+2.59%</span></td><td>+14.4%</td></tr>
+                    <tr><td>費城半導體</td><td>12,179</td><td><span class="change up">+6.55%</span></td><td>+72.0%</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 總經頁面 -->
+        <div class="page" id="page-macro">
+            <div class="back" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section">🇺🇸 美國經濟</div>
+            <div class="indicator-grid">
+                <div class="indicator" onclick="showModal('ism')"><div class="indicator-title">ISM 製造業 PMI</div><div class="indicator-desc">55.6 | >50擴張<br>2026年7月新高</div></div>
+                <div class="indicator"><div class="indicator-title">GDP 成長率</div><div class="indicator-desc">季調年增率<br>>2%健康</div></div>
+                <div class="indicator"><div class="indicator-title">殖利率利差</div><div class="indicator-desc">10年-2年<br>>0擴張</div></div>
+            </div>
+            <div class="section">🇨🇳 中國經濟</div>
+            <div class="indicator-grid">
+                <div class="indicator"><div class="indicator-title">財新PMI</div><div class="indicator-desc">50.8<br>>50擴張</div></div>
+                <div class="indicator"><div class="indicator-title">GDP 年增</div><div class="indicator-desc">5.0%<br>放緩中</div></div>
+            </div>
+        </div>
+
+        <!-- 產業頁面 -->
+        <div class="page" id="page-industry">
+            <div class="back" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section">💻 半導體</div>
+            <div class="indicator-grid">
+                <div class="indicator"><div class="indicator-title">DRAM</div><div class="indicator-desc">$3.2/GB<br>反彈上漲</div></div>
+                <div class="indicator"><div class="indicator-title">NAND</div><div class="indicator-desc">$4.1/GB<br>庫存調整</div></div>
+            </div>
+            <div class="section">📱 顯示器</div>
+            <div class="indicator-grid">
+                <div class="indicator"><div class="indicator-title">LCD</div><div class="indicator-desc">報價持平</div></div>
+                <div class="indicator"><div class="indicator-title">AMOLED</div><div class="indicator-desc">手機滲透50%</div></div>
+            </div>
+        </div>
+
+        <!-- DataTrack 頁面 -->
+        <div class="page" id="page-datatrack">
+            <div class="back" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section">📊 DataTrack 數據資源</div>
+            <div class="stats">
+                <div class="stat"><div class="stat-value" id="dt-total">--</div><div class="stat-label">總指標數</div></div>
+                <div class="stat"><div class="stat-value" id="dt-categories">--</div><div class="stat-label">分類數</div></div>
+                <div class="stat"><div class="stat-value" id="dt-macro">--</div><div class="stat-label">總經指標</div></div>
+                <div class="stat"><div class="stat-value" id="dt-updated">--</div><div class="stat-label">更新時間</div></div>
+            </div>
+            
+            <div id="datatrack-content">
+                <div class="loading">正在載入 DataTrack 數據...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 彈出視窗 -->
+    <div class="modal" id="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-title" id="modalTitle"></div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // 股票詳情資料
+        const stockDetails = {
+            twii: { title: "台灣加權指數", body: "<h4>什麼是加權指數？</h4><p>台灣加權股價指數（TAIEX）是台灣證券交易所編製的股價指數，涵蓋所有上市普通股，以市值加權計算。</p><h4>特性</h4><p>• 台積電占比約30%<br>• 反映台灣整體經濟</p>" },
+            "2330": { title: "台積電 (2330)", body: "<h4>公司簡介</h4><p>全球最大半導體晶圓代工，市場佔有率超50%。</p><h4>營運動能</h4><p>• AI晶片需求爆發<br>• 先進製程領先<br>• 蘋果、AMD、NVIDIA供應商</p>" },
+            "2454": { title: "聯發科 (2454)", body: "<h4>公司簡介</h4><p>全球領先IC設計公司，手機處理器龍頭。</p><h4>營運動能</h4><p>• AI手機晶片需求升溫<br>• 天璣9400熱銷</p>" },
+            "2317": { title: "鴻海 (2317)", body: "<h4>公司簡介</h4><p>全球最大電子代工，組裝iPhone。</p><h4>營運動能</h4><p>• AI伺服器組裝<br>• 電動車布局</p>" },
+            ism: { title: "ISM 製造業 PMI", body: "<h4>什麼是PMI？</h4><p>採購經理人指數，>50=擴張，<50=收縮。</p><h4>最新數據</h4><p>2026年7月 PMI 報55.6，創2022年5月來新高。</p>" }
+        };
+
+        // DataTrack 數據
+        let dtData = { indicators: [], categories: {} };
+
+        function showPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            document.getElementById('page-' + page).classList.add('active');
+            event.target.classList.add('active');
+            
+            if (page === 'datatrack') loadDataTrack();
+        }
+
+        function showModal(key) {
+            const d = stockDetails[key];
+            if (d) {
+                document.getElementById('modalTitle').textContent = d.title;
+                document.getElementById('modalBody').innerHTML = d.body;
+                document.getElementById('modal').classList.add('active');
+            }
+        }
+
+        function closeModal(e) { if (!e || e.target.id === 'modal') document.getElementById('modal').classList.remove('active'); }
+
+        async function loadDataTrack() {
+            // 嘗試載入爬蟲輸出的 JSON 資料
+            try {
+                const response = await fetch('datatrack_data.json');
+                if (response.ok) {
+                    dtData = await response.json();
+                    renderDataTrack();
+                } else {
+                    document.getElementById('datatrack-content').innerHTML = '<div class="loading">請先執行爬蟲腳本取得數據</div>';
+                }
+            } catch (e) {
+                // 使用內建範例資料
+                renderExampleData();
+            }
+        }
+
+        function renderDataTrack() {
+            const container = document.getElementById('datatrack-content');
+            
+            // 更新統計
+            document.getElementById('dt-total').textContent = dtData.indicators.length;
+            document.getElementById('dt-categories').textContent = Object.keys(dtData.categories).length;
+            document.getElementById('dt-macro').textContent = (dtData.categories['總體經濟'] || []).length;
+            document.getElementById('dt-updated').textContent = dtData.last_updated || '--';
+            
+            // 渲染分類
+            let html = '';
+            for (const [cat, indicators] of Object.entries(dtData.categories)) {
+                html += `<div class="section">${cat}</div><div class="indicator-grid">`;
+                for (const ind of indicators.slice(0, 6)) {
+                    html += `<div class="indicator" onclick="showDTDetail('${ind.id}')">
+                        <div class="indicator-title">${ind.title}</div>
+                        <div class="indicator-desc">${(ind.description || '').substring(0, 60)}...</div>
+                    </div>`;
+                }
+                html += '</div>';
+            }
+            container.innerHTML = html;
+        }
+
+        function renderExampleData() {
+            // 內建範例資料
+            const exampleData = {
+                indicators: [
+                    { id: '1', title: 'ISM 製造業 PMI', category: '總體經濟', description: '採購經理人指數 >50=擴張' },
+                    { id: '2', title: 'GDP 成長率', category: '總體經濟', description: '國內生產毛額年增率' },
+                    { id: '3', title: 'DRAM 價格', category: '半導體', description: '記憶體現貨報價' },
+                    { id: '4', title: 'NAND Flash', category: '半導體', description: '儲存型快閃記憶體報價' },
+                ],
+                categories: {
+                    '總體經濟': [
+                        { id: '1', title: 'ISM 製造業 PMI', description: '採購經理人指數' },
+                        { id: '2', title: 'GDP 成長率', description: '國內生產毛額' }
+                    ],
+                    '半導體': [
+                        { id: '3', title: 'DRAM 價格', description: '記憶體報價' },
+                        { id: '4', title: 'NAND Flash', description: '儲存晶片報價' }
+                    ]
+                },
+                last_updated: '2026-08-05'
+            };
+            
+            dtData = exampleData;
+            renderDataTrack();
+            
+            document.getElementById('datatrack-content').innerHTML += '<div style="margin-top:20px;padding:10px;background:rgba(255,200,0,0.1);border-radius:8px;"><strong>💡 提示：</strong>這是範例資料。執行爬蟲腳本後可取得最新數據。</div>';
+        }
+
+        function showDTDetail(id) {
+            const ind = dtData.indicators.find(i => i.id === id);
+            if (ind) {
+                document.getElementById('modalTitle').textContent = ind.title;
+                document.getElementById('modalBody').innerHTML = `<p>${ind.description || '無說明'}</p><p>分類: ${ind.category}</p>`;
+                document.getElementById('modal').classList.add('active');
+            }
+        }
+
+        // 初始化
+        loadDataTrack();
+    </script>
+</body>
+</html>
