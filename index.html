@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📈 股票資訊儀表板</title>
+    <title>📈 股票資訊儀表板 - 專業版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; color: #fff; padding: 20px; }
-        .container { max-width: 1400px; margin: 0 auto; }
+        .container { max-width: 1600px; margin: 0 auto; }
         header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 15px; }
         .logo h1 { font-size: 28px; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .update-time { color: #888; font-size: 14px; }
@@ -18,9 +18,9 @@
         .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; font-size: 18px; font-weight: 600; }
         .card-header span { font-size: 24px; }
         
-        /* 台股樣式 */
-        .tw-stock { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .tw-stock:last-child { border-bottom: none; }
+        /* 股票樣式 */
+        .stock-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .stock-row:last-child { border-bottom: none; }
         .stock-name { color: #aaa; }
         .stock-price { font-weight: 600; }
         .stock-change { padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-left: 8px; }
@@ -34,12 +34,18 @@
         .weather-detail-value { font-size: 20px; font-weight: 600; }
         .weather-detail-label { font-size: 12px; color: #888; }
         
-        /* 總體經濟指標 */
-        .macro-card { grid-column: 1 / -1; }
-        .macro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        /* 總體經濟 - 專業版 */
+        .macro-full { grid-column: 1 / -1; }
+        .macro-section { margin-bottom: 30px; }
+        .macro-section-title { font-size: 20px; font-weight: 600; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #00d4ff; display: flex; align-items: center; gap: 10px; }
+        .macro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 15px; }
         .macro-item { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border-left: 3px solid #00d4ff; }
-        .macro-title { font-weight: 600; margin-bottom: 8px; color: #00d4ff; }
-        .macro-desc { font-size: 13px; color: #aaa; line-height: 1.6; }
+        .macro-item.warning { border-left-color: #ff9800; }
+        .macro-item.danger { border-left-color: #ff5252; }
+        .macro-item.success { border-left-color: #00c853; }
+        .macro-title { font-weight: 600; margin-bottom: 8px; color: #00d4ff; font-size: 14px; }
+        .macro-desc { font-size: 12px; color: #aaa; line-height: 1.6; }
+        .macro-ai { background: rgba(124, 58, 237, 0.1); padding: 10px; border-radius: 6px; margin-top: 10px; font-size: 12px; color: #a78bfa; border-left: 2px solid #7c3aed; }
         
         /* 新聞 */
         .news-card { grid-column: 1 / -1; }
@@ -49,6 +55,12 @@
         .news-tag { font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(124, 58, 237, 0.3); color: #a78bfa; margin-bottom: 8px; display: inline-block; }
         .news-item.important .news-tag { background: rgba(255, 23, 68, 0.3); color: #ff5252; }
         .news-text { line-height: 1.5; font-size: 14px; }
+        
+        /* 產業數據 */
+        .industry-card { grid-column: 1 / -1; }
+        .industry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .industry-item { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; }
+        .industry-title { font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         
         footer { text-align: center; padding: 30px 0; color: #666; font-size: 12px; }
         
@@ -61,23 +73,23 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo"><h1>📈 股票資訊儀表板</h1></div>
-            <div class="update-time">更新時間: <span id="updateTime">載入中...</span></div>
+            <div class="logo"><h1>📈 股票資訊儀表板 - 專業版</h1></div>
+            <div class="update-time">更新時間: <span id="updateTime">載入中...</span> | 資料來源: StockQ + DataTrack</div>
         </header>
 
         <div class="dashboard-grid">
             <!-- 台灣加權 -->
             <div class="card">
                 <div class="card-header"><span>🇹🇼</span> 台灣加權</div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">加權指數</span>
                     <div><span class="stock-price">44,549</span><span class="stock-change up">+2.74%</span></div>
                 </div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">台灣50</span>
                     <div><span class="stock-price">41,680</span><span class="stock-change up">+3.33%</span></div>
                 </div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">櫃買</span>
                     <div><span class="stock-price">385</span><span class="stock-change up">+2.67%</span></div>
                 </div>
@@ -86,40 +98,32 @@
             <!-- 權值股 -->
             <div class="card">
                 <div class="card-header"><span>🏆</span> 權值股</div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">台積電</span>
                     <div><span class="stock-price">2,395</span><span class="stock-change up">+3.23%</span></div>
                 </div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">聯發科</span>
                     <div><span class="stock-price">4,005</span><span class="stock-change up">+3.62%</span></div>
                 </div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">鴻海</span>
                     <div><span class="stock-price">258</span><span class="stock-change up">+3.20%</span></div>
-                </div>
-                <div class="tw-stock">
-                    <span class="stock-name">廣達</span>
-                    <div><span class="stock-price">304</span><span class="stock-change up">+1.16%</span></div>
                 </div>
             </div>
 
             <!-- 美股 -->
             <div class="card">
                 <div class="card-header"><span>🇺🇸</span> 美股 (昨夜)</div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">道瓊</span>
                     <div><span class="stock-price">54,085</span><span class="stock-change up">+1.71%</span></div>
                 </div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">NASDAQ</span>
                     <div><span class="stock-price">26,584</span><span class="stock-change up">+2.59%</span></div>
                 </div>
-                <div class="tw-stock">
-                    <span class="stock-name">S&P 500</span>
-                    <div><span class="stock-price">7,736</span><span class="stock-change up">+1.79%</span></div>
-                </div>
-                <div class="tw-stock">
+                <div class="stock-row">
                     <span class="stock-name">費城半導體</span>
                     <div><span class="stock-price">12,179</span><span class="stock-change up">+6.55%</span></div>
                 </div>
@@ -135,72 +139,218 @@
                 </div>
             </div>
 
-            <!-- 總體經濟指標 (DataTrack) -->
-            <div class="card macro-card">
-                <div class="card-header"><span>📊</span> 總體經濟指標 (DataTrack)</div>
-                <div class="macro-grid">
-                    <div class="macro-item">
-                        <div class="macro-title">🇺🇸 美國公債殖利率利差 (10年-2年)</div>
-                        <div class="macro-desc">
-                            衡量短期和長期利率之間利差的重要指標，與景氣循環密切關聯。
-                            <br><br>
-                            <strong>解讀：</strong>正利差=經濟擴張；負利差(倒掛)=經濟衰退警訊
+            <!-- 總體經濟指標 - 專業版 -->
+            <div class="card macro-full">
+                <div class="card-header"><span>📊</span> 總體經濟指標 (DataTrack 專業分析)</div>
+                
+                <!-- 美國經濟 -->
+                <div class="macro-section">
+                    <div class="macro-section-title">🇺🇸 美國經濟</div>
+                    <div class="macro-grid">
+                        <div class="macro-item success">
+                            <div class="macro-title">ISM 製造業 PMI</div>
+                            <div class="macro-desc">
+                                採購經理人指數 >50=擴張，<50=收縮。每月第一個工作日公布。
+                                <br><br><strong>組成：</strong>新訂單、生產、聘僱、供應商配送、庫存
+                            </div>
+                            <div class="macro-ai">🤖 AI 分析：2026年7月 PMI 報55.6，創2022年5月以來新高，就業指數打破連33個月萎縮僵局</div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">公債殖利率 (10年-2年)</div>
+                            <div class="macro-desc">
+                                短期與長期利率利差，與景氣循環密切關聯。
+                                <br><br><strong>解讀：</strong>正利差=經濟擴張；負利差(倒掛)=衰退警訊
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">實質GDP (季調年增率)</div>
+                            <div class="macro-desc">
+                                經季節調整後的GDP年化成長率，衡量經濟產出。
+                                <br><br><strong>解讀：</strong>>2%為健康成長；<0%可能衰退
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">消費者信心指數</div>
+                            <div class="macro-desc">
+                                反映消費者對經濟前景的信心程度。
+                                <br><br><strong>解讀：</strong>>100為樂觀；<100為悲觀
+                            </div>
                         </div>
                     </div>
-                    <div class="macro-item">
-                        <div class="macro-title">🇺🇸 美國實質GDP (季調年增率)</div>
-                        <div class="macro-desc">
-                            衡量美國經濟產出的關鍵指標，經季節調整後的年化成長率。
-                            <br><br>
-                            <strong>解讀：</strong>>2%為健康成長；<0%可能衰退
+                </div>
+
+                <!-- 中國經濟 -->
+                <div class="macro-section">
+                    <div class="macro-section-title">🇨🇳 中國經濟</div>
+                    <div class="macro-grid">
+                        <div class="macro-item warning">
+                            <div class="macro-title">財新製造業 PMI</div>
+                            <div class="macro-desc">
+                                透過約650家民營/國有製造企業調查編制。
+                                <br><br><strong>組成：</strong>新訂單(30%)、產出(25%)、聘僱(20%)、供應商配送(15%)、庫存(10%)
+                                <br><br><strong>解讀：</strong>>50擴張；<50收縮
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">人均GDP (年)</div>
+                            <div class="macro-desc">
+                                衡量中國經濟發展水平的指標，反映國民平均產出。
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">城鎮化率</div>
+                            <div class="macro-desc">
+                                城鎮人口占總人口比例，反映都市化發展進程，影響消費與房市。
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">貨幣流通速度 (GDP/M2)</div>
+                            <div class="macro-desc">
+                                衡量貨幣流通效率，反映資金活化程度。
+                                <br><br><strong>解讀：</strong>下降=資金停滯；上升=景氣活絡
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">金融深化程度 (M2/GDP)</div>
+                            <div class="macro-desc">
+                                衡量金融業發展程度與信用擴張水平。
+                            </div>
                         </div>
                     </div>
-                    <div class="macro-item">
-                        <div class="macro-title">🇨🇳 中國人均GDP (年)</div>
-                        <div class="macro-desc">
-                            衡量中國經濟發展水平的重要指標，反映國民平均產出。
-                            <br><br>
-                            <strong>解讀：</strong>持續成長代表經濟發展；放緩需關注
+                </div>
+
+                <!-- 台灣經濟 -->
+                <div class="macro-section">
+                    <div class="macro-section-title">🇹🇼 台灣經濟</div>
+                    <div class="macro-grid">
+                        <div class="macro-item">
+                            <div class="macro-title">台灣加權指數</div>
+                            <div class="macro-desc">
+                                反映台灣股票市場整體表現的加權指數，包含所有上市股票。
+                                <br><br><strong>特性：</strong>以市值加權，大型權值股影響力大
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">匯率：美元/新台幣</div>
+                            <div class="macro-desc">
+                                一單位美元所需的新台幣數量。
+                                <br><br><strong>影響：</strong>科技股出口導向，匯率影響營收
+                                <br><br><strong>解讀：</strong>美元強=台幣弱=有利出口；美元弱=台幣強=有利進口
+                            </div>
                         </div>
                     </div>
-                    <div class="macro-item">
-                        <div class="macro-title">🇨🇳 中國城鎮化率</div>
-                        <div class="macro-desc">
-                            城鎮人口占總人口比例，反映中國都市化發展進程。
-                            <br><br>
-                            <strong>解讀：</strong>持續上升代表都市化進行中，影響消費與房市
+                </div>
+
+                <!-- 歐洲與亞洲 -->
+                <div class="macro-section">
+                    <div class="macro-section-title">🌍 歐洲與亞洲</div>
+                    <div class="macro-grid">
+                        <div class="macro-item">
+                            <div class="macro-title">歐元區經濟信心指數</div>
+                            <div class="macro-desc">
+                                衡量歐元區消費者和企業對經濟前景的信心程度。
+                                <br><br><strong>解讀：</strong>>100=樂觀；<100=悲觀
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">歐元區製造業PMI</div>
+                            <div class="macro-desc">
+                                衡量歐洲製造業景氣的關鍵指標。
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">印度GDP年增率</div>
+                            <div class="macro-desc">
+                                衡量印度經濟成長，新興市場代表之一。
+                                <br><br><strong>解讀：</strong>>6%=高速成長，反映全球供應鏈轉移趨勢
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">韓國名目GDP</div>
+                            <div class="macro-desc">
+                                韓國為出口導向國家，反映全球貿易景氣。
+                            </div>
                         </div>
                     </div>
-                    <div class="macro-item">
-                        <div class="macro-title">🇨🇳 中國貨幣流通速度 (GDP/M2)</div>
-                        <div class="macro-desc">
-                            衡量貨幣流通效率的指標，反映資金活化程度。
-                            <br><br>
-                            <strong>解讀：</strong>下降代表資金停滯；上升代表景氣活絡
+                </div>
+
+                <!-- 商品與原物料 -->
+                <div class="macro-section">
+                    <div class="macro-section-title">🥇 商品與原物料</div>
+                    <div class="macro-grid">
+                        <div class="macro-item">
+                            <div class="macro-title">COMEX 白銀庫存</div>
+                            <div class="macro-desc">
+                                COMEX認可倉庫持有的白銀總量，包括註冊庫存和合格庫存。
+                                <br><br><strong>解讀：</strong>高庫存=過剩可能壓價；低庫存=短缺可能漲價
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">COMEX 黃金庫存</div>
+                            <div class="macro-desc">
+                                COMEX認可倉庫持有的黃金總量，反映貴金屬市場供應狀況。
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-title">稀土價格指數</div>
+                            <div class="macro-desc">
+                                稀土金屬價格綜合指標，用於高科技產業和國防工業。
+                            </div>
                         </div>
                     </div>
-                    <div class="macro-item">
-                        <div class="macro-title">🇪🇺 歐元區經濟信心指數</div>
+                </div>
+            </div>
+
+            <!-- 產業數據 -->
+            <div class="card industry-card">
+                <div class="card-header"><span>🔬</span> 產業數據 (DataTrack)</div>
+                <div class="industry-grid">
+                    <div class="industry-item">
+                        <div class="industry-title">💻 半導體</div>
                         <div class="macro-desc">
-                            衡量歐元區消費者和企業對經濟前景的信心程度。
-                            <br><br>
-                            <strong>解讀：</strong>>100為樂觀；<100為悲觀
+                            • DRAM主流現貨價格<br>
+                            • NAND Flash Wafer現貨價格<br>
+                            • 半導體資本支出趨勢
                         </div>
                     </div>
-                    <div class="macro-item">
-                        <div class="macro-title">🇮🇳 印度實質GDP年增率</div>
+                    <div class="industry-item">
+                        <div class="industry-title">💡 LED / 光電</div>
                         <div class="macro-desc">
-                            衡量印度經濟成長的關鍵指標，新興市場代表之一。
-                            <br><br>
-                            <strong>解讀：</strong>>6%為高速成長；反映全球供應鏈轉移趨勢
+                            • Micro/Mini LED市場產值<br>
+                            • LED晶片廠商營收<br>
+                            • 照明市場趨勢
                         </div>
                     </div>
-                    <div class="macro-item">
-                        <div class="macro-title">🇰🇷 韓國名目GDP (美元)</div>
+                    <div class="industry-item">
+                        <div class="industry-title">📱 顯示器</div>
                         <div class="macro-desc">
-                            衡量韓國經濟規模的指標，受匯率影響較大。
-                            <br><br>
-                            <strong>解讀：</strong>韓國為出口導向國家，反映全球貿易景氣
+                            • 筆電面板出貨量<br>
+                            • AMOLED產能投入面積<br>
+                            • 大尺寸面板報價
+                        </div>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-title">☀️ 能源</div>
+                        <div class="macro-desc">
+                            • 太陽能模組產能<br>
+                            • PV供應鏈狀況<br>
+                            • 原油庫存
+                        </div>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-title">🚗 電動車</div>
+                        <div class="macro-desc">
+                            • 電動車銷售趨勢<br>
+                            • 電池產業鏈<br>
+                            • 充電設施佈局
+                        </div>
+                    </div>
+                    <div class="industry-item">
+                        <div class="industry-title">📡 通訊</div>
+                        <div class="macro-desc">
+                            • 5G基地台建設<br>
+                            • 手機出貨量<br>
+                            • 網通設備市場
                         </div>
                     </div>
                 </div>
@@ -212,39 +362,38 @@
                 <div class="news-grid">
                     <div class="news-item important">
                         <span class="news-tag">重要</span>
-                        <div class="news-text">美股昨夜大漲！NASDAQ +2.59%，費城半導體指數飆升 +6.55%，台股今日大漲 2.74% 創新高</div>
+                        <div class="news-text">美股昨夜大漲！NASDAQ +2.59%，費城半導體 +6.55%，台股大漲 2.74% 創新高</div>
                     </div>
                     <div class="news-item">
                         <span class="news-tag">產業</span>
-                        <div class="news-text">半導體族群持續強勢，聯發科大漲 3.62%，台積電、鴻海持續走高</div>
+                        <div class="news-text">半導體族群強勢，聯發科大漲 3.62%，台積電、鴻海持續走高</div>
                     </div>
                     <div class="news-item">
-                        <span class="news-tag">中國</span>
+                        <span class="news-tag">AI</span>
                         <div class="news-text">月之暗面發布 Kimi K3，卷入「蒸餾」爭議，遭白宮指控竊取 Anthropic 技術</div>
                     </div>
                     <div class="news-item">
                         <span class="news-tag">總經</span>
-                        <div class="news-text">特習會後美中再現摩擦，雙方在關稅、台灣、安全議題上仍有分歧</div>
+                        <div class="news-text">美國7月 ISM 製造業PMI 創新高55.6，就業指數重返擴張</div>
+                    </div>
+                    <div class="news-item">
+                        <span class="news-tag">兩岸</span>
+                        <div class="news-text">特習會後美中再現摩擦，關稅、台灣、安全議題仍有分歧</div>
                     </div>
                     <div class="news-item">
                         <span class="news-tag">能源</span>
                         <div class="news-text">油價下跌，市場期待荷莫茲海峽重新開放</div>
-                    </div>
-                    <div class="news-item">
-                        <span class="news-tag">科技</span>
-                        <div class="news-text">SpaceX 首份財報出爐，營收增加但支出龐大，投資人觀望</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p>📊 數據僅供參考，不構成投資建議 | 總體經濟說明來源: DataTrack</p>
+            <p>📊 數據僅供參考，不構成投資建議 | 總體經濟說明來源: DataTrack | 股市資料來源: StockQ</p>
         </footer>
     </div>
 
     <script>
-        // 更新天氣
         async function updateWeather() {
             try {
                 const response = await fetch('https://wttr.in/Taipei?format=j1');
@@ -258,7 +407,6 @@
             }
         }
 
-        // 更新時間
         function updateTime() {
             const now = new Date();
             const taiwanTime = now.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
