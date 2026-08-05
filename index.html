@@ -3,190 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📈 股票資訊儀表板 - 專業整合版</title>
+    <title>📈 股票資訊儀表板 - 圖表版</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(135deg, #0f0f23, #1a1a2e); min-height: 100vh; color: #fff; }
         
-        /* 頂部導航 */
         .topnav { position: fixed; top: 0; left: 0; right: 0; background: rgba(15,15,35,0.95); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 10px; }
         .topnav h1 { font-size: 18px; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
         .nav-links a { color: #aaa; text-decoration: none; font-size: 13px; padding: 6px 12px; border-radius: 15px; transition: all 0.3s; }
         .nav-links a:hover, .nav-links a.active { background: rgba(0,212,255,0.2); color: #00d4ff; }
         
-        /* 主內容 */
         .main { padding: 70px 15px 20px; max-width: 1600px; margin: 0 auto; }
         
-        /* 設定區塊 */
-        .settings-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
-        .settings-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        
-        /* 按鈕 */
-        .btn { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; margin-right: 10px; }
-        .btn-primary { background: linear-gradient(90deg, #00d4ff, #7c3aed); color: #fff; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,212,255,0.4); }
-        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-        .btn-secondary { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
-        
-        /* 排程選擇 */
-        .schedule-options { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
-        .schedule-option { padding: 10px 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s; }
-        .schedule-option:hover { background: rgba(255,255,255,0.1); }
-        .schedule-option.active { background: rgba(0,212,255,0.2); border-color: #00d4ff; }
-        
-        /* 頁面 */
         .page { display: none; }
         .page.active { display: block; }
         
-        /* 網格 */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 15px; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
+        .stat { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center; }
+        .stat-value { font-size: 20px; font-weight: 700; color: #00d4ff; }
+        .stat-label { font-size: 11px; color: #888; margin-top: 4px; }
         
-        /* 卡片 */
-        .card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s; }
-        .card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-        .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-        .card-icon { font-size: 24px; }
-        .card-title { font-size: 16px; font-weight: 600; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 15px; margin-bottom: 15px; }
         
-        /* 數據 */
+        .card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); }
+        .card-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; }
+        
+        .chart-container { position: relative; height: 250px; }
+        
         .data-row { display: flex; justify-content: space-between; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 6px; margin: 4px 0; font-size: 13px; }
         .data-label { color: #aaa; }
         .change { font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
         .up { color: #00c853; background: rgba(0,200,83,0.15); }
         .down { color: #ff1744; background: rgba(255,23,68,0.15); }
         
-        /* 返回 */
         .back { display: inline-flex; align-items: center; gap: 6px; color: #00d4ff; background: rgba(0,212,255,0.1); padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 15px; font-size: 14px; }
         
-        /* 區塊 */
         .section { font-size: 18px; font-weight: 600; margin: 20px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #00d4ff; }
         
-        /* 表格 */
         .table { width: 100%; border-collapse: collapse; }
         .table th, .table td { padding: 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
         .table th { color: #888; font-size: 11px; text-transform: uppercase; }
-        .table tr:hover { background: rgba(255,255,255,0.05); cursor: pointer; }
-        
-        /* 指標 */
-        .indicator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-        .indicator { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border-left: 3px solid #00d4ff; cursor: pointer; transition: all 0.3s; }
-        .indicator:hover { background: rgba(255,255,255,0.08); }
-        .indicator-title { font-weight: 600; color: #00d4ff; font-size: 13px; margin-bottom: 6px; }
-        .indicator-desc { font-size: 11px; color: #aaa; line-height: 1.5; }
-        
-        /* 新聞 */
-        .news-item { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border-left: 3px solid #7c3aed; margin-bottom: 8px; cursor: pointer; }
-        .news-item:hover { background: rgba(255,255,255,0.08); }
-        .news-item.important { border-left-color: #ff5252; }
-        .news-tag { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(124,58,237,0.3); color: #a78bfa; margin-bottom: 6px; display: inline-block; }
-        .news-item.important .news-tag { background: rgba(255,23,68,0.3); color: #ff5252; }
-        .news-title { font-size: 13px; line-height: 1.4; }
-        
-        /* 彈出 */
-        .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 1000; }
-        .modal.active { display: flex; }
-        .modal-content { background: linear-gradient(135deg, #1a1a2e, #0f0f23); border-radius: 12px; padding: 20px; max-width: 500px; width: 90%; max-height: 70vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); }
-        .modal-title { font-size: 18px; font-weight: 600; color: #00d4ff; margin-bottom: 15px; }
-        .modal-body { font-size: 13px; line-height: 1.6; color: #ccc; }
-        .modal-close { float: right; background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
-        
-        /* 統計 */
-        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
-        .stat { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center; }
-        .stat-value { font-size: 20px; font-weight: 700; color: #00d4ff; }
-        .stat-label { font-size: 11px; color: #888; margin-top: 4px; }
-        
-        /* 狀態訊息 */
-        .status-msg { padding: 10px 15px; border-radius: 8px; margin-top: 15px; font-size: 13px; }
-        .status-success { background: rgba(0,200,83,0.2); color: #00c853; }
-        .status-error { background: rgba(255,23,68,0.2); color: #ff5252; }
-        .status-info { background: rgba(0,212,255,0.2); color: #00d4ff; }
-        
-        /* 最後更新 */
-        .last-update { font-size: 12px; color: #888; margin-top: 10px; }
         
         @media (max-width: 768px) {
             .stats { grid-template-columns: repeat(2, 1fr); }
+            .grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
-            .schedule-options { flex-direction: column; }
         }
     </style>
 </head>
 <body>
     <nav class="topnav">
-        <h1>📈 股票資訊儀表板</h1>
+        <h1>📈 股票資訊儀表板 - 圖表版</h1>
         <div class="nav-links">
             <a href="#" class="active" onclick="showPage('dashboard')">🏠 總覽</a>
             <a href="#" onclick="showPage('tw')">🇹🇼 台股</a>
             <a href="#" onclick="showPage('us')">🇺🇸 美股</a>
-            <a href="#" onclick="showPage('macro')">📊 總經</a>
-            <a href="#" onclick="showPage('industry')">🔬 產業</a>
-            <a href="#" onclick="showPage('settings')">⚙️ 設定</a>
+            <a href="#" onclick="showPage('charts')">📊 圖表</a>
         </div>
     </nav>
 
     <div class="main">
-        <!-- 設定頁面 -->
-        <div class="page" id="page-settings">
-            <div class="settings-card">
-                <div class="settings-title">🕷️ DataTrack 爬蟲設定</div>
-                
-                <div>
-                    <button class="btn btn-primary" id="runScraperBtn" onclick="runScraper()">
-                        ▶️ 手動執行爬蟲
-                    </button>
-                </div>
-                
-                <div id="scraperStatus"></div>
-                
-                <div class="last-update" id="lastUpdate">
-                    最後執行: --
-                </div>
-            </div>
-            
-            <div class="settings-card">
-                <div class="settings-title">⏰ 自動排程設定</div>
-                
-                <p style="color: #aaa; font-size: 13px; margin-bottom: 15px;">
-                    選擇自動更新頻率（需要 GitHub Actions 支援）:
-                </p>
-                
-                <div class="schedule-options">
-                    <div class="schedule-option active" onclick="setSchedule('0 18 * * *')">
-                        <div style="font-weight: 600;">每日</div>
-                        <div style="font-size: 12px; color: #888;">每天凌晨 02:00 (台灣)</div>
-                    </div>
-                    <div class="schedule-option" onclick="setSchedule('0 18 * * 1')">
-                        <div style="font-weight: 600;">每週</div>
-                        <div style="font-size: 12px; color: #888;">每週一凌晨</div>
-                    </div>
-                    <div class="schedule-option" onclick="setSchedule('0 18 */2 * *')">
-                        <div style="font-weight: 600;">每2天</div>
-                        <div style="font-size: 12px; color: #888;">每隔一天</div>
-                    </div>
-                    <div class="schedule-option" onclick="setSchedule('')">
-                        <div style="font-weight: 600;">關閉</div>
-                        <div style="font-size: 12px; color: #888;">停止自動排程</div>
-                    </div>
-                </div>
-                
-                <div id="scheduleStatus"></div>
-            </div>
-            
-            <div class="settings-card">
-                <div class="settings-title">ℹ️ 說明</div>
-                <p style="color: #aaa; font-size: 13px; line-height: 1.6;">
-                    • <strong>手動執行:</strong> 點擊按鈕立即執行爬蟲<br>
-                    • <strong>自動排程:</strong> 透過 GitHub Actions 自動執行<br>
-                    • <strong>資料更新:</strong> 爬蟲完成後會更新 datatrack_data.json<br>
-                    • <strong>顯示:</strong> 資料會自動顯示在儀表板的 DataTrack 區塊<br><br>
-                    <em>註: 自動排程需要 commit 變更到 GitHub 才能生效</em>
-                </p>
-            </div>
-        </div>
-
-        <!-- 總覽頁面 -->
         <div class="page active" id="page-dashboard">
             <div class="stats">
                 <div class="stat"><div class="stat-value">44,611</div><div class="stat-label">台灣加權</div></div>
@@ -196,51 +74,56 @@
             </div>
             
             <div class="grid">
-                <div class="card" onclick="showPage('tw')">
-                    <div class="card-header"><span class="card-icon">🇹🇼</span><span class="card-title">台灣股市</span></div>
-                    <div class="data-row"><span class="data-label">加權</span><span>44,611<span class="change up">+2.88%</span></span></div>
-                    <div class="data-row"><span class="data-label">台灣50</span><span>41,600<span class="change up">+3.13%</span></span></div>
+                <div class="card">
+                    <div class="card-title">📈 台股加權指數走勢</div>
+                    <div class="chart-container">
+                        <canvas id="twChart"></canvas>
+                    </div>
                 </div>
-                <div class="card" onclick="showPage('us')">
-                    <div class="card-header"><span class="card-icon">🇺🇸</span><span class="card-title">美國股市</span></div>
-                    <div class="data-row"><span class="data-label">道瓊</span><span>54,085<span class="change up">+1.71%</span></span></div>
-                    <div class="data-row"><span class="data-label">NASDAQ</span><span>26,584<span class="change up">+2.59%</span></span></div>
+                <div class="card">
+                    <div class="card-title">📈 美股NASDAQ走勢</div>
+                    <div class="chart-container">
+                        <canvas id="usChart"></canvas>
+                    </div>
                 </div>
-                <div class="card" onclick="showPage('macro')">
-                    <div class="card-header"><span class="card-icon">📊</span><span class="card-title">總體經濟</span></div>
-                    <div class="data-row"><span class="data-label">ISM PMI</span><span>55.6<span class="change up">擴張</span></span></div>
-                    <div class="data-row"><span class="data-label">美元/台幣</span><span>32.5</span></div>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">🏆 權值股漲跌幅</div>
+                    <div class="chart-container">
+                        <canvas id="stockBarChart"></canvas>
+                    </div>
                 </div>
-                <div class="card" onclick="showPage('settings')">
-                    <div class="card-header"><span class="card-icon">⚙️</span><span class="card-title">爬蟲設定</span></div>
-                    <div class="data-row"><span class="data-label">狀態</span><span>已設定</span></div>
-                    <div class="data-row"><span class="data-label">排程</span><span>每日</span></div>
+                <div class="card">
+                    <div class="card-title">🥇 全球指數比較</div>
+                    <div class="chart-container">
+                        <canvas id="globalChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 台股頁面 -->
         <div class="page" id="page-tw">
             <div class="back" onclick="showPage('dashboard')">← 返回</div>
             <div class="section">🇹🇼 台灣股市</div>
             <table class="table"><thead><tr><th>指數</th><th>價格</th><th>漲跌</th><th>今年</th></tr></thead>
                 <tbody>
-                    <tr onclick="showModal('twii')"><td>台灣加權</td><td>44,611</td><td><span class="change up">+2.88%</span></td><td>+54.0%</td></tr>
+                    <tr><td>台灣加權</td><td>44,611</td><td><span class="change up">+2.88%</span></td><td>+54.0%</td></tr>
                     <tr><td>台灣50</td><td>41,600</td><td><span class="change up">+3.13%</span></td><td>+59.6%</td></tr>
                     <tr><td>櫃買</td><td>384</td><td><span class="change up">+2.33%</span></td><td>+38.9%</td></tr>
                 </tbody>
             </table>
-            <div class="section">🏆 權值股</div>
-            <table class="table"><thead><tr><th>代號</th><th>名稱</th><th>價格</th><th>漲跌</th></tr></thead>
-                <tbody>
-                    <tr onclick="showModal('2330')"><td>2330</td><td>台積電</td><td>2,395</td><td><span class="change up">+3.23%</span></td></tr>
-                    <tr onclick="showModal('2454')"><td>2454</td><td>聯發科</td><td>4,005</td><td><span class="change up">+3.62%</span></td></tr>
-                    <tr onclick="showModal('2317')"><td>2317</td><td>鴻海</td><td>258</td><td><span class="change up">+3.20%</span></td></tr>
-                </tbody>
-            </table>
+            <div class="grid" style="margin-top:20px;">
+                <div class="card">
+                    <div class="card-title">📈 台股歷史走勢</div>
+                    <div class="chart-container">
+                        <canvas id="twHistoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- 美股頁面 -->
         <div class="page" id="page-us">
             <div class="back" onclick="showPage('dashboard')">← 返回</div>
             <div class="section">🇺🇸 美國股市</div>
@@ -254,151 +137,241 @@
             </table>
         </div>
 
-        <!-- 總經頁面 -->
-        <div class="page" id="page-macro">
+        <div class="page" id="page-charts">
             <div class="back" onclick="showPage('dashboard')">← 返回</div>
-            <div class="section">🇺🇸 美國經濟</div>
-            <div class="indicator-grid">
-                <div class="indicator" onclick="showModal('ism')"><div class="indicator-title">ISM 製造業 PMI</div><div class="indicator-desc">55.6 | >50擴張<br>2026年7月新高</div></div>
-                <div class="indicator"><div class="indicator-title">GDP 成長率</div><div class="indicator-desc">季調年增率<br>>2%健康</div></div>
-                <div class="indicator"><div class="indicator-title">殖利率利差</div><div class="indicator-desc">10年-2年<br>>0擴張</div></div>
+            <div class="section">📊 圖表分析</div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">💹 台股 vs 美股今年漲幅</div>
+                    <div class="chart-container">
+                        <canvas id="compareChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">📊 產業分布</div>
+                    <div class="chart-container">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                </div>
             </div>
-            <div class="section">🇨🇳 中國經濟</div>
-            <div class="indicator-grid">
-                <div class="indicator"><div class="indicator-title">財新PMI</div><div class="indicator-desc">50.8<br>>50擴張</div></div>
-                <div class="indicator"><div class="indicator-title">GDP 年增</div><div class="indicator-desc">5.0%<br>放緩中</div></div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">📈 每月趨勢</div>
+                    <div class="chart-container">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">🏆 權值股表現雷達圖</div>
+                    <div class="chart-container">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <!-- 產業頁面 -->
-        <div class="page" id="page-industry">
-            <div class="back" onclick="showPage('dashboard')">← 返回</div>
-            <div class="section">💻 半導體</div>
-            <div class="indicator-grid">
-                <div class="indicator"><div class="indicator-title">DRAM</div><div class="indicator-desc">$3.2/GB<br>反彈上漲</div></div>
-                <div class="indicator"><div class="indicator-title">NAND</div><div class="indicator-desc">$4.1/GB<br>庫存調整</div></div>
-            </div>
-            <div class="section">📱 顯示器</div>
-            <div class="indicator-grid">
-                <div class="indicator"><div class="indicator-title">LCD</div><div class="indicator-desc">報價持平</div></div>
-                <div class="indicator"><div class="indicator-title">AMOLED</div><div class="indicator-desc">手機滲透50%</div></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 彈出 -->
-    <div class="modal" id="modal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <div class="modal-title" id="modalTitle"></div>
-            <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
 
     <script>
-        // 股票詳情
-        const stockDetails = {
-            twii: { title: "台灣加權指數", body: "<h4>什麼是加權指數？</h4><p>台灣加權股價指數（TAIEX）是台灣證券交易所編製的股價指數，涵蓋所有上市普通股，以市值加權計算。</p><h4>特性</h4><p>• 台積電占比約30%<br>• 反映台灣整體經濟</p>" },
-            "2330": { title: "台積電 (2330)", body: "<h4>公司簡介</h4><p>全球最大半導體晶圓代工，市場佔有率超50%。</p><h4>營運動能</h4><p>• AI晶片需求爆發<br>• 先進製程領先<br>• 蘋果、AMD、NVIDIA供應商</p>" },
-            "2454": { title: "聯發科 (2454)", body: "<h4>公司簡介</h4><p>全球領先IC設計公司，手機處理器龍頭。</p><h4>營運動能</h4><p>• AI手機晶片需求升溫<br>• 天璣9400熱銷</p>" },
-            "2317": { title: "鴻海 (2317)", body: "<h4>公司簡介</h4><p>全球最大電子代工，組裝iPhone。</p><h4>營運動能</h4><p>• AI伺服器組裝<br>• 電動車布局</p>" },
-            ism: { title: "ISM 製造業 PMI", body: "<h4>什麼是PMI？</h4><p>採購經理人指數，>50=擴張，<50=收縮。</p><h4>最新數據</h4><p>2026年7月 PMI 報55.6，創2022年5月來新高。</p>" }
+        // 圖表顏色
+        const colors = {
+            primary: '#00d4ff',
+            secondary: '#7c3aed',
+            success: '#00c853',
+            danger: '#ff1744',
+            warning: '#ff9800'
         };
 
-        // 頁面切換
+        // 台股趨勢圖
+        new Chart(document.getElementById('twChart'), {
+            type: 'line',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月'],
+                datasets: [{
+                    label: '台灣加權',
+                    data: [18000, 18500, 19800, 21000, 22500, 38000, 42000, 44611],
+                    borderColor: colors.primary,
+                    backgroundColor: 'rgba(0,212,255,0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+
+        // 美股趨勢圖
+        new Chart(document.getElementById('usChart'), {
+            type: 'line',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月'],
+                datasets: [{
+                    label: 'NASDAQ',
+                    data: [15000, 15500, 16000, 16800, 17500, 23000, 25000, 26584],
+                    borderColor: colors.secondary,
+                    backgroundColor: 'rgba(124,58,237,0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+
+        // 權值股長條圖
+        new Chart(document.getElementById('stockBarChart'), {
+            type: 'bar',
+            data: {
+                labels: ['台積電', '聯發科', '鴻海', '廣達', '台達電'],
+                datasets: [{
+                    label: '漲跌幅 (%)',
+                    data: [3.23, 3.62, 3.20, 1.16, 2.47],
+                    backgroundColor: [colors.primary, colors.success, colors.primary, colors.warning, colors.primary]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+
+        // 全球指數比較
+        new Chart(document.getElementById('globalChart'), {
+            type: 'bar',
+            data: {
+                labels: ['台灣', '美國', '日本', '韓國', '香港', '中國'],
+                datasets: [{
+                    label: '今年漲幅 (%)',
+                    data: [54.0, 14.4, 12.5, -8.2, -3.5, 5.2],
+                    backgroundColor: ['#00d4ff', '#7c3aed', '#00c853', '#ff1744', '#ff9800', '#ffeb3b']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+
+        // 比較圖
+        new Chart(document.getElementById('compareChart'), {
+            type: 'bar',
+            data: {
+                labels: ['台灣加權', 'NASDAQ', 'S&P500', '道瓊', '日經', '費半'],
+                datasets: [{
+                    label: '今年漲幅 (%)',
+                    data: [54.0, 14.4, 13.0, 12.5, 12.5, 72.0],
+                    backgroundColor: ['#00d4ff', '#7c3aed', '#7c3aed', '#7c3aed', '#00c853', '#ff1744']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+
+        // 圓餅圖
+        new Chart(document.getElementById('pieChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['半導體', '電子', '金融', '傳產', '其他'],
+                datasets: [{
+                    data: [35, 30, 15, 12, 8],
+                    backgroundColor: ['#00d4ff', '#7c3aed', '#00c853', '#ff9800', '#ff5252']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#fff' } } }
+            }
+        });
+
+        // 趨勢圖
+        new Chart(document.getElementById('trendChart'), {
+            type: 'line',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月'],
+                datasets: [
+                    { label: '台灣', data: [18000, 18500, 19800, 21000, 22500, 38000, 42000, 44611], borderColor: '#00d4ff', tension: 0.4 },
+                    { label: '美國', data: [15000, 15500, 16000, 16800, 17500, 23000, 25000, 26584], borderColor: '#7c3aed', tension: 0.4 },
+                    { label: '日本', data: [33000, 34000, 35000, 38000, 39000, 56000, 60000, 63957], borderColor: '#00c853', tension: 0.4 }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+                }
+            }
+        });
+
+        // 雷達圖
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['股價', '漲幅', '成交量', '本益比', '殖利率'],
+                datasets: [{
+                    label: '台積電',
+                    data: [95, 85, 90, 70, 60],
+                    borderColor: '#00d4ff',
+                    backgroundColor: 'rgba(0,212,255,0.2)'
+                }, {
+                    label: '聯發科',
+                    data: [90, 90, 80, 65, 55],
+                    borderColor: '#7c3aed',
+                    backgroundColor: 'rgba(124,58,237,0.2)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#fff' } } },
+                scales: {
+                    r: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' }, pointLabels: { color: '#fff' } }
+                }
+            }
+        });
+
         function showPage(page) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             document.getElementById('page-' + page).classList.add('active');
             event.target.classList.add('active');
         }
-
-        // 顯示詳情
-        function showModal(key) {
-            const d = stockDetails[key];
-            if (d) {
-                document.getElementById('modalTitle').textContent = d.title;
-                document.getElementById('modalBody').innerHTML = d.body;
-                document.getElementById('modal').classList.add('active');
-            }
-        }
-
-        function closeModal(e) { if (!e || e.target.id === 'modal') document.getElementById('modal').classList.remove('active'); }
-
-        // 執行爬蟲
-        function runScraper() {
-            const btn = document.getElementById('runScraperBtn');
-            const status = document.getElementById('scraperStatus');
-            
-            btn.disabled = true;
-            btn.textContent = '⏳ 執行中...';
-            status.innerHTML = '<div class="status-msg status-info">正在觸發 GitHub Actions...</div>';
-            
-            // 顯示說明
-            status.innerHTML = `
-                <div class="status-msg status-info">
-                    <strong>手動觸發說明:</strong><br>
-                    請前往 GitHub Actions 手動觸發爬蟲：<br>
-                    1. 進入 <a href="https://github.com/jun20250621-prog/stock-dashboard/actions" target="_blank" style="color:#00d4ff;">GitHub Actions</a><br>
-                    2. 點擊 "DataTrack Scraper"<br>
-                    3. 點擊 "Run workflow" → "Run workflow"<br><br>
-                    <em>註: 由於權限限制，無法直接從網頁觸發 GitHub Actions</em>
-                </div>
-            `;
-            
-            btn.disabled = false;
-            btn.textContent = '▶️ 手動執行爬蟲';
-            
-            // 更新最後執行時間
-            const now = new Date();
-            const twTime = now.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
-            document.getElementById('lastUpdate').textContent = '最後執行: ' + twTime;
-        }
-
-        // 設定排程
-        function setSchedule(cron) {
-            const options = document.querySelectorAll('.schedule-option');
-            options.forEach(opt => opt.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            const status = document.getElementById('scheduleStatus');
-            
-            if (!cron) {
-                status.innerHTML = '<div class="status-msg status-info">自動排程已關閉</div>';
-                return;
-            }
-            
-            // 解析 cron
-            const labels = {
-                '0 18 * * *': '每日 (每天凌晨 02:00 台灣時間)',
-                '0 18 * * 1': '每週 (週一凌晨 02:00 台灣時間)',
-                '0 18 */2 * *': '每2天'
-            };
-            
-            status.innerHTML = `
-                <div class="status-msg status-success">
-                    <strong>排程已設定為: ${labels[cron] || cron}</strong><br><br>
-                    <strong>下一步:</strong><br>
-                    請編輯 scraper/.github/workflows/scraper.yml 檔案，修改 cron 值為:<br>
-                    <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px;">${cron}</code><br><br>
-                    然後 commit 變更到 GitHub，排程就會生效！
-                </div>
-            `;
-        }
-
-        // 初始化
-        document.addEventListener('DOMContentLoaded', () => {
-            // 載入 localStorage 中的設定
-            const savedSchedule = localStorage.getItem('scraperSchedule');
-            if (savedSchedule) {
-                const options = document.querySelectorAll('.schedule-option');
-                options.forEach(opt => {
-                    if (opt.textContent.includes('每日') && savedSchedule.includes('* * * *')) {
-                        opt.classList.add('active');
-                    }
-                });
-            }
-        });
     </script>
 </body>
 </html>
