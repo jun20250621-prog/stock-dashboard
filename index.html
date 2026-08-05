@@ -3,51 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📈 股票資訊儀表板 - 圖表版</title>
+    <title>📈 專業投資儀表板</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(135deg, #0f0f23, #1a1a2e); min-height: 100vh; color: #fff; }
         
-        .topnav { position: fixed; top: 0; left: 0; right: 0; background: rgba(15,15,35,0.95); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 10px; }
-        .topnav h1 { font-size: 18px; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .nav-links a { color: #aaa; text-decoration: none; font-size: 13px; padding: 6px 12px; border-radius: 15px; transition: all 0.3s; }
+        /* 頂部 */
+        .topnav { position: fixed; top: 0; left: 0; right: 0; background: rgba(15,15,35,0.95); padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 8px; }
+        .topnav h1 { font-size: 16px; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 5px; flex-wrap: wrap; }
+        .nav-links a { color: #aaa; text-decoration: none; font-size: 12px; padding: 5px 10px; border-radius: 12px; transition: all 0.3s; }
         .nav-links a:hover, .nav-links a.active { background: rgba(0,212,255,0.2); color: #00d4ff; }
         
-        .main { padding: 70px 15px 20px; max-width: 1600px; margin: 0 auto; }
+        .main { padding: 60px 10px 20px; max-width: 1600px; margin: 0 auto; }
         
         .page { display: none; }
         .page.active { display: block; }
         
-        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
-        .stat { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center; }
-        .stat-value { font-size: 20px; font-weight: 700; color: #00d4ff; }
-        .stat-label { font-size: 11px; color: #888; margin-top: 4px; }
+        /* 統計卡片 */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-bottom: 12px; }
+        .stat { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center; }
+        .stat-value { font-size: 18px; font-weight: 700; color: #00d4ff; }
+        .stat-label { font-size: 10px; color: #888; margin-top: 3px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 15px; margin-bottom: 15px; }
+        /* 網格 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 12px; margin-bottom: 12px; }
         
-        .card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); }
-        .card-title { font-size: 16px; font-weight: 600; margin-bottom: 15px; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .card-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         
-        .chart-container { position: relative; height: 250px; }
+        .chart-container { position: relative; height: 200px; }
         
-        .data-row { display: flex; justify-content: space-between; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 6px; margin: 4px 0; font-size: 13px; }
-        .data-label { color: #aaa; }
-        .change { font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
-        .up { color: #00c853; background: rgba(0,200,83,0.15); }
-        .down { color: #ff1744; background: rgba(255,23,68,0.15); }
+        /* 表格 */
+        .table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        .table th, .table td { padding: 8px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .table th { color: #888; font-size: 10px; text-transform: uppercase; }
+        .table tr:hover { background: rgba(255,255,255,0.05); }
         
-        .back { display: inline-flex; align-items: center; gap: 6px; color: #00d4ff; background: rgba(0,212,255,0.1); padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 15px; font-size: 14px; }
+        /* 標籤 */
+        .tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 10px; margin-right: 4px; }
+        .tag-up { background: rgba(0,200,83,0.2); color: #00c853; }
+        .tag-down { background: rgba(255,23,68,0.2); color: #ff5252; }
+        .tag-neutral { background: rgba(255,255,255,0.1); color: #aaa; }
+        .tag-hot { background: rgba(255,152,0,0.2); color: #ff9800; }
         
-        .section { font-size: 18px; font-weight: 600; margin: 20px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #00d4ff; }
+        /* 警示 */
+        .alert { padding: 10px; border-radius: 8px; margin-bottom: 8px; font-size: 12px; }
+        .alert-danger { background: rgba(255,23,68,0.2); border-left: 3px solid #ff5252; }
+        .alert-warning { background: rgba(255,152,0,0.2); border-left: 3px solid #ff9800; }
+        .alert-success { background: rgba(0,200,83,0.2); border-left: 3px solid #00c853; }
         
-        .table { width: 100%; border-collapse: collapse; }
-        .table th, .table td { padding: 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
-        .table th { color: #888; font-size: 11px; text-transform: uppercase; }
+        /* 篩選 */
+        .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .filter-btn { padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; color: #aaa; font-size: 11px; cursor: pointer; transition: all 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: rgba(0,212,255,0.2); color: #00d4ff; border-color: #00d4ff; }
+        
+        /* 投資建議 */
+        .recommendation { padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 8px; border-left: 3px solid #00d4ff; }
+        .recommendation.buy { border-left-color: #00c853; }
+        .recommendation.sell { border-left-color: #ff5252; }
+        .rec-title { font-weight: 600; margin-bottom: 5px; font-size: 13px; }
+        .rec-desc { font-size: 11px; color: #aaa; }
+        .rec-score { font-size: 20px; font-weight: 700; color: #00c853; margin-right: 10px; }
+        
+        /* 產業區塊 */
+        .industry-item { display: flex; justify-content: space-between; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 6px; margin-bottom: 6px; }
+        .industry-name { font-size: 12px; }
+        .industry-change { font-size: 12px; }
+        
+        /* 風險儀表 */
+        .risk-meter { height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; margin: 10px 0; }
+        .risk-level { height: 100%; border-radius: 4px; transition: width 0.5s; }
+        
+        /* 法人 */
+        .institutional { display: flex; gap: 10px; margin-bottom: 10px; }
+        .inst-item { flex: 1; text-align: center; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 8px; }
+        .inst-value { font-size: 16px; font-weight: 600; }
+        .inst-label { font-size: 10px; color: #888; }
+        
+        /* 回到頂部 */
+        .back { display: inline-flex; align-items: center; gap: 6px; color: #00d4ff; background: rgba(0,212,255,0.1); padding: 6px 12px; border-radius: 15px; cursor: pointer; margin-bottom: 12px; font-size: 12px; }
+        
+        .section { font-size: 16px; font-weight: 600; margin: 16px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #00d4ff; }
         
         @media (max-width: 768px) {
-            .stats { grid-template-columns: repeat(2, 1fr); }
             .grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
@@ -55,317 +95,331 @@
 </head>
 <body>
     <nav class="topnav">
-        <h1>📈 股票資訊儀表板 - 圖表版</h1>
+        <h1>📈 專業投資儀表板</h1>
         <div class="nav-links">
             <a href="#" class="active" onclick="showPage('dashboard')">🏠 總覽</a>
-            <a href="#" onclick="showPage('tw')">🇹🇼 台股</a>
-            <a href="#" onclick="showPage('us')">🇺🇸 美股</a>
-            <a href="#" onclick="showPage('charts')">📊 圖表</a>
+            <a href="#" onclick="showPage('market')">📈 市場</a>
+            <a href="#" onclick="showPage('industry')">🔍 產業</a>
+            <a href="#" onclick="showPage('strategy')">💡 策略</a>
+            <a href="#" onclick="showPage('news')">📰 新聞</a>
         </div>
     </nav>
 
     <div class="main">
+        <!-- 總覽頁面 -->
         <div class="page active" id="page-dashboard">
             <div class="stats">
                 <div class="stat"><div class="stat-value">44,611</div><div class="stat-label">台灣加權</div></div>
-                <div class="stat"><div class="stat-value">+2.88%</div><div class="stat-label">漲幅</div></div>
+                <div class="stat"><div class="stat-value" style="color:#00c853;">+2.88%</div><div class="stat-label">今日漲幅</div></div>
                 <div class="stat"><div class="stat-value">26,584</div><div class="stat-label">NASDAQ</div></div>
-                <div class="stat"><div class="stat-value">+2.59%</div><div class="stat-label">美股漲幅</div></div>
+                <div class="stat"><div class="stat-value" style="color:#00c853;">+2.59%</div><div class="stat-label">美股漲幅</div></div>
+                <div class="stat"><div class="stat-value" style="color:#00c853;">18.5</div><div class="stat-label">VIX</div></div>
+                <div class="stat"><div class="stat-value">安全</div><div class="stat-label">市場情緒</div></div>
+            </div>
+            
+            <!-- 風險警示 -->
+            <div class="alert alert-success">
+                <strong>✅ 市場情緒安全</strong> - VIX < 20，無恐慌跡象
             </div>
             
             <div class="grid">
                 <div class="card">
-                    <div class="card-title">📈 台股加權指數走勢</div>
-                    <div class="chart-container">
-                        <canvas id="twChart"></canvas>
+                    <div class="card-title">📊 大盤走勢</div>
+                    <div class="chart-container"><canvas id="marketChart"></canvas></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">🏛️ 法人買賣超 (億)</div>
+                    <div class="institutional">
+                        <div class="inst-item"><div class="inst-value" style="color:#00c853;">+45</div><div class="inst-label">投信</div></div>
+                        <div class="inst-item"><div class="inst-value" style="color:#00c853;">+32</div><div class="inst-label">自營商</div></div>
+                        <div class="inst-item"><div class="inst-value" style="color:#ff5252;">-28</div><div class="inst-label">外陸資</div></div>
+                    </div>
+                    <div class="chart-container"><canvas id="instChart"></canvas></div>
+                </div>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">💡 投資建議</div>
+                    <div class="recommendation buy">
+                        <span class="rec-score">85</span>
+                        <span class="rec-title">建議 - 樂觀</span>
+                        <div class="rec-desc">法人持續買超、技術面多頭、經濟數據佳</div>
+                    </div>
+                    <div class="recommendation buy">
+                        <span class="rec-score">78</span>
+                        <span class="rec-title">AI 族群 - 增持</span>
+                        <div class="rec-desc">NVIDIA 帶動，供應鏈補漲</div>
+                    </div>
+                    <div class="recommendation">
+                        <span class="rec-score" style="color:#ff9800;">55</span>
+                        <span class="rec-title">金融股 - 觀望</span>
+                        <div class="rec-desc">升息循環放緩，獲利平穩</div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-title">📈 美股NASDAQ走勢</div>
-                    <div class="chart-container">
-                        <canvas id="usChart"></canvas>
+                    <div class="card-title">⚠️ 風險儀表</div>
+                    <div class="risk-meter"><div class="risk-level" style="width:30%;background:linear-gradient(90deg,#00c853,#00c853);"></div></div>
+                    <div style="display:flex;justify-content:space-between;font-size:11px;color:#888;">
+                        <span>保守</span><span>均衡</span><span>積極</span>
+                    </div>
+                    <div style="margin-top:15px;">
+                        <div style="font-size:12px;margin-bottom:5px;">融資使用率: <span style="color:#00c853;">35%</span> (安全)</div>
+                        <div style="font-size:12px;margin-bottom:5px;">券資比: <span style="color:#00c853;">12%</span> (正常)</div>
+                        <div style="font-size:12px;">市場溫度: <span style="color:#ff9800;">偏熱</span></div>
                     </div>
                 </div>
             </div>
             
             <div class="grid">
                 <div class="card">
-                    <div class="card-title">🏆 權值股漲跌幅</div>
-                    <div class="chart-container">
-                        <canvas id="stockBarChart"></canvas>
-                    </div>
+                    <div class="card-title">🏆 強勢股</div>
+                    <table class="table"><thead><tr><th>股票</th><th>股價</th><th>漲幅</th><th>評估</th></tr></thead>
+                        <tbody>
+                            <tr><td>聯發科</td><td>4,005</td><td><span class="tag tag-up">+3.62%</span></td><td><span class="tag tag-hot">強勢</span></td></tr>
+                            <tr><td>台積電</td><td>2,395</td><td><span class="tag tag-up">+3.23%</span></td><td><span class="tag tag-hot">強勢</span></td></tr>
+                            <tr><td>鴻海</td><td>258</td><td><span class="tag tag-up">+3.20%</span></td><td><span class="tag">看好</span></td></tr>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="card">
-                    <div class="card-title">🥇 全球指數比較</div>
-                    <div class="chart-container">
-                        <canvas id="globalChart"></canvas>
-                    </div>
+                    <div class="card-title">🔍 法人青睞</div>
+                    <table class="table"><thead><tr><th>股票</th><th>買超(億)</th><th>連續天數</th></tr></thead>
+                        <tbody>
+                            <tr><td>台積電</td><td style="color:#00c853;">+15.2</td><td>12天</td></tr>
+                            <tr><td>聯發科</td><td style="color:#00c853;">+8.5</td><td>8天</td></tr>
+                            <tr><td>廣達</td><td style="color:#00c853;">+6.2</td><td>5天</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
-        <div class="page" id="page-tw">
+        <!-- 市場頁面 -->
+        <div class="page" id="page-market">
             <div class="back" onclick="showPage('dashboard')">← 返回</div>
-            <div class="section">🇹🇼 台灣股市</div>
-            <table class="table"><thead><tr><th>指數</th><th>價格</th><th>漲跌</th><th>今年</th></tr></thead>
-                <tbody>
-                    <tr><td>台灣加權</td><td>44,611</td><td><span class="change up">+2.88%</span></td><td>+54.0%</td></tr>
-                    <tr><td>台灣50</td><td>41,600</td><td><span class="change up">+3.13%</span></td><td>+59.6%</td></tr>
-                    <tr><td>櫃買</td><td>384</td><td><span class="change up">+2.33%</span></td><td>+38.9%</td></tr>
-                </tbody>
-            </table>
-            <div class="grid" style="margin-top:20px;">
-                <div class="card">
-                    <div class="card-title">📈 台股歷史走勢</div>
-                    <div class="chart-container">
-                        <canvas id="twHistoryChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page" id="page-us">
-            <div class="back" onclick="showPage('dashboard')">← 返回</div>
-            <div class="section">🇺🇸 美國股市</div>
-            <table class="table"><thead><tr><th>指數</th><th>價格</th><th>漲跌</th><th>今年</th></tr></thead>
-                <tbody>
-                    <tr><td>道瓊</td><td>54,085</td><td><span class="change up">+1.71%</span></td><td>+12.5%</td></tr>
-                    <tr><td>S&P 500</td><td>7,736</td><td><span class="change up">+1.79%</span></td><td>+13.0%</td></tr>
-                    <tr><td>NASDAQ</td><td>26,584</td><td><span class="change up">+2.59%</span></td><td>+14.4%</td></tr>
-                    <tr><td>費城半導體</td><td>12,179</td><td><span class="change up">+6.55%</span></td><td>+72.0%</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="page" id="page-charts">
-            <div class="back" onclick="showPage('dashboard')">← 返回</div>
-            <div class="section">📊 圖表分析</div>
+            <div class="section">📈 市場數據</div>
             
-            <div class="grid">
-                <div class="card">
-                    <div class="card-title">💹 台股 vs 美股今年漲幅</div>
-                    <div class="chart-container">
-                        <canvas id="compareChart"></canvas>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">📊 產業分布</div>
-                    <div class="chart-container">
-                        <canvas id="pieChart"></canvas>
-                    </div>
-                </div>
+            <div class="stats">
+                <div class="stat"><div class="stat-value">44,611</div><div class="stat-label">台灣加權</div></div>
+                <div class="stat"><div class="stat-value">26,584</div><div class="stat-label">NASDAQ</div></div>
+                <div class="stat"><div class="stat-value">7,736</div><div class="stat-label">S&P 500</div></div>
+                <div class="stat"><div class="stat-value">12,179</div><div class="stat-label">費城半導體</div></div>
             </div>
             
             <div class="grid">
                 <div class="card">
-                    <div class="card-title">📈 每月趨勢</div>
-                    <div class="chart-container">
-                        <canvas id="trendChart"></canvas>
-                    </div>
+                    <div class="card-title">📊 台股技術面</div>
+                    <table class="table">
+                        <tr><td>均線多頭排列</td><td><span class="tag tag-up">是</span></td></tr>
+                        <tr><td>KD 黃金交叉</td><td><span class="tag tag-up">是</span></td></tr>
+                        <tr><td>MACD 多頭</td><td><span class="tag tag-up">是</span></td></tr>
+                        <tr><td>RSI</td><td>72 (過熱)</td></tr>
+                    </table>
                 </div>
                 <div class="card">
-                    <div class="card-title">🏆 權值股表現雷達圖</div>
-                    <div class="chart-container">
-                        <canvas id="radarChart"></canvas>
-                    </div>
+                    <div class="card-title">💹 籌碼面</div>
+                    <table class="table">
+                        <tr><td>融資餘額</td><td>2,150億</td></tr>
+                        <tr><td>融券餘額</td><td>280萬</td></tr>
+                        <tr><td>券資比</td><td>12%</td></tr>
+                        <tr><td>本週投信買超</td><td style="color:#00c853;">+45億</td></tr>
+                    </table>
                 </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">📈 指數走勢比較</div>
+                <div class="chart-container"><canvas id="compareChart"></canvas></div>
+            </div>
+        </div>
+
+        <!-- 產業頁面 -->
+        <div class="page" id="page-industry">
+            <div class="back" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section">🔍 產業分析</div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">🔥 今日強勢產業</div>
+                    <div class="industry-item"><span class="industry-name">半導體</span><span class="industry-change tag tag-up">+4.2%</span></div>
+                    <div class="industry-item"><span class="industry-name">AI伺服器</span><span class="industry-change tag tag-up">+3.8%</span></div>
+                    <div class="industry-item"><span class="industry-name">光電</span><span class="industry-change tag tag-up">+2.5%</span></div>
+                    <div class="industry-item"><span class="industry-name">電子</span><span class="industry-change tag tag-up">+2.1%</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-title">📉 今日弱勢產業</div>
+                    <div class="industry-item"><span class="industry-name">塑膠</span><span class="industry-change tag tag-down">-1.2%</span></div>
+                    <div class="industry-item"><span class="industry-name">鋼鐵</span><span class="industry-change tag tag-down">-0.8%</span></div>
+                    <div class="industry-item"><span class="industry-name">金融</span><span class="industry-change tag tag-neutral">-0.3%</span></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">💡 趨勢產業動能</div>
+                <div class="chart-container"><canvas id="industryChart"></canvas></div>
+            </div>
+        </div>
+
+        <!-- 策略頁面 -->
+        <div class="page" id="page-strategy">
+            <div class="back" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section">💡 選股策略</div>
+            
+            <div class="filter-bar">
+                <button class="filter-btn active">全部</button>
+                <button class="filter-btn">價值型</button>
+                <button class="filter-btn">成長型</button>
+                <button class="filter-btn">技術型</button>
+                <button class="filter-btn">高股息</button>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">🎯 價值型篩選 (本益比 < 15)</div>
+                    <table class="table"><thead><tr><th>股票</th><th>本益比</th><th>殖利率</th><th>股價淨值比</th></tr></thead>
+                        <tbody>
+                            <tr><td>中信金</td><td>11.2</td><td>4.2%</td><td>1.1</td></tr>
+                            <tr><td>兆豐金</td><td>12.5</td><td>3.8%</td><td>1.3</td></tr>
+                            <tr><td>台塑</td><td>13.1</td><td>5.1%</td><td>1.4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    <div class="card-title">🚀 成長型篩選 (營收YoY > 20%)</div>
+                    <table class="table"><thead><tr><th>股票</th><th>營收YoY</th><th>獲利YoY</th><th>本益比</th></tr></thead>
+                        <tbody>
+                            <tr><td>世芯-KY</td><td>+45%</td><td>+65%</td><td>28</td></tr>
+                            <tr><td>技嘉</td><td>+35%</td><td>+52%</td><td>18</td></tr>
+                            <tr><td>廣達</td><td>+28%</td><td>+38%</td><td>22</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">💰 高股息篩選 (殖利率 > 4%)</div>
+                    <table class="table"><thead><tr><th>股票</th><th>殖利率</th><th>季配息</th><th>填息天數</th></tr></thead>
+                        <tbody>
+                            <tr><td>00757</td><td>6.2%</td><td>0.85</td><td>45天</td></tr>
+                            <tr><td>0056</td><td>4.8%</td><td>0.55</td><td>60天</td></tr>
+                            <tr><td>00878</td><td>5.1%</td><td>0.4</td><td>30天</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card">
+                    <div class="card-title">📊 技術面多頭篩選</div>
+                    <table class="table"><thead><tr><th>股票</th><th>均線多頭</th><th>KD黃金交叉</th><th>MACD</th></tr></thead>
+                        <tbody>
+                            <tr><td>台積電</td><td><span class="tag tag-up">是</span></td><td><span class="tag tag-up">是</span></td><td><span class="tag tag-up">多頭</span></td></tr>
+                            <tr><td>聯發科</td><td><span class="tag tag-up">是</span></td><td><span class="tag tag-up">是</span></td><td><span class="tag tag-up">多頭</span></td></tr>
+                            <tr><td>鴻海</td><td><span class="tag tag-up">是</span></td><td><span class="tag tag-up">是</span></td><td><span class="tag tag-up">多頭</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新聞頁面 -->
+        <div class="page" id="page-news">
+            <div class="back" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section">📰 投資快訊</div>
+            
+            <div class="card" style="margin-bottom:12px;">
+                <div class="tag tag-up">重要</div>
+                <div style="margin-top:8px;font-weight:600;">美股昨夜大漲！NASDAQ +2.59%，費城半導體 +6.55%</div>
+                <div style="font-size:11px;color:#888;margin-top:5px;">AI族群持續發燒，科技股帶動大盤創新高</div>
+            </div>
+            
+            <div class="card" style="margin-bottom:12px;">
+                <div class="tag tag-hot">產業</div>
+                <div style="margin-top:8px;font-weight:600;">半導體族群強勢，聯發科大漲 3.62%</div>
+                <div style="font-size:11px;color:#888;margin-top:5px;">法人持續買超，供應鏈動能強勁</div>
+            </div>
+            
+            <div class="card" style="margin-bottom:12px;">
+                <div class="tag">總經</div>
+                <div style="margin-top:8px;font-weight:600;">美國7月 ISM 製造業PMI 報55.6</div>
+                <div style="font-size:11px;color:#888;margin-top:5px;">創2022年5月新高，就業指數重返擴張</div>
+            </div>
+            
+            <div class="card" style="margin-bottom:12px;">
+                <div class="tag">兩岸</div>
+                <div style="margin-top:8px;font-weight:600;">特習會後美中再現摩擦</div>
+                <div style="font-size:11px;color:#888;margin-top:5px;">關稅、台灣、安全議題仍有分歧</div>
+            </div>
+            
+            <div class="card">
+                <div class="tag">能源</div>
+                <div style="margin-top:8px;font-weight:600;">油價下跌，市場期待荷莫茲海峽重新開放</div>
+                <div style="font-size:11px;color:#888;margin-top:5px;">供應鏈風險降溫</div>
             </div>
         </div>
     </div>
 
     <script>
-        // 圖表顏色
-        const colors = {
-            primary: '#00d4ff',
-            secondary: '#7c3aed',
-            success: '#00c853',
-            danger: '#ff1744',
-            warning: '#ff9800'
-        };
-
-        // 台股趨勢圖
-        new Chart(document.getElementById('twChart'), {
+        // 圖表
+        const colors = { primary: '#00d4ff', secondary: '#7c3aed', success: '#00c853', danger: '#ff5252', warning: '#ff9800' };
+        
+        // 大盤走勢圖
+        new Chart(document.getElementById('marketChart'), {
             type: 'line',
             data: {
-                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月'],
+                labels: ['1月','2月','3月','4月','5月','6月','7月','8月'],
                 datasets: [{
                     label: '台灣加權',
-                    data: [18000, 18500, 19800, 21000, 22500, 38000, 42000, 44611],
+                    data: [18000,18500,19800,21000,22500,38000,42000,44611],
                     borderColor: colors.primary,
                     backgroundColor: 'rgba(0,212,255,0.1)',
                     fill: true,
                     tension: 0.4
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#fff' } } },
-                scales: {
-                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
-                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
-                }
-            }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff' } } }, scales: { x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }, y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } } } }
         });
-
-        // 美股趨勢圖
-        new Chart(document.getElementById('usChart'), {
-            type: 'line',
-            data: {
-                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月'],
-                datasets: [{
-                    label: 'NASDAQ',
-                    data: [15000, 15500, 16000, 16800, 17500, 23000, 25000, 26584],
-                    borderColor: colors.secondary,
-                    backgroundColor: 'rgba(124,58,237,0.1)',
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#fff' } } },
-                scales: {
-                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
-                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
-                }
-            }
-        });
-
-        // 權值股長條圖
-        new Chart(document.getElementById('stockBarChart'), {
+        
+        // 法人買賣
+        new Chart(document.getElementById('instChart'), {
             type: 'bar',
             data: {
-                labels: ['台積電', '聯發科', '鴻海', '廣達', '台達電'],
+                labels: ['投信','自營商','外陸資'],
                 datasets: [{
-                    label: '漲跌幅 (%)',
-                    data: [3.23, 3.62, 3.20, 1.16, 2.47],
-                    backgroundColor: [colors.primary, colors.success, colors.primary, colors.warning, colors.primary]
+                    data: [45,32,-28],
+                    backgroundColor: [colors.success,colors.success,colors.danger]
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#fff' } } },
-                scales: {
-                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
-                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
-                }
-            }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }, y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } } } }
         });
-
-        // 全球指數比較
-        new Chart(document.getElementById('globalChart'), {
-            type: 'bar',
-            data: {
-                labels: ['台灣', '美國', '日本', '韓國', '香港', '中國'],
-                datasets: [{
-                    label: '今年漲幅 (%)',
-                    data: [54.0, 14.4, 12.5, -8.2, -3.5, 5.2],
-                    backgroundColor: ['#00d4ff', '#7c3aed', '#00c853', '#ff1744', '#ff9800', '#ffeb3b']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                indexAxis: 'y',
-                plugins: { legend: { labels: { color: '#fff' } } },
-                scales: {
-                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
-                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
-                }
-            }
-        });
-
-        // 比較圖
+        
+        // 指數比較
         new Chart(document.getElementById('compareChart'), {
-            type: 'bar',
-            data: {
-                labels: ['台灣加權', 'NASDAQ', 'S&P500', '道瓊', '日經', '費半'],
-                datasets: [{
-                    label: '今年漲幅 (%)',
-                    data: [54.0, 14.4, 13.0, 12.5, 12.5, 72.0],
-                    backgroundColor: ['#00d4ff', '#7c3aed', '#7c3aed', '#7c3aed', '#00c853', '#ff1744']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#fff' } } },
-                scales: {
-                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
-                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
-                }
-            }
-        });
-
-        // 圓餅圖
-        new Chart(document.getElementById('pieChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['半導體', '電子', '金融', '傳產', '其他'],
-                datasets: [{
-                    data: [35, 30, 15, 12, 8],
-                    backgroundColor: ['#00d4ff', '#7c3aed', '#00c853', '#ff9800', '#ff5252']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#fff' } } }
-            }
-        });
-
-        // 趨勢圖
-        new Chart(document.getElementById('trendChart'), {
             type: 'line',
             data: {
-                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月'],
+                labels: ['1月','2月','3月','4月','5月','6月','7月','8月'],
                 datasets: [
-                    { label: '台灣', data: [18000, 18500, 19800, 21000, 22500, 38000, 42000, 44611], borderColor: '#00d4ff', tension: 0.4 },
-                    { label: '美國', data: [15000, 15500, 16000, 16800, 17500, 23000, 25000, 26584], borderColor: '#7c3aed', tension: 0.4 },
-                    { label: '日本', data: [33000, 34000, 35000, 38000, 39000, 56000, 60000, 63957], borderColor: '#00c853', tension: 0.4 }
+                    { label: '台灣', data: [18000,18500,19800,21000,22500,38000,42000,44611], borderColor: colors.primary, tension: 0.4 },
+                    { label: '美國', data: [15000,15500,16000,16800,17500,23000,25000,26584], borderColor: colors.secondary, tension: 0.4 },
+                    { label: '日本', data: [33000,34000,35000,38000,39000,56000,60000,63957], borderColor: colors.success, tension: 0.4 }
                 ]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#fff' } } },
-                scales: {
-                    x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } },
-                    y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }
-                }
-            }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff' } } }, scales: { x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }, y: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } } } }
         });
-
-        // 雷達圖
-        new Chart(document.getElementById('radarChart'), {
-            type: 'radar',
+        
+        // 產業動能
+        new Chart(document.getElementById('industryChart'), {
+            type: 'bar',
             data: {
-                labels: ['股價', '漲幅', '成交量', '本益比', '殖利率'],
+                labels: ['半導體','AI伺服器','光電','電子','傳產','金融'],
                 datasets: [{
-                    label: '台積電',
-                    data: [95, 85, 90, 70, 60],
-                    borderColor: '#00d4ff',
-                    backgroundColor: 'rgba(0,212,255,0.2)'
-                }, {
-                    label: '聯發科',
-                    data: [90, 90, 80, 65, 55],
-                    borderColor: '#7c3aed',
-                    backgroundColor: 'rgba(124,58,237,0.2)'
+                    label: '漲幅%',
+                    data: [4.2,3.8,2.5,2.1,-0.5,-0.3],
+                    backgroundColor: [colors.success,colors.success,colors.success,colors.success,colors.danger,colors.danger]
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { labels: { color: '#fff' } } },
-                scales: {
-                    r: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' }, pointLabels: { color: '#fff' } }
-                }
-            }
+            options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#888' }, grid: { color: 'rgba(255,255,255,0.1)' } }, y: { ticks: { color: '#fff' }, grid: { color: 'rgba(255,255,255,0.1)' } } } }
         });
-
+        
         function showPage(page) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
