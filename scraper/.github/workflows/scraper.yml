@@ -1,0 +1,56 @@
+name: DataTrack Scraper
+
+on:
+  # 每天凌晨執行
+  schedule:
+    - cron: '0 18 * * *'  # UTC 18:00 = 台灣凌晨 02:00
+  # 也可以手動觸發
+  workflow_dispatch:
+  # 推送時執行
+  push:
+    branches:
+      - main
+    paths:
+      - 'scraper/**'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          cd scraper
+          pip install -r requirements.txt
+      
+      - name: Run scraper
+        run: |
+          cd scraper
+          python3 datatrack_scraper.py
+        env:
+          TZ: 'Asia/Taipei'
+      
+      - name: Commit and Push
+        run: |
+          cd scraper
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # 檢查是否有變更
+          if git diff --quiet datatrack_data.json datatrack_dashboard.html; then
+            echo "No changes to commit"
+          else
+            git add datatrack_data.json datatrack_dashboard.html
+            git commit -m "Update DataTrack data $(date '+%Y-%m-%d %H:%M')"
+            git push
+          fi
