@@ -3,349 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📈 股票資訊儀表板 - 互動圖譜版</title>
+    <title>📈 股票資訊儀表板 - 矩陣版</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%); min-height: 100vh; color: #fff; overflow: hidden; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%); min-height: 100vh; color: #fff; }
         
-        /* 主標題 */
-        .header { position: fixed; top: 0; left: 0; right: 0; padding: 15px 30px; background: rgba(15,15,35,0.9); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .header h1 { font-size: 22px; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .header-time { color: #888; font-size: 14px; }
+        .topnav { position: fixed; top: 0; left: 0; right: 0; background: rgba(15,15,35,0.95); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap; gap: 10px; }
+        .topnav h1 { font-size: 18px; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .topnav-links { display: flex; gap: 10px; flex-wrap: wrap; }
+        .topnav-links a { color: #aaa; text-decoration: none; font-size: 13px; padding: 6px 12px; border-radius: 15px; transition: all 0.3s; }
+        .topnav-links a:hover, .topnav-links a.active { background: rgba(0,212,255,0.2); color: #00d4ff; }
         
-        /* 圖譜區域 */
-        .graph-container { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
+        .main-content { padding: 70px 15px 20px; max-width: 1600px; margin: 0 auto; }
         
-        /* 節點樣式 */
-        .node { position: absolute; cursor: pointer; transition: all 0.3s ease; }
-        .node-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; font-size: 12px; font-weight: 600; box-shadow: 0 0 30px rgba(0,212,255,0.3); border: 2px solid rgba(0,212,255,0.5); background: rgba(26,26,46,0.9); transition: all 0.3s; }
-        .node:hover .node-circle { transform: scale(1.1); box-shadow: 0 0 50px rgba(0,212,255,0.6); border-color: #00d4ff; }
-        .node-circle .icon { font-size: 24px; margin-bottom: 2px; }
-        .node.expanded .node-circle { background: linear-gradient(135deg, #7c3aed, #00d4ff); border-color: #fff; }
+        .page { display: none; }
+        .page.active { display: block; }
         
-        /* 子節點 */
-        .sub-node { position: absolute; width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 2px solid rgba(124,58,237,0.5); display: flex; align-items: center; justify-content: center; font-size: 10px; cursor: pointer; transition: all 0.3s; opacity: 0; transform: scale(0); }
-        .sub-node:hover { transform: scale(1.15); border-color: #7c3aed; background: rgba(124,58,237,0.3); }
-        .sub-node.visible { opacity: 1; transform: scale(1); }
-        .sub-node .icon { font-size: 18px; }
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 15px; }
         
-        /* 連接線 */
-        .connection { position: absolute; stroke: rgba(0,212,255,0.3); stroke-width: 2; fill: none; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s; }
+        .card:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .card-icon { font-size: 24px; }
+        .card-title { font-size: 16px; font-weight: 600; }
+        .card-subtitle { font-size: 11px; color: #888; }
         
-        /* 詳情面板 */
-        .detail-panel { position: fixed; right: -450px; top: 60px; width: 420px; height: calc(100vh - 60px); background: rgba(15,15,35,0.98); border-left: 1px solid rgba(255,255,255,0.1); padding: 20px; overflow-y: auto; transition: right 0.4s ease; z-index: 50; }
-        .detail-panel.active { right: 0; }
-        .detail-close { position: absolute; top: 15px; right: 15px; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
-        .detail-title { font-size: 22px; font-weight: 600; color: #00d4ff; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #7c3aed; }
-        .detail-section { margin-bottom: 20px; }
-        .detail-section h4 { color: #7c3aed; margin-bottom: 10px; font-size: 14px; }
-        .detail-section p { font-size: 13px; line-height: 1.7; color: #aaa; }
-        .detail-tag { display: inline-block; padding: 4px 10px; background: rgba(0,212,255,0.2); border-radius: 4px; font-size: 11px; margin: 2px; color: #00d4ff; }
+        .data-item { display: flex; justify-content: space-between; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 6px; margin: 4px 0; }
+        .data-label { color: #aaa; font-size: 12px; }
+        .data-change { font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; }
+        .up { color: #00c853; background: rgba(0,200,83,0.15); }
+        .down { color: #ff1744; background: rgba(255,23,68,0.15); }
         
-        /* 導航按鈕 */
-        .nav-buttons { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 60; }
-        .nav-btn { padding: 12px 24px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 25px; color: #fff; cursor: pointer; font-size: 14px; transition: all 0.3s; }
-        .nav-btn:hover, .nav-btn.active { background: linear-gradient(90deg, #00d4ff, #7c3aed); border-color: transparent; }
+        .back-btn { display: inline-flex; align-items: center; gap: 6px; color: #00d4ff; background: rgba(0,212,255,0.1); padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 15px; font-size: 14px; }
         
-        /* 圖例 */
-        .legend { position: fixed; bottom: 30px; left: 30px; background: rgba(15,15,35,0.8); padding: 15px; border-radius: 10px; font-size: 12px; }
-        .legend-item { display: flex; align-items: center; gap: 8px; margin: 5px 0; }
-        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
-        .legend-dot.red { background: #ff5252; }
-        .legend-dot.blue { background: #00d4ff; }
-        .legend-dot.purple { background: #7c3aed; }
-        .legend-dot.green { background: #00c853; }
+        .section-title { font-size: 18px; font-weight: 600; margin: 20px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #00d4ff; }
         
-        /* 載入動畫 */
-        .loading { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 18px; color: #00d4ff; }
+        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table th, .data-table td { padding: 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 13px; }
+        .data-table th { color: #888; font-size: 11px; text-transform: uppercase; }
+        .data-table tr:hover { background: rgba(255,255,255,0.05); cursor: pointer; }
+        
+        .indicator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .indicator-card { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border-left: 3px solid #00d4ff; cursor: pointer; }
+        .indicator-card:hover { background: rgba(255,255,255,0.08); }
+        .indicator-title { font-weight: 600; color: #00d4ff; font-size: 13px; margin-bottom: 6px; }
+        .indicator-desc { font-size: 11px; color: #aaa; line-height: 1.5; }
+        
+        .news-card { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border-left: 3px solid #7c3aed; margin-bottom: 8px; cursor: pointer; }
+        .news-card:hover { background: rgba(255,255,255,0.08); }
+        .news-card.important { border-left-color: #ff5252; }
+        .news-tag { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(124, 58, 237, 0.3); color: #a78bfa; margin-bottom: 6px; display: inline-block; }
+        .news-card.important .news-tag { background: rgba(255, 23, 68, 0.3); color: #ff5252; }
+        .news-title { font-size: 13px; line-height: 1.4; }
+        
+        .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
+        .stat-box { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center; }
+        .stat-value { font-size: 20px; font-weight: 700; color: #00d4ff; }
+        .stat-label { font-size: 11px; color: #888; margin-top: 4px; }
+        
+        .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal.active { display: flex; }
+        .modal-content { background: linear-gradient(135deg, #1a1a2e, #0f0f23); border-radius: 12px; padding: 20px; max-width: 500px; width: 90%; max-height: 70vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); }
+        .modal-title { font-size: 18px; font-weight: 600; color: #00d4ff; margin-bottom: 15px; }
+        .modal-body { font-size: 13px; line-height: 1.6; color: #ccc; }
+        .modal-close { float: right; background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
         
         @media (max-width: 768px) {
-            .detail-panel { width: 100%; right: -100%; }
-            .node-circle { width: 60px; height: 60px; font-size: 10px; }
-            .sub-node { width: 45px; height: 45px; font-size: 8px; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .topnav-links { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>📈 股票資訊儀表板 - 互動圖譜</h1>
-        <div class="header-time"><span id="updateTime">載入中...</span></div>
+    <nav class="topnav">
+        <h1>📈 股票資訊儀表板</h1>
+        <div class="topnav-links">
+            <a href="#" class="active" onclick="showPage('dashboard')">🏠 總覽</a>
+            <a href="#" onclick="showPage('tw-stock')">🇹🇼 台股</a>
+            <a href="#" onclick="showPage('us-stock')">🇺🇸 美股</a>
+            <a href="#" onclick="showPage('macro')">📊 總經</a>
+            <a href="#" onclick="showPage('industry')">🔬 產業</a>
+            <a href="#" onclick="showPage('news')">📰 新聞</a>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- 總覽 -->
+        <div class="page active" id="page-dashboard">
+            <div class="stat-grid">
+                <div class="stat-box"><div class="stat-value">44,549</div><div class="stat-label">台灣加權</div></div>
+                <div class="stat-box"><div class="stat-value">+2.74%</div><div class="stat-label">漲幅</div></div>
+                <div class="stat-box"><div class="stat-value">26,584</div><div class="stat-label">NASDAQ</div></div>
+                <div class="stat-box"><div class="stat-value">+2.59%</div><div class="stat-label">美股漲幅</div></div>
+            </div>
+            <div class="matrix-grid">
+                <div class="card" onclick="showPage('tw-stock')">
+                    <div class="card-header"><span class="card-icon">🇹🇼</span><div><div class="card-title">台灣股市</div><div class="card-subtitle">加權、櫃買、權值股</div></div></div>
+                    <div class="data-item"><span class="data-label">加權</span><span><span>44,549</span><span class="data-change up">+2.74%</span></span></div>
+                    <div class="data-item"><span class="data-label">台灣50</span><span><span>41,680</span><span class="data-change up">+3.33%</span></span></div>
+                </div>
+                <div class="card" onclick="showPage('us-stock')">
+                    <div class="card-header"><span class="card-icon">🇺🇸</span><div><div class="card-title">美國股市</div><div class="card-subtitle">道瓊、NASDAQ、費半</div></div></div>
+                    <div class="data-item"><span class="data-label">道瓊</span><span><span>54,085</span><span class="data-change up">+1.71%</span></span></div>
+                    <div class="data-item"><span class="data-label">NASDAQ</span><span><span>26,584</span><span class="data-change up">+2.59%</span></span></div>
+                </div>
+                <div class="card" onclick="showPage('macro')">
+                    <div class="card-header"><span class="card-icon">📊</span><div><div class="card-title">總體經濟</div><div class="card-subtitle">GDP、PMI、利率</div></div></div>
+                    <div class="data-item"><span class="data-label">ISM PMI</span><span><span>55.6</span><span class="data-change up">擴張</span></span></div>
+                    <div class="data-item"><span class="data-label">美元/台幣</span><span><span>32.5</span></span></div>
+                </div>
+                <div class="card" onclick="showPage('industry')">
+                    <div class="card-header"><span class="card-icon">🔬</span><div><div class="card-title">產業趨勢</div><div class="card-subtitle">半導體、顯示器</div></div></div>
+                    <div class="data-item"><span class="data-label">DRAM</span><span><span>$3.2</span><span class="data-change up">+1.5%</span></span></div>
+                    <div class="data-item"><span class="data-label">原油</span><span><span>$78</span><span class="data-change down">-1.2%</span></span></div>
+                </div>
+            </div>
+            <div class="matrix-grid">
+                <div class="card" onclick="showPage('news')">
+                    <div class="card-header"><span class="card-icon">📰</span><div class="card-title">今日頭條</div></div>
+                    <div class="news-card important"><span class="news-tag">重要</span><div class="news-title">美股昨夜大漲！NASDAQ +2.59%</div></div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="card-icon">🌤️</span><div class="card-title">天氣</div></div>
+                    <div class="data-item"><span class="data-label">台北</span><span id="temp">32°C</span></div>
+                    <div class="data-item"><span class="data-label">濕度</span><span id="humidity">65%</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 台股 -->
+        <div class="page" id="page-tw-stock">
+            <div class="back-btn" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section-title">🇹🇼 台灣股市</div>
+            <table class="data-table"><thead><tr><th>指數</th><th>價格</th><th>漲跌</th><th>今年</th></tr></thead>
+                <tbody>
+                    <tr onclick="showModal('twii')"><td>台灣加權</td><td>44,549</td><td><span class="data-change up">+2.74%</span></td><td>+53.8%</td></tr>
+                    <tr><td>台灣50</td><td>41,680</td><td><span class="data-change up">+3.33%</span></td><td>+59.9%</td></tr>
+                    <tr><td>櫃買</td><td>385</td><td><span class="data-change up">+2.33%</span></td><td>+38.9%</td></tr>
+                    <tr><td>台指期</td><td>44,514</td><td><span class="data-change up">+2.70%</span></td><td>+53.4%</td></tr>
+                </tbody>
+            </table>
+            <div class="section-title">🏆 權值股</div>
+            <table class="data-table"><thead><tr><th>代號</th><th>名稱</th><th>價格</th><th>漲跌</th></tr></thead>
+                <tbody>
+                    <tr onclick="showModal('2330')"><td>2330</td><td>台積電</td><td>2,395</td><td><span class="data-change up">+3.23%</span></td></tr>
+                    <tr onclick="showModal('2454')"><td>2454</td><td>聯發科</td><td>4,005</td><td><span class="data-change up">+3.62%</span></td></tr>
+                    <tr onclick="showModal('2317')"><td>2317</td><td>鴻海</td><td>258</td><td><span class="data-change up">+3.20%</span></td></tr>
+                    <tr><td>2382</td><td>廣達</td><td>304</td><td><span class="data-change up">+1.16%</span></td></tr>
+                    <tr><td>2308</td><td>台達電</td><td>1,660</td><td><span class="data-change up">+2.47%</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 美股 -->
+        <div class="page" id="page-us-stock">
+            <div class="back-btn" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section-title">🇺🇸 美國股市</div>
+            <table class="data-table"><thead><tr><th>指數</th><th>價格</th><th>漲跌</th><th>今年</th></tr></thead>
+                <tbody>
+                    <tr><td>道瓊</td><td>54,085</td><td><span class="data-change up">+1.71%</span></td><td>+12.5%</td></tr>
+                    <tr><td>S&P 500</td><td>7,736</td><td><span class="data-change up">+1.79%</span></td><td>+13.0%</td></tr>
+                    <tr><td>NASDAQ</td><td>26,584</td><td><span class="data-change up">+2.59%</span></td><td>+14.4%</td></tr>
+                    <tr><td>費城半導體</td><td>12,179</td><td><span class="data-change up">+6.55%</span></td><td>+72.0%</td></tr>
+                </tbody>
+            </table>
+            <div class="section-title">🏆 熱門科技股</div>
+            <table class="data-table"><thead><tr><th>代號</th><th>名稱</th><th>價格</th><th>漲跌</th></tr></thead>
+                <tbody>
+                    <tr><td>NVDA</td><td>NVIDIA</td><td>$800</td><td><span class="data-change up">+3.8%</span></td></tr>
+                    <tr><td>AMD</td><td>AMD</td><td>$150</td><td><span class="data-change up">+5.2%</span></td></tr>
+                    <tr><td>MSFT</td><td>Microsoft</td><td>$420</td><td><span class="data-change up">+1.5%</span></td></tr>
+                    <tr><td>GOOGL</td><td>Google</td><td>$175</td><td><span class="data-change up">+1.2%</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 總經 -->
+        <div class="page" id="page-macro">
+            <div class="back-btn" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section-title">🇺🇸 美國經濟</div>
+            <div class="indicator-grid">
+                <div class="indicator-card" onclick="showModal('ism')"><div class="indicator-title">ISM 製造業 PMI</div><div class="indicator-desc">55.6 | >50擴張<br>2026年7月新高</div></div>
+                <div class="indicator-card"><div class="indicator-title">GDP 成長率</div><div class="indicator-desc">季調年增率<br>>2%健康</div></div>
+                <div class="indicator-card"><div class="indicator-title">殖利率利差</div><div class="indicator-desc">10年-2年<br>>0擴張</div></div>
+                <div class="indicator-card"><div class="indicator-title">CPI 通膨</div><div class="indicator-desc">年增率<br>Fed目標 2%</div></div>
+            </div>
+            <div class="section-title">🇨🇳 中國經濟</div>
+            <div class="indicator-grid">
+                <div class="indicator-card"><div class="indicator-title">財新PMI</div><div class="indicator-desc">50.8<br>>50擴張</div></div>
+                <div class="indicator-card"><div class="indicator-title">GDP 年增</div><div class="indicator-desc">5.0%<br>放緩中</div></div>
+                <div class="indicator-card"><div class="indicator-title">城鎮化率</div><div class="indicator-desc">65%<br>持續進行</div></div>
+            </div>
+        </div>
+
+        <!-- 產業 -->
+        <div class="page" id="page-industry">
+            <div class="back-btn" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section-title">💻 半導體</div>
+            <div class="indicator-grid">
+                <div class="indicator-card"><div class="indicator-title">DRAM</div><div class="indicator-desc">$3.2/GB<br>反彈上漲</div></div>
+                <div class="indicator-card"><div class="indicator-title">NAND</div><div class="indicator-desc">$4.1/GB<br>庫存調整</div></div>
+                <div class="indicator-card"><div class="indicator-title">AI晶片</div><div class="indicator-desc">強勁<br>訂單滿載</div></div>
+            </div>
+            <div class="section-title">📱 顯示器</div>
+            <div class="indicator-grid">
+                <div class="indicator-card"><div class="indicator-title">LCD</div><div class="indicator-desc">報價持平</div></div>
+                <div class="indicator-card"><div class="indicator-title">AMOLED</div><div class="indicator-desc">手機滲透50%</div></div>
+                <div class="indicator-card"><div class="indicator-title">Mini LED</div><div class="indicator-desc">高速成長</div></div>
+            </div>
+            <div class="section-title">☀️ 能源</div>
+            <div class="indicator-grid">
+                <div class="indicator-card"><div class="indicator-title">原油</div><div class="indicator-desc">$78/桶</div></div>
+                <div class="indicator-card"><div class="indicator-title">黃金</div><div class="indicator-desc">$2,450/盎司</div></div>
+            </div>
+        </div>
+
+        <!-- 新聞 -->
+        <div class="page" id="page-news">
+            <div class="back-btn" onclick="showPage('dashboard')">← 返回</div>
+            <div class="section-title">📰 今日頭條</div>
+            <div class="news-card important"><span class="news-tag">重要</span><div class="news-title">美股昨夜大漲！NASDAQ +2.59%，費城半導體 +6.55%</div></div>
+            <div class="news-card"><span class="news-tag">產業</span><div class="news-title">半導體族群強勢，聯發科大漲 3.62%</div></div>
+            <div class="news-card"><span class="news-tag">AI</span><div class="news-title">月之暗面發布 Kimi K3，卷入蒸餾爭議</div></div>
+            <div class="news-card"><span class="news-tag">總經</span><div class="news-title">美國7月 ISM PMI 創新高 55.6</div></div>
+            <div class="news-card"><span class="news-tag">兩岸</span><div class="news-title">特習會後美中再現摩擦</div></div>
+            <div class="news-card"><span class="news-tag">能源</span><div class="news-title">油價下跌</div></div>
+        </div>
     </div>
 
-    <div class="graph-container" id="graph">
-        <div class="loading">圖譜載入中...</div>
-    </div>
-
-    <!-- 導航按鈕 -->
-    <div class="nav-buttons">
-        <button class="nav-btn active" onclick="showView('main')">🏠 總覽</button>
-        <button class="nav-btn" onclick="showView('tw')">🇹🇼 台股</button>
-        <button class="nav-btn" onclick="showView('us')">🇺🇸 美股</button>
-        <button class="nav-btn" onclick="showView('macro')">📊 總經</button>
-        <button class="nav-btn" onclick="showView('industry')">🔬 產業</button>
-    </div>
-
-    <!-- 圖例 -->
-    <div class="legend">
-        <div class="legend-item"><div class="legend-dot blue"></div>股票/指數</div>
-        <div class="legend-item"><div class="legend-dot purple"></div>總體經濟</div>
-        <div class="legend-item"><div class="legend-dot green"></div>產業</div>
-        <div class="legend-item"><div class="legend-dot red"></div>商品/能源</div>
-    </div>
-
-    <!-- 詳情面板 -->
-    <div class="detail-panel" id="detailPanel">
-        <button class="detail-close" onclick="closePanel()">×</button>
-        <div class="detail-title" id="detailTitle">詳細資訊</div>
-        <div id="detailContent"></div>
+    <div class="modal" id="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-title" id="modalTitle"></div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
     </div>
 
     <script>
-        // 數據庫
-        const data = {
-            main: {
-                nodes: [
-                    { id: 'tw', icon: '🇹🇼', label: '台灣', x: 0.25, y: 0.35, color: 'blue' },
-                    { id: 'us', icon: '🇺🇸', label: '美國', x: 0.75, y: 0.35, color: 'blue' },
-                    { id: 'macro', icon: '📊', label: '總經', x: 0.5, y: 0.2, color: 'purple' },
-                    { id: 'industry', icon: '🔬', label: '產業', x: 0.5, y: 0.6, color: 'green' },
-                    { id: 'commodity', icon: '🥇', label: '商品', x: 0.15, y: 0.7, color: 'red' },
-                    { id: 'news', icon: '📰', label: '新聞', x: 0.85, y: 0.7, color: 'purple' }
-                ],
-                connections: [
-                    ['tw', 'macro'], ['tw', 'industry'],
-                    ['us', 'macro'], ['us', 'industry'],
-                    ['macro', 'commodity'], ['industry', 'commodity']
-                ]
-            },
-            tw: {
-                nodes: [
-                    { id: 'twii', icon: '📈', label: '加權', x: 0.5, y: 0.2, color: 'blue' },
-                    { id: '2330', icon: '💻', label: '台積電', x: 0.2, y: 0.4, color: 'blue' },
-                    { id: '2454', icon: '📱', label: '聯發科', x: 0.4, y: 0.5, color: 'blue' },
-                    { id: '2317', icon: '🔧', label: '鴻海', x: 0.6, y: 0.5, color: 'blue' },
-                    { id: '2382', icon: '🖥️', label: '廣達', x: 0.8, y: 0.4, color: 'blue' },
-                    { id: 'twii_fut', icon: '📊', label: '台指期', x: 0.5, y: 0.8, color: 'purple' }
-                ],
-                connections: [
-                    ['twii', '2330'], ['twii', '2454'], ['twii', '2317'], ['twii', '2382'], ['twii', 'twii_fut']
-                ]
-            },
-            us: {
-                nodes: [
-                    { id: 'dji', icon: '📈', label: '道瓊', x: 0.2, y: 0.3, color: 'blue' },
-                    { id: 'nasdaq', icon: '💻', label: 'NASDAQ', x: 0.5, y: 0.2, color: 'blue' },
-                    { id: 'spx', icon: '📊', label: 'S&P500', x: 0.8, y: 0.3, color: 'blue' },
-                    { id: 'sox', icon: '🔌', label: '費半', x: 0.5, y: 0.5, color: 'green' },
-                    { id: 'nvda', icon: '🎮', label: 'NVIDIA', x: 0.3, y: 0.7, color: 'blue' },
-                    { id: 'amd', icon: '⚡', label: 'AMD', x: 0.7, y: 0.7, color: 'blue' }
-                ],
-                connections: [
-                    ['nasdaq', 'dji'], ['nasdaq', 'spx'], ['nasdaq', 'sox'], ['sox', 'nvda'], ['sox', 'amd']
-                ]
-            },
-            macro: {
-                nodes: [
-                    { id: 'us_macro', icon: '🇺🇸', label: '美國', x: 0.25, y: 0.3, color: 'purple' },
-                    { id: 'china_macro', icon: '🇨🇳', label: '中國', x: 0.75, y: 0.3, color: 'purple' },
-                    { id: 'ism_pmi', icon: '📊', label: 'ISM PMI', x: 0.1, y: 0.5, color: 'green' },
-                    { id: 'gdp_us', icon: '💹', label: 'GDP', x: 0.2, y: 0.65, color: 'green' },
-                    { id: 'yield', icon: '📈', label: '利率', x: 0.35, y: 0.5, color: 'green' },
-                    { id: 'pmi_cn', icon: '📊', label: '財新PMI', x: 0.65, y: 0.5, color: 'green' },
-                    { id: 'gdp_cn', icon: '💹', label: 'GDP', x: 0.75, y: 0.65, color: 'green' },
-                    { id: 'urban', icon: '🏙️', label: '城鎮化', x: 0.9, y: 0.5, color: 'green' }
-                ],
-                connections: [
-                    ['us_macro', 'ism_pmi'], ['us_macro', 'gdp_us'], ['us_macro', 'yield'],
-                    ['china_macro', 'pmi_cn'], ['china_macro', 'gdp_cn'], ['china_macro', 'urban']
-                ]
-            },
-            industry: {
-                nodes: [
-                    { id: 'semi', icon: '💻', label: '半導體', x: 0.2, y: 0.3, color: 'green' },
-                    { id: 'display', icon: '📱', label: '顯示器', x: 0.5, y: 0.2, color: 'green' },
-                    { id: 'led', icon: '💡', label: 'LED', x: 0.8, y: 0.3, color: 'green' },
-                    { id: 'ev', icon: '🚗', label: '電動車', x: 0.35, y: 0.6, color: 'green' },
-                    { id: 'solar', icon: '☀️', label: '太陽能', x: 0.65, y: 0.6, color: 'green' },
-                    { id: 'dram', icon: '🧠', label: 'DRAM', x: 0.1, y: 0.5, color: 'blue' },
-                    { id: 'nand', icon: '💾', label: 'NAND', x: 0.15, y: 0.7, color: 'blue' },
-                    { id: 'lcd', icon: '🖥️', label: 'LCD', x: 0.45, y: 0.4, color: 'blue' },
-                    { id: 'amoled', icon: '📲', label: 'AMOLED', x: 0.55, y: 0.4, color: 'blue' }
-                ],
-                connections: [
-                    ['semi', 'dram'], ['semi', 'nand'],
-                    ['display', 'lcd'], ['display', 'amoled'],
-                    ['semi', 'ev'], ['display', 'ev'], ['led', 'ev']
-                ]
-            }
-        };
-
-        // 詳情內容
         const details = {
-            twii: { title: "台灣加權指數", content: "<h4>什麼是加權指數？</h4><p>台灣加權股價指數（TAIEX）是台灣證券交易所編製的股價指數，涵蓋所有上市普通股，以市值加權計算。</p><h4>特性</h4><p>• 台積電占比約30%<br>• 反映台灣整體經濟</p><h4>投資意涵</h4><p>指數大漲表示市場對經濟前景樂觀。</p>" },
-            "2330": { title: "台積電 (2330)", content: "<h4>公司簡介</h4><p>全球最大半導體晶圓代工，市場佔有率超50%。</p><h4>營運動能</h4><p>• AI晶片需求爆發<br>• 先進製程技術領先<br>• 蘋果、AMD、NVIDIA供應商</p>" },
-            "2454": { title: "聯發科 (2454)", content: "<h4>公司簡介</h4><p>全球領先IC設計公司，手機處理器龍頭。</p><h4>營運動能</h4><p>• AI手機晶片需求升溫<br>• 天璣9400系列熱銷</p>" },
-            "2317": { title: "鴻海 (2317)", content: "<h4>公司簡介</h4><p>全球最大電子代工廠，組裝iPhone。</p><h4>營運動能</h4><p>• AI伺服器組裝增加<br>• 電動車布局</p>" },
-            dji: { title: "道瓊工業指數", content: "<h4>道瓊</h4><p>美國歷史最悠久的股價指數，包含30家大型藍籌股。</p>" },
-            nasdaq: { title: "NASDAQ 指數", content: "<h4>NASDAQ</h4><p>以科技股為主的電子股票市場。持續受惠於AI浪潮創新高。</p>" },
-            sox: { title: "費城半導體指數", content: "<h4>SOX</h4><p>追蹤30家半導體公司。反映全球半導體和AI晶片需求。</p>" },
-            ism_pmi: { title: "ISM 製造業 PMI", content: "<h4>什麼是PMI？</h4><p>採購經理人指數，>50=擴張，<50=收縮。</p><h4>最新數據</h4><p>2026年7月 PMI 報55.6，創2022年5月來新高。</p>" },
-            yield: { title: "公債殖利率曲線", content: "<h4>殖利率曲線</h4><p>10年期減2年期利差是觀察經濟前景的重要指標。</p><h4>解讀</h4><p>• 正利差：經濟擴張<br>• 負利差(倒掛)：衰退警訊</p>" },
-            semi: { title: "半導體產業", content: "<h4>產業概況</h4><p>半導體是現代電子產業的核心，應用於AI、雲端、手機、汽車等領域。</p><h4>台灣優勢</h4><p>台積電領先的製程技術讓台灣在全球半導體供應鏈中扮演關鍵角色。</p>" },
-            display: { title: "顯示器產業", content: "<h4>產業概況</h4><p>涵蓋LCD、AMOLED、Mini LED等技術，應用於手機、電視、筆電等。</p><h4>趨勢</h4><p>OLED滲透率持續提升，Mini LED成為新亮點。</p>" }
+            twii: { title: "台灣加權指數", body: "<h4>什麼是加權指數？</h4><p>台灣加權股價指數（TAIEX）是台灣證券交易所編製的股價指數，涵蓋所有上市普通股，以市值加權計算。</p><h4>特性</h4><p>• 台積電占比約30%<br>• 反映台灣整體經濟</p>" },
+            "2330": { title: "台積電 (2330)", body: "<h4>公司簡介</h4><p>全球最大半導體晶圓代工，市場佔有率超50%。</p><h4>營運動能</h4><p>• AI晶片需求爆發<br>• 先進製程領先<br>• 蘋果、AMD、NVIDIA供應商</p>" },
+            "2454": { title: "聯發科 (2454)", body: "<h4>公司簡介</h4><p>全球領先IC設計公司，手機處理器龍頭。</p><h4>營運動能</h4><p>• AI手機晶片需求升溫<br>• 天璣9400熱銷</p>" },
+            "2317": { title: "鴻海 (2317)", body: "<h4>公司簡介</h4><p>全球最大電子代工，組裝iPhone。</p><h4>營運動能</h4><p>• AI伺服器組裝<br>• 電動車布局</p>" },
+            ism: { title: "ISM 製造業 PMI", body: "<h4>什麼是PMI？</h4><p>採購經理人指數，>50=擴張，<50=收縮。</p><h4>最新數據</h4><p>2026年7月 PMI 報55.6，創2022年5月來新高。</p>" }
         };
 
-        let currentView = 'main';
-        let expandedNodes = {};
-
-        function init() {
-            renderGraph();
-            updateTime();
-            setInterval(updateTime, 60000);
-        }
-
-        function renderGraph() {
-            const container = document.getElementById('graph');
-            const view = data[currentView];
-            const width = window.innerWidth;
-            const height = window.innerHeight - 60;
-            
-            let html = '';
-            
-            // 渲染連接線
-            view.connections.forEach(conn => {
-                const from = view.nodes.find(n => n.id === conn[0]);
-                const to = view.nodes.find(n => n.id === conn[1]);
-                if (from && to) {
-                    const x1 = from.x * width;
-                    const y1 = from.y * height + 60;
-                    const x2 = to.x * width;
-                    const y2 = to.y * height + 60;
-                    html += `<svg class="connection" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" /></svg>`;
-                }
-            });
-            
-            // 渲染節點
-            view.nodes.forEach(node => {
-                const x = node.x * width;
-                const y = node.y * height + 60;
-                const isExpanded = expandedNodes[node.id];
-                
-                html += `
-                    <div class="node ${isExpanded ? 'expanded' : ''}" 
-                         style="left:${x-40}px;top:${y-40}px;z-index:10;"
-                         onclick="toggleNode('${node.id}')">
-                        <div class="node-circle">
-                            <span class="icon">${node.icon}</span>
-                            <span>${node.label}</span>
-                        </div>
-                    </div>
-                `;
-                
-                // 渲染子節點（如果展開）
-                if (isExpanded && getSubNodes(node.id)) {
-                    const subs = getSubNodes(node.id);
-                    subs.forEach((sub, i) => {
-                        const angle = (i / subs.length) * 2 * Math.PI - Math.PI/2;
-                        const radius = 100;
-                        const sx = x + Math.cos(angle) * radius - 30;
-                        const sy = y + Math.sin(angle) * radius - 30;
-                        
-                        html += `
-                            <div class="sub-node visible" 
-                                 style="left:${sx}px;top:${sy}px;z-index:5;"
-                                 onclick="event.stopPropagation();showDetail('${sub.id}')">
-                                <span class="icon">${sub.icon}</span>
-                            </div>
-                        `;
-                        
-                        // 子節點連接線
-                        html += `<svg class="connection" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;"><line x1="${x}" y1="${y}" x2="${sx+30}" y2="${sy+30}" stroke="rgba(124,58,237,0.4)" /></svg>`;
-                    });
-                }
-            });
-            
-            container.innerHTML = html;
-        }
-
-        function getSubNodes(parentId) {
-            const subNodes = {
-                'tw': [
-                    { id: 'twii', icon: '📈' },
-                    { id: 'tw_fut', icon: '📊' },
-                    { id: 'tw_otc', icon: '📋' }
-                ],
-                'us': [
-                    { id: 'dji', icon: '📈' },
-                    { id: 'nasdaq', icon: '💻' },
-                    { id: 'spx', icon: '📊' }
-                ],
-                'macro': [
-                    { id: 'us_macro', icon: '🇺🇸' },
-                    { id: 'china_macro', icon: '🇨🇳' },
-                    { id: 'commodity', icon: '🥇' }
-                ],
-                'industry': [
-                    { id: 'semi', icon: '💻' },
-                    { id: 'display', icon: '📱' },
-                    { id: 'ev', icon: '🚗' }
-                ],
-                'twii': [
-                    { id: '2330', icon: '💻' },
-                    { id: '2454', icon: '📱' },
-                    { id: '2317', icon: '🔧' }
-                ],
-                'nasdaq': [
-                    { id: 'nvda', icon: '🎮' },
-                    { id: 'amd', icon: '⚡' },
-                    { id: 'sox', icon: '🔌' }
-                ],
-                'semi': [
-                    { id: 'dram', icon: '🧠' },
-                    { id: 'nand', icon: '💾' },
-                    { id: 'foundry', icon: '🏭' }
-                ]
-            };
-            return subNodes[parentId] || [];
-        }
-
-        function toggleNode(id) {
-            if (expandedNodes[id]) {
-                delete expandedNodes[id];
-            } else {
-                expandedNodes[id] = true;
-            }
-            renderGraph();
-        }
-
-        function showView(view) {
-            currentView = view;
-            expandedNodes = {};
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.topnav-links a').forEach(a => a.classList.remove('active'));
+            document.getElementById('page-' + id).classList.add('active');
             event.target.classList.add('active');
-            renderGraph();
         }
 
-        function showDetail(id) {
-            const d = details[id];
+        function showModal(key) {
+            const d = details[key];
             if (d) {
-                document.getElementById('detailTitle').textContent = d.title;
-                document.getElementById('detailContent').innerHTML = d.content;
-                document.getElementById('detailPanel').classList.add('active');
+                document.getElementById('modalTitle').textContent = d.title;
+                document.getElementById('modalBody').innerHTML = d.body;
+                document.getElementById('modal').classList.add('active');
             }
         }
 
-        function closePanel() {
-            document.getElementById('detailPanel').classList.remove('active');
-        }
+        function closeModal(e) { if (!e || e.target.id === 'modal') document.getElementById('modal').classList.remove('active'); }
 
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('updateTime').textContent = now.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
-        }
-
-        window.addEventListener('resize', renderGraph);
-        init();
+        fetch('https://wttr.in/Taipei?format=j1').then(r=>r.json()).then(d=>{
+            document.getElementById('temp').textContent = d.current_condition[0].temp_C + '°C';
+            document.getElementById('humidity').textContent = d.current_condition[0].humidity + '%';
+        }).catch(()=>{});
     </script>
 </body>
 </html>
