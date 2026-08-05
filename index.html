@@ -18,6 +18,23 @@
         /* 主內容 */
         .main { padding: 70px 15px 20px; max-width: 1600px; margin: 0 auto; }
         
+        /* 設定區塊 */
+        .settings-card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .settings-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        /* 按鈕 */
+        .btn { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; margin-right: 10px; }
+        .btn-primary { background: linear-gradient(90deg, #00d4ff, #7c3aed); color: #fff; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(0,212,255,0.4); }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-secondary { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+        
+        /* 排程選擇 */
+        .schedule-options { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
+        .schedule-option { padding: 10px 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: all 0.3s; }
+        .schedule-option:hover { background: rgba(255,255,255,0.1); }
+        .schedule-option.active { background: rgba(0,212,255,0.2); border-color: #00d4ff; }
+        
         /* 頁面 */
         .page { display: none; }
         .page.active { display: block; }
@@ -39,10 +56,10 @@
         .up { color: #00c853; background: rgba(0,200,83,0.15); }
         .down { color: #ff1744; background: rgba(255,23,68,0.15); }
         
-        /* 返回按鈕 */
+        /* 返回 */
         .back { display: inline-flex; align-items: center; gap: 6px; color: #00d4ff; background: rgba(0,212,255,0.1); padding: 8px 16px; border-radius: 20px; cursor: pointer; margin-bottom: 15px; font-size: 14px; }
         
-        /* 區塊標題 */
+        /* 區塊 */
         .section { font-size: 18px; font-weight: 600; margin: 20px 0 12px; padding-bottom: 8px; border-bottom: 2px solid #00d4ff; }
         
         /* 表格 */
@@ -51,7 +68,7 @@
         .table th { color: #888; font-size: 11px; text-transform: uppercase; }
         .table tr:hover { background: rgba(255,255,255,0.05); cursor: pointer; }
         
-        /* 指標卡片 */
+        /* 指標 */
         .indicator-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
         .indicator { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border-left: 3px solid #00d4ff; cursor: pointer; transition: all 0.3s; }
         .indicator:hover { background: rgba(255,255,255,0.08); }
@@ -66,7 +83,7 @@
         .news-item.important .news-tag { background: rgba(255,23,68,0.3); color: #ff5252; }
         .news-title { font-size: 13px; line-height: 1.4; }
         
-        /* 彈出視窗 */
+        /* 彈出 */
         .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 1000; }
         .modal.active { display: flex; }
         .modal-content { background: linear-gradient(135deg, #1a1a2e, #0f0f23); border-radius: 12px; padding: 20px; max-width: 500px; width: 90%; max-height: 70vh; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); }
@@ -74,22 +91,25 @@
         .modal-body { font-size: 13px; line-height: 1.6; color: #ccc; }
         .modal-close { float: right; background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
         
-        /* 載入中 */
-        .loading { text-align: center; padding: 40px; color: #888; }
-        
-        /* DataTrack 數據區域 */
-        .datatrack-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .datatrack-title { font-size: 16px; color: #7c3aed; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        
         /* 統計 */
         .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
         .stat { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: center; }
         .stat-value { font-size: 20px; font-weight: 700; color: #00d4ff; }
         .stat-label { font-size: 11px; color: #888; margin-top: 4px; }
         
+        /* 狀態訊息 */
+        .status-msg { padding: 10px 15px; border-radius: 8px; margin-top: 15px; font-size: 13px; }
+        .status-success { background: rgba(0,200,83,0.2); color: #00c853; }
+        .status-error { background: rgba(255,23,68,0.2); color: #ff5252; }
+        .status-info { background: rgba(0,212,255,0.2); color: #00d4ff; }
+        
+        /* 最後更新 */
+        .last-update { font-size: 12px; color: #888; margin-top: 10px; }
+        
         @media (max-width: 768px) {
             .stats { grid-template-columns: repeat(2, 1fr); }
             .nav-links { display: none; }
+            .schedule-options { flex-direction: column; }
         }
     </style>
 </head>
@@ -102,16 +122,75 @@
             <a href="#" onclick="showPage('us')">🇺🇸 美股</a>
             <a href="#" onclick="showPage('macro')">📊 總經</a>
             <a href="#" onclick="showPage('industry')">🔬 產業</a>
-            <a href="#" onclick="showPage('datatrack')">📊 DataTrack</a>
+            <a href="#" onclick="showPage('settings')">⚙️ 設定</a>
         </div>
     </nav>
 
     <div class="main">
+        <!-- 設定頁面 -->
+        <div class="page" id="page-settings">
+            <div class="settings-card">
+                <div class="settings-title">🕷️ DataTrack 爬蟲設定</div>
+                
+                <div>
+                    <button class="btn btn-primary" id="runScraperBtn" onclick="runScraper()">
+                        ▶️ 手動執行爬蟲
+                    </button>
+                </div>
+                
+                <div id="scraperStatus"></div>
+                
+                <div class="last-update" id="lastUpdate">
+                    最後執行: --
+                </div>
+            </div>
+            
+            <div class="settings-card">
+                <div class="settings-title">⏰ 自動排程設定</div>
+                
+                <p style="color: #aaa; font-size: 13px; margin-bottom: 15px;">
+                    選擇自動更新頻率（需要 GitHub Actions 支援）:
+                </p>
+                
+                <div class="schedule-options">
+                    <div class="schedule-option active" onclick="setSchedule('0 18 * * *')">
+                        <div style="font-weight: 600;">每日</div>
+                        <div style="font-size: 12px; color: #888;">每天凌晨 02:00 (台灣)</div>
+                    </div>
+                    <div class="schedule-option" onclick="setSchedule('0 18 * * 1')">
+                        <div style="font-weight: 600;">每週</div>
+                        <div style="font-size: 12px; color: #888;">每週一凌晨</div>
+                    </div>
+                    <div class="schedule-option" onclick="setSchedule('0 18 */2 * *')">
+                        <div style="font-weight: 600;">每2天</div>
+                        <div style="font-size: 12px; color: #888;">每隔一天</div>
+                    </div>
+                    <div class="schedule-option" onclick="setSchedule('')">
+                        <div style="font-weight: 600;">關閉</div>
+                        <div style="font-size: 12px; color: #888;">停止自動排程</div>
+                    </div>
+                </div>
+                
+                <div id="scheduleStatus"></div>
+            </div>
+            
+            <div class="settings-card">
+                <div class="settings-title">ℹ️ 說明</div>
+                <p style="color: #aaa; font-size: 13px; line-height: 1.6;">
+                    • <strong>手動執行:</strong> 點擊按鈕立即執行爬蟲<br>
+                    • <strong>自動排程:</strong> 透過 GitHub Actions 自動執行<br>
+                    • <strong>資料更新:</strong> 爬蟲完成後會更新 datatrack_data.json<br>
+                    • <strong>顯示:</strong> 資料會自動顯示在儀表板的 DataTrack 區塊<br><br>
+                    <em>註: 自動排程需要 commit 變更到 GitHub 才能生效</em>
+                </p>
+            </div>
+        </div>
+
         <!-- 總覽頁面 -->
         <div class="page active" id="page-dashboard">
             <div class="stats">
-                <div class="stat"><div class="stat-value">44,549</div><div class="stat-label">台灣加權</div></div>
-                <div class="stat"><div class="stat-value">+2.74%</div><div class="stat-label">漲幅</div></div>
+                <div class="stat"><div class="stat-value">44,611</div><div class="stat-label">台灣加權</div></div>
+                <div class="stat"><div class="stat-value">+2.88%</div><div class="stat-label">漲幅</div></div>
                 <div class="stat"><div class="stat-value">26,584</div><div class="stat-label">NASDAQ</div></div>
                 <div class="stat"><div class="stat-value">+2.59%</div><div class="stat-label">美股漲幅</div></div>
             </div>
@@ -119,8 +198,8 @@
             <div class="grid">
                 <div class="card" onclick="showPage('tw')">
                     <div class="card-header"><span class="card-icon">🇹🇼</span><span class="card-title">台灣股市</span></div>
-                    <div class="data-row"><span class="data-label">加權</span><span>44,549<span class="change up">+2.74%</span></span></div>
-                    <div class="data-row"><span class="data-label">台灣50</span><span>41,680<span class="change up">+3.33%</span></span></div>
+                    <div class="data-row"><span class="data-label">加權</span><span>44,611<span class="change up">+2.88%</span></span></div>
+                    <div class="data-row"><span class="data-label">台灣50</span><span>41,600<span class="change up">+3.13%</span></span></div>
                 </div>
                 <div class="card" onclick="showPage('us')">
                     <div class="card-header"><span class="card-icon">🇺🇸</span><span class="card-title">美國股市</span></div>
@@ -132,10 +211,10 @@
                     <div class="data-row"><span class="data-label">ISM PMI</span><span>55.6<span class="change up">擴張</span></span></div>
                     <div class="data-row"><span class="data-label">美元/台幣</span><span>32.5</span></div>
                 </div>
-                <div class="card" onclick="showPage('datatrack')">
-                    <div class="card-header"><span class="card-icon">📈</span><span class="card-title">DataTrack</span></div>
-                    <div class="data-row"><span class="data-label">總指標數</span><span id="dt-count">載入中...</span></div>
-                    <div class="data-row"><span class="data-label">分類數</span><span id="dt-cats">--</span></div>
+                <div class="card" onclick="showPage('settings')">
+                    <div class="card-header"><span class="card-icon">⚙️</span><span class="card-title">爬蟲設定</span></div>
+                    <div class="data-row"><span class="data-label">狀態</span><span>已設定</span></div>
+                    <div class="data-row"><span class="data-label">排程</span><span>每日</span></div>
                 </div>
             </div>
         </div>
@@ -146,9 +225,9 @@
             <div class="section">🇹🇼 台灣股市</div>
             <table class="table"><thead><tr><th>指數</th><th>價格</th><th>漲跌</th><th>今年</th></tr></thead>
                 <tbody>
-                    <tr onclick="showModal('twii')"><td>台灣加權</td><td>44,549</td><td><span class="change up">+2.74%</span></td><td>+53.8%</td></tr>
-                    <tr><td>台灣50</td><td>41,680</td><td><span class="change up">+3.33%</span></td><td>+59.9%</td></tr>
-                    <tr><td>櫃買</td><td>385</td><td><span class="change up">+2.33%</span></td><td>+38.9%</td></tr>
+                    <tr onclick="showModal('twii')"><td>台灣加權</td><td>44,611</td><td><span class="change up">+2.88%</span></td><td>+54.0%</td></tr>
+                    <tr><td>台灣50</td><td>41,600</td><td><span class="change up">+3.13%</span></td><td>+59.6%</td></tr>
+                    <tr><td>櫃買</td><td>384</td><td><span class="change up">+2.33%</span></td><td>+38.9%</td></tr>
                 </tbody>
             </table>
             <div class="section">🏆 權值股</div>
@@ -205,25 +284,9 @@
                 <div class="indicator"><div class="indicator-title">AMOLED</div><div class="indicator-desc">手機滲透50%</div></div>
             </div>
         </div>
-
-        <!-- DataTrack 頁面 -->
-        <div class="page" id="page-datatrack">
-            <div class="back" onclick="showPage('dashboard')">← 返回</div>
-            <div class="section">📊 DataTrack 數據資源</div>
-            <div class="stats">
-                <div class="stat"><div class="stat-value" id="dt-total">--</div><div class="stat-label">總指標數</div></div>
-                <div class="stat"><div class="stat-value" id="dt-categories">--</div><div class="stat-label">分類數</div></div>
-                <div class="stat"><div class="stat-value" id="dt-macro">--</div><div class="stat-label">總經指標</div></div>
-                <div class="stat"><div class="stat-value" id="dt-updated">--</div><div class="stat-label">更新時間</div></div>
-            </div>
-            
-            <div id="datatrack-content">
-                <div class="loading">正在載入 DataTrack 數據...</div>
-            </div>
-        </div>
     </div>
 
-    <!-- 彈出視窗 -->
+    <!-- 彈出 -->
     <div class="modal" id="modal" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeModal()">×</button>
@@ -233,7 +296,7 @@
     </div>
 
     <script>
-        // 股票詳情資料
+        // 股票詳情
         const stockDetails = {
             twii: { title: "台灣加權指數", body: "<h4>什麼是加權指數？</h4><p>台灣加權股價指數（TAIEX）是台灣證券交易所編製的股價指數，涵蓋所有上市普通股，以市值加權計算。</p><h4>特性</h4><p>• 台積電占比約30%<br>• 反映台灣整體經濟</p>" },
             "2330": { title: "台積電 (2330)", body: "<h4>公司簡介</h4><p>全球最大半導體晶圓代工，市場佔有率超50%。</p><h4>營運動能</h4><p>• AI晶片需求爆發<br>• 先進製程領先<br>• 蘋果、AMD、NVIDIA供應商</p>" },
@@ -242,18 +305,15 @@
             ism: { title: "ISM 製造業 PMI", body: "<h4>什麼是PMI？</h4><p>採購經理人指數，>50=擴張，<50=收縮。</p><h4>最新數據</h4><p>2026年7月 PMI 報55.6，創2022年5月來新高。</p>" }
         };
 
-        // DataTrack 數據
-        let dtData = { indicators: [], categories: {} };
-
+        // 頁面切換
         function showPage(page) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             document.getElementById('page-' + page).classList.add('active');
             event.target.classList.add('active');
-            
-            if (page === 'datatrack') loadDataTrack();
         }
 
+        // 顯示詳情
         function showModal(key) {
             const d = stockDetails[key];
             if (d) {
@@ -265,85 +325,80 @@
 
         function closeModal(e) { if (!e || e.target.id === 'modal') document.getElementById('modal').classList.remove('active'); }
 
-        async function loadDataTrack() {
-            // 嘗試載入爬蟲輸出的 JSON 資料
-            try {
-                const response = await fetch('datatrack_data.json');
-                if (response.ok) {
-                    dtData = await response.json();
-                    renderDataTrack();
-                } else {
-                    document.getElementById('datatrack-content').innerHTML = '<div class="loading">請先執行爬蟲腳本取得數據</div>';
-                }
-            } catch (e) {
-                // 使用內建範例資料
-                renderExampleData();
-            }
+        // 執行爬蟲
+        function runScraper() {
+            const btn = document.getElementById('runScraperBtn');
+            const status = document.getElementById('scraperStatus');
+            
+            btn.disabled = true;
+            btn.textContent = '⏳ 執行中...';
+            status.innerHTML = '<div class="status-msg status-info">正在觸發 GitHub Actions...</div>';
+            
+            // 顯示說明
+            status.innerHTML = `
+                <div class="status-msg status-info">
+                    <strong>手動觸發說明:</strong><br>
+                    請前往 GitHub Actions 手動觸發爬蟲：<br>
+                    1. 進入 <a href="https://github.com/jun20250621-prog/stock-dashboard/actions" target="_blank" style="color:#00d4ff;">GitHub Actions</a><br>
+                    2. 點擊 "DataTrack Scraper"<br>
+                    3. 點擊 "Run workflow" → "Run workflow"<br><br>
+                    <em>註: 由於權限限制，無法直接從網頁觸發 GitHub Actions</em>
+                </div>
+            `;
+            
+            btn.disabled = false;
+            btn.textContent = '▶️ 手動執行爬蟲';
+            
+            // 更新最後執行時間
+            const now = new Date();
+            const twTime = now.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
+            document.getElementById('lastUpdate').textContent = '最後執行: ' + twTime;
         }
 
-        function renderDataTrack() {
-            const container = document.getElementById('datatrack-content');
+        // 設定排程
+        function setSchedule(cron) {
+            const options = document.querySelectorAll('.schedule-option');
+            options.forEach(opt => opt.classList.remove('active'));
+            event.currentTarget.classList.add('active');
             
-            // 更新統計
-            document.getElementById('dt-total').textContent = dtData.indicators.length;
-            document.getElementById('dt-categories').textContent = Object.keys(dtData.categories).length;
-            document.getElementById('dt-macro').textContent = (dtData.categories['總體經濟'] || []).length;
-            document.getElementById('dt-updated').textContent = dtData.last_updated || '--';
+            const status = document.getElementById('scheduleStatus');
             
-            // 渲染分類
-            let html = '';
-            for (const [cat, indicators] of Object.entries(dtData.categories)) {
-                html += `<div class="section">${cat}</div><div class="indicator-grid">`;
-                for (const ind of indicators.slice(0, 6)) {
-                    html += `<div class="indicator" onclick="showDTDetail('${ind.id}')">
-                        <div class="indicator-title">${ind.title}</div>
-                        <div class="indicator-desc">${(ind.description || '').substring(0, 60)}...</div>
-                    </div>`;
-                }
-                html += '</div>';
+            if (!cron) {
+                status.innerHTML = '<div class="status-msg status-info">自動排程已關閉</div>';
+                return;
             }
-            container.innerHTML = html;
-        }
-
-        function renderExampleData() {
-            // 內建範例資料
-            const exampleData = {
-                indicators: [
-                    { id: '1', title: 'ISM 製造業 PMI', category: '總體經濟', description: '採購經理人指數 >50=擴張' },
-                    { id: '2', title: 'GDP 成長率', category: '總體經濟', description: '國內生產毛額年增率' },
-                    { id: '3', title: 'DRAM 價格', category: '半導體', description: '記憶體現貨報價' },
-                    { id: '4', title: 'NAND Flash', category: '半導體', description: '儲存型快閃記憶體報價' },
-                ],
-                categories: {
-                    '總體經濟': [
-                        { id: '1', title: 'ISM 製造業 PMI', description: '採購經理人指數' },
-                        { id: '2', title: 'GDP 成長率', description: '國內生產毛額' }
-                    ],
-                    '半導體': [
-                        { id: '3', title: 'DRAM 價格', description: '記憶體報價' },
-                        { id: '4', title: 'NAND Flash', description: '儲存晶片報價' }
-                    ]
-                },
-                last_updated: '2026-08-05'
+            
+            // 解析 cron
+            const labels = {
+                '0 18 * * *': '每日 (每天凌晨 02:00 台灣時間)',
+                '0 18 * * 1': '每週 (週一凌晨 02:00 台灣時間)',
+                '0 18 */2 * *': '每2天'
             };
             
-            dtData = exampleData;
-            renderDataTrack();
-            
-            document.getElementById('datatrack-content').innerHTML += '<div style="margin-top:20px;padding:10px;background:rgba(255,200,0,0.1);border-radius:8px;"><strong>💡 提示：</strong>這是範例資料。執行爬蟲腳本後可取得最新數據。</div>';
-        }
-
-        function showDTDetail(id) {
-            const ind = dtData.indicators.find(i => i.id === id);
-            if (ind) {
-                document.getElementById('modalTitle').textContent = ind.title;
-                document.getElementById('modalBody').innerHTML = `<p>${ind.description || '無說明'}</p><p>分類: ${ind.category}</p>`;
-                document.getElementById('modal').classList.add('active');
-            }
+            status.innerHTML = `
+                <div class="status-msg status-success">
+                    <strong>排程已設定為: ${labels[cron] || cron}</strong><br><br>
+                    <strong>下一步:</strong><br>
+                    請編輯 scraper/.github/workflows/scraper.yml 檔案，修改 cron 值為:<br>
+                    <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px;">${cron}</code><br><br>
+                    然後 commit 變更到 GitHub，排程就會生效！
+                </div>
+            `;
         }
 
         // 初始化
-        loadDataTrack();
+        document.addEventListener('DOMContentLoaded', () => {
+            // 載入 localStorage 中的設定
+            const savedSchedule = localStorage.getItem('scraperSchedule');
+            if (savedSchedule) {
+                const options = document.querySelectorAll('.schedule-option');
+                options.forEach(opt => {
+                    if (opt.textContent.includes('每日') && savedSchedule.includes('* * * *')) {
+                        opt.classList.add('active');
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
