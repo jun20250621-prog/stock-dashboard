@@ -396,44 +396,50 @@
         // ===== 刷新所有數據 =====
         async function refreshAll() {
             try {
-                // 先從 GitHub 讀取爬蟲資料 (無 CORS 問題)
-                const response = await fetch('https://raw.githubusercontent.com/jun20250621-prog/stock-dashboard/master/api/stock-data.json?t=' + Date.now(), { cache: 'no-store' });
-                if (response.ok) {
-                    const data = await response.json();
-                    
-                    if (data.indices) {
-                        if (data.indices.twii) {
-                            setVal('twii-price', fmt(data.indices.twii.price));
-                            setVal('twii-change', fmtPct(data.indices.twii.pct), data.indices.twii.pct >= 0 ? '#00c853' : '#ff5252');
-                        }
-                        if (data.indices.nasdaq) {
-                            setVal('nasdaq-price', fmt(data.indices.nasdaq.price));
-                            setVal('nasdaq-change', fmtPct(data.indices.nasdaq.pct), data.indices.nasdaq.pct >= 0 ? '#00c853' : '#ff5252');
-                        }
-                        if (data.indices.vix) {
-                            setVal('vix-price', fmt(data.indices.vix.price, 2), data.indices.vix.price < 20 ? '#00c853' : '#ff9800');
-                        }
-                    }
-                    
-                    if (data.stocks) {
-                        for (const [id, s] of Object.entries(data.stocks)) {
-                            const priceEl = document.getElementById(id + '-price');
-                            const changeEl = document.getElementById(id + '-change');
-                            if (priceEl) priceEl.textContent = s.price ? fmt(s.price) : '--';
-                            if (changeEl && s.pct !== undefined) {
-                                changeEl.innerHTML = `<span class="tag ${s.pct>=0?'tag-up':'tag-down'}">${fmtPct(s.pct)}</span>`;
-                            }
-                        }
-                    }
-                    
-                    apiStatus = 'live';
-                    document.querySelectorAll('.status-badge').forEach(el => {
-                        el.className = 'status-badge status-live';
-                        el.textContent = '即時';
-                    });
-                    document.querySelector('.update-time').textContent = '✅ 即時行情 (' + new Date().toLocaleTimeString('zh-TW') + ')';
-                    return;
+                // 先從 GitHub API 讀取資料 (不怕 rate limit)
+                const apiUrl = 'https://api.github.com/repos/jun20250621-prog/stock-dashboard/contents/api/stock-data.json';
+                const apiResponse = await fetch(apiUrl + '?t=' + Date.now(), {
+                    headers: { 'Accept': 'application/vnd.github.v3+json' }
+                });
+                if (apiResponse.ok) {
+                    const apiData = await apiResponse.json();
+                    const data = JSON.parse(atob(apiData.content));
+                    response = { ok: true, data };
+                } else {
+                    throw new Error('GitHub API failed');
                 }
+                if (data.indices) {
+                    if (data.indices.twii) {
+                        setVal('twii-price', fmt(data.indices.twii.price));
+                        setVal('twii-change', fmtPct(data.indices.twii.pct), data.indices.twii.pct >= 0 ? '#00c853' : '#ff5252');
+                    }
+                    if (data.indices.nasdaq) {
+                        setVal('nasdaq-price', fmt(data.indices.nasdaq.price));
+                        setVal('nasdaq-change', fmtPct(data.indices.nasdaq.pct), data.indices.nasdaq.pct >= 0 ? '#00c853' : '#ff5252');
+                    }
+                    if (data.indices.vix) {
+                        setVal('vix-price', fmt(data.indices.vix.price, 2), data.indices.vix.price < 20 ? '#00c853' : '#ff9800');
+                    }
+                }
+                
+                if (data.stocks) {
+                    for (const [id, s] of Object.entries(data.stocks)) {
+                        const priceEl = document.getElementById(id + '-price');
+                        const changeEl = document.getElementById(id + '-change');
+                        if (priceEl) priceEl.textContent = s.price ? fmt(s.price) : '--';
+                        if (changeEl && s.pct !== undefined) {
+                            changeEl.innerHTML = `<span class="tag ${s.pct>=0?'tag-up':'tag-down'}">${fmtPct(s.pct)}</span>`;
+                        }
+                    }
+                }
+                
+                apiStatus = 'live';
+                document.querySelectorAll('.status-badge').forEach(el => {
+                    el.className = 'status-badge status-live';
+                    el.textContent = '即時';
+                });
+                document.querySelector('.update-time').textContent = '✅ 即時行情 (' + new Date().toLocaleTimeString('zh-TW') + ')';
+                return;
             } catch(e) {
                 console.warn('GitHub data fetch failed:', e);
             }
