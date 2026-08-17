@@ -62,6 +62,9 @@
         .strategy-item { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-size: 11px; }
         .loading { color: #666; font-size: 11px; }
         .update-time { font-size: 9px; color: #444; text-align: right; margin-top: 5px; }
+        .status-badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 9px; margin-left: 6px; }
+        .status-live { background: rgba(0,200,83,0.2); color: #00c853; }
+        .status-offline { background: rgba(255,152,0,0.2); color: #ff9800; }
         @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
     </style>
 </head>
@@ -82,11 +85,11 @@
     <div class="main">
         <div class="page active" id="page-dashboard">
             <div class="stats">
-                <div class="stat"><div class="stat-value" id="twii-price">--</div><div class="stat-label">台灣加權</div></div>
-                <div class="stat"><div class="stat-value" id="twii-change" style="color:#00c853;">--</div><div class="stat-label">今日漲幅</div></div>
-                <div class="stat"><div class="stat-value" id="nasdaq-price">--</div><div class="stat-label">NASDAQ</div></div>
-                <div class="stat"><div class="stat-value" id="nasdaq-change" style="color:#00c853;">--</div><div class="stat-label">美股漲幅</div></div>
-                <div class="stat"><div class="stat-value" id="vix-price" style="color:#00c853;">--</div><div class="stat-label">VIX</div></div>
+                <div class="stat"><div class="stat-value" id="twii-price">44,611</div><div class="stat-label">台灣加權 <span class="status-badge status-offline" id="twii-status">離線</span></div></div>
+                <div class="stat"><div class="stat-value" id="twii-change" style="color:#00c853;">+2.88%</div><div class="stat-label">今日漲幅</div></div>
+                <div class="stat"><div class="stat-value" id="nasdaq-price">26,584</div><div class="stat-label">NASDAQ</div></div>
+                <div class="stat"><div class="stat-value" id="nasdaq-change" style="color:#00c853;">+2.59%</div><div class="stat-label">美股漲幅</div></div>
+                <div class="stat"><div class="stat-value" id="vix-price" style="color:#00c853;">18.5</div><div class="stat-label">VIX</div></div>
                 <div class="stat"><div class="stat-value" id="sentiment">85</div><div class="stat-label">樂觀指數</div></div>
             </div>
             <div class="strategy">
@@ -97,15 +100,15 @@
             </div>
             <div class="grid">
                 <div class="card">
-                    <div class="card-title">📊 大盤走勢 <span class="loading" id="market-chart-loading">載入中...</span></div>
+                    <div class="card-title">📊 大盤走勢</div>
                     <div class="chart-container"><canvas id="marketChart"></canvas></div>
                 </div>
                 <div class="card">
                     <div class="card-title">🏛️ 法人買賣超 (億)</div>
                     <div class="inst">
-                        <div class="inst-item"><div class="inst-value" id="inst-invest" style="color:#00c853;">+45</div><div class="inst-label">投信</div></div>
-                        <div class="inst-item"><div class="inst-value" id="inst-dealer" style="color:#00c853;">+32</div><div class="inst-label">自營商</div></div>
-                        <div class="inst-item"><div class="inst-value" id="inst-foreign" style="color:#ff5252;">-28</div><div class="inst-label">外陸資</div></div>
+                        <div class="inst-item"><div class="inst-value" style="color:#00c853;">+45</div><div class="inst-label">投信</div></div>
+                        <div class="inst-item"><div class="inst-value" style="color:#00c853;">+32</div><div class="inst-label">自營商</div></div>
+                        <div class="inst-item"><div class="inst-value" style="color:#ff5252;">-28</div><div class="inst-label">外陸資</div></div>
                     </div>
                     <div class="chart-container"><canvas id="instChart"></canvas></div>
                 </div>
@@ -120,13 +123,13 @@
                 <div class="card">
                     <div class="card-title">⚠️ 風險儀表</div>
                     <div style="font-size:11px;margin-bottom:5px;">市場風險程度</div>
-                    <div class="risk-bar"><div class="risk-level" id="risk-bar" style="width:30%;background:linear-gradient(90deg,#00c853,#00c853);"></div></div>
+                    <div class="risk-bar"><div class="risk-level" style="width:30%;background:linear-gradient(90deg,#00c853,#00c853);"></div></div>
                     <div style="display:flex;justify-content:space-between;font-size:9px;color:#666;margin-bottom:10px;"><span>保守</span><span>均衡</span><span>積極</span></div>
                     <table class="table">
-                        <tr><td>融資使用率</td><td id="margin-ratio" style="color:#00c853;">35% (安全)</td></tr>
-                        <tr><td>券資比</td><td id="short-ratio" style="color:#00c853;">12% (正常)</td></tr>
-                        <tr><td>VIX</td><td id="vix-risk" style="color:#00c853;">-- (低)</td></tr>
-                        <tr><td>RSI</td><td id="rsi" style="color:#ff9800;">72 (過熱)</td></tr>
+                        <tr><td>融資使用率</td><td style="color:#00c853;">35% (安全)</td></tr>
+                        <tr><td>券資比</td><td style="color:#00c853;">12% (正常)</td></tr>
+                        <tr><td>VIX</td><td style="color:#00c853;">18.5 (低)</td></tr>
+                        <tr><td>RSI</td><td style="color:#ff9800;">72 (過熱)</td></tr>
                     </table>
                 </div>
             </div>
@@ -134,10 +137,10 @@
                 <div class="card">
                     <div class="card-title">🏆 強勢股</div>
                     <table class="table"><thead><tr><th>股票</th><th>股價</th><th>漲幅</th><th>評估</th></tr></thead>
-                        <tbody id="hot-stocks">
-                            <tr><td>聯發科</td><td id="2454-price">--</td><td id="2454-change">--</td><td><span class="tag tag-hot">載入中</span></td></tr>
-                            <tr><td>台積電</td><td id="2330-price">--</td><td id="2330-change">--</td><td><span class="tag tag-hot">載入中</span></td></tr>
-                            <tr><td>鴻海</td><td id="2317-price">--</td><td id="2317-change">--</td><td>看好</td></tr>
+                        <tbody>
+                            <tr><td>聯發科</td><td>4,005</td><td><span class="tag tag-up">+3.62%</span></td><td><span class="tag tag-hot">強勢</span></td></tr>
+                            <tr><td>台積電</td><td>2,395</td><td><span class="tag tag-up">+3.23%</span></td><td><span class="tag tag-hot">強勢</span></td></tr>
+                            <tr><td>鴻海</td><td>258</td><td><span class="tag tag-up">+3.20%</span></td><td>看好</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -152,25 +155,25 @@
                     </table>
                 </div>
             </div>
-            <div class="update-time">最後更新: <span id="last-update">--</span></div>
+            <div class="update-time">📊 顯示靜態參考資料 (API服務暫時不可用)</div>
         </div>
 
         <div class="page" id="page-market">
             <div class="back" onclick="showPage('dashboard')">← 返回</div>
             <div class="section">📊 市場數據</div>
             <div class="analysis">
-                <div class="analysis-item"><div class="analysis-title">均線多頭排列</div><div class="analysis-value" style="color:#00c853;" id="ma-status">是</div><div class="analysis-desc">短均線 > 長均線</div></div>
+                <div class="analysis-item"><div class="analysis-title">均線多頭排列</div><div class="analysis-value" style="color:#00c853;">是</div><div class="analysis-desc">短均線 > 長均線</div></div>
                 <div class="analysis-item"><div class="analysis-title">KD 黃金交叉</div><div class="analysis-value" style="color:#00c853;">是</div><div class="analysis-desc">K>D 且在20以下</div></div>
                 <div class="analysis-item"><div class="analysis-title">MACD</div><div class="analysis-value" style="color:#00c853;">多頭</div><div class="analysis-desc">DIF>DEA 且柱狀圖為正</div></div>
-                <div class="analysis-item"><div class="analysis-title">RSI</div><div class="analysis-value" id="rsi-detail" style="color:#ff9800;">72</div><div class="analysis-desc">偏熱但未到危險區</div></div>
+                <div class="analysis-item"><div class="analysis-title">RSI</div><div class="analysis-value" style="color:#ff9800;">72</div><div class="analysis-desc">偏熱但未到危險區</div></div>
             </div>
             <div class="card" style="margin-bottom:10px;">
                 <div class="card-title">💹 籌碼面分析</div>
                 <table class="table">
-                    <tr><td>融資餘額</td><td id="margin-balance">2,150億</td><td style="color:#00c853;">減少中</td></tr>
-                    <tr><td>融券餘額</td><td id="short-balance">280萬張</td><td>增加中</td></tr>
-                    <tr><td>券資比</td><td id="short-ratio-detail">12%</td><td style="color:#00c853;">正常水位</td></tr>
-                    <tr><td>本週投信買超</td><td id="inst-weekly" style="color:#00c853;">+45億</td><td>連續5週</td></tr>
+                    <tr><td>融資餘額</td><td>2,150億</td><td style="color:#00c853;">減少中</td></tr>
+                    <tr><td>融券餘額</td><td>280萬張</td><td>增加中</td></tr>
+                    <tr><td>券資比</td><td>12%</td><td style="color:#00c853;">正常水位</td></tr>
+                    <tr><td>本週投信買超</td><td style="color:#00c853;">+45億</td><td>連續5週</td></tr>
                 </table>
             </div>
             <div class="card">
@@ -249,10 +252,10 @@
             <div class="back" onclick="showPage('dashboard')">← 返回</div>
             <div class="section">📈 專業分析</div>
             <div class="analysis">
-                <div class="analysis-item"><div class="analysis-title">本益比 (P/E)</div><div class="analysis-value" id="pe-ratio">18.5</div><div class="analysis-desc">略高於歷史平均</div></div>
-                <div class="analysis-item"><div class="analysis-title">股價淨值比 (P/B)</div><div class="analysis-value" id="pb-ratio">2.1</div><div class="analysis-desc">高於長期平均</div></div>
-                <div class="analysis-item"><div class="analysis-title">殖利率</div><div class="analysis-value" id="dividend">2.1%</div><div class="analysis-desc">低於平均</div></div>
-                <div class="analysis-item"><div class="analysis-title">股價營收比 (P/S)</div><div class="analysis-value" id="ps-ratio">1.8</div><div class="analysis-desc">中等水位</div></div>
+                <div class="analysis-item"><div class="analysis-title">本益比 (P/E)</div><div class="analysis-value">18.5</div><div class="analysis-desc">略高於歷史平均</div></div>
+                <div class="analysis-item"><div class="analysis-title">股價淨值比 (P/B)</div><div class="analysis-value">2.1</div><div class="analysis-desc">高於長期平均</div></div>
+                <div class="analysis-item"><div class="analysis-title">殖利率</div><div class="analysis-value">2.1%</div><div class="analysis-desc">低於平均</div></div>
+                <div class="analysis-item"><div class="analysis-title">股價營收比 (P/S)</div><div class="analysis-value">1.8</div><div class="analysis-desc">中等水位</div></div>
             </div>
             <div class="grid">
                 <div class="card">
@@ -279,7 +282,7 @@
         <div class="page" id="page-news">
             <div class="back" onclick="showPage('dashboard')">← 返回</div>
             <div class="section">📰 投資快訊</div>
-            <div class="news-item"><div class="news-title" id="news-1">美股昨夜大漲！NASDAQ +2.59%，費城半導體 +6.55%</div><div class="news-time">重要 · AI族群持續發燒</div></div>
+            <div class="news-item"><div class="news-title">美股昨夜大漲！NASDAQ +2.59%，費城半導體 +6.55%</div><div class="news-time">重要 · AI族群持續發燒</div></div>
             <div class="news-item"><div class="news-title">半導體族群強勢，聯發科大漲 3.62%，法人持續買超</div><div class="news-time">產業 · 供應鏈動能強勁</div></div>
             <div class="news-item"><div class="news-title">美國7月 ISM 製造業PMI 報55.6，創2022年5月新高</div><div class="news-time">總經 · 景氣擴張</div></div>
             <div class="news-item"><div class="news-title">月之暗面發布 Kimi K3，卷入「蒸餾」爭議</div><div class="news-time">AI · 美中科技競爭</div></div>
@@ -288,20 +291,52 @@
     </div>
 
     <script>
-        // ===== Yahoo Finance API (CORS 代理) =====
-        const PROXY = 'https://api.allorigins.win/raw?url=';
+        // ===== 靜態備援資料 =====
+        const FALLBACK = {
+            twii: { price: 44611, change: 1247, pct: 2.88 },
+            nasdaq: { price: 26584, change: 670, pct: 2.59 },
+            vix: { price: 18.5 },
+            stocks: {
+                '2330': { price: 2395, pct: 3.23 },
+                '2454': { price: 4005, pct: 3.62 },
+                '2317': { price: 258, pct: 3.20 }
+            }
+        };
+        
+        let apiStatus = 'offline';
         
         // ===== 工具函數 =====
         function fmt(n, d=2) { return n == null ? '--' : Number(n).toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d}); }
         function fmtPct(n) { return n == null ? '--' : (n>=0?'+':'') + n.toFixed(2) + '%'; }
         function setVal(id, val, color) { const e = document.getElementById(id); if(e) { e.textContent = val; if(color) e.style.color = color; } }
         
+        // ===== 嘗試多個 CORS 代理 =====
+        const CORS_PROXIES = [
+            'https://api.allorigins.win/raw?url=',
+            'https://corsproxy.io/?',
+            'https://proxy.cors.sh/'
+        ];
+        
+        async function fetchWithProxy(url, proxyIndex = 0) {
+            if (proxyIndex >= CORS_PROXIES.length) return null;
+            try {
+                const proxy = CORS_PROXIES[proxyIndex];
+                const targetUrl = proxy + encodeURIComponent(url);
+                const res = await fetch(targetUrl, { timeout: 8000 });
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return await res.json();
+            } catch(e) {
+                console.warn(`Proxy ${proxyIndex} failed:`, e);
+                return fetchWithProxy(url, proxyIndex + 1);
+            }
+        }
+        
         // ===== 取得 Yahoo Finance 數據 =====
         async function fetchYahoo(symbol) {
             try {
-                const url = encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1d`);
-                const res = await fetch(PROXY + url);
-                const data = await res.json();
+                const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1d`;
+                const data = await fetchWithProxy(url);
+                if (!data) return null;
                 const r = data.chart?.result?.[0];
                 if (!r) return null;
                 const m = r.meta;
@@ -310,22 +345,9 @@
                 const change = price - prev;
                 const pct = (change / prev) * 100;
                 return { price, change, pct, prev };
-            } catch(e) { console.error(symbol, e); return null; }
-        }
-        
-        // ===== 取得台股個股 =====
-        async function fetchTWStock(id) {
-            return fetchYahoo(id + '.TW');
-        }
-        
-        // ===== 更新強勢股顯示 =====
-        function updateStock(id, data) {
-            if (!data) return;
-            const pct = data.pct;
-            setVal(id + '-price', fmt(data.price));
-            const chgEl = document.getElementById(id + '-change');
-            if (chgEl) {
-                chgEl.innerHTML = `<span class="tag ${pct>=0?'tag-up':'tag-down'}">${fmtPct(pct)}</span>`;
+            } catch(e) {
+                console.error('Yahoo fetch error:', e);
+                return null;
             }
         }
         
@@ -371,74 +393,51 @@
             });
         }
         
-        // ===== 更新 VIX 風險儀表 =====
-        function updateRisk(vix) {
-            setVal('vix-price', vix ? fmt(vix.price, 2) : '--');
-            setVal('vix-risk', vix ? `${fmt(vix.price, 2)} (${vix.price < 20 ? '低' : vix.price < 30 ? '中' : '高'})` : '--');
-            if (vix) {
-                document.getElementById('vix-risk').style.color = vix.price < 20 ? '#00c853' : vix.price < 30 ? '#ff9800' : '#ff5252';
-            }
-        }
-        
         // ===== 刷新所有數據 =====
         async function refreshAll() {
-            document.getElementById('market-chart-loading').style.display = 'inline';
-            
             try {
                 // 並行取得所有數據
-                const [twii, nasdaq, vix, sp500, 
-                       stock2330, stock2454, stock2317] = await Promise.all([
+                const [twii, nasdaq, vix] = await Promise.all([
                     fetchYahoo('^TWII'),
                     fetchYahoo('^IXIC'),
-                    fetchYahoo('^VIX'),
-                    fetchYahoo('^GSPC'),
-                    fetchTWStock('2330'),
-                    fetchTWStock('2454'),
-                    fetchTWStock('2317')
+                    fetchYahoo('^VIX')
                 ]);
                 
-                // 更新主要指數
-                if (twii) {
-                    setVal('twii-price', fmt(twii.price));
-                    setVal('twii-change', fmtPct(twii.pct), twii.pct >= 0 ? '#00c853' : '#ff5252');
-                    document.getElementById('last-update').textContent = new Date().toLocaleTimeString('zh-TW');
-                }
-                
-                if (nasdaq) {
-                    setVal('nasdaq-price', fmt(nasdaq.price));
-                    setVal('nasdaq-change', fmtPct(nasdaq.pct), nasdaq.pct >= 0 ? '#00c853' : '#ff5252');
-                    document.getElementById('news-1').textContent = `美股 ${nasdaq.pct >= 0 ? '上漲' : '下跌'}！NASDAQ ${fmtPct(nasdaq.pct)}`;
-                }
-                
-                updateRisk(vix);
-                
-                // 更新強勢股
-                updateStock('2330', stock2330);
-                updateStock('2454', stock2454);
-                updateStock('2317', stock2317);
-                
-                // 計算樂觀指數 (基於 VIX 和趨勢)
-                let sentiment = 70;
-                if (vix && vix.price < 15) sentiment += 10;
-                else if (vix && vix.price < 20) sentiment += 5;
-                if (twii && twii.pct > 0) sentiment += 5;
-                sentiment = Math.min(100, Math.max(30, sentiment));
-                setVal('sentiment', sentiment);
-                
-                // 更新 VIX 風險顯示
-                if (vix) {
-                    const risk = document.getElementById('risk-bar');
-                    if (risk) {
-                        risk.style.width = (vix.price / 50 * 100) + '%';
-                        risk.style.background = vix.price < 20 ? 'linear-gradient(90deg,#00c853,#00c853)' : vix.price < 30 ? 'linear-gradient(90deg,#ff9800,#ff9800)' : 'linear-gradient(90deg,#ff5252,#ff5252)';
+                // 如果任何一個成功，就更新
+                if (twii || nasdaq || vix) {
+                    apiStatus = 'live';
+                    document.querySelectorAll('.status-badge').forEach(el => {
+                        el.className = 'status-badge status-live';
+                        el.textContent = '即時';
+                    });
+                    
+                    if (twii) {
+                        setVal('twii-price', fmt(twii.price));
+                        setVal('twii-change', fmtPct(twii.pct), twii.pct >= 0 ? '#00c853' : '#ff5252');
                     }
+                    
+                    if (nasdaq) {
+                        setVal('nasdaq-price', fmt(nasdaq.price));
+                        setVal('nasdaq-change', fmtPct(nasdaq.pct), nasdaq.pct >= 0 ? '#00c853' : '#ff5252');
+                    }
+                    
+                    if (vix) {
+                        setVal('vix-price', fmt(vix.price, 2), vix.price < 20 ? '#00c853' : vix.price < 30 ? '#ff9800' : '#ff5252');
+                    }
+                    
+                    document.querySelector('.update-time').textContent = '✅ 即時行情 (' + new Date().toLocaleTimeString('zh-TW') + ')';
+                } else {
+                    throw new Error('All API calls failed');
                 }
-                
-                document.getElementById('market-chart-loading').style.display = 'none';
                 
             } catch(e) {
-                console.error('Refresh error:', e);
-                document.getElementById('market-chart-loading').textContent = '載入失敗';
+                console.warn('API unavailable, showing fallback data:', e);
+                apiStatus = 'offline';
+                document.querySelectorAll('.status-badge').forEach(el => {
+                    el.className = 'status-badge status-offline';
+                    el.textContent = '離線';
+                });
+                document.querySelector('.update-time').textContent = '📊 顯示靜態參考資料 (API服務暫時不可用)';
             }
         }
         
@@ -454,7 +453,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             initCharts();
             refreshAll();
-            // 每5分鐘自動更新
+            // 每5分鐘嘗試更新
             setInterval(refreshAll, 300000);
         });
     </script>
