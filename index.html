@@ -397,14 +397,12 @@
         async function refreshAll() {
             try {
                 // 直接從 GitHub Pages 讀取 (無 CORS 限制)
-                const pagesUrl = 'https://jun20250621-prog.github.io/stock-dashboard/api/stock-data.json';
-                const pagesResponse = await fetch(pagesUrl + '?t=' + Date.now(), { cache: 'no-store' });
-                if (pagesResponse.ok) {
-                    const data = await pagesResponse.json();
-                    response = { ok: true, data };
-                } else {
-                    throw new Error('GitHub Pages fetch failed');
-                }
+                const jsonUrl = 'https://jun20250621-prog.github.io/stock-dashboard/api/stock-data.json';
+                const resp = await fetch(jsonUrl + '?t=' + Date.now(), { cache: 'no-store' });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                const data = await resp.json();
+                
+                // 更新指數
                 if (data.indices) {
                     if (data.indices.twii) {
                         setVal('twii-price', fmt(data.indices.twii.price));
@@ -419,6 +417,7 @@
                     }
                 }
                 
+                // 更新個股
                 if (data.stocks) {
                     for (const [id, s] of Object.entries(data.stocks)) {
                         const priceEl = document.getElementById(id + '-price');
@@ -430,15 +429,17 @@
                     }
                 }
                 
+                // 成功
                 apiStatus = 'live';
                 document.querySelectorAll('.status-badge').forEach(el => {
                     el.className = 'status-badge status-live';
                     el.textContent = '即時';
                 });
                 document.querySelector('.update-time').textContent = '✅ 即時行情 (' + new Date().toLocaleTimeString('zh-TW') + ')';
+                console.log('✅ 行情更新成功:', data.time);
                 return;
             } catch(e) {
-                console.warn('GitHub data fetch failed:', e);
+                console.warn('GitHub Pages fetch failed:', e.message);
             }
             
             // 如果 GitHub 失敗，嘗試直接 Yahoo API
