@@ -395,25 +395,36 @@
         
         // ===== 刷新所有數據 =====
         async function refreshAll() {
+            const jsonUrl = 'https://jun20250621-prog.github.io/stock-dashboard/api/stock-data.json';
+            
             try {
-                // 直接從 GitHub Pages 讀取 (無 CORS 限制)
-                const jsonUrl = 'https://jun20250621-prog.github.io/stock-dashboard/api/stock-data.json';
+                console.log('📡 開始 fetch:', jsonUrl);
                 const resp = await fetch(jsonUrl + '?t=' + Date.now(), { cache: 'no-store' });
+                console.log('📡 fetch 完成, status:', resp.status);
                 if (!resp.ok) throw new Error('HTTP ' + resp.status);
                 const data = await resp.json();
+                console.log('📡 JSON 解析成功, twii:', data.indices?.twii?.price);
                 
                 // 更新指數
                 if (data.indices) {
                     if (data.indices.twii) {
-                        setVal('twii-price', fmt(data.indices.twii.price));
-                        setVal('twii-change', fmtPct(data.indices.twii.pct), data.indices.twii.pct >= 0 ? '#00c853' : '#ff5252');
+                        document.getElementById('twii-price').textContent = fmt(data.indices.twii.price);
+                        const changeEl = document.getElementById('twii-change');
+                        if (changeEl) {
+                            changeEl.textContent = fmtPct(data.indices.twii.pct);
+                            changeEl.style.color = data.indices.twii.pct >= 0 ? '#00c853' : '#ff5252';
+                        }
                     }
                     if (data.indices.nasdaq) {
-                        setVal('nasdaq-price', fmt(data.indices.nasdaq.price));
-                        setVal('nasdaq-change', fmtPct(data.indices.nasdaq.pct), data.indices.nasdaq.pct >= 0 ? '#00c853' : '#ff5252');
+                        document.getElementById('nasdaq-price').textContent = fmt(data.indices.nasdaq.price);
+                        const changeEl = document.getElementById('nasdaq-change');
+                        if (changeEl) {
+                            changeEl.textContent = fmtPct(data.indices.nasdaq.pct);
+                            changeEl.style.color = data.indices.nasdaq.pct >= 0 ? '#00c853' : '#ff5252';
+                        }
                     }
                     if (data.indices.vix) {
-                        setVal('vix-price', fmt(data.indices.vix.price, 2), data.indices.vix.price < 20 ? '#00c853' : '#ff9800');
+                        document.getElementById('vix-price').textContent = fmt(data.indices.vix.price, 2);
                     }
                 }
                 
@@ -429,62 +440,22 @@
                     }
                 }
                 
-                // 成功
                 apiStatus = 'live';
                 document.querySelectorAll('.status-badge').forEach(el => {
                     el.className = 'status-badge status-live';
                     el.textContent = '即時';
                 });
                 document.querySelector('.update-time').textContent = '✅ 即時行情 (' + new Date().toLocaleTimeString('zh-TW') + ')';
-                console.log('✅ 行情更新成功:', data.time);
                 return;
             } catch(e) {
-                console.warn('GitHub Pages fetch failed:', e.message);
+                console.error('❌ fetch 失敗:', e.message, e.stack);
+                apiStatus = 'offline';
+                document.querySelectorAll('.status-badge').forEach(el => {
+                    el.className = 'status-badge status-offline';
+                    el.textContent = '離線';
+                });
+                document.querySelector('.update-time').textContent = '❌ fetch 失敗: ' + e.message;
             }
-            
-            // 如果 GitHub 失敗，嘗試直接 Yahoo API
-            try {
-                const [twii, nasdaq, vix] = await Promise.all([
-                    fetchYahoo('^TWII'),
-                    fetchYahoo('^IXIC'),
-                    fetchYahoo('^VIX')
-                ]);
-                
-                if (twii || nasdaq || vix) {
-                    apiStatus = 'live';
-                    document.querySelectorAll('.status-badge').forEach(el => {
-                        el.className = 'status-badge status-live';
-                        el.textContent = '即時';
-                    });
-                    
-                    if (twii) {
-                        setVal('twii-price', fmt(twii.price));
-                        setVal('twii-change', fmtPct(twii.pct), twii.pct >= 0 ? '#00c853' : '#ff5252');
-                    }
-                    
-                    if (nasdaq) {
-                        setVal('nasdaq-price', fmt(nasdaq.price));
-                        setVal('nasdaq-change', fmtPct(nasdaq.pct), nasdaq.pct >= 0 ? '#00c853' : '#ff5252');
-                    }
-                    
-                    if (vix) {
-                        setVal('vix-price', fmt(vix.price, 2), vix.price < 20 ? '#00c853' : vix.price < 30 ? '#ff9800' : '#ff5252');
-                    }
-                    
-                    document.querySelector('.update-time').textContent = '✅ 即時行情 (' + new Date().toLocaleTimeString('zh-TW') + ')';
-                    return;
-                }
-            } catch(e2) {
-                console.warn('Yahoo API also failed:', e2);
-            }
-            
-            // 都失敗，使用靜態資料
-            apiStatus = 'offline';
-            document.querySelectorAll('.status-badge').forEach(el => {
-                el.className = 'status-badge status-offline';
-                el.textContent = '離線';
-            });
-            document.querySelector('.update-time').textContent = '📊 顯示靜態參考資料 (API服務暫時不可用)';
         }
         
         // ===== 頁面切換 =====
