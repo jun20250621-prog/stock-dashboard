@@ -396,17 +396,14 @@
         // ===== 刷新所有數據 =====
         async function refreshAll() {
             try {
-                // 先從 GitHub API 讀取資料 (不怕 rate limit)
-                const apiUrl = 'https://api.github.com/repos/jun20250621-prog/stock-dashboard/contents/api/stock-data.json';
-                const apiResponse = await fetch(apiUrl + '?t=' + Date.now(), {
-                    headers: { 'Accept': 'application/vnd.github.v3+json' }
-                });
-                if (apiResponse.ok) {
-                    const apiData = await apiResponse.json();
-                    const data = JSON.parse(atob(apiData.content));
+                // 直接從 GitHub Pages 讀取 (無 CORS 限制)
+                const pagesUrl = 'https://jun20250621-prog.github.io/stock-dashboard/api/stock-data.json';
+                const pagesResponse = await fetch(pagesUrl + '?t=' + Date.now(), { cache: 'no-store' });
+                if (pagesResponse.ok) {
+                    const data = await pagesResponse.json();
                     response = { ok: true, data };
                 } else {
-                    throw new Error('GitHub API failed');
+                    throw new Error('GitHub Pages fetch failed');
                 }
                 if (data.indices) {
                     if (data.indices.twii) {
