@@ -196,9 +196,16 @@ def main():
         **yahoo,
     }
 
+    # 同時寫入 JS 版（index.html 直接<script src載入，無需 fetch）
+    js_path = API_DIR / "stock-data.js"
+    with open(js_path, "w", encoding="utf-8") as f:
+        f.write(f"// Auto-generated {datetime.now().isoformat()}\n")
+        f.write(f"window.STOCK_DATA = {json.dumps(stock_data, ensure_ascii=False)};\n")
+    print(f"  💾 寫入 api/stock-data.js")
+
     with open(API_DIR / "stock-data.json", "w", encoding="utf-8") as f:
         json.dump(stock_data, f, ensure_ascii=False, indent=2)
-    print(f"\n  💾 寫入 api/stock-data.json")
+    print(f"  💾 寫入 api/stock-data.json")
 
     # 2. TWSE 法人
     print("\n── TWSE 法人買賣超 (T86) ──")
