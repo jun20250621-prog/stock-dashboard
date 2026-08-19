@@ -54,16 +54,81 @@
         // chart data
         var labels = d.history || [];
         if (labels.length > 0 && window.marketChart) {
-            window.marketChart.data.labels = labels.map(function(l) { return l.label || ''; });
+            window.marketChart.data.labels = labels.map(function(l) { return l.label || l.date || ''; });
             window.marketChart.data.datasets[0].data = labels.map(function(l) { return l.twii; });
             window.marketChart.update();
         }
         if (labels.length > 0 && window.compareChart) {
-            window.compareChart.data.labels = labels.map(function(l) { return l.label || ''; });
+            window.compareChart.data.labels = labels.map(function(l) { return l.label || l.date || ''; });
             window.compareChart.data.datasets[0].data = labels.map(function(l) { return l.twii; });
             window.compareChart.data.datasets[1].data = labels.map(function(l) { return l.sp500 || null; });
             window.compareChart.update();
         }
+    }
+
+    // Load margin data and update risk table
+    function loadMarginData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/stock-dashboard/api/margin.json', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== 4 || xhr.status !== 200) return;
+            try {
+                var d = JSON.parse(xhr.responseText);
+                var mb = d.margin_balance;
+                var sb = d.short_balance;
+                // 融資使用率: 簡單用 40% 當估算值 (無完整資料時)
+                if (mb && mb > 0) {
+                    var el = document.getElementById('margin-usage');
+                    if (el) el.textContent = mb.toLocaleString();
+                }
+                if (sb && sb > 0) {
+                    var el = document.getElementById('short-balance');
+                    if (el) el.textContent = sb.toLocaleString();
+                }
+            } catch(e) {
+                console.warn('margin.json parse error', e);
+            }
+        };
+        xhr.send();
+    }
+
+    // Load institutional data and update cards
+    function loadInstitutionalData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/stock-dashboard/api/institutional.json', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== 4 || xhr.status !== 200) return;
+            try {
+                var d = JSON.parse(xhr.responseText);
+                var stocks = d.data || {};
+                // Update top movers table if visible
+                updateInstTable(stocks);
+            } catch(e) {
+                console.warn('institutional.json parse error', e);
+            }
+        };
+        xhr.send();
+    }
+
+    function updateInstTable(stocks) {
+        // Find top 3 by absolute total_net
+        var sorted = Object.keys(stocks).map(function(sid) {
+            return { sid: sid, name: stocks[sid].name, total: stocks[sid].total_net };
+        }).sort(function(a, b) {
+            return Math.abs(b.total) - Math.abs(a.total);
+        }).slice(0, 5);
+
+        var tbody = document.querySelector('#page-dashboard #inst-table-body');
+        if (!tbody) return;
+        tbody.innerHTML = '';
+        sorted.forEach(function(item) {
+            var tr = document.createElement('tr');
+            var sign = item.total >= 0 ? '+' : '';
+            tr.innerHTML = '<td>' + item.name + '</td>' +
+                '<td style="color:' + (item.total >= 0 ? '#00c853' : '#ff5252') + ';">' +
+                sign + item.total.toLocaleString() + '</td>';
+            tbody.appendChild(tr);
+        });
     }
 
     var marketChart, instChart, compareChart, industryChart, instTrendChart, marginChart;
@@ -193,12 +258,14 @@
     document.addEventListener('DOMContentLoaded', function() {
         initCharts();
         applyStockData();
+        loadMarginData();
+        loadInstitutionalData();
     });
 
     function showPage(page) {
         document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
         document.querySelectorAll('.nav-links a').forEach(function(a) { a.classList.remove('active'); });
         document.getElementById('page-' + page).classList.add('active');
-        if (event && event.target) event.target.classList.add('active');
+        if (event && event.target && event.target.classList) event.target.classList.add('active');
     }
 })();

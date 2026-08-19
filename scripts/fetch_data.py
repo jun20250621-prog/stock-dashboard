@@ -94,49 +94,47 @@ def fetch_all_yahoo():
 
 # ─── 2. TWSE 法人買賣超 (T86) — POST 完整版 ─────────────────────────────────
 def fetch_twse_institutional(date_str):
-    """取得指定日期全部股票法人買賣超資料"""
-    try:
-        r = SESSION.post(
-            "https://www.twse.com.tw/rwd/zh/fund/T86",
-            data={
-                "date":       date_str,
-                "selectType": "ALLBUT0999",
-                "response":   "json",
-            },
-            verify=False,
-            timeout=10,
-        )
-        d = r.json()
-        if d.get("stat") != "OK":
-            print(f"  ⚠️  T86 stat={d.get('stat')}")
-            return {}
-    except Exception as e:
-        print(f"  ⚠️  T86 fetch 失敗: {e}")
-        return {}
-
-    # fields: 證券代號, 證券名稱, 外陸資買進, 外陸資賣出, 外陸資買賣超,
-    #         外自營買進, 外自營賣出, 外自營買賣超,
-    #         投信買進, 投信賣出, 投信買賣超,
-    #         自營商買賣超(自行), 自營商買賣超(避險), 三大法人買賣超
-    # 改為存全部股票，不再限制 TARGETS
-    result = {}
-    for row in d.get("data", []):
-        if len(row) < 14:
-            continue
-        sid        = row[0].strip()
-        name       = row[1].strip()
-        foreign_net = _parse_num(row[4])
-        dealer_net  = _parse_num(row[10])
-        prop_net    = _parse_num(row[11])
-        total_net   = _parse_num(row[13])
-        result[sid] = {
-            "name":        name,
-            "foreign_net": foreign_net,
-            "dealer_net":  dealer_net,
-            "prop_net":    prop_net,
-            "total_net":   total_net,
-        }
-    return result
+    """取得指定日期全部股票法人買賣超資料 — 最多 retry 3 次"""
+    for attempt in range(3):
+        try:
+            r = SESSION.post(
+                "https://www.twse.com.tw/rwd/zh/fund/T86",
+                data={
+                    "date":       date_str,
+                    "selectType": "ALLBUT0999",
+                    "response":   "json",
+                },
+                verify=False,
+                timeout=15,
+            )
+            d = r.json()
+            if d.get("stat") == "OK" and d.get("data"):
+                result = {}
+                for row in d.get("data", []):
+                    if len(row) < 14:
+                        continue
+                    sid         = row[0].strip()
+                    name        = row[1].strip()
+                    foreign_net = _parse_num(row[4])
+                    dealer_net  = _parse_num(row[10])
+                    prop_net    = _parse_num(row[11])
+                    total_net   = _parse_num(row[13])
+                    result[sid] = {
+                        "name":        name,
+                        "foreign_net": foreign_net,
+                        "dealer_net":  dealer_net,
+                        "prop_net":    prop_net,
+                        "total_net":   total_net,
+                    }
+                print(f"  ✅ T86: 取得 {len(result)} 檔")
+                return result
+            print(f"  ⚠️  T86 attempt {attempt+1}: stat={d.get('stat')}")
+        except Exception as e:
+            print(f"  ⚠️  T86 attempt {attempt+1} 失敗: {e}")
+        if attempt < 2:
+            import time; time.sleep(3)
+    print(f"  ⚠️  T86 全部 retry 失敗，回傳空")
+    return {}
 
 def _parse_num(val):
     """把 '1,234,567' 或 '+1,234,567' 轉成 int，None/空傳 0"""

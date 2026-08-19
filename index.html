@@ -121,9 +121,9 @@
                     <div class="risk-bar"><div class="risk-level" style="width:30%;background:linear-gradient(90deg,#00c853,#00c853);"></div></div>
                     <div style="display:flex;justify-content:space-between;font-size:9px;color:#666;margin-bottom:10px;"><span>保守</span><span>均衡</span><span>積極</span></div>
                     <table class="table">
-                        <tr><td>融資使用率</td><td style="color:#00c853;">35% (安全)</td></tr>
-                        <tr><td>券資比</td><td style="color:#00c853;">12% (正常)</td></tr>
-                        <tr><td>VIX</td><td style="color:#00c853;">18.5 (低)</td></tr>
+                        <tr><td>融資使用率</td><td style="color:#00c853;" id="margin-usage">35% (安全)</td></tr>
+                        <tr><td>券資比</td><td style="color:#00c853;" id="short-balance">12% (正常)</td></tr>
+                        <tr><td>VIX</td><td style="color:#00c853;" id="vix-risk">18.5 (低)</td></tr>
                         <tr><td>RSI</td><td style="color:#ff9800;">72 (過熱)</td></tr>
                     </table>
                 </div>
@@ -142,7 +142,7 @@
                 <div class="card">
                     <div class="card-title">🔍 法人青睞</div>
                     <table class="table"><thead><tr><th>股票</th><th>買超(億)</th><th>天數</th></tr></thead>
-                        <tbody>
+                        <tbody id="inst-table-body">
                             <tr><td>台積電</td><td style="color:#00c853;">+15.2</td><td>12天</td></tr>
                             <tr><td>聯發科</td><td style="color:#00c853;">+8.5</td><td>8天</td></tr>
                             <tr><td>廣達</td><td style="color:#00c853;">+6.2</td><td>5天</td></tr>
