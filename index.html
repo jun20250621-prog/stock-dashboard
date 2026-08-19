@@ -79,11 +79,11 @@
     <div class="main">
         <div class="page active" id="page-dashboard">
             <div class="stats">
-                <div class="stat"><div class="stat-value">44,611</div><div class="stat-label">台灣加權</div></div>
-                <div class="stat"><div class="stat-value" style="color:#00c853;">+2.88%</div><div class="stat-label">今日漲幅</div></div>
-                <div class="stat"><div class="stat-value">26,584</div><div class="stat-label">NASDAQ</div></div>
-                <div class="stat"><div class="stat-value" style="color:#00c853;">+2.59%</div><div class="stat-label">美股漲幅</div></div>
-                <div class="stat"><div class="stat-value" style="color:#00c853;">18.5</div><div class="stat-label">VIX</div></div>
+                <div class="stat"><div class="stat-value" id="twii-price">--</div><div class="stat-label">台灣加權</div></div>
+                <div class="stat"><div class="stat-value" id="twii-pct" style="color:#00c853;">--</div><div class="stat-label">今日漲幅</div></div>
+                <div class="stat"><div class="stat-value" id="nasdaq-price">--</div><div class="stat-label">NASDAQ</div></div>
+                <div class="stat"><div class="stat-value" id="nasdaq-pct" style="color:#00c853;">--</div><div class="stat-label">美股漲幅</div></div>
+                <div class="stat"><div class="stat-value" id="vix-price" style="color:#00c853;">--</div><div class="stat-label">VIX</div></div>
                 <div class="stat"><div class="stat-value">85</div><div class="stat-label">樂觀指數</div></div>
             </div>
             <div class="strategy">
@@ -285,19 +285,130 @@
 
     <script>
         const colors = { primary: '#00d4ff', secondary: '#7c3aed', success: '#00c853', danger: '#ff5252', warning: '#ff9800' };
-        
-        new Chart(document.getElementById('marketChart'), { type: 'line', data: { labels: ['1月','2月','3月','4月','5月','6月','7月','8月'], datasets: [{ label: '台灣加權', data: [18000,18500,19800,21000,22500,38000,42000,44611], borderColor: colors.primary, backgroundColor: 'rgba(0,212,255,0.1)', fill: true, tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } });
-        
-        new Chart(document.getElementById('instChart'), { type: 'bar', data: { labels: ['投信','自營商','外陸資'], datasets: [{ data: [45,32,-28], backgroundColor: [colors.success,colors.success,colors.danger] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } });
-        
-        new Chart(document.getElementById('compareChart'), { type: 'line', data: { labels: ['1月','2月','3月','4月','5月','6月','7月','8月'], datasets: [{ label: '台灣', data: [18000,18500,19800,21000,22500,38000,42000,44611], borderColor: colors.primary, tension: 0.4 }, { label: '美國', data: [15000,15500,16000,16800,17500,23000,25000,26584], borderColor: colors.secondary, tension: 0.4 }, { label: '日本', data: [33000,34000,35000,38000,39000,56000,60000,63957], borderColor: colors.success, tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } });
-        
-        new Chart(document.getElementById('industryChart'), { type: 'bar', data: { labels: ['半導體','AI伺服器','光電','電子','傳產','金融'], datasets: [{ label: '漲幅%', data: [4.2,3.8,2.5,2.1,-0.5,-0.3], backgroundColor: [colors.success,colors.success,colors.success,colors.success,colors.danger,colors.danger] }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#fff', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } });
-        
-        new Chart(document.getElementById('instTrendChart'), { type: 'line', data: { labels: ['1週','2週','3週','4週','本週'], datasets: [{ label: '投信', data: [12,18,25,38,45], borderColor: colors.success, tension: 0.4 }, { label: '自營商', data: [8,15,22,28,32], borderColor: colors.warning, tension: 0.4 }, { label: '外陸資', data: [-5,-12,-18,-22,-28], borderColor: colors.danger, tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } });
-        
-        new Chart(document.getElementById('marginChart'), { type: 'line', data: { labels: ['1月','2月','3月','4月','5月','6月','7月','8月'], datasets: [{ label: '融資(億)', data: [1800,1850,1900,1950,2000,2100,2200,2150], borderColor: colors.primary, tension: 0.4 }, { label: '融券(萬)', data: [250,260,280,290,300,310,320,280], borderColor: colors.warning, tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } });
-        
+
+        async function loadStockData() {
+            try {
+                const resp = await fetch('api/stock-data.json?t=' + Date.now());
+                if (!resp.ok) throw new Error('fetch failed');
+                const d = await resp.json();
+
+                // 驅動 stat cards
+                const twii    = d.twii    || {};
+                const nasdaq  = d.nasdaq  || {};
+                const sp500   = d.sp500   || {};
+                const vix     = d.vix     || {};
+                const tsmc    = d.tsmc    || {};
+                const mediatek= d.mediatek|| {};
+                const foxconn = d.foxconn  || {};
+
+                const fmt = (n, dec=2) => (n == null) ? '--' : n.toLocaleString('en', {minimumFractionDigits: dec, maximumFractionDigits: dec});
+                const fmtPct = (n) => (n == null) ? '--' : (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
+                const pctColor = (n) => n == null ? '#888' : (n >= 0 ? '#00c853' : '#ff5252');
+
+                document.getElementById('twii-price').textContent    = fmt(twii.price,    2);
+                document.getElementById('twii-pct').textContent     = fmtPct(twii.change_pct);
+                document.getElementById('twii-pct').style.color      = pctColor(twii.change_pct);
+                document.getElementById('nasdaq-price').textContent = fmt(nasdaq.price,  2);
+                document.getElementById('nasdaq-pct').textContent    = fmtPct(nasdaq.change_pct);
+                document.getElementById('nasdaq-pct').style.color   = pctColor(nasdaq.change_pct);
+                document.getElementById('vix-price').textContent     = fmt(vix.price,     2);
+
+                // 更新走勢圖（近8日月線，攤平每日一點）
+                const labels = d.history || [];
+                const twiiHistory = labels.map(l => l.twii);
+                if (twiiHistory.length > 0 && window.marketChart) {
+                    window.marketChart.data.labels = labels.map(l => l.label || '');
+                    window.marketChart.data.datasets[0].data = twiiHistory;
+                    window.marketChart.update();
+                }
+
+                // 更新 compareChart（台灣vs美國）
+                if (window.compareChart) {
+                    const sp500History = labels.map(l => l.sp500 || null).filter(x => x != null);
+                    if (sp500History.length > 0) {
+                        window.compareChart.data.labels = labels.map(l => l.label || '');
+                        window.compareChart.data.datasets[0].data = twiiHistory;
+                        window.compareChart.data.datasets[1].data = sp500History;
+                        window.compareChart.update();
+                    }
+                }
+            } catch(e) {
+                console.warn('stock-data load failed:', e);
+            }
+        }
+
+        // 圖表實例保留參照以便日後 update
+        let marketChart, instChart, compareChart, industryChart, instTrendChart, marginChart;
+
+        function initCharts() {
+            marketChart = new Chart(document.getElementById('marketChart'), {
+                type: 'line',
+                data: {
+                    labels: [], datasets: [{ label: '台灣加權', data: [], borderColor: colors.primary, backgroundColor: 'rgba(0,212,255,0.1)', fill: true, tension: 0.4 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
+            });
+
+            instChart = new Chart(document.getElementById('instChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['投信','自營商','外陸資'],
+                    datasets: [{ data: [0,0,0], backgroundColor: [colors.success,colors.success,colors.danger] }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
+            });
+
+            compareChart = new Chart(document.getElementById('compareChart'), {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        { label: '台灣', data: [], borderColor: colors.primary, tension: 0.4 },
+                        { label: '美國', data: [], borderColor: colors.secondary, tension: 0.4 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
+            });
+
+            industryChart = new Chart(document.getElementById('industryChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['半導體','AI伺服器','光電','電子','傳產','金融'],
+                    datasets: [{ label: '漲幅%', data: [0,0,0,0,0,0], backgroundColor: [colors.success,colors.success,colors.success,colors.success,colors.danger,colors.danger] }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#fff', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
+            });
+
+            instTrendChart = new Chart(document.getElementById('instTrendChart'), {
+                type: 'line',
+                data: {
+                    labels: ['1週','2週','3週','4週','本週'],
+                    datasets: [
+                        { label: '投信',   data: [0,0,0,0,0], borderColor: colors.success,  tension: 0.4 },
+                        { label: '自營商', data: [0,0,0,0,0], borderColor: colors.warning,  tension: 0.4 },
+                        { label: '外陸資', data: [0,0,0,0,0], borderColor: colors.danger,   tension: 0.4 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
+            });
+
+            marginChart = new Chart(document.getElementById('marginChart'), {
+                type: 'line',
+                data: {
+                    labels: ['1月','2月','3月','4月','5月','6月','7月','8月'],
+                    datasets: [
+                        { label: '融資(億)', data: [0,0,0,0,0,0,0,0], borderColor: colors.primary, tension: 0.4 },
+                        { label: '融券(萬)', data: [0,0,0,0,0,0,0,0], borderColor: colors.warning, tension: 0.4 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
+            });
+        }
+
+        initCharts();
+        loadStockData();
+        setInterval(loadStockData, 5 * 60 * 1000); // 每5分鐘刷新
+
         function showPage(page) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active')); document.getElementById('page-' + page).classList.add('active'); event.target.classList.add('active'); }
     </script>
 </body>
