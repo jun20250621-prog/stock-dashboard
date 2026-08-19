@@ -6,6 +6,9 @@ on:
     # 台灣時間 09:00 (UTC 01:00) 與 15:00 (UTC 07:00)，週一至五
     - cron: "0 1,7 * * 1-5"
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
