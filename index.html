@@ -295,8 +295,8 @@
             var nasdaq = d.nasdaq || {};
             var vix    = d.vix    || {};
 
-            var fmt     = function(n, dec) { return (n == null) ? '--' : n.toLocaleString('en', {minimumFractionDigits: dec||2, maximumFractionDigits: dec||2}); };
-            var fmtPct  = function(n)      { return (n == null) ? '--' : (n >= 0 ? '+' : '') + n.toFixed(2) + '%'; };
+            var fmt     = function(n, dec) { return (n == null) ? '--' : n.toFixed(dec||2); };
+            var fmtPct  = function(n)      { return (n == null) ? '--' : ((n >= 0 ? '+' : '') + n.toFixed(2) + '%'); };
             var pctColor= function(n)         { return (n == null) ? '#888' : (n >= 0 ? '#00c853' : '#ff5252'); };
 
             var el;
