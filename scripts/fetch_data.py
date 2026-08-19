@@ -104,7 +104,7 @@ def fetch_twse_institutional(date_str):
                 "response":   "json",
             },
             verify=False,
-            timeout=30,
+            timeout=10,
         )
         d = r.json()
         if d.get("stat") != "OK":
@@ -113,29 +113,29 @@ def fetch_twse_institutional(date_str):
     except Exception as e:
         print(f"  ⚠️  T86 fetch 失敗: {e}")
         return {}
-        return {}
 
     # fields: 證券代號, 證券名稱, 外陸資買進, 外陸資賣出, 外陸資買賣超,
     #         外自營買進, 外自營賣出, 外自營買賣超,
     #         投信買進, 投信賣出, 投信買賣超,
     #         自營商買賣超(自行), 自營商買賣超(避險), 三大法人買賣超
-    TARGETS = {"2330", "2454", "2317", "2498", "3034"}
+    # 改為存全部股票，不再限制 TARGETS
     result = {}
     for row in d.get("data", []):
-        sid = row[0].strip()
-        if sid in TARGETS:
-            name       = row[1].strip()
-            foreign_net  = _parse_num(row[4])   # 外陸資淨
-            dealer_net   = _parse_num(row[10])  # 投信淨
-            prop_net     = _parse_num(row[11])  # 自營商淨
-            total_net    = _parse_num(row[13])  # 三大法人淨
-            result[sid] = {
-                "name":        name,
-                "foreign_net": foreign_net,
-                "dealer_net":  dealer_net,
-                "prop_net":    prop_net,
-                "total_net":   total_net,
-            }
+        if len(row) < 14:
+            continue
+        sid        = row[0].strip()
+        name       = row[1].strip()
+        foreign_net = _parse_num(row[4])
+        dealer_net  = _parse_num(row[10])
+        prop_net    = _parse_num(row[11])
+        total_net   = _parse_num(row[13])
+        result[sid] = {
+            "name":        name,
+            "foreign_net": foreign_net,
+            "dealer_net":  dealer_net,
+            "prop_net":    prop_net,
+            "total_net":   total_net,
+        }
     return result
 
 def _parse_num(val):
@@ -169,18 +169,14 @@ def fetch_twse_margin(date_str):
         return {}
 
     # tables[0]["data"] = list of rows, each row is [項目, 買進, 賣出, 現金償還, 前日餘額, 今日餘額]
-    print(f"  🔍 MI_MARGN raw d.keys={list(d.keys())}, tables count={len(d.get('tables',[]))}")
     margin_balance = 0
     short_balance  = 0
     for row in d.get("tables", [])[0].get("data", []):
         label = str(row[0]).strip() if row else ""
-        print(f"     row label={repr(label)}")
         if "融資(交易單位)" in label:
             margin_balance = _parse_num(row[5])   # 今日餘額
-            print(f"       → margin_balance={margin_balance}")
         if "融券(交易單位)" in label:
             short_balance  = _parse_num(row[5])   # 今日餘額
-            print(f"       → short_balance={short_balance}")
 
     return {
         "margin_balance": margin_balance,
