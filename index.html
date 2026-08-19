@@ -415,9 +415,11 @@
             });
         }
 
-        initCharts();
-        loadStockData();
-        setInterval(loadStockData, 5 * 60 * 1000); // 每5分鐘刷新
+        document.addEventListener('DOMContentLoaded', function() {
+            initCharts();
+            loadStockData();
+            setInterval(loadStockData, 5 * 60 * 1000);
+        });
 
         function showPage(page) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active')); document.getElementById('page-' + page).classList.add('active'); event.target.classList.add('active'); }
     </script>
