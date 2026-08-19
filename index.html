@@ -286,13 +286,21 @@
     <script>
         const colors = { primary: '#00d4ff', secondary: '#7c3aed', success: '#00c853', danger: '#ff5252', warning: '#ff9800' };
 
-        async function loadStockData() {
-            try {
-                const resp = await fetch('api/stock-data.json?t=' + Date.now());
-                if (!resp.ok) throw new Error('fetch failed');
-                const d = await resp.json();
+        function loadStockData() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'api/stock-data.json?t=' + Date.now(), true);
+            xhr.onerror = function(e) { console.error('XHR error', e); };
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState !== 4) return;
+                if (xhr.status === 200) {
+                    try {
+                        var d = JSON.parse(xhr.responseText);
+                    } catch(e) {
+                        console.error('JSON parse error', e);
+                        return;
+                    }
 
-                // 驅動 stat cards
+                    // 驅動 stat cards
                 const twii    = d.twii    || {};
                 const nasdaq  = d.nasdaq  || {};
                 const sp500   = d.sp500   || {};
@@ -332,9 +340,11 @@
                         window.compareChart.update();
                     }
                 }
-            } catch(e) {
-                console.warn('stock-data load failed:', e);
-            }
+                } else if (xhr.status !== 0) {
+                    console.error('XHR non-200 status:', xhr.status);
+                }
+            };
+            xhr.send();
         }
 
         // 圖表實例保留參照以便日後 update
