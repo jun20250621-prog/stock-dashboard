@@ -288,7 +288,7 @@
 
         function loadStockData() {
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'api/stock-data.json?t=' + Date.now(), true);
+            xhr.open('GET', 'https://jun20250621-prog.github.io/stock-dashboard/api/stock-data.json?t=' + Date.now(), true);
             xhr.onerror = function(e) { console.error('XHR error', e); };
             xhr.onreadystatechange = function() {
                 if (xhr.readyState !== 4) return;
