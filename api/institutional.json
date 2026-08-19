@@ -1,6 +1,42 @@
 {
   "date": "2026/08/19",
   "source": "TWSE T86",
-  "updated": "2026-08-19T08:20:17.582200",
-  "data": {}
+  "updated": "2026-08-19T08:26:11.543075",
+  "data": {
+    "3034": {
+      "name": "聯詠",
+      "foreign_net": 1250910,
+      "dealer_net": 66000,
+      "prop_net": 82541,
+      "total_net": 52000
+    },
+    "2498": {
+      "name": "宏達電",
+      "foreign_net": -219419,
+      "dealer_net": 0,
+      "prop_net": 184955,
+      "total_net": 82000
+    },
+    "2454": {
+      "name": "聯發科",
+      "foreign_net": -216230,
+      "dealer_net": -372250,
+      "prop_net": -265132,
+      "total_net": 190003
+    },
+    "2330": {
+      "name": "台積電",
+      "foreign_net": -7417943,
+      "dealer_net": -668410,
+      "prop_net": 719342,
+      "total_net": 90647
+    },
+    "2317": {
+      "name": "鴻海",
+      "foreign_net": -10064384,
+      "dealer_net": -300000,
+      "prop_net": -822130,
+      "total_net": 46279
+    }
+  }
 }
