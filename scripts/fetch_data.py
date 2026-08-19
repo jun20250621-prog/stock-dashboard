@@ -169,14 +169,18 @@ def fetch_twse_margin(date_str):
         return {}
 
     # tables[0]["data"] = list of rows, each row is [項目, 買進, 賣出, 現金償還, 前日餘額, 今日餘額]
+    print(f"  🔍 MI_MARGN raw d.keys={list(d.keys())}, tables count={len(d.get('tables',[]))}")
     margin_balance = 0
     short_balance  = 0
     for row in d.get("tables", [])[0].get("data", []):
         label = str(row[0]).strip() if row else ""
+        print(f"     row label={repr(label)}")
         if "融資(交易單位)" in label:
             margin_balance = _parse_num(row[5])   # 今日餘額
+            print(f"       → margin_balance={margin_balance}")
         if "融券(交易單位)" in label:
             short_balance  = _parse_num(row[5])   # 今日餘額
+            print(f"       → short_balance={short_balance}")
 
     return {
         "margin_balance": margin_balance,
