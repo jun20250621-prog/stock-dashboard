@@ -4,7 +4,7 @@
 由 GitHub Actions 每天 09:00 與 15:00 (台灣時間) 自動執行
 """
 
-import json, re, ssl
+import json, re, ssl, time
 from datetime import datetime, date, timedelta
 from pathlib import Path
 
@@ -94,47 +94,76 @@ def fetch_all_yahoo():
 
 # ─── 2. TWSE 法人買賣超 (T86) — POST 完整版 ─────────────────────────────────
 def fetch_twse_institutional(date_str):
-    """取得指定日期全部股票法人買賣超資料 — 最多 retry 3 次"""
+    """取得指定日期全部股票法人買賣超資料 — Python retry → curl fallback"""
+    # 先用 Python requests
     for attempt in range(3):
         try:
             r = SESSION.post(
                 "https://www.twse.com.tw/rwd/zh/fund/T86",
-                data={
-                    "date":       date_str,
-                    "selectType": "ALLBUT0999",
-                    "response":   "json",
-                },
-                verify=False,
-                timeout=15,
+                data={"date": date_str, "selectType": "ALLBUT0999", "response": "json"},
+                verify=False, timeout=15,
             )
             d = r.json()
             if d.get("stat") == "OK" and d.get("data"):
-                result = {}
-                for row in d.get("data", []):
-                    if len(row) < 14:
-                        continue
-                    sid         = row[0].strip()
-                    name        = row[1].strip()
-                    foreign_net = _parse_num(row[4])
-                    dealer_net  = _parse_num(row[10])
-                    prop_net    = _parse_num(row[11])
-                    total_net   = _parse_num(row[13])
-                    result[sid] = {
-                        "name":        name,
-                        "foreign_net": foreign_net,
-                        "dealer_net":  dealer_net,
-                        "prop_net":    prop_net,
-                        "total_net":   total_net,
-                    }
-                print(f"  ✅ T86: 取得 {len(result)} 檔")
-                return result
-            print(f"  ⚠️  T86 attempt {attempt+1}: stat={d.get('stat')}")
+                result = _parse_t86_data(d.get("data", []))
+                if result:
+                    print(f"  ✅ T86 (Python): 取得 {len(result)} 檔")
+                    return result
+            print(f"  ⚠️  T86 attempt {attempt+1}: stat={d.get('stat')}, rows={len(d.get('data',[]))}")
         except Exception as e:
             print(f"  ⚠️  T86 attempt {attempt+1} 失敗: {e}")
         if attempt < 2:
-            import time; time.sleep(3)
-    print(f"  ⚠️  T86 全部 retry 失敗，回傳空")
+            time.sleep(3)
+
+    # Python 全部失敗，用 curl fallback
+    print(f"  🔄 T86 Python 失敗，改用 curl...")
+    try:
+        import subprocess, tempfile, os
+        result = subprocess.run(
+            ["curl", "-s", "-m", "15",
+             "-H", "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+             "-H", "Referer: https://www.twse.com.tw/",
+             "-H", "Accept-Language: zh-TW,zh;q=0.9",
+             "--data-urlencode", f"date={date_str}",
+             "--data-urlencode", "selectType=ALLBUT0999",
+             "--data-urlencode", "response=json",
+             "-X", "POST",
+             "https://www.twse.com.tw/rwd/zh/fund/T86"],
+            capture_output=True, text=True, timeout=20,
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            d = json.loads(result.stdout)
+            if d.get("stat") == "OK":
+                result = _parse_t86_data(d.get("data", []))
+                if result:
+                    print(f"  ✅ T86 (curl): 取得 {len(result)} 檔")
+                    return result
+                print(f"  ⚠️  T86 curl 解析失敗")
+    except Exception as e:
+        print(f"  ⚠️  T86 curl fallback 失敗: {e}")
+
+    print(f"  ⚠️  T86 全部失敗，回傳空")
     return {}
+
+def _parse_t86_data(rows):
+    result = {}
+    for row in rows:
+        if len(row) < 14:
+            continue
+        sid         = row[0].strip()
+        name        = row[1].strip()
+        foreign_net = _parse_num(row[4])
+        dealer_net  = _parse_num(row[10])
+        prop_net    = _parse_num(row[11])
+        total_net   = _parse_num(row[13])
+        result[sid] = {
+            "name":        name,
+            "foreign_net": foreign_net,
+            "dealer_net":  dealer_net,
+            "prop_net":    prop_net,
+            "total_net":   total_net,
+        }
+    return result
 
 def _parse_num(val):
     """把 '1,234,567' 或 '+1,234,567' 轉成 int，None/空傳 0"""
