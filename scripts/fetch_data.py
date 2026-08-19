@@ -25,7 +25,7 @@ SESSION.headers.update({
 SESSION.get("https://www.twse.com.tw/rwd/zh/fund/T86", verify=False, timeout=10)
 
 # 找到最近有資料的交易日（最多往回查 7 天，避免假日/週末/長假無資料）
-def find_latest_trading_date(base_date=None, max_lookback=7):
+def find_latest_trading_date(base_date=None, max_lookback=3):
     """往回找第一個 TWSE 有資料的日子；TWSE 連不上時用 base_date fallback"""
     d = base_date or date.today()
     for i in range(max_lookback + 1):
@@ -35,7 +35,7 @@ def find_latest_trading_date(base_date=None, max_lookback=7):
             r = SESSION.post(
                 "https://www.twse.com.tw/rwd/zh/fund/T86",
                 data={"date": date_str, "selectType": "ALLBUT0999", "response": "json"},
-                verify=False, timeout=20,
+                verify=False, timeout=10,
             )
             d_json = r.json()
             if d_json.get("stat") == "OK" and d_json.get("data"):
@@ -43,12 +43,11 @@ def find_latest_trading_date(base_date=None, max_lookback=7):
                 return date_str, check.strftime("%Y/%m/%d")
         except Exception as e:
             print(f"  ⚠️  TWSE {date_str} 失敗: {e}，跳過")
-    # TWSE 完全連不上時，直接用 base_date（避免 workflow 失敗）
     print(f"  ⚠️  TWSE 連不上，直接使用 {d.strftime('%Y%m%d')}")
     return d.strftime("%Y%m%d"), d.strftime("%Y/%m/%d")
 
 TODAY = date.today()
-DATE_STR, DATE_DISPLAY = find_latest_trading_date(TODAY)
+DATE_STR, DATE_DISPLAY = TODAY.strftime("%Y%m%d"), TODAY.strftime("%Y/%m/%d")
 
 API_DIR = Path(__file__).parent.parent / "api"
 API_DIR.mkdir(exist_ok=True)
@@ -169,27 +168,49 @@ def fetch_twse_margin(date_str):
         print(f"  ⚠️  MI_MARGN fetch 失敗: {e}")
         return {}
 
-    # 找出融資與融券的今日餘額 (交易單位)
-    margin_balance  = None   # 融資餘額
-    short_balance   = None   # 融券餘額
-    margin_limit    = None   # 融資限額
-    short_limit     = None   # 融券限額
-
-    for tbl in d.get("tables", []):
-        rows = tbl.get("data", [])
-        for row in rows:
-            label = str(row[0]).strip() if row else ""
-            if "融資" in label and "交易單位" in label and "金額" not in label:
-                # [項目, 買進, 賣出, 現金(券)償還, 前日餘額, 今日餘額]
-                margin_balance = _parse_num(row[5])
-            if "融券" in label and "交易單位" in label and "金額" not in label:
-                short_balance = _parse_num(row[5])
+    # tables[0]["data"] = list of rows, each row is [項目, 買進, 賣出, 現金償還, 前日餘額, 今日餘額]
+    margin_balance = 0
+    short_balance  = 0
+    for row in d.get("tables", [])[0].get("data", []):
+        label = str(row[0]).strip() if row else ""
+        if "融資(交易單位)" in label:
+            margin_balance = _parse_num(row[5])   # 今日餘額
+        if "融券(交易單位)" in label:
+            short_balance  = _parse_num(row[5])   # 今日餘額
 
     return {
-        "margin_balance": margin_balance  or 0,
-        "short_balance":  short_balance   or 0,
+        "margin_balance": margin_balance,
+        "short_balance":  short_balance,
         "date":           date_str,
     }
+
+# ─── History 累計（最多存 30 筆）──────────────────────────────────────────────
+HISTORY_FILE = API_DIR / "stock-data.json"
+MAX_HISTORY  = 30
+
+def load_history():
+    """從現有 stock-data.json 讀取 history，否則回傳空"""
+    if HISTORY_FILE.exists():
+        try:
+            with open(HISTORY_FILE, encoding="utf-8") as f:
+                d = json.load(f)
+            return d.get("history", [])
+        except Exception:
+            return []
+    return []
+
+def append_history(history, date_str, yahoo_data):
+    """新增一筆，並刪除舊的保留最多 MAX_HISTORY 筆"""
+    entry = {"date": date_str}
+    # 堆入指數
+    for key in ("twii", "nasdaq", "sp500", "dji", "vix"):
+        if key in yahoo_data:
+            entry[key] = round(yahoo_data[key].get("price") or 0, 2)
+    history.append(entry)
+    # 保留最近 MAX_HISTORY 筆
+    if len(history) > MAX_HISTORY:
+        history = history[-MAX_HISTORY:]
+    return history
 
 # ─── 主程式 ─────────────────────────────────────────────────────────────────
 def main():
@@ -200,10 +221,16 @@ def main():
     print("\n── Yahoo Finance ──")
     yahoo = fetch_all_yahoo()
 
+    # History 累計
+    history = load_history()
+    history = append_history(history, DATE_DISPLAY, yahoo)
+    print(f"  📈 history 累计: {len(history)} 筆")
+
     stock_data = {
         "date":     DATE_DISPLAY,
         "updated":  datetime.now().isoformat(),
         **yahoo,
+        "history":  history,
     }
 
     # 同時寫入 JS 版（index.html 直接<script src載入，無需 fetch）
