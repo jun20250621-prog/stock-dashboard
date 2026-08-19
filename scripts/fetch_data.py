@@ -26,24 +26,25 @@ SESSION.get("https://www.twse.com.tw/rwd/zh/fund/T86", verify=False, timeout=10)
 
 # 找到最近有資料的交易日（最多往回查 7 天，避免假日/週末/長假無資料）
 def find_latest_trading_date(base_date=None, max_lookback=7):
-    """往回找第一個 TWSE 有資料的日子"""
+    """往回找第一個 TWSE 有資料的日子；TWSE 連不上時用 base_date fallback"""
     d = base_date or date.today()
     for i in range(max_lookback + 1):
         check = d - timedelta(days=i)
         date_str = check.strftime("%Y%m%d")
-        r = SESSION.post(
-            "https://www.twse.com.tw/rwd/zh/fund/T86",
-            data={"date": date_str, "selectType": "ALLBUT0999", "response": "json"},
-            verify=False, timeout=15,
-        )
         try:
+            r = SESSION.post(
+                "https://www.twse.com.tw/rwd/zh/fund/T86",
+                data={"date": date_str, "selectType": "ALLBUT0999", "response": "json"},
+                verify=False, timeout=20,
+            )
             d_json = r.json()
             if d_json.get("stat") == "OK" and d_json.get("data"):
                 print(f"  🔍 找到最近交易日: {date_str} ({check.strftime('%Y/%m/%d')}, 往前回溯 {i} 天)")
                 return date_str, check.strftime("%Y/%m/%d")
-        except Exception:
-            pass
-    # fallback: 今天
+        except Exception as e:
+            print(f"  ⚠️  TWSE {date_str} 失敗: {e}，跳過")
+    # TWSE 完全連不上時，直接用 base_date（避免 workflow 失敗）
+    print(f"  ⚠️  TWSE 連不上，直接使用 {d.strftime('%Y%m%d')}")
     return d.strftime("%Y%m%d"), d.strftime("%Y/%m/%d")
 
 TODAY = date.today()
@@ -95,19 +96,24 @@ def fetch_all_yahoo():
 # ─── 2. TWSE 法人買賣超 (T86) — POST 完整版 ─────────────────────────────────
 def fetch_twse_institutional(date_str):
     """取得指定日期全部股票法人買賣超資料"""
-    r = SESSION.post(
-        "https://www.twse.com.tw/rwd/zh/fund/T86",
-        data={
-            "date":       date_str,
-            "selectType": "ALLBUT0999",
-            "response":   "json",
-        },
-        verify=False,
-        timeout=30,
-    )
-    d = r.json()
-    if d.get("stat") != "OK":
-        print(f"  ⚠️  T86 stat={d.get('stat')}")
+    try:
+        r = SESSION.post(
+            "https://www.twse.com.tw/rwd/zh/fund/T86",
+            data={
+                "date":       date_str,
+                "selectType": "ALLBUT0999",
+                "response":   "json",
+            },
+            verify=False,
+            timeout=30,
+        )
+        d = r.json()
+        if d.get("stat") != "OK":
+            print(f"  ⚠️  T86 stat={d.get('stat')}")
+            return {}
+    except Exception as e:
+        print(f"  ⚠️  T86 fetch 失敗: {e}")
+        return {}
         return {}
 
     # fields: 證券代號, 證券名稱, 外陸資買進, 外陸資賣出, 外陸資買賣超,
@@ -148,15 +154,19 @@ def _parse_num(val):
 # ─── 3. TWSE 融資融券 (MI_MARGN) — POST ─────────────────────────────────────
 def fetch_twse_margin(date_str):
     """取得市場整體融資融券使用率"""
-    r = SESSION.post(
-        "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN",
-        data={"date": date_str, "response": "json"},
-        verify=False,
-        timeout=15,
-    )
-    d = r.json()
-    if d.get("stat") != "OK":
-        print(f"  ⚠️  MI_MARGN stat={d.get('stat')}")
+    try:
+        r = SESSION.post(
+            "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN",
+            data={"date": date_str, "response": "json"},
+            verify=False,
+            timeout=20,
+        )
+        d = r.json()
+        if d.get("stat") != "OK":
+            print(f"  ⚠️  MI_MARGN stat={d.get('stat')}")
+            return {}
+    except Exception as e:
+        print(f"  ⚠️  MI_MARGN fetch 失敗: {e}")
         return {}
 
     # 找出融資與融券的今日餘額 (交易單位)
