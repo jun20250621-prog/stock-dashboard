@@ -6,8 +6,8 @@
     <title>📈 專業投資儀表板 Pro</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/stock-dashboard/api/stock-data.js"></script>
+    <script src="/stock-dashboard/api/app.js"></script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: linear-gradient(135deg, #0a0a1a, #1a1a2e); min-height: 100vh; color: #fff; }
         .topnav { position: fixed; top: 0; left: 0; right: 0; background: rgba(10,10,26,0.95); padding: 8px 15px; display: flex; justify-content: space-between; align-items: center; z-index: 100; border-bottom: 1px solid rgba(0,212,255,0.3); flex-wrap: wrap; gap: 5px; }
         .topnav h1 { font-size: 14px; background: linear-gradient(90deg, #00d4ff, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
@@ -284,99 +284,6 @@
         </div>
     </div>
 
-    <script>
-        const colors = { primary: '#00d4ff', secondary: '#7c3aed', success: '#00c853', danger: '#ff5252', warning: '#ff9800' };
-
-        function applyStockData() {
-            var d = window.STOCK_DATA;
-            if (!d) { console.warn('STOCK_DATA not found'); return; }
-
-            var twii   = d.twii   || {};
-            var nasdaq = d.nasdaq || {};
-            var vix    = d.vix    || {};
-
-            var fmt     = function(n, dec) { return (n == null) ? '--' : n.toFixed(dec||2); };
-            var fmtPct  = function(n)      { return (n == null) ? '--' : ((n >= 0 ? '+' : '') + n.toFixed(2) + '%'); };
-            var pctColor= function(n)         { return (n == null) ? '#888' : (n >= 0 ? '#00c853' : '#ff5252'); };
-
-            var el;
-            el = document.getElementById('twii-price');     if (el) el.textContent = fmt(twii.price, 2);
-            el = document.getElementById('twii-pct');       if (el) { el.textContent = fmtPct(twii.change_pct);  el.style.color = pctColor(twii.change_pct); }
-            el = document.getElementById('nasdaq-price');   if (el) el.textContent = fmt(nasdaq.price, 2);
-            el = document.getElementById('nasdaq-pct');     if (el) { el.textContent = fmtPct(nasdaq.change_pct); el.style.color = pctColor(nasdaq.change_pct); }
-            el = document.getElementById('vix-price');      if (el) el.textContent = fmt(vix.price, 2);
-
-            // 圖表
-            var labels = d.history || [];
-            if (labels.length > 0 && window.marketChart) {
-                window.marketChart.data.labels = labels.map(function(l){ return l.label||''; });
-                window.marketChart.data.datasets[0].data = labels.map(function(l){ return l.twii; });
-                window.marketChart.update();
-            }
-            if (labels.length > 0 && window.compareChart) {
-                window.compareChart.data.labels = labels.map(function(l){ return l.label||''; });
-                window.compareChart.data.datasets[0].data = labels.map(function(l){ return l.twii; });
-                window.compareChart.data.datasets[1].data = labels.map(function(l){ return l.sp500||null; });
-                window.compareChart.update();
-            }
-        }
-
-        var marketChart, instChart, compareChart, industryChart, instTrendChart, marginChart;
-
-        function initCharts() {
-            marketChart = new Chart(document.getElementById('marketChart'), {
-                type: 'line',
-                data: { labels: [], datasets: [{ label: '台灣加權', data: [], borderColor: colors.primary, backgroundColor: 'rgba(0,212,255,0.1)', fill: true, tension: 0.4 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
-            });
-            instChart = new Chart(document.getElementById('instChart'), {
-                type: 'bar',
-                data: { labels: ['投信','自營商','外陸資'], datasets: [{ data: [0,0,0], backgroundColor: [colors.success,colors.success,colors.danger] }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
-            });
-            compareChart = new Chart(document.getElementById('compareChart'), {
-                type: 'line',
-                data: { labels: [], datasets: [
-                    { label: '台灣', data: [], borderColor: colors.primary, tension: 0.4 },
-                    { label: '美國', data: [], borderColor: colors.secondary, tension: 0.4 }
-                ] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
-            });
-            industryChart = new Chart(document.getElementById('industryChart'), {
-                type: 'bar',
-                data: { labels: ['半導體','AI伺服器','光電','電子','傳產','金融'], datasets: [{ label: '漲幅%', data: [0,0,0,0,0,0], backgroundColor: [colors.success,colors.success,colors.success,colors.success,colors.danger,colors.danger] }] },
-                options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#fff', font: { size: 10 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
-            });
-            instTrendChart = new Chart(document.getElementById('instTrendChart'), {
-                type: 'line',
-                data: { labels: ['1週','2週','3週','4週','本週'], datasets: [
-                    { label: '投信',   data: [0,0,0,0,0], borderColor: colors.success,  tension: 0.4 },
-                    { label: '自營商', data: [0,0,0,0,0], borderColor: colors.warning,  tension: 0.4 },
-                    { label: '外陸資', data: [0,0,0,0,0], borderColor: colors.danger,   tension: 0.4 }
-                ] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
-            });
-            marginChart = new Chart(document.getElementById('marginChart'), {
-                type: 'line',
-                data: { labels: ['1月','2月','3月','4月','5月','6月','7月','8月'], datasets: [
-                    { label: '融資(億)', data: [0,0,0,0,0,0,0,0], borderColor: colors.primary, tension: 0.4 },
-                    { label: '融券(萬)', data: [0,0,0,0,0,0,0,0], borderColor: colors.warning, tension: 0.4 }
-                ] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#fff', font: { size: 9 } } }, scales: { x: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } }, y: { ticks: { color: '#666', font: { size: 9 } }, grid: { color: 'rgba(255,255,255,0.05)' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initCharts();
-            applyStockData();
-        });
-
-        function showPage(page) {
-            document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
-            document.querySelectorAll('.nav-links a').forEach(function(a){ a.classList.remove('active'); });
-            document.getElementById('page-' + page).classList.add('active');
-            if (event && event.target) event.target.classList.add('active');
-        }
-    </script>
 </body>
+</html>
 </html>
