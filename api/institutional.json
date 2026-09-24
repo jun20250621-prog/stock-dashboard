@@ -1,6 +1,9289 @@
 {
   "date": "2026/09/24",
   "source": "TWSE T86",
-  "updated": "2026-09-24T05:57:25.093891",
-  "data": {}
+  "updated": "2026-09-24T12:38:16.229415",
+  "data": {
+    "00403A": {
+      "name": "主動統一升級50",
+      "foreign_net": 64496136,
+      "dealer_net": 0,
+      "prop_net": 127820386,
+      "total_net": 0
+    },
+    "00981A": {
+      "name": "主動統一台股增長",
+      "foreign_net": 36446643,
+      "dealer_net": 0,
+      "prop_net": 46032153,
+      "total_net": 0
+    },
+    "00407A": {
+      "name": "主動凱基台灣",
+      "foreign_net": -3082000,
+      "dealer_net": 0,
+      "prop_net": 36110250,
+      "total_net": 0
+    },
+    "00991A": {
+      "name": "主動復華未來50",
+      "foreign_net": 9670354,
+      "dealer_net": 0,
+      "prop_net": 17629666,
+      "total_net": 300000
+    },
+    "00405A": {
+      "name": "主動富邦台灣龍耀",
+      "foreign_net": -3160199,
+      "dealer_net": 0,
+      "prop_net": 29367293,
+      "total_net": 150000
+    },
+    "00632R": {
+      "name": "元大台灣50反1",
+      "foreign_net": 1665000,
+      "dealer_net": 0,
+      "prop_net": 16888025,
+      "total_net": 0
+    },
+    "00409A": {
+      "name": "主動復華全球50",
+      "foreign_net": 13347000,
+      "dealer_net": 0,
+      "prop_net": 1577161,
+      "total_net": 0
+    },
+    "1303": {
+      "name": "南亞",
+      "foreign_net": 17802257,
+      "dealer_net": -5067000,
+      "prop_net": 1504545,
+      "total_net": 293000
+    },
+    "8150": {
+      "name": "南茂",
+      "foreign_net": 14649145,
+      "dealer_net": 10000,
+      "prop_net": -773958,
+      "total_net": 2024000
+    },
+    "00992A": {
+      "name": "主動群益科技創新",
+      "foreign_net": 6093250,
+      "dealer_net": 0,
+      "prop_net": 6947590,
+      "total_net": 100000
+    },
+    "009828": {
+      "name": "中信台日韓PCB",
+      "foreign_net": 6291000,
+      "dealer_net": 0,
+      "prop_net": 4856311,
+      "total_net": 0
+    },
+    "3016": {
+      "name": "嘉晶",
+      "foreign_net": 8256099,
+      "dealer_net": 0,
+      "prop_net": 307378,
+      "total_net": 124000
+    },
+    "3189": {
+      "name": "景碩",
+      "foreign_net": 6834210,
+      "dealer_net": 984001,
+      "prop_net": 517243,
+      "total_net": 181194
+    },
+    "3231": {
+      "name": "緯創",
+      "foreign_net": 7873084,
+      "dealer_net": -954000,
+      "prop_net": 661588,
+      "total_net": 56050
+    },
+    "009820": {
+      "name": "元大納斯達克精選",
+      "foreign_net": 671000,
+      "dealer_net": 0,
+      "prop_net": 5902481,
+      "total_net": 0
+    },
+    "00982A": {
+      "name": "主動群益台灣強棒",
+      "foreign_net": 3450650,
+      "dealer_net": 0,
+      "prop_net": 3056274,
+      "total_net": 0
+    },
+    "00988A": {
+      "name": "主動統一全球創新",
+      "foreign_net": 2412020,
+      "dealer_net": -132000,
+      "prop_net": 3371000,
+      "total_net": 50000
+    },
+    "00400A": {
+      "name": "主動國泰動能高息",
+      "foreign_net": 4863100,
+      "dealer_net": 0,
+      "prop_net": 575144,
+      "total_net": 0
+    },
+    "00402A": {
+      "name": "主動安聯美國科技",
+      "foreign_net": 6335166,
+      "dealer_net": 0,
+      "prop_net": -947037,
+      "total_net": 0
+    },
+    "9105": {
+      "name": "泰金寶-DR",
+      "foreign_net": 4314000,
+      "dealer_net": 0,
+      "prop_net": 141035,
+      "total_net": 0
+    },
+    "00990A": {
+      "name": "主動元大AI新經濟",
+      "foreign_net": 1919860,
+      "dealer_net": 0,
+      "prop_net": 2113059,
+      "total_net": 0
+    },
+    "2027": {
+      "name": "大成鋼",
+      "foreign_net": 2145473,
+      "dealer_net": 455000,
+      "prop_net": 930169,
+      "total_net": 0
+    },
+    "3702": {
+      "name": "大聯大",
+      "foreign_net": 2858239,
+      "dealer_net": 414000,
+      "prop_net": 179238,
+      "total_net": 0
+    },
+    "2492": {
+      "name": "華新科",
+      "foreign_net": 3144533,
+      "dealer_net": 1000,
+      "prop_net": 251770,
+      "total_net": 24000
+    },
+    "00993A": {
+      "name": "主動安聯台灣",
+      "foreign_net": 399000,
+      "dealer_net": 0,
+      "prop_net": 2875765,
+      "total_net": 0
+    },
+    "3026": {
+      "name": "禾伸堂",
+      "foreign_net": 2929696,
+      "dealer_net": 164000,
+      "prop_net": 3050,
+      "total_net": 56000
+    },
+    "6672": {
+      "name": "騰輝電子-KY",
+      "foreign_net": 2855913,
+      "dealer_net": -3000,
+      "prop_net": 87834,
+      "total_net": 8000
+    },
+    "4566": {
+      "name": "時碩工業",
+      "foreign_net": 2891414,
+      "dealer_net": 0,
+      "prop_net": 6847,
+      "total_net": 0
+    },
+    "00997A": {
+      "name": "主動群益美國增長",
+      "foreign_net": 2349000,
+      "dealer_net": 0,
+      "prop_net": 458785,
+      "total_net": 0
+    },
+    "009824": {
+      "name": "群益美國科技巨頭",
+      "foreign_net": 976000,
+      "dealer_net": 0,
+      "prop_net": 1830563,
+      "total_net": 0
+    },
+    "2412": {
+      "name": "中華電",
+      "foreign_net": 2862663,
+      "dealer_net": 79000,
+      "prop_net": -194020,
+      "total_net": 10000
+    },
+    "2030": {
+      "name": "彰源",
+      "foreign_net": 2496645,
+      "dealer_net": 0,
+      "prop_net": 54197,
+      "total_net": 13000
+    },
+    "2034": {
+      "name": "允強",
+      "foreign_net": 2434639,
+      "dealer_net": 0,
+      "prop_net": 13248,
+      "total_net": 1000
+    },
+    "2892": {
+      "name": "第一金",
+      "foreign_net": 1571309,
+      "dealer_net": 643000,
+      "prop_net": 147909,
+      "total_net": 18
+    },
+    "2327": {
+      "name": "國巨*",
+      "foreign_net": 2132480,
+      "dealer_net": -266000,
+      "prop_net": 472468,
+      "total_net": 32629
+    },
+    "00940": {
+      "name": "元大台灣價值高息",
+      "foreign_net": 23002,
+      "dealer_net": 0,
+      "prop_net": 2213605,
+      "total_net": 0
+    },
+    "1301": {
+      "name": "台塑",
+      "foreign_net": 1468187,
+      "dealer_net": 0,
+      "prop_net": 485588,
+      "total_net": 1867
+    },
+    "8028": {
+      "name": "昇陽半導體",
+      "foreign_net": -549327,
+      "dealer_net": 2309000,
+      "prop_net": 174445,
+      "total_net": 45082
+    },
+    "2014": {
+      "name": "中鴻",
+      "foreign_net": 1927000,
+      "dealer_net": 0,
+      "prop_net": 7000,
+      "total_net": 6000
+    },
+    "00949": {
+      "name": "復華日本龍頭",
+      "foreign_net": -16856,
+      "dealer_net": 0,
+      "prop_net": 1909061,
+      "total_net": 0
+    },
+    "00996A": {
+      "name": "主動兆豐台灣豐收",
+      "foreign_net": -77000,
+      "dealer_net": 0,
+      "prop_net": 1963125,
+      "total_net": 0
+    },
+    "3037": {
+      "name": "欣興",
+      "foreign_net": 1807376,
+      "dealer_net": 121999,
+      "prop_net": -115700,
+      "total_net": 166000
+    },
+    "6213": {
+      "name": "聯茂",
+      "foreign_net": 833221,
+      "dealer_net": 600000,
+      "prop_net": 367657,
+      "total_net": 251000
+    },
+    "6168": {
+      "name": "宏齊",
+      "foreign_net": 1744169,
+      "dealer_net": 0,
+      "prop_net": 21000,
+      "total_net": 0
+    },
+    "2351": {
+      "name": "順德",
+      "foreign_net": 1755034,
+      "dealer_net": 0,
+      "prop_net": -72748,
+      "total_net": 53000
+    },
+    "1708": {
+      "name": "東鹼",
+      "foreign_net": 1637247,
+      "dealer_net": 0,
+      "prop_net": 32424,
+      "total_net": 0
+    },
+    "6285": {
+      "name": "啟碁",
+      "foreign_net": 1219953,
+      "dealer_net": 2000,
+      "prop_net": 433048,
+      "total_net": 3030
+    },
+    "00994A": {
+      "name": "主動第一金台股優",
+      "foreign_net": 406000,
+      "dealer_net": 0,
+      "prop_net": 1179422,
+      "total_net": 0
+    },
+    "8046": {
+      "name": "南電",
+      "foreign_net": 1331474,
+      "dealer_net": 156000,
+      "prop_net": 38195,
+      "total_net": 207700
+    },
+    "00999A": {
+      "name": "主動野村臺灣高息",
+      "foreign_net": 715000,
+      "dealer_net": 0,
+      "prop_net": 746924,
+      "total_net": 0
+    },
+    "2884": {
+      "name": "玉山金",
+      "foreign_net": -2037031,
+      "dealer_net": 3052000,
+      "prop_net": 338871,
+      "total_net": 2333
+    },
+    "2353": {
+      "name": "宏碁",
+      "foreign_net": 869719,
+      "dealer_net": 94000,
+      "prop_net": 376620,
+      "total_net": 2
+    },
+    "6533": {
+      "name": "晶心科",
+      "foreign_net": 1265827,
+      "dealer_net": 0,
+      "prop_net": 63400,
+      "total_net": 191
+    },
+    "009802": {
+      "name": "富邦旗艦50",
+      "foreign_net": 248000,
+      "dealer_net": 0,
+      "prop_net": 1015617,
+      "total_net": 0
+    },
+    "2615": {
+      "name": "萬海",
+      "foreign_net": 1240906,
+      "dealer_net": -66000,
+      "prop_net": 82384,
+      "total_net": 18000
+    },
+    "3035": {
+      "name": "智原",
+      "foreign_net": 1184310,
+      "dealer_net": 20000,
+      "prop_net": 46617,
+      "total_net": 4000
+    },
+    "00641R": {
+      "name": "富邦日本反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 1244000,
+      "total_net": 0
+    },
+    "00671R": {
+      "name": "富邦NASDAQ反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 1228000,
+      "total_net": 0
+    },
+    "00900": {
+      "name": "富邦特選高股息30",
+      "foreign_net": 436000,
+      "dealer_net": 0,
+      "prop_net": 769389,
+      "total_net": 0
+    },
+    "1714": {
+      "name": "和桐",
+      "foreign_net": 1193281,
+      "dealer_net": 0,
+      "prop_net": 7653,
+      "total_net": 0
+    },
+    "00882": {
+      "name": "中信中國高股息",
+      "foreign_net": 25000,
+      "dealer_net": 0,
+      "prop_net": 1124527,
+      "total_net": 0
+    },
+    "1409": {
+      "name": "新纖",
+      "foreign_net": 1326973,
+      "dealer_net": 0,
+      "prop_net": -193302,
+      "total_net": 185000
+    },
+    "00987A": {
+      "name": "主動台新優勢成長",
+      "foreign_net": 282883,
+      "dealer_net": 0,
+      "prop_net": 781390,
+      "total_net": 0
+    },
+    "6526": {
+      "name": "達發",
+      "foreign_net": 915517,
+      "dealer_net": 92000,
+      "prop_net": 28588,
+      "total_net": 20000
+    },
+    "2436": {
+      "name": "偉詮電",
+      "foreign_net": 756886,
+      "dealer_net": 20000,
+      "prop_net": 250757,
+      "total_net": 2000
+    },
+    "2890": {
+      "name": "永豐金",
+      "foreign_net": -1288836,
+      "dealer_net": 2057000,
+      "prop_net": 253801,
+      "total_net": 11954
+    },
+    "6153": {
+      "name": "嘉聯益",
+      "foreign_net": 954883,
+      "dealer_net": 0,
+      "prop_net": 51099,
+      "total_net": 5000
+    },
+    "00410A": {
+      "name": "主動永豐科技趨勢",
+      "foreign_net": -55000,
+      "dealer_net": 0,
+      "prop_net": 1026220,
+      "total_net": 0
+    },
+    "3045": {
+      "name": "台灣大",
+      "foreign_net": 1434392,
+      "dealer_net": -233000,
+      "prop_net": -234870,
+      "total_net": 310000
+    },
+    "3518": {
+      "name": "柏騰",
+      "foreign_net": 921047,
+      "dealer_net": 0,
+      "prop_net": 1968,
+      "total_net": 0
+    },
+    "3167": {
+      "name": "大量",
+      "foreign_net": 943524,
+      "dealer_net": 0,
+      "prop_net": -23196,
+      "total_net": 90330
+    },
+    "1727": {
+      "name": "中華化",
+      "foreign_net": 581384,
+      "dealer_net": 0,
+      "prop_net": 314396,
+      "total_net": 313000
+    },
+    "3605": {
+      "name": "宏致",
+      "foreign_net": -16131,
+      "dealer_net": 974000,
+      "prop_net": -76596,
+      "total_net": 136000
+    },
+    "00953B": {
+      "name": "群益優選非投等債",
+      "foreign_net": -923000,
+      "dealer_net": 0,
+      "prop_net": 1794477,
+      "total_net": 0
+    },
+    "1402": {
+      "name": "遠東新",
+      "foreign_net": 747234,
+      "dealer_net": 113000,
+      "prop_net": -6525,
+      "total_net": 0
+    },
+    "00980A": {
+      "name": "主動野村臺灣優選",
+      "foreign_net": 68804,
+      "dealer_net": 0,
+      "prop_net": 683437,
+      "total_net": 0
+    },
+    "2449": {
+      "name": "京元電子",
+      "foreign_net": 1133544,
+      "dealer_net": -177710,
+      "prop_net": -218231,
+      "total_net": 405621
+    },
+    "00408A": {
+      "name": "主動第一金優股息",
+      "foreign_net": 67000,
+      "dealer_net": 0,
+      "prop_net": 653703,
+      "total_net": 0
+    },
+    "3576": {
+      "name": "聯合再生",
+      "foreign_net": 698713,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "2454": {
+      "name": "聯發科",
+      "foreign_net": 826547,
+      "dealer_net": -288900,
+      "prop_net": 133111,
+      "total_net": 77041
+    },
+    "00676R": {
+      "name": "富邦臺灣加權反1",
+      "foreign_net": 17000,
+      "dealer_net": 0,
+      "prop_net": 652456,
+      "total_net": 0
+    },
+    "2466": {
+      "name": "冠西電",
+      "foreign_net": 667573,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2006": {
+      "name": "東和鋼鐵",
+      "foreign_net": 466720,
+      "dealer_net": 198742,
+      "prop_net": 1741,
+      "total_net": 0
+    },
+    "2855": {
+      "name": "統一證",
+      "foreign_net": 680563,
+      "dealer_net": -20187,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00881": {
+      "name": "國泰台灣科技龍頭",
+      "foreign_net": -401585,
+      "dealer_net": 0,
+      "prop_net": 1045646,
+      "total_net": 0
+    },
+    "1809": {
+      "name": "中釉",
+      "foreign_net": 556850,
+      "dealer_net": 0,
+      "prop_net": 62992,
+      "total_net": 1000
+    },
+    "4770": {
+      "name": "上品",
+      "foreign_net": -122318,
+      "dealer_net": 730000,
+      "prop_net": -10425,
+      "total_net": 2000
+    },
+    "1513": {
+      "name": "中興電",
+      "foreign_net": 546624,
+      "dealer_net": 0,
+      "prop_net": 30721,
+      "total_net": 0
+    },
+    "2395": {
+      "name": "研華",
+      "foreign_net": 547901,
+      "dealer_net": -36000,
+      "prop_net": 64594,
+      "total_net": 12000
+    },
+    "2542": {
+      "name": "興富發",
+      "foreign_net": -1220106,
+      "dealer_net": 1799000,
+      "prop_net": -31556,
+      "total_net": 55300
+    },
+    "6155": {
+      "name": "鈞寶",
+      "foreign_net": 536794,
+      "dealer_net": 0,
+      "prop_net": -15545,
+      "total_net": 0
+    },
+    "2455": {
+      "name": "全新",
+      "foreign_net": 201116,
+      "dealer_net": -8000,
+      "prop_net": 321656,
+      "total_net": 22518
+    },
+    "6166": {
+      "name": "凌華",
+      "foreign_net": 284885,
+      "dealer_net": 0,
+      "prop_net": 228811,
+      "total_net": 0
+    },
+    "2360": {
+      "name": "致茂",
+      "foreign_net": 680963,
+      "dealer_net": -237000,
+      "prop_net": 68809,
+      "total_net": 300
+    },
+    "3029": {
+      "name": "零壹",
+      "foreign_net": 496553,
+      "dealer_net": -661,
+      "prop_net": -1923,
+      "total_net": 0
+    },
+    "5608": {
+      "name": "四維航",
+      "foreign_net": 491230,
+      "dealer_net": 0,
+      "prop_net": 585,
+      "total_net": 415
+    },
+    "1312": {
+      "name": "國喬",
+      "foreign_net": 619129,
+      "dealer_net": 0,
+      "prop_net": -134656,
+      "total_net": 38000
+    },
+    "00985A": {
+      "name": "主動野村台灣50",
+      "foreign_net": 51271,
+      "dealer_net": 0,
+      "prop_net": 426908,
+      "total_net": 0
+    },
+    "6214": {
+      "name": "精誠",
+      "foreign_net": 494515,
+      "dealer_net": -23000,
+      "prop_net": 2070,
+      "total_net": 0
+    },
+    "00954": {
+      "name": "中信日本半導體",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 473034,
+      "total_net": 0
+    },
+    "2377": {
+      "name": "微星",
+      "foreign_net": 482500,
+      "dealer_net": -15000,
+      "prop_net": 2757,
+      "total_net": 6000
+    },
+    "2636": {
+      "name": "台驊控股",
+      "foreign_net": 478240,
+      "dealer_net": 0,
+      "prop_net": -10000,
+      "total_net": 14000
+    },
+    "00951": {
+      "name": "台新日本半導體",
+      "foreign_net": -203000,
+      "dealer_net": 0,
+      "prop_net": 668376,
+      "total_net": 0
+    },
+    "2367": {
+      "name": "燿華",
+      "foreign_net": 495201,
+      "dealer_net": 0,
+      "prop_net": -30240,
+      "total_net": 33000
+    },
+    "1310": {
+      "name": "台苯",
+      "foreign_net": 472000,
+      "dealer_net": 0,
+      "prop_net": -8000,
+      "total_net": 8000
+    },
+    "3031": {
+      "name": "佰鴻",
+      "foreign_net": 459783,
+      "dealer_net": 0,
+      "prop_net": 316,
+      "total_net": 6721
+    },
+    "6209": {
+      "name": "今國光",
+      "foreign_net": 445917,
+      "dealer_net": 0,
+      "prop_net": 9959,
+      "total_net": 37559
+    },
+    "1560": {
+      "name": "中砂",
+      "foreign_net": 671057,
+      "dealer_net": -195000,
+      "prop_net": -20943,
+      "total_net": 0
+    },
+    "2031": {
+      "name": "新光鋼",
+      "foreign_net": 453627,
+      "dealer_net": -3898,
+      "prop_net": -644,
+      "total_net": 11000
+    },
+    "00983A": {
+      "name": "主動中信ARK創新",
+      "foreign_net": 9000,
+      "dealer_net": 0,
+      "prop_net": 435849,
+      "total_net": 121000
+    },
+    "1326": {
+      "name": "台化",
+      "foreign_net": -35610,
+      "dealer_net": 0,
+      "prop_net": 476751,
+      "total_net": 112000
+    },
+    "3022": {
+      "name": "威強電",
+      "foreign_net": 468685,
+      "dealer_net": 0,
+      "prop_net": -27614,
+      "total_net": 3000
+    },
+    "8926": {
+      "name": "台汽電",
+      "foreign_net": 260950,
+      "dealer_net": 181000,
+      "prop_net": -1728,
+      "total_net": 261
+    },
+    "009804": {
+      "name": "聯邦台精彩50",
+      "foreign_net": 290020,
+      "dealer_net": 0,
+      "prop_net": 138790,
+      "total_net": 0
+    },
+    "1304": {
+      "name": "台聚",
+      "foreign_net": 601884,
+      "dealer_net": 0,
+      "prop_net": -177532,
+      "total_net": 21000
+    },
+    "6269": {
+      "name": "台郡",
+      "foreign_net": 407000,
+      "dealer_net": 0,
+      "prop_net": 9380,
+      "total_net": 3952
+    },
+    "4915": {
+      "name": "致伸",
+      "foreign_net": 167937,
+      "dealer_net": 237815,
+      "prop_net": 7386,
+      "total_net": 3825
+    },
+    "6505": {
+      "name": "台塑化",
+      "foreign_net": 274621,
+      "dealer_net": 97000,
+      "prop_net": 34452,
+      "total_net": 36287
+    },
+    "2404": {
+      "name": "漢唐",
+      "foreign_net": -195737,
+      "dealer_net": 613000,
+      "prop_net": -14632,
+      "total_net": 6300
+    },
+    "1802": {
+      "name": "台玻",
+      "foreign_net": 507542,
+      "dealer_net": 0,
+      "prop_net": -109739,
+      "total_net": 97000
+    },
+    "4906": {
+      "name": "正文",
+      "foreign_net": 423770,
+      "dealer_net": 0,
+      "prop_net": -27516,
+      "total_net": 0
+    },
+    "2305": {
+      "name": "全友",
+      "foreign_net": 393050,
+      "dealer_net": 0,
+      "prop_net": 3000,
+      "total_net": 0
+    },
+    "1904": {
+      "name": "正隆",
+      "foreign_net": 402975,
+      "dealer_net": 0,
+      "prop_net": -15628,
+      "total_net": 19000
+    },
+    "00693U": {
+      "name": "期街口S&P黃豆",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 371562,
+      "total_net": 0
+    },
+    "1308": {
+      "name": "亞聚",
+      "foreign_net": 380362,
+      "dealer_net": 0,
+      "prop_net": -10774,
+      "total_net": 0
+    },
+    "2883B": {
+      "name": "凱基金乙特",
+      "foreign_net": 485827,
+      "dealer_net": 0,
+      "prop_net": -120000,
+      "total_net": 150000
+    },
+    "2010": {
+      "name": "春源",
+      "foreign_net": 419000,
+      "dealer_net": 0,
+      "prop_net": -54000,
+      "total_net": 47000
+    },
+    "2421": {
+      "name": "建準",
+      "foreign_net": 369763,
+      "dealer_net": -78000,
+      "prop_net": 66067,
+      "total_net": 2090
+    },
+    "2032": {
+      "name": "新鋼",
+      "foreign_net": 355164,
+      "dealer_net": 0,
+      "prop_net": -3952,
+      "total_net": 4953
+    },
+    "00946": {
+      "name": "群益科技高息成長",
+      "foreign_net": -209000,
+      "dealer_net": 0,
+      "prop_net": 558871,
+      "total_net": 0
+    },
+    "00733": {
+      "name": "富邦臺灣中小",
+      "foreign_net": 392000,
+      "dealer_net": 0,
+      "prop_net": -42387,
+      "total_net": 0
+    },
+    "4532": {
+      "name": "瑞智",
+      "foreign_net": 353921,
+      "dealer_net": -6563,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8103": {
+      "name": "瀚荃",
+      "foreign_net": 375744,
+      "dealer_net": 0,
+      "prop_net": -44355,
+      "total_net": 40000
+    },
+    "2312": {
+      "name": "金寶",
+      "foreign_net": 338083,
+      "dealer_net": 0,
+      "prop_net": -11209,
+      "total_net": 4000
+    },
+    "6108": {
+      "name": "競國",
+      "foreign_net": 330816,
+      "dealer_net": 0,
+      "prop_net": -8000,
+      "total_net": 8000
+    },
+    "00715L": {
+      "name": "期街口布蘭特正2",
+      "foreign_net": 378000,
+      "dealer_net": 0,
+      "prop_net": -56748,
+      "total_net": 0
+    },
+    "2393": {
+      "name": "億光",
+      "foreign_net": 654175,
+      "dealer_net": -331252,
+      "prop_net": -6726,
+      "total_net": 1000
+    },
+    "1229": {
+      "name": "聯華",
+      "foreign_net": 304933,
+      "dealer_net": -1000,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00896": {
+      "name": "中信綠能及電動車",
+      "foreign_net": 323450,
+      "dealer_net": 0,
+      "prop_net": -20460,
+      "total_net": 0
+    },
+    "4904": {
+      "name": "遠傳",
+      "foreign_net": 40821,
+      "dealer_net": 61000,
+      "prop_net": 199640,
+      "total_net": 0
+    },
+    "2476": {
+      "name": "鉅祥",
+      "foreign_net": 203868,
+      "dealer_net": 0,
+      "prop_net": 95827,
+      "total_net": 0
+    },
+    "2727": {
+      "name": "王品",
+      "foreign_net": 370978,
+      "dealer_net": -49000,
+      "prop_net": -23000,
+      "total_net": 24000
+    },
+    "4927": {
+      "name": "泰鼎-KY",
+      "foreign_net": 262073,
+      "dealer_net": 0,
+      "prop_net": 24000,
+      "total_net": 1000
+    },
+    "00984A": {
+      "name": "主動安聯台灣高息",
+      "foreign_net": 522000,
+      "dealer_net": 0,
+      "prop_net": -237919,
+      "total_net": 3000
+    },
+    "2478": {
+      "name": "大毅",
+      "foreign_net": 315871,
+      "dealer_net": -29000,
+      "prop_net": -7001,
+      "total_net": 0
+    },
+    "2444": {
+      "name": "兆勁",
+      "foreign_net": 275764,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1434": {
+      "name": "福懋",
+      "foreign_net": 272453,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2915": {
+      "name": "潤泰全",
+      "foreign_net": 272246,
+      "dealer_net": 0,
+      "prop_net": -911,
+      "total_net": 0
+    },
+    "2301": {
+      "name": "光寶科",
+      "foreign_net": 265223,
+      "dealer_net": -134000,
+      "prop_net": 139879,
+      "total_net": 38831
+    },
+    "00989A": {
+      "name": "主動摩根美國科技",
+      "foreign_net": 1131000,
+      "dealer_net": 0,
+      "prop_net": -864937,
+      "total_net": 0
+    },
+    "00830": {
+      "name": "國泰費城半導體",
+      "foreign_net": -384716,
+      "dealer_net": 0,
+      "prop_net": 650426,
+      "total_net": 75000
+    },
+    "00941": {
+      "name": "中信上游半導體",
+      "foreign_net": -39030,
+      "dealer_net": 0,
+      "prop_net": 295290,
+      "total_net": 0
+    },
+    "00911": {
+      "name": "兆豐洲際半導體",
+      "foreign_net": 12132,
+      "dealer_net": 0,
+      "prop_net": 243317,
+      "total_net": 0
+    },
+    "2880": {
+      "name": "華南金",
+      "foreign_net": -422640,
+      "dealer_net": 55000,
+      "prop_net": 618290,
+      "total_net": 11251
+    },
+    "3149": {
+      "name": "正達",
+      "foreign_net": 248431,
+      "dealer_net": 0,
+      "prop_net": 481,
+      "total_net": 0
+    },
+    "3021": {
+      "name": "鴻名",
+      "foreign_net": 250000,
+      "dealer_net": 0,
+      "prop_net": -1292,
+      "total_net": 2000
+    },
+    "6885": {
+      "name": "全福生技",
+      "foreign_net": 248604,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 1000
+    },
+    "8021": {
+      "name": "尖點",
+      "foreign_net": 176951,
+      "dealer_net": 0,
+      "prop_net": 70000,
+      "total_net": 0
+    },
+    "1319": {
+      "name": "東陽",
+      "foreign_net": 258264,
+      "dealer_net": -1051,
+      "prop_net": -12000,
+      "total_net": 20000
+    },
+    "3673": {
+      "name": "TPK-KY",
+      "foreign_net": 282897,
+      "dealer_net": 0,
+      "prop_net": -44054,
+      "total_net": 2116
+    },
+    "2308": {
+      "name": "台達電",
+      "foreign_net": -327170,
+      "dealer_net": 420000,
+      "prop_net": 141673,
+      "total_net": 44000
+    },
+    "3003": {
+      "name": "健和興",
+      "foreign_net": 236346,
+      "dealer_net": 0,
+      "prop_net": -6750,
+      "total_net": 3000
+    },
+    "2850": {
+      "name": "新產",
+      "foreign_net": 224245,
+      "dealer_net": 0,
+      "prop_net": -1401,
+      "total_net": 3401
+    },
+    "2069": {
+      "name": "運錩",
+      "foreign_net": 233675,
+      "dealer_net": 0,
+      "prop_net": -11000,
+      "total_net": 13000
+    },
+    "2020": {
+      "name": "美亞",
+      "foreign_net": 227000,
+      "dealer_net": 0,
+      "prop_net": -6000,
+      "total_net": 6000
+    },
+    "3017": {
+      "name": "奇鋐",
+      "foreign_net": 165864,
+      "dealer_net": 10999,
+      "prop_net": 42977,
+      "total_net": 9000
+    },
+    "5471": {
+      "name": "松翰",
+      "foreign_net": 221173,
+      "dealer_net": 0,
+      "prop_net": -2326,
+      "total_net": 0
+    },
+    "2369": {
+      "name": "菱生",
+      "foreign_net": 224099,
+      "dealer_net": 0,
+      "prop_net": -5529,
+      "total_net": 0
+    },
+    "2385": {
+      "name": "群光",
+      "foreign_net": 216559,
+      "dealer_net": -9286,
+      "prop_net": 9625,
+      "total_net": 1065
+    },
+    "2025": {
+      "name": "千興",
+      "foreign_net": 217099,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "4540": {
+      "name": "全球傳動",
+      "foreign_net": 211404,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00735": {
+      "name": "國泰臺韓科技",
+      "foreign_net": -150100,
+      "dealer_net": 0,
+      "prop_net": 355000,
+      "total_net": 0
+    },
+    "009817": {
+      "name": "國泰日本不動產",
+      "foreign_net": 16000,
+      "dealer_net": 0,
+      "prop_net": 186060,
+      "total_net": 0
+    },
+    "1810": {
+      "name": "和成",
+      "foreign_net": 197050,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "2520": {
+      "name": "冠德",
+      "foreign_net": 190603,
+      "dealer_net": 0,
+      "prop_net": 7046,
+      "total_net": 15996
+    },
+    "6691": {
+      "name": "洋基工程",
+      "foreign_net": 201413,
+      "dealer_net": 0,
+      "prop_net": -5103,
+      "total_net": 10000
+    },
+    "2355": {
+      "name": "敬鵬",
+      "foreign_net": 200000,
+      "dealer_net": 0,
+      "prop_net": -5053,
+      "total_net": 28000
+    },
+    "020039": {
+      "name": "元大加權N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 194000,
+      "total_net": 0
+    },
+    "6202": {
+      "name": "盛群",
+      "foreign_net": 215199,
+      "dealer_net": 20000,
+      "prop_net": -42981,
+      "total_net": 51000
+    },
+    "1536": {
+      "name": "和大",
+      "foreign_net": 191080,
+      "dealer_net": 0,
+      "prop_net": -312,
+      "total_net": 2000
+    },
+    "2347": {
+      "name": "聯強",
+      "foreign_net": -26664,
+      "dealer_net": 161039,
+      "prop_net": 55131,
+      "total_net": 1000
+    },
+    "9940": {
+      "name": "信義",
+      "foreign_net": 202000,
+      "dealer_net": 0,
+      "prop_net": -14522,
+      "total_net": 14000
+    },
+    "3550": {
+      "name": "聯穎",
+      "foreign_net": 183525,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3030": {
+      "name": "德律",
+      "foreign_net": 183299,
+      "dealer_net": 0,
+      "prop_net": -694,
+      "total_net": 30
+    },
+    "2851": {
+      "name": "中再保",
+      "foreign_net": 233896,
+      "dealer_net": 0,
+      "prop_net": -51653,
+      "total_net": 47000
+    },
+    "3543": {
+      "name": "州巧",
+      "foreign_net": 182000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00909": {
+      "name": "國泰數位支付服務",
+      "foreign_net": 56000,
+      "dealer_net": 0,
+      "prop_net": 126000,
+      "total_net": 0
+    },
+    "2402": {
+      "name": "毅嘉",
+      "foreign_net": 191325,
+      "dealer_net": 0,
+      "prop_net": -13801,
+      "total_net": 350
+    },
+    "9921": {
+      "name": "巨大",
+      "foreign_net": 185503,
+      "dealer_net": 0,
+      "prop_net": -9301,
+      "total_net": 1247
+    },
+    "00692": {
+      "name": "富邦公司治理",
+      "foreign_net": -60988,
+      "dealer_net": 0,
+      "prop_net": 234507,
+      "total_net": 0
+    },
+    "4764": {
+      "name": "雙鍵",
+      "foreign_net": 286150,
+      "dealer_net": -110000,
+      "prop_net": -4061,
+      "total_net": 0
+    },
+    "9958": {
+      "name": "世紀鋼",
+      "foreign_net": -35021,
+      "dealer_net": 210000,
+      "prop_net": -5985,
+      "total_net": 1000
+    },
+    "6271": {
+      "name": "同欣電",
+      "foreign_net": 174833,
+      "dealer_net": -37000,
+      "prop_net": 29980,
+      "total_net": 4000
+    },
+    "3036": {
+      "name": "文曄",
+      "foreign_net": 102119,
+      "dealer_net": -2000,
+      "prop_net": 67663,
+      "total_net": 0
+    },
+    "1609": {
+      "name": "大亞",
+      "foreign_net": 163711,
+      "dealer_net": 0,
+      "prop_net": 1234,
+      "total_net": 0
+    },
+    "8163": {
+      "name": "達方",
+      "foreign_net": 167408,
+      "dealer_net": 0,
+      "prop_net": -3228,
+      "total_net": 3389
+    },
+    "00965": {
+      "name": "元大航太防衛科技",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 166146,
+      "total_net": 0
+    },
+    "6197": {
+      "name": "佳必琪",
+      "foreign_net": 160008,
+      "dealer_net": 0,
+      "prop_net": 1475,
+      "total_net": 5000
+    },
+    "2340": {
+      "name": "台亞",
+      "foreign_net": 166695,
+      "dealer_net": 0,
+      "prop_net": -7742,
+      "total_net": 38000
+    },
+    "3028": {
+      "name": "增你強",
+      "foreign_net": 158185,
+      "dealer_net": 0,
+      "prop_net": 323,
+      "total_net": 5010
+    },
+    "2405": {
+      "name": "輔信",
+      "foreign_net": 157000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6196": {
+      "name": "帆宣",
+      "foreign_net": 188537,
+      "dealer_net": 0,
+      "prop_net": -32333,
+      "total_net": 0
+    },
+    "4142": {
+      "name": "國光生",
+      "foreign_net": 155000,
+      "dealer_net": 0,
+      "prop_net": 700,
+      "total_net": 0
+    },
+    "6438": {
+      "name": "迅得",
+      "foreign_net": 141813,
+      "dealer_net": 0,
+      "prop_net": 12951,
+      "total_net": 0
+    },
+    "00932": {
+      "name": "兆豐永續高息等權",
+      "foreign_net": -143000,
+      "dealer_net": 0,
+      "prop_net": 297504,
+      "total_net": 0
+    },
+    "8072": {
+      "name": "陞泰",
+      "foreign_net": 151143,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1522": {
+      "name": "堤維西",
+      "foreign_net": 144214,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2413": {
+      "name": "環科",
+      "foreign_net": 144195,
+      "dealer_net": 0,
+      "prop_net": -701,
+      "total_net": 0
+    },
+    "1736": {
+      "name": "喬山",
+      "foreign_net": 143688,
+      "dealer_net": 0,
+      "prop_net": -1192,
+      "total_net": 1000
+    },
+    "6944": {
+      "name": "兆聯實業",
+      "foreign_net": 131760,
+      "dealer_net": 0,
+      "prop_net": 7125,
+      "total_net": 0
+    },
+    "00898": {
+      "name": "國泰基因免疫革命",
+      "foreign_net": 197000,
+      "dealer_net": 0,
+      "prop_net": -61122,
+      "total_net": 0
+    },
+    "2516": {
+      "name": "新建",
+      "foreign_net": 129969,
+      "dealer_net": 0,
+      "prop_net": 4000,
+      "total_net": 0
+    },
+    "5876": {
+      "name": "上海商銀",
+      "foreign_net": -931042,
+      "dealer_net": 757000,
+      "prop_net": 304576,
+      "total_net": 2344
+    },
+    "2439": {
+      "name": "美律",
+      "foreign_net": 211000,
+      "dealer_net": -1000,
+      "prop_net": -85259,
+      "total_net": 92513
+    },
+    "00893": {
+      "name": "國泰智能電動車",
+      "foreign_net": 21000,
+      "dealer_net": 0,
+      "prop_net": 102973,
+      "total_net": 0
+    },
+    "00404A": {
+      "name": "主動聯博動能50",
+      "foreign_net": 974000,
+      "dealer_net": 0,
+      "prop_net": -850320,
+      "total_net": 0
+    },
+    "00936": {
+      "name": "台新永續高息中小",
+      "foreign_net": 45000,
+      "dealer_net": 0,
+      "prop_net": 78106,
+      "total_net": 0
+    },
+    "00763U": {
+      "name": "期街口道瓊銅",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 125557,
+      "total_net": 0
+    },
+    "00648R": {
+      "name": "元大S&P500反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 120240,
+      "total_net": 0
+    },
+    "8476": {
+      "name": "台境*",
+      "foreign_net": 138000,
+      "dealer_net": 0,
+      "prop_net": -18000,
+      "total_net": 18000
+    },
+    "3024": {
+      "name": "憶聲",
+      "foreign_net": 123000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 5000
+    },
+    "00401A": {
+      "name": "主動摩根台灣鑫收",
+      "foreign_net": 348000,
+      "dealer_net": 0,
+      "prop_net": -229320,
+      "total_net": 0
+    },
+    "2017": {
+      "name": "官田鋼",
+      "foreign_net": 118475,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5515": {
+      "name": "建國",
+      "foreign_net": 135139,
+      "dealer_net": 0,
+      "prop_net": -17000,
+      "total_net": 16000
+    },
+    "3413": {
+      "name": "京鼎",
+      "foreign_net": 120019,
+      "dealer_net": 0,
+      "prop_net": -2697,
+      "total_net": 0
+    },
+    "3050": {
+      "name": "鈺德",
+      "foreign_net": 112000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00895": {
+      "name": "富邦未來車",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 111243,
+      "total_net": 0
+    },
+    "2471": {
+      "name": "資通",
+      "foreign_net": 109000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "5607": {
+      "name": "遠雄港",
+      "foreign_net": 111277,
+      "dealer_net": 0,
+      "prop_net": -4000,
+      "total_net": 4000
+    },
+    "6426": {
+      "name": "統新",
+      "foreign_net": 115306,
+      "dealer_net": 0,
+      "prop_net": -10367,
+      "total_net": 0
+    },
+    "2461": {
+      "name": "光群雷",
+      "foreign_net": 112998,
+      "dealer_net": 0,
+      "prop_net": -14000,
+      "total_net": 14000
+    },
+    "4916": {
+      "name": "事欣科",
+      "foreign_net": 58771,
+      "dealer_net": 0,
+      "prop_net": 40153,
+      "total_net": 0
+    },
+    "6937": {
+      "name": "天虹",
+      "foreign_net": 83462,
+      "dealer_net": 0,
+      "prop_net": 15294,
+      "total_net": 0
+    },
+    "8081": {
+      "name": "致新",
+      "foreign_net": 75155,
+      "dealer_net": 20000,
+      "prop_net": -21,
+      "total_net": 15
+    },
+    "1515": {
+      "name": "力山",
+      "foreign_net": 93800,
+      "dealer_net": 0,
+      "prop_net": 277,
+      "total_net": 0
+    },
+    "2316": {
+      "name": "楠梓電",
+      "foreign_net": 86866,
+      "dealer_net": 0,
+      "prop_net": 5933,
+      "total_net": 1000
+    },
+    "3209": {
+      "name": "全科",
+      "foreign_net": 92944,
+      "dealer_net": 0,
+      "prop_net": -729,
+      "total_net": 0
+    },
+    "3041": {
+      "name": "揚智",
+      "foreign_net": 92000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2059": {
+      "name": "川湖",
+      "foreign_net": 109319,
+      "dealer_net": -42000,
+      "prop_net": 24003,
+      "total_net": 2694
+    },
+    "5469": {
+      "name": "瀚宇博",
+      "foreign_net": 96000,
+      "dealer_net": 0,
+      "prop_net": -5000,
+      "total_net": 4000
+    },
+    "00850": {
+      "name": "元大臺灣ESG永續",
+      "foreign_net": -4000,
+      "dealer_net": -10000,
+      "prop_net": 103576,
+      "total_net": 0
+    },
+    "1449": {
+      "name": "佳和",
+      "foreign_net": 89040,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4526": {
+      "name": "東台",
+      "foreign_net": 90000,
+      "dealer_net": 0,
+      "prop_net": -1096,
+      "total_net": 0
+    },
+    "2236": {
+      "name": "百達-KY",
+      "foreign_net": 94348,
+      "dealer_net": 0,
+      "prop_net": -5583,
+      "total_net": 7000
+    },
+    "2495": {
+      "name": "普安",
+      "foreign_net": 93713,
+      "dealer_net": 0,
+      "prop_net": -5110,
+      "total_net": 0
+    },
+    "2617": {
+      "name": "台航",
+      "foreign_net": 85000,
+      "dealer_net": 0,
+      "prop_net": 577,
+      "total_net": 0
+    },
+    "3051": {
+      "name": "力特",
+      "foreign_net": 84263,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4536": {
+      "name": "拓凱",
+      "foreign_net": 84000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7822": {
+      "name": "倍利科",
+      "foreign_net": 41320,
+      "dealer_net": 36000,
+      "prop_net": 5687,
+      "total_net": 0
+    },
+    "8473": {
+      "name": "山林水",
+      "foreign_net": 82026,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1612": {
+      "name": "宏泰",
+      "foreign_net": 122382,
+      "dealer_net": -4561,
+      "prop_net": -36590,
+      "total_net": 37000
+    },
+    "7610": {
+      "name": "聯友金屬-創",
+      "foreign_net": 79791,
+      "dealer_net": 0,
+      "prop_net": 663,
+      "total_net": 6000
+    },
+    "00901": {
+      "name": "永豐智能車供應鏈",
+      "foreign_net": -104071,
+      "dealer_net": 0,
+      "prop_net": 184425,
+      "total_net": 0
+    },
+    "6142": {
+      "name": "友勁",
+      "foreign_net": 79000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6225": {
+      "name": "天瀚",
+      "foreign_net": 79000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4564": {
+      "name": "元翎",
+      "foreign_net": 75000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2419": {
+      "name": "仲琦",
+      "foreign_net": 70993,
+      "dealer_net": 0,
+      "prop_net": 900,
+      "total_net": 0
+    },
+    "3311": {
+      "name": "閎暉",
+      "foreign_net": 70869,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4961": {
+      "name": "天鈺",
+      "foreign_net": 53878,
+      "dealer_net": 19000,
+      "prop_net": -2176,
+      "total_net": 0
+    },
+    "6491": {
+      "name": "晶碩",
+      "foreign_net": 64500,
+      "dealer_net": 0,
+      "prop_net": 1812,
+      "total_net": 0
+    },
+    "2392": {
+      "name": "正崴",
+      "foreign_net": 72000,
+      "dealer_net": 0,
+      "prop_net": -5925,
+      "total_net": 5027
+    },
+    "6224": {
+      "name": "聚鼎",
+      "foreign_net": 66680,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 2000
+    },
+    "2603": {
+      "name": "長榮",
+      "foreign_net": -852117,
+      "dealer_net": 941196,
+      "prop_net": -24677,
+      "total_net": 39000
+    },
+    "2486": {
+      "name": "一詮",
+      "foreign_net": 65717,
+      "dealer_net": 0,
+      "prop_net": -2314,
+      "total_net": 0
+    },
+    "3694": {
+      "name": "海華",
+      "foreign_net": 63000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00923": {
+      "name": "群益台ESG低碳50",
+      "foreign_net": -387972,
+      "dealer_net": 0,
+      "prop_net": 450529,
+      "total_net": 1000
+    },
+    "1563": {
+      "name": "巧新",
+      "foreign_net": 70350,
+      "dealer_net": 0,
+      "prop_net": -9700,
+      "total_net": 10000
+    },
+    "1721": {
+      "name": "國慶科技",
+      "foreign_net": 59993,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6658": {
+      "name": "聯策",
+      "foreign_net": 60062,
+      "dealer_net": 0,
+      "prop_net": -107,
+      "total_net": 5
+    },
+    "00700": {
+      "name": "富邦恒生國企",
+      "foreign_net": 50000,
+      "dealer_net": 0,
+      "prop_net": 8664,
+      "total_net": 0
+    },
+    "00894": {
+      "name": "中信小資高價30",
+      "foreign_net": -54000,
+      "dealer_net": 0,
+      "prop_net": 112202,
+      "total_net": 0
+    },
+    "2607": {
+      "name": "榮運",
+      "foreign_net": 71031,
+      "dealer_net": 0,
+      "prop_net": -13000,
+      "total_net": 8000
+    },
+    "3617": {
+      "name": "碩天",
+      "foreign_net": 54991,
+      "dealer_net": 0,
+      "prop_net": 3,
+      "total_net": 0
+    },
+    "2427": {
+      "name": "三商電",
+      "foreign_net": 54042,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4155": {
+      "name": "訊映",
+      "foreign_net": 69000,
+      "dealer_net": 0,
+      "prop_net": -15000,
+      "total_net": 15000
+    },
+    "2543": {
+      "name": "皇昌",
+      "foreign_net": 53842,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8162": {
+      "name": "微矽電子-創",
+      "foreign_net": 104000,
+      "dealer_net": 0,
+      "prop_net": -50664,
+      "total_net": 44000
+    },
+    "1219": {
+      "name": "福壽",
+      "foreign_net": 53000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6152": {
+      "name": "百一",
+      "foreign_net": 53439,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "8114": {
+      "name": "振樺電",
+      "foreign_net": 54000,
+      "dealer_net": -1000,
+      "prop_net": -801,
+      "total_net": 1801
+    },
+    "00690": {
+      "name": "兆豐藍籌30",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 51668,
+      "total_net": 0
+    },
+    "2467": {
+      "name": "志聖",
+      "foreign_net": 45129,
+      "dealer_net": 0,
+      "prop_net": 5661,
+      "total_net": 0
+    },
+    "6139": {
+      "name": "亞翔",
+      "foreign_net": 99558,
+      "dealer_net": -51000,
+      "prop_net": 1924,
+      "total_net": 17505
+    },
+    "7768": {
+      "name": "頌勝科技",
+      "foreign_net": 49000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2468": {
+      "name": "華經",
+      "foreign_net": 49000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3015": {
+      "name": "全漢",
+      "foreign_net": 48754,
+      "dealer_net": 0,
+      "prop_net": -1706,
+      "total_net": 0
+    },
+    "00903": {
+      "name": "富邦元宇宙",
+      "foreign_net": 14000,
+      "dealer_net": 0,
+      "prop_net": 32868,
+      "total_net": 0
+    },
+    "2254": {
+      "name": "巨鎧精密-創",
+      "foreign_net": 47000,
+      "dealer_net": 0,
+      "prop_net": -230,
+      "total_net": 0
+    },
+    "1305": {
+      "name": "華夏",
+      "foreign_net": 64761,
+      "dealer_net": 0,
+      "prop_net": -18000,
+      "total_net": 18000
+    },
+    "3056": {
+      "name": "富華新",
+      "foreign_net": 48000,
+      "dealer_net": 0,
+      "prop_net": -1280,
+      "total_net": 0
+    },
+    "6743": {
+      "name": "安普新",
+      "foreign_net": 46241,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 1000
+    },
+    "4590": {
+      "name": "富田-創",
+      "foreign_net": 41548,
+      "dealer_net": 0,
+      "prop_net": 4508,
+      "total_net": 0
+    },
+    "4968": {
+      "name": "立積",
+      "foreign_net": 16315,
+      "dealer_net": 30000,
+      "prop_net": -866,
+      "total_net": 201
+    },
+    "3588": {
+      "name": "通嘉",
+      "foreign_net": 44000,
+      "dealer_net": 0,
+      "prop_net": 1314,
+      "total_net": 0
+    },
+    "3011": {
+      "name": "今皓",
+      "foreign_net": 45000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2357": {
+      "name": "華碩",
+      "foreign_net": -23139,
+      "dealer_net": 25722,
+      "prop_net": 41985,
+      "total_net": 10
+    },
+    "2233": {
+      "name": "宇隆",
+      "foreign_net": 45000,
+      "dealer_net": 0,
+      "prop_net": -679,
+      "total_net": 0
+    },
+    "8105": {
+      "name": "凌巨",
+      "foreign_net": 43974,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2106": {
+      "name": "建大",
+      "foreign_net": 43394,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6668": {
+      "name": "中揚光",
+      "foreign_net": 43323,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00876": {
+      "name": "元大全球5G",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 42659,
+      "total_net": 0
+    },
+    "00921": {
+      "name": "兆豐龍頭等權重",
+      "foreign_net": 12042,
+      "dealer_net": 0,
+      "prop_net": 30045,
+      "total_net": 0
+    },
+    "6416": {
+      "name": "瑞祺電通",
+      "foreign_net": 37192,
+      "dealer_net": 0,
+      "prop_net": 4892,
+      "total_net": 108
+    },
+    "3419": {
+      "name": "譁裕",
+      "foreign_net": 43000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 2000
+    },
+    "2108": {
+      "name": "南帝",
+      "foreign_net": 32782,
+      "dealer_net": 0,
+      "prop_net": 8000,
+      "total_net": 1000
+    },
+    "3059": {
+      "name": "華晶科",
+      "foreign_net": 44026,
+      "dealer_net": 0,
+      "prop_net": -3642,
+      "total_net": 0
+    },
+    "7740": {
+      "name": "熙特爾-創",
+      "foreign_net": 40290,
+      "dealer_net": 0,
+      "prop_net": -77,
+      "total_net": 0
+    },
+    "6909": {
+      "name": "創控",
+      "foreign_net": 40000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6189": {
+      "name": "豐藝",
+      "foreign_net": 46464,
+      "dealer_net": -3436,
+      "prop_net": -3410,
+      "total_net": 5000
+    },
+    "00897": {
+      "name": "富邦基因免疫生技",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": 47380,
+      "total_net": 0
+    },
+    "6719": {
+      "name": "力智",
+      "foreign_net": 27074,
+      "dealer_net": 20000,
+      "prop_net": -7784,
+      "total_net": 0
+    },
+    "6605": {
+      "name": "帝寶",
+      "foreign_net": 38844,
+      "dealer_net": 0,
+      "prop_net": -281,
+      "total_net": 281
+    },
+    "00971": {
+      "name": "野村美國研發龍頭",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 38555,
+      "total_net": 0
+    },
+    "00634R": {
+      "name": "富邦上証反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 38200,
+      "total_net": 0
+    },
+    "1227": {
+      "name": "佳格",
+      "foreign_net": 36751,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4766": {
+      "name": "南寶",
+      "foreign_net": 36201,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1463": {
+      "name": "強盛新",
+      "foreign_net": 35000,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "8213": {
+      "name": "志超",
+      "foreign_net": 35000,
+      "dealer_net": 0,
+      "prop_net": 787,
+      "total_net": 0
+    },
+    "00944": {
+      "name": "野村趨勢動能高息",
+      "foreign_net": 27044,
+      "dealer_net": 0,
+      "prop_net": 8638,
+      "total_net": 0
+    },
+    "3528": {
+      "name": "安馳",
+      "foreign_net": 38040,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 3000
+    },
+    "4560": {
+      "name": "強信-KY",
+      "foreign_net": 45000,
+      "dealer_net": 0,
+      "prop_net": -10000,
+      "total_net": 10000
+    },
+    "1442": {
+      "name": "名軒",
+      "foreign_net": 35380,
+      "dealer_net": 0,
+      "prop_net": -398,
+      "total_net": 1398
+    },
+    "2480": {
+      "name": "敦陽科",
+      "foreign_net": 32992,
+      "dealer_net": -1161,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00638R": {
+      "name": "元大滬深300反1",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 30022,
+      "total_net": 0
+    },
+    "2425": {
+      "name": "承啟",
+      "foreign_net": 31000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2328": {
+      "name": "廣宇",
+      "foreign_net": 80520,
+      "dealer_net": 0,
+      "prop_net": -50000,
+      "total_net": 62000
+    },
+    "2612": {
+      "name": "中航",
+      "foreign_net": 30000,
+      "dealer_net": 0,
+      "prop_net": 437,
+      "total_net": 0
+    },
+    "6776": {
+      "name": "展碁國際",
+      "foreign_net": 30000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1808": {
+      "name": "潤隆",
+      "foreign_net": 523600,
+      "dealer_net": -329000,
+      "prop_net": -165000,
+      "total_net": 165000
+    },
+    "3447": {
+      "name": "展達",
+      "foreign_net": 29000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2397": {
+      "name": "友通",
+      "foreign_net": 32000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 6000
+    },
+    "5285": {
+      "name": "界霖",
+      "foreign_net": 28732,
+      "dealer_net": 0,
+      "prop_net": 18,
+      "total_net": 0
+    },
+    "1217": {
+      "name": "愛之味",
+      "foreign_net": 28000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "020030": {
+      "name": "統一智慧電動車N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 28000,
+      "total_net": 0
+    },
+    "3535": {
+      "name": "晶彩科",
+      "foreign_net": -18958,
+      "dealer_net": 0,
+      "prop_net": 46526,
+      "total_net": 0
+    },
+    "7711": {
+      "name": "永擎",
+      "foreign_net": 35112,
+      "dealer_net": 0,
+      "prop_net": -7687,
+      "total_net": 1202
+    },
+    "5258": {
+      "name": "虹堡",
+      "foreign_net": 26000,
+      "dealer_net": 0,
+      "prop_net": 644,
+      "total_net": 356
+    },
+    "6206": {
+      "name": "飛捷",
+      "foreign_net": 30361,
+      "dealer_net": -2576,
+      "prop_net": -2626,
+      "total_net": 0
+    },
+    "4545": {
+      "name": "銘鈺",
+      "foreign_net": 25000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00737": {
+      "name": "國泰AI機器人",
+      "foreign_net": 16000,
+      "dealer_net": 0,
+      "prop_net": 9000,
+      "total_net": 0
+    },
+    "2365": {
+      "name": "昆盈",
+      "foreign_net": 25000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6670": {
+      "name": "復盛應用",
+      "foreign_net": 25348,
+      "dealer_net": 18390,
+      "prop_net": -19000,
+      "total_net": 20000
+    },
+    "00701": {
+      "name": "國泰股利精選30",
+      "foreign_net": -58500,
+      "dealer_net": 0,
+      "prop_net": 83063,
+      "total_net": 0
+    },
+    "1524": {
+      "name": "耿鼎",
+      "foreign_net": 24301,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6957": {
+      "name": "裕慶-KY",
+      "foreign_net": 22132,
+      "dealer_net": 0,
+      "prop_net": 1983,
+      "total_net": 17
+    },
+    "00916": {
+      "name": "國泰全球品牌50",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 25488,
+      "total_net": 0
+    },
+    "1231": {
+      "name": "聯華食",
+      "foreign_net": 23000,
+      "dealer_net": 0,
+      "prop_net": 237,
+      "total_net": 763
+    },
+    "1786": {
+      "name": "科妍",
+      "foreign_net": 23000,
+      "dealer_net": 0,
+      "prop_net": 133,
+      "total_net": 867
+    },
+    "3025": {
+      "name": "星通",
+      "foreign_net": 23000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8464": {
+      "name": "億豐",
+      "foreign_net": 24982,
+      "dealer_net": 0,
+      "prop_net": -2001,
+      "total_net": 0
+    },
+    "3338": {
+      "name": "泰碩",
+      "foreign_net": 22900,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "009818": {
+      "name": "華南永昌NASDAQxT",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 23712,
+      "total_net": 0
+    },
+    "006207": {
+      "name": "復華滬深",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 23556,
+      "total_net": 0
+    },
+    "00861": {
+      "name": "元大全球未來通訊",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": 20456,
+      "total_net": 0
+    },
+    "1568": {
+      "name": "倉佑",
+      "foreign_net": 29165,
+      "dealer_net": 0,
+      "prop_net": -7000,
+      "total_net": 7000
+    },
+    "6674": {
+      "name": "鋐寶科技",
+      "foreign_net": 22000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5288": {
+      "name": "豐祥-KY",
+      "foreign_net": 22040,
+      "dealer_net": 0,
+      "prop_net": -950,
+      "total_net": 1000
+    },
+    "4133": {
+      "name": "亞諾法",
+      "foreign_net": 21000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3305": {
+      "name": "昇貿",
+      "foreign_net": 12671,
+      "dealer_net": 0,
+      "prop_net": 7927,
+      "total_net": 0
+    },
+    "3038": {
+      "name": "全台",
+      "foreign_net": 20246,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00645": {
+      "name": "富邦日本",
+      "foreign_net": 100,
+      "dealer_net": 103000,
+      "prop_net": -83035,
+      "total_net": 0
+    },
+    "3092": {
+      "name": "鴻碩",
+      "foreign_net": 20000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6579": {
+      "name": "研揚",
+      "foreign_net": 4767,
+      "dealer_net": 0,
+      "prop_net": 15229,
+      "total_net": 2021
+    },
+    "6715": {
+      "name": "嘉基",
+      "foreign_net": 44000,
+      "dealer_net": 0,
+      "prop_net": -24544,
+      "total_net": 26345
+    },
+    "2028": {
+      "name": "威致",
+      "foreign_net": 17000,
+      "dealer_net": 0,
+      "prop_net": 2000,
+      "total_net": 2000
+    },
+    "6834": {
+      "name": "天二科技",
+      "foreign_net": -3660,
+      "dealer_net": 0,
+      "prop_net": 22439,
+      "total_net": 0
+    },
+    "00762": {
+      "name": "元大全球AI",
+      "foreign_net": -45000,
+      "dealer_net": 0,
+      "prop_net": 63133,
+      "total_net": 0
+    },
+    "5225": {
+      "name": "東科-KY",
+      "foreign_net": 18000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00875": {
+      "name": "國泰網路資安",
+      "foreign_net": 2,
+      "dealer_net": 0,
+      "prop_net": 17989,
+      "total_net": 0
+    },
+    "6552": {
+      "name": "易華電",
+      "foreign_net": 18000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "8104": {
+      "name": "錸寶",
+      "foreign_net": 17000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1537": {
+      "name": "廣隆",
+      "foreign_net": 17000,
+      "dealer_net": 0,
+      "prop_net": -161,
+      "total_net": 161
+    },
+    "00710B": {
+      "name": "復華彭博非投等債",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 21242,
+      "total_net": 0
+    },
+    "4722": {
+      "name": "國精化",
+      "foreign_net": 21035,
+      "dealer_net": 0,
+      "prop_net": -5567,
+      "total_net": 0
+    },
+    "2546": {
+      "name": "根基",
+      "foreign_net": 20563,
+      "dealer_net": 0,
+      "prop_net": -5173,
+      "total_net": 5173
+    },
+    "7827": {
+      "name": "漢康-KY創",
+      "foreign_net": 13005,
+      "dealer_net": 0,
+      "prop_net": 2074,
+      "total_net": 0
+    },
+    "5203": {
+      "name": "訊連",
+      "foreign_net": 15000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6534": {
+      "name": "正瀚-創",
+      "foreign_net": 15000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00717": {
+      "name": "富邦美國特別股",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 15000,
+      "total_net": 0
+    },
+    "2611": {
+      "name": "志信",
+      "foreign_net": 11000,
+      "dealer_net": 0,
+      "prop_net": 4000,
+      "total_net": 0
+    },
+    "2434": {
+      "name": "統懋",
+      "foreign_net": 15000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00656R": {
+      "name": "國泰中國A50反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 14986,
+      "total_net": 0
+    },
+    "1702": {
+      "name": "南僑",
+      "foreign_net": 14000,
+      "dealer_net": 0,
+      "prop_net": 688,
+      "total_net": 312
+    },
+    "2613": {
+      "name": "中櫃",
+      "foreign_net": 14058,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00757": {
+      "name": "統一FANG+",
+      "foreign_net": 234130,
+      "dealer_net": 0,
+      "prop_net": -220494,
+      "total_net": 0
+    },
+    "2540": {
+      "name": "愛山林",
+      "foreign_net": 14142,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "6272": {
+      "name": "驊陞",
+      "foreign_net": 13020,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2887E": {
+      "name": "台新新光戊特一",
+      "foreign_net": 13000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2431": {
+      "name": "聯昌",
+      "foreign_net": 13000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4441": {
+      "name": "振大環球",
+      "foreign_net": 13000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2887H": {
+      "name": "台新新光庚特二",
+      "foreign_net": 13000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4576": {
+      "name": "大銀微系統",
+      "foreign_net": 20919,
+      "dealer_net": 0,
+      "prop_net": -7966,
+      "total_net": 7000
+    },
+    "009808": {
+      "name": "華南永昌優選50",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 14190,
+      "total_net": 0
+    },
+    "5269": {
+      "name": "祥碩",
+      "foreign_net": 7428,
+      "dealer_net": 10000,
+      "prop_net": -5246,
+      "total_net": 3300
+    },
+    "1731": {
+      "name": "美吾華",
+      "foreign_net": 12000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2072": {
+      "name": "世紀風電",
+      "foreign_net": 12000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2401": {
+      "name": "凌陽",
+      "foreign_net": -5215,
+      "dealer_net": 30000,
+      "prop_net": -13137,
+      "total_net": 6000
+    },
+    "7823": {
+      "name": "奧義賽博-KY創",
+      "foreign_net": 11000,
+      "dealer_net": 0,
+      "prop_net": 557,
+      "total_net": 0
+    },
+    "1735": {
+      "name": "日勝化",
+      "foreign_net": 11000,
+      "dealer_net": 0,
+      "prop_net": 400,
+      "total_net": 0
+    },
+    "2362": {
+      "name": "藍天",
+      "foreign_net": 13130,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "0051": {
+      "name": "元大中型100",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 12120,
+      "total_net": 0
+    },
+    "8016": {
+      "name": "矽創",
+      "foreign_net": -6991,
+      "dealer_net": 18202,
+      "prop_net": -170,
+      "total_net": 32
+    },
+    "8222": {
+      "name": "寶一",
+      "foreign_net": 11000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6906": {
+      "name": "現觀科",
+      "foreign_net": 11000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6698": {
+      "name": "旭暉應材",
+      "foreign_net": 11000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1466": {
+      "name": "聚隆",
+      "foreign_net": 10943,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2534": {
+      "name": "宏盛",
+      "foreign_net": 11000,
+      "dealer_net": 0,
+      "prop_net": -355,
+      "total_net": 1355
+    },
+    "2204": {
+      "name": "中華",
+      "foreign_net": 14115,
+      "dealer_net": -2929,
+      "prop_net": -550,
+      "total_net": 0
+    },
+    "00666R": {
+      "name": "富邦恒生國企反1",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": 27142,
+      "total_net": 0
+    },
+    "1423": {
+      "name": "利華",
+      "foreign_net": 10000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1615": {
+      "name": "大山",
+      "foreign_net": 10000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6136": {
+      "name": "富爾特",
+      "foreign_net": 10000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2881B": {
+      "name": "富邦金乙特",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 10000,
+      "total_net": 0
+    },
+    "6962": {
+      "name": "奕力-KY",
+      "foreign_net": -10000,
+      "dealer_net": 20000,
+      "prop_net": -201,
+      "total_net": 0
+    },
+    "3004": {
+      "name": "豐達科",
+      "foreign_net": 9100,
+      "dealer_net": 0,
+      "prop_net": 203,
+      "total_net": 0
+    },
+    "7786": {
+      "name": "東方風能",
+      "foreign_net": 9179,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00908": {
+      "name": "富邦入息REITs+",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 11118,
+      "total_net": 0
+    },
+    "020036": {
+      "name": "元大金融配息N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 9000,
+      "total_net": 0
+    },
+    "2428": {
+      "name": "興勤",
+      "foreign_net": 27573,
+      "dealer_net": -17000,
+      "prop_net": -1612,
+      "total_net": 0
+    },
+    "8045": {
+      "name": "達運光電",
+      "foreign_net": 8773,
+      "dealer_net": 0,
+      "prop_net": 144,
+      "total_net": 0
+    },
+    "6753": {
+      "name": "龍德造船",
+      "foreign_net": 16763,
+      "dealer_net": 0,
+      "prop_net": -8303,
+      "total_net": 0
+    },
+    "00652": {
+      "name": "富邦印度",
+      "foreign_net": -19000,
+      "dealer_net": 0,
+      "prop_net": 27284,
+      "total_net": 0
+    },
+    "3708": {
+      "name": "上緯投控",
+      "foreign_net": 11100,
+      "dealer_net": 0,
+      "prop_net": -2923,
+      "total_net": 0
+    },
+    "3054": {
+      "name": "立萬利",
+      "foreign_net": 7000,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "3437": {
+      "name": "榮創",
+      "foreign_net": 10000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "8499": {
+      "name": "鼎炫-KY",
+      "foreign_net": 8000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "020031": {
+      "name": "統一IC設計臺灣N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 8000,
+      "total_net": 0
+    },
+    "8070": {
+      "name": "長華*",
+      "foreign_net": -12000,
+      "dealer_net": -4371,
+      "prop_net": 23997,
+      "total_net": 21000
+    },
+    "4952": {
+      "name": "凌通",
+      "foreign_net": 5589,
+      "dealer_net": 0,
+      "prop_net": 2000,
+      "total_net": 0
+    },
+    "00683L": {
+      "name": "期元大美元指正2",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 7260,
+      "total_net": 0
+    },
+    "00674R": {
+      "name": "期元大S&P黃金反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 7229,
+      "total_net": 0
+    },
+    "6165": {
+      "name": "浪凡",
+      "foreign_net": 7000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1516": {
+      "name": "川飛",
+      "foreign_net": 7000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2723": {
+      "name": "美食-KY",
+      "foreign_net": 6808,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1342": {
+      "name": "八貫",
+      "foreign_net": 6100,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2387": {
+      "name": "精元",
+      "foreign_net": 6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4426": {
+      "name": "利勤",
+      "foreign_net": 6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6934": {
+      "name": "心誠鎂",
+      "foreign_net": 6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2477": {
+      "name": "美隆電",
+      "foreign_net": 6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2415": {
+      "name": "錩新",
+      "foreign_net": 7000,
+      "dealer_net": 0,
+      "prop_net": -1015,
+      "total_net": 1015
+    },
+    "2630": {
+      "name": "亞航",
+      "foreign_net": 91894,
+      "dealer_net": 0,
+      "prop_net": -86266,
+      "total_net": 0
+    },
+    "1597": {
+      "name": "直得",
+      "foreign_net": -5721,
+      "dealer_net": 0,
+      "prop_net": 11010,
+      "total_net": 0
+    },
+    "7631": {
+      "name": "聚賢研發-創",
+      "foreign_net": 6000,
+      "dealer_net": 0,
+      "prop_net": -828,
+      "total_net": 1000
+    },
+    "6606": {
+      "name": "建德工業",
+      "foreign_net": 5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1340": {
+      "name": "勝悅-KY",
+      "foreign_net": 5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6928": {
+      "name": "攸泰科技",
+      "foreign_net": 5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6794": {
+      "name": "向榮生技",
+      "foreign_net": 5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7689": {
+      "name": "大鵬科CLMX",
+      "foreign_net": 5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6921": {
+      "name": "嘉雨思-創",
+      "foreign_net": 5000,
+      "dealer_net": 0,
+      "prop_net": -100,
+      "total_net": 0
+    },
+    "1558": {
+      "name": "伸興",
+      "foreign_net": 6319,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "8249": {
+      "name": "菱光",
+      "foreign_net": 4100,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3607": {
+      "name": "谷崧",
+      "foreign_net": 4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3040": {
+      "name": "遠見",
+      "foreign_net": 4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1783": {
+      "name": "和康生",
+      "foreign_net": 4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1806": {
+      "name": "冠軍",
+      "foreign_net": 4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00654R": {
+      "name": "富邦印度反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 3938,
+      "total_net": 0
+    },
+    "2906": {
+      "name": "高林",
+      "foreign_net": -18000,
+      "dealer_net": 0,
+      "prop_net": 21844,
+      "total_net": 0
+    },
+    "6278": {
+      "name": "台表科",
+      "foreign_net": -273807,
+      "dealer_net": -55000,
+      "prop_net": 332375,
+      "total_net": 30000
+    },
+    "00681R": {
+      "name": "元大美債20反1",
+      "foreign_net": 59000,
+      "dealer_net": 0,
+      "prop_net": -55980,
+      "total_net": 0
+    },
+    "1438": {
+      "name": "三地開發",
+      "foreign_net": 6000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 4000
+    },
+    "2545": {
+      "name": "皇翔",
+      "foreign_net": 3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6936": {
+      "name": "永鴻生技",
+      "foreign_net": 3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7791": {
+      "name": "皇家可口",
+      "foreign_net": 3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2939": {
+      "name": "永邑-KY",
+      "foreign_net": 3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3557": {
+      "name": "嘉威",
+      "foreign_net": 3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 1000
+    },
+    "4104": {
+      "name": "佳醫",
+      "foreign_net": 3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00739": {
+      "name": "元大MSCI A股",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 2950,
+      "total_net": 0
+    },
+    "9942": {
+      "name": "茂順",
+      "foreign_net": 2769,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4571": {
+      "name": "鈞興-KY",
+      "foreign_net": 2559,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "0057": {
+      "name": "富邦摩台",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 1326,
+      "total_net": 0
+    },
+    "7730": {
+      "name": "暉盛-創",
+      "foreign_net": 2302,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7818": {
+      "name": "溢泰實業",
+      "foreign_net": 2024,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4949": {
+      "name": "有成精密",
+      "foreign_net": 2028,
+      "dealer_net": 0,
+      "prop_net": -9,
+      "total_net": 9
+    },
+    "3679": {
+      "name": "新至陞",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8463": {
+      "name": "潤泰材",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6431": {
+      "name": "光麗-KY",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1539": {
+      "name": "巨庭",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1521": {
+      "name": "大億",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00707R": {
+      "name": "期元大S&P日圓反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 2000,
+      "total_net": 0
+    },
+    "2250": {
+      "name": "IKKA-KY",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1587": {
+      "name": "吉茂",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": -1,
+      "total_net": 1
+    },
+    "2015": {
+      "name": "豐興",
+      "foreign_net": 962,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "00731": {
+      "name": "復華富時高息低波",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 886,
+      "total_net": 0
+    },
+    "2707": {
+      "name": "晶華",
+      "foreign_net": 989,
+      "dealer_net": 0,
+      "prop_net": 515,
+      "total_net": 1485
+    },
+    "2609": {
+      "name": "陽明",
+      "foreign_net": 128704,
+      "dealer_net": 50000,
+      "prop_net": -177279,
+      "total_net": 286615
+    },
+    "6585": {
+      "name": "鼎基",
+      "foreign_net": 1160,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "006203": {
+      "name": "元大MSCI台灣",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 1124,
+      "total_net": 0
+    },
+    "2482": {
+      "name": "連宇",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 68,
+      "total_net": 932
+    },
+    "00730": {
+      "name": "富邦臺灣優質高息",
+      "foreign_net": -23000,
+      "dealer_net": 0,
+      "prop_net": 24052,
+      "total_net": 0
+    },
+    "2538": {
+      "name": "基泰",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2114": {
+      "name": "鑫永銓",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1527": {
+      "name": "鑽全",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6201": {
+      "name": "亞弘電",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6914": {
+      "name": "阜爾運通",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6754": {
+      "name": "匯僑設計",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6666": {
+      "name": "羅麗芬-KY",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7803": {
+      "name": "雲象科技-創",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "9944": {
+      "name": "新麗",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8482": {
+      "name": "商億-KY",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9110": {
+      "name": "越南控-DR",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4439": {
+      "name": "冠星-KY",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2929": {
+      "name": "淘帝-KY",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1457": {
+      "name": "宜進",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2380": {
+      "name": "虹光",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2891C": {
+      "name": "中信金丙特",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "6955": {
+      "name": "邦睿生技-創",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": -11,
+      "total_net": 0
+    },
+    "8487": {
+      "name": "愛爾達-創",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 723,
+      "total_net": 0
+    },
+    "5236": {
+      "name": "凌陽創新",
+      "foreign_net": -17574,
+      "dealer_net": 20000,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "3592": {
+      "name": "瑞鼎",
+      "foreign_net": -17934,
+      "dealer_net": 18301,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1446": {
+      "name": "宏和",
+      "foreign_net": -756,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "6862": {
+      "name": "三集瑞-KY",
+      "foreign_net": 189,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00736": {
+      "name": "國泰新興市場",
+      "foreign_net": 6000,
+      "dealer_net": 0,
+      "prop_net": -5950,
+      "total_net": 0
+    },
+    "00689R": {
+      "name": "國泰20年美債反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "020020": {
+      "name": "元大台股領航N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00668K": {
+      "name": "國泰美國道瓊+U",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1453": {
+      "name": "大將",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1454": {
+      "name": "台富",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1432": {
+      "name": "大魯閣",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1225": {
+      "name": "福懋油",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00636K": {
+      "name": "國泰中國A50+U",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00657K": {
+      "name": "國泰日經225+U",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00775B": {
+      "name": "台新投等債15+",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1472": {
+      "name": "三洋實業",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1475": {
+      "name": "業旺",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1732": {
+      "name": "毛寶",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6835": {
+      "name": "圓裕",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6641": {
+      "name": "基士德-KY",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "6671": {
+      "name": "三能-KY",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6464": {
+      "name": "台數科",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6283": {
+      "name": "淳安",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1470": {
+      "name": "大統新創",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "8341": {
+      "name": "日友",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8201": {
+      "name": "無敵",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3593": {
+      "name": "力銘",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5484": {
+      "name": "慧友",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2722": {
+      "name": "夏都",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2438": {
+      "name": "翔耀",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1614": {
+      "name": "三洋電",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3257": {
+      "name": "虹冠電",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4999": {
+      "name": "鑫禾",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -28,
+      "total_net": 28
+    },
+    "1418": {
+      "name": "東華",
+      "foreign_net": -65,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3135": {
+      "name": "凌航",
+      "foreign_net": 847,
+      "dealer_net": 0,
+      "prop_net": -945,
+      "total_net": 0
+    },
+    "006204": {
+      "name": "永豐臺灣加權",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -98,
+      "total_net": 0
+    },
+    "2062": {
+      "name": "橋椿",
+      "foreign_net": -214,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4588": {
+      "name": "玖鼎電力",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -288,
+      "total_net": 288
+    },
+    "00920": {
+      "name": "富邦ESG綠色電力",
+      "foreign_net": -1002,
+      "dealer_net": 0,
+      "prop_net": 661,
+      "total_net": 0
+    },
+    "1339": {
+      "name": "昭輝",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 484,
+      "total_net": 516
+    },
+    "1232": {
+      "name": "大統益",
+      "foreign_net": -869,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00647L": {
+      "name": "元大S&P500正2",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -932,
+      "total_net": 0
+    },
+    "2514": {
+      "name": "龍邦",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2702": {
+      "name": "華園",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2705": {
+      "name": "六福",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9929": {
+      "name": "秋雨",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1338": {
+      "name": "廣華-KY",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1435": {
+      "name": "中福",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1451": {
+      "name": "年興",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1439": {
+      "name": "雋揚",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00660": {
+      "name": "元大歐洲50",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 0
+    },
+    "01009T": {
+      "name": "王道圓滿R1",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "01010T": {
+      "name": "京城樂富R1",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "02001L": {
+      "name": "富邦蘋果正二N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 0
+    },
+    "00711B": {
+      "name": "復華彭博新興債",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 0
+    },
+    "00684R": {
+      "name": "期元大美元指反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 0
+    },
+    "2024": {
+      "name": "志聯",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2008": {
+      "name": "高興昌",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1535": {
+      "name": "中宇",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2373": {
+      "name": "震旦行",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2433": {
+      "name": "互盛電",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3164": {
+      "name": "景岳",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3494": {
+      "name": "誠研",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2904": {
+      "name": "匯僑",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4148": {
+      "name": "全宇生技-KY",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "4572": {
+      "name": "駐龍",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4569": {
+      "name": "六方科-KY",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9946": {
+      "name": "三發地產",
+      "foreign_net": 13000,
+      "dealer_net": 0,
+      "prop_net": -14000,
+      "total_net": 14000
+    },
+    "9918": {
+      "name": "欣天然",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9926": {
+      "name": "新海",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9931": {
+      "name": "欣高",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8367": {
+      "name": "建新國際",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8467": {
+      "name": "波力-KY",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7732": {
+      "name": "金興精密",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7705": {
+      "name": "三商餐飲",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6722": {
+      "name": "輝創",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6792": {
+      "name": "詠業",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6887": {
+      "name": "寶綠特-KY",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6918": {
+      "name": "愛派司",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00682U": {
+      "name": "期元大美元指數",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -1001,
+      "total_net": 0
+    },
+    "6916": {
+      "name": "華凌",
+      "foreign_net": -1100,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6625": {
+      "name": "必應",
+      "foreign_net": 3000,
+      "dealer_net": 0,
+      "prop_net": -4178,
+      "total_net": 4178
+    },
+    "006206": {
+      "name": "元大上證50",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -262,
+      "total_net": 0
+    },
+    "00714": {
+      "name": "群益道瓊美國地產",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -1411,
+      "total_net": 0
+    },
+    "2497": {
+      "name": "怡利電",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -789,
+      "total_net": 0
+    },
+    "2450": {
+      "name": "神腦",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2424": {
+      "name": "隴華",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2414": {
+      "name": "精技",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1533": {
+      "name": "車王電",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 2000,
+      "total_net": 0
+    },
+    "1525": {
+      "name": "江申",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1512": {
+      "name": "瑞利",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1583": {
+      "name": "程泰",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1459": {
+      "name": "聯發",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1410": {
+      "name": "南染",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "6614": {
+      "name": "資拓宏宇",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7736": {
+      "name": "虎山",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8481": {
+      "name": "政伸",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9912": {
+      "name": "偉聯",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9902": {
+      "name": "台火",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1730": {
+      "name": "花仙子",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4583": {
+      "name": "台灣精銳",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3712": {
+      "name": "永崴投控",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4994": {
+      "name": "傳奇",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5215": {
+      "name": "科嘉-KY",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2910": {
+      "name": "統領",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6952": {
+      "name": "大武山",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1315": {
+      "name": "達新",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6645": {
+      "name": "金萬林-創",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -99,
+      "total_net": 0
+    },
+    "1903": {
+      "name": "士紙",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -2119,
+      "total_net": 2119
+    },
+    "6768": {
+      "name": "志強-KY",
+      "foreign_net": -210,
+      "dealer_net": -1983,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1220": {
+      "name": "台榮",
+      "foreign_net": -2430,
+      "dealer_net": 0,
+      "prop_net": -1,
+      "total_net": 0
+    },
+    "00851": {
+      "name": "台新全球AI",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 0
+    },
+    "1776": {
+      "name": "展宇",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1762": {
+      "name": "中化生",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1465": {
+      "name": "偉全",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1530": {
+      "name": "亞崴",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6796": {
+      "name": "晉弘",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6183": {
+      "name": "關貿",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6281": {
+      "name": "全國電",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9924": {
+      "name": "福興",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7721": {
+      "name": "微程式",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7760": {
+      "name": "享溫馨",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2712": {
+      "name": "遠雄來",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4557": {
+      "name": "永新-KY",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "5546": {
+      "name": "永固-KY",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 4000
+    },
+    "4190": {
+      "name": "佐登-KY",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1443": {
+      "name": "立益物流",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6581": {
+      "name": "鋼聯",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4930": {
+      "name": "燦星網",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3266": {
+      "name": "昇陽",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "009810": {
+      "name": "玉山全球藍籌100",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -3025,
+      "total_net": 0
+    },
+    "00926": {
+      "name": "凱基全球菁英55",
+      "foreign_net": 50,
+      "dealer_net": 0,
+      "prop_net": -3092,
+      "total_net": 0
+    },
+    "9930": {
+      "name": "中聯資源",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": -147,
+      "total_net": 0
+    },
+    "1817": {
+      "name": "凱撒衛",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": -165,
+      "total_net": 0
+    },
+    "8462": {
+      "name": "柏文",
+      "foreign_net": -3210,
+      "dealer_net": 0,
+      "prop_net": -17,
+      "total_net": 17
+    },
+    "6924": {
+      "name": "榮惠-KY創",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": -230,
+      "total_net": 0
+    },
+    "00702": {
+      "name": "國泰標普低波高息",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -3316,
+      "total_net": 0
+    },
+    "2231": {
+      "name": "為升",
+      "foreign_net": -3780,
+      "dealer_net": 0,
+      "prop_net": 208,
+      "total_net": 0
+    },
+    "00661": {
+      "name": "元大日經225",
+      "foreign_net": 10000,
+      "dealer_net": 0,
+      "prop_net": -13638,
+      "total_net": 0
+    },
+    "6790": {
+      "name": "永豐實",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 350,
+      "total_net": 0
+    },
+    "3716": {
+      "name": "中化控股",
+      "foreign_net": -3720,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7750": {
+      "name": "新代",
+      "foreign_net": -9745,
+      "dealer_net": 0,
+      "prop_net": 5925,
+      "total_net": 8929
+    },
+    "00657": {
+      "name": "國泰日經225",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -3913,
+      "total_net": 0
+    },
+    "4169": {
+      "name": "泰宗",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2748": {
+      "name": "雲品",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2642": {
+      "name": "宅配通",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3150": {
+      "name": "鈺寶-創",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 0
+    },
+    "3308": {
+      "name": "聯德",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "6931": {
+      "name": "青松健康",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6965": {
+      "name": "中傑-KY",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3043": {
+      "name": "科風",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "2239": {
+      "name": "英利-KY",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1725": {
+      "name": "元禎",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "020029": {
+      "name": "元大ESG高股息N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -4000,
+      "total_net": 0
+    },
+    "1324": {
+      "name": "地球",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6277": {
+      "name": "宏正",
+      "foreign_net": -1040,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 0
+    },
+    "00982T": {
+      "name": "平衡兆豐台美動能",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -4049,
+      "total_net": 0
+    },
+    "6908": {
+      "name": "宏碁遊戲-創",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -2062,
+      "total_net": 0
+    },
+    "3027": {
+      "name": "盛達",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": -102,
+      "total_net": 102
+    },
+    "0053": {
+      "name": "元大電子",
+      "foreign_net": -999,
+      "dealer_net": 0,
+      "prop_net": -3439,
+      "total_net": 0
+    },
+    "2901": {
+      "name": "欣欣",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -3474,
+      "total_net": 3474
+    },
+    "3010": {
+      "name": "華立",
+      "foreign_net": 2414,
+      "dealer_net": -1000,
+      "prop_net": -6000,
+      "total_net": 6000
+    },
+    "2753": {
+      "name": "八方雲集",
+      "foreign_net": -3916,
+      "dealer_net": -925,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2488": {
+      "name": "漢平",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 15,
+      "total_net": 0
+    },
+    "2483": {
+      "name": "百容",
+      "foreign_net": -4995,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1468": {
+      "name": "昶和",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 3000
+    },
+    "00771": {
+      "name": "元大US高息特別股",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -5000,
+      "total_net": 0
+    },
+    "1419": {
+      "name": "新紡",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1233": {
+      "name": "天仁",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "01007T": {
+      "name": "兆豐國泰R2",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2945": {
+      "name": "三商家購",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6128": {
+      "name": "上福",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6115": {
+      "name": "鎰勝",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4942": {
+      "name": "嘉彰",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "1413": {
+      "name": "宏洲",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "009801": {
+      "name": "中信美國創新科技",
+      "foreign_net": 129000,
+      "dealer_net": 0,
+      "prop_net": -134687,
+      "total_net": 0
+    },
+    "3296": {
+      "name": "勝德",
+      "foreign_net": -5754,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00972": {
+      "name": "野村日本動能高息",
+      "foreign_net": -900,
+      "dealer_net": 0,
+      "prop_net": -4952,
+      "total_net": 0
+    },
+    "1203": {
+      "name": "味王",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "1445": {
+      "name": "大宇",
+      "foreign_net": -6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2430": {
+      "name": "燦坤",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "2248": {
+      "name": "華勝-KY",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "6117": {
+      "name": "迎廣",
+      "foreign_net": -6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6504": {
+      "name": "南六",
+      "foreign_net": -6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9937": {
+      "name": "全國",
+      "foreign_net": -6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7821": {
+      "name": "神數",
+      "foreign_net": -6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "020037": {
+      "name": "元大金融高股息N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -6000,
+      "total_net": 0
+    },
+    "9943": {
+      "name": "好樂迪",
+      "foreign_net": -6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3018": {
+      "name": "隆銘綠能",
+      "foreign_net": -6000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1414": {
+      "name": "東和",
+      "foreign_net": 3997,
+      "dealer_net": 0,
+      "prop_net": -10000,
+      "total_net": 10000
+    },
+    "1618": {
+      "name": "合機",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": -1058,
+      "total_net": 0
+    },
+    "2022": {
+      "name": "聚亨",
+      "foreign_net": -6195,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00728": {
+      "name": "第一金工業30",
+      "foreign_net": -13000,
+      "dealer_net": 0,
+      "prop_net": 6527,
+      "total_net": 0
+    },
+    "5306": {
+      "name": "桂盟",
+      "foreign_net": -6533,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00703": {
+      "name": "台新MSCI中國",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -6555,
+      "total_net": 0
+    },
+    "4912": {
+      "name": "聯德控股-KY",
+      "foreign_net": -6816,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6216": {
+      "name": "居易",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": 115,
+      "total_net": 885
+    },
+    "1467": {
+      "name": "南緯",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2115": {
+      "name": "六暉-KY",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2509": {
+      "name": "全坤建",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4582": {
+      "name": "聚恆-創",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 0
+    },
+    "6771": {
+      "name": "平和環保-創",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -6000,
+      "total_net": 2000
+    },
+    "6958": {
+      "name": "日盛台駿",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00709": {
+      "name": "富邦歐洲",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -7348,
+      "total_net": 0
+    },
+    "1325": {
+      "name": "恆大",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1752": {
+      "name": "南光",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1805": {
+      "name": "寶徠",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1526": {
+      "name": "日馳",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1626": {
+      "name": "艾美特-KY",
+      "foreign_net": -9000,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "6184": {
+      "name": "大豐電",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6951": {
+      "name": "青新-創",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9919": {
+      "name": "康那香",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00943": {
+      "name": "兆豐電子高息等權",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -8083,
+      "total_net": 0
+    },
+    "5222": {
+      "name": "全訊",
+      "foreign_net": -8105,
+      "dealer_net": 0,
+      "prop_net": -44,
+      "total_net": 0
+    },
+    "4551": {
+      "name": "智伸科",
+      "foreign_net": -13253,
+      "dealer_net": 0,
+      "prop_net": 5043,
+      "total_net": 1016
+    },
+    "00899": {
+      "name": "FT潔淨能源",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -7249,
+      "total_net": 0
+    },
+    "2537": {
+      "name": "聯上發",
+      "foreign_net": -8580,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4585": {
+      "name": "達明",
+      "foreign_net": -10000,
+      "dealer_net": 0,
+      "prop_net": 1101,
+      "total_net": 0
+    },
+    "5244": {
+      "name": "弘凱",
+      "foreign_net": -9000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2911": {
+      "name": "麗嬰房",
+      "foreign_net": -9000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2882B": {
+      "name": "國泰金乙特",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -9000,
+      "total_net": 15000
+    },
+    "9906": {
+      "name": "欣巴巴",
+      "foreign_net": -9000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1323": {
+      "name": "永裕",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "2432": {
+      "name": "倚天酷碁-創",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -7000,
+      "total_net": 0
+    },
+    "1234": {
+      "name": "黑松",
+      "foreign_net": -9000,
+      "dealer_net": 0,
+      "prop_net": -1,
+      "total_net": 0
+    },
+    "2227": {
+      "name": "裕日車",
+      "foreign_net": -9044,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2390": {
+      "name": "云辰",
+      "foreign_net": -9394,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2440": {
+      "name": "太空梭",
+      "foreign_net": -10000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1474": {
+      "name": "弘裕",
+      "foreign_net": -10000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6230": {
+      "name": "尼得科超眾",
+      "foreign_net": -10000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3432": {
+      "name": "台端",
+      "foreign_net": -10000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4807": {
+      "name": "日成-KY",
+      "foreign_net": -13000,
+      "dealer_net": 0,
+      "prop_net": 3000,
+      "total_net": 0
+    },
+    "4552": {
+      "name": "力達-KY",
+      "foreign_net": -10000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4440": {
+      "name": "宜新實業",
+      "foreign_net": -6000,
+      "dealer_net": 0,
+      "prop_net": -4000,
+      "total_net": 4000
+    },
+    "6582": {
+      "name": "申豐",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 3000
+    },
+    "3652": {
+      "name": "精聯",
+      "foreign_net": -7000,
+      "dealer_net": 0,
+      "prop_net": -4000,
+      "total_net": 6000
+    },
+    "6947": {
+      "name": "台鎔科技",
+      "foreign_net": -11000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1906": {
+      "name": "寶隆",
+      "foreign_net": -9000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "1236": {
+      "name": "宏亞",
+      "foreign_net": -11000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4562": {
+      "name": "穎漢",
+      "foreign_net": -11000,
+      "dealer_net": 0,
+      "prop_net": -238,
+      "total_net": 238
+    },
+    "5007": {
+      "name": "三星",
+      "foreign_net": -12000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5292": {
+      "name": "華懋",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": -8000,
+      "total_net": 0
+    },
+    "5533": {
+      "name": "皇鼎",
+      "foreign_net": -12000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2704": {
+      "name": "國賓",
+      "foreign_net": -12000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2706": {
+      "name": "第一店",
+      "foreign_net": -12000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8488": {
+      "name": "吉源-KY",
+      "foreign_net": -16000,
+      "dealer_net": 0,
+      "prop_net": 4000,
+      "total_net": 0
+    },
+    "1517": {
+      "name": "利奇",
+      "foreign_net": -12000,
+      "dealer_net": 0,
+      "prop_net": -18,
+      "total_net": 18
+    },
+    "1603": {
+      "name": "華電",
+      "foreign_net": -13000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2228": {
+      "name": "劍麟",
+      "foreign_net": -13000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2616": {
+      "name": "山隆",
+      "foreign_net": -13000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1256": {
+      "name": "鮮活果汁-KY",
+      "foreign_net": -8000,
+      "dealer_net": 0,
+      "prop_net": -5000,
+      "total_net": 5000
+    },
+    "4178": {
+      "name": "永笙-KY",
+      "foreign_net": -10000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 3000
+    },
+    "8478": {
+      "name": "東哥遊艇",
+      "foreign_net": -13006,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4720": {
+      "name": "德淵",
+      "foreign_net": -14000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5538": {
+      "name": "東明-KY",
+      "foreign_net": -14000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3002": {
+      "name": "歐格",
+      "foreign_net": -14000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3057": {
+      "name": "喬鼎",
+      "foreign_net": -15000,
+      "dealer_net": 0,
+      "prop_net": 1000,
+      "total_net": 0
+    },
+    "4555": {
+      "name": "氣立",
+      "foreign_net": -14000,
+      "dealer_net": 0,
+      "prop_net": -236,
+      "total_net": 236
+    },
+    "4108": {
+      "name": "懷特",
+      "foreign_net": -15000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6923": {
+      "name": "中台",
+      "foreign_net": -15000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2524": {
+      "name": "京城",
+      "foreign_net": -15000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2012": {
+      "name": "春雨",
+      "foreign_net": -13000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "4106": {
+      "name": "雃博",
+      "foreign_net": -15000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00668": {
+      "name": "國泰美國道瓊",
+      "foreign_net": 39,
+      "dealer_net": 0,
+      "prop_net": -15043,
+      "total_net": 0
+    },
+    "4438": {
+      "name": "廣越",
+      "foreign_net": -15000,
+      "dealer_net": 0,
+      "prop_net": -61,
+      "total_net": 61
+    },
+    "2484": {
+      "name": "希華",
+      "foreign_net": 12310,
+      "dealer_net": 0,
+      "prop_net": -28179,
+      "total_net": 0
+    },
+    "6591": {
+      "name": "動力-KY",
+      "foreign_net": -16000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7812": {
+      "name": "稜研科技*-創",
+      "foreign_net": -16000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6573": {
+      "name": "虹揚-KY",
+      "foreign_net": -16000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "020034": {
+      "name": "元大IC設計N",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -16000,
+      "total_net": 0
+    },
+    "1540": {
+      "name": "喬福",
+      "foreign_net": -16000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1452": {
+      "name": "宏益",
+      "foreign_net": -16003,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2102": {
+      "name": "泰豐",
+      "foreign_net": -16180,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2429": {
+      "name": "銘旺科",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1218": {
+      "name": "泰山",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3130": {
+      "name": "一零四",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6902": {
+      "name": "GOGOLOOK",
+      "foreign_net": -19000,
+      "dealer_net": 0,
+      "prop_net": 2000,
+      "total_net": 1000
+    },
+    "6657": {
+      "name": "華安",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5525": {
+      "name": "順天",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4935": {
+      "name": "茂林-KY",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": -4,
+      "total_net": 4
+    },
+    "2247": {
+      "name": "汎德永業",
+      "foreign_net": -17070,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6442": {
+      "name": "光聖",
+      "foreign_net": 148707,
+      "dealer_net": -179000,
+      "prop_net": 12565,
+      "total_net": 23805
+    },
+    "6782": {
+      "name": "視陽",
+      "foreign_net": -15096,
+      "dealer_net": 0,
+      "prop_net": -2855,
+      "total_net": 10
+    },
+    "9910": {
+      "name": "豐泰",
+      "foreign_net": -73062,
+      "dealer_net": 55000,
+      "prop_net": 108,
+      "total_net": 2
+    },
+    "9905": {
+      "name": "大華",
+      "foreign_net": -18000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2237": {
+      "name": "華德動能-創",
+      "foreign_net": -18000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6695": {
+      "name": "芯鼎",
+      "foreign_net": -18000,
+      "dealer_net": 0,
+      "prop_net": -1,
+      "total_net": 0
+    },
+    "8374": {
+      "name": "羅昇",
+      "foreign_net": -16000,
+      "dealer_net": 0,
+      "prop_net": -2063,
+      "total_net": 0
+    },
+    "00678": {
+      "name": "群益那斯達克生技",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -16224,
+      "total_net": 0
+    },
+    "8429": {
+      "name": "金麗-KY",
+      "foreign_net": -19000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4737": {
+      "name": "華廣",
+      "foreign_net": -19000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2886": {
+      "name": "兆豐金",
+      "foreign_net": -1019173,
+      "dealer_net": 359000,
+      "prop_net": 640769,
+      "total_net": 15811
+    },
+    "2364": {
+      "name": "倫飛",
+      "foreign_net": -19959,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1720": {
+      "name": "生達",
+      "foreign_net": -20004,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3406": {
+      "name": "玉晶光",
+      "foreign_net": 9722,
+      "dealer_net": -84000,
+      "prop_net": 54127,
+      "total_net": 14500
+    },
+    "3530": {
+      "name": "晶相光",
+      "foreign_net": -21000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3046": {
+      "name": "建碁",
+      "foreign_net": -4070,
+      "dealer_net": 0,
+      "prop_net": -17000,
+      "total_net": 17000
+    },
+    "1416": {
+      "name": "廣豐",
+      "foreign_net": -21321,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3545": {
+      "name": "敦泰",
+      "foreign_net": -41450,
+      "dealer_net": 20000,
+      "prop_net": -108,
+      "total_net": 0
+    },
+    "3058": {
+      "name": "立德",
+      "foreign_net": -22000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1109": {
+      "name": "信大",
+      "foreign_net": -22000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2459": {
+      "name": "敦吉",
+      "foreign_net": -22000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5283": {
+      "name": "禾聯碩",
+      "foreign_net": -22000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4414": {
+      "name": "如興",
+      "foreign_net": -9000,
+      "dealer_net": 0,
+      "prop_net": -13000,
+      "total_net": 13000
+    },
+    "2451": {
+      "name": "創見",
+      "foreign_net": -6903,
+      "dealer_net": 0,
+      "prop_net": -15778,
+      "total_net": 801
+    },
+    "00956": {
+      "name": "中信日經高股息",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": -24979,
+      "total_net": 0
+    },
+    "2908": {
+      "name": "特力",
+      "foreign_net": -22990,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3034": {
+      "name": "聯詠",
+      "foreign_net": -105044,
+      "dealer_net": 39592,
+      "prop_net": 42457,
+      "total_net": 11170
+    },
+    "1598": {
+      "name": "岱宇",
+      "foreign_net": -23000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2013": {
+      "name": "中鋼構",
+      "foreign_net": -24000,
+      "dealer_net": 0,
+      "prop_net": 873,
+      "total_net": 0
+    },
+    "1455": {
+      "name": "集盛",
+      "foreign_net": 10297,
+      "dealer_net": 0,
+      "prop_net": -34090,
+      "total_net": 36000
+    },
+    "1456": {
+      "name": "怡華",
+      "foreign_net": -21000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 6000
+    },
+    "8466": {
+      "name": "美吉吉-KY",
+      "foreign_net": -24000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7722": {
+      "name": "LINEPAY",
+      "foreign_net": -24000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5907": {
+      "name": "大洋-KY",
+      "foreign_net": -24000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2453": {
+      "name": "凌群",
+      "foreign_net": -24013,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6756": {
+      "name": "威鋒電子",
+      "foreign_net": -24000,
+      "dealer_net": 0,
+      "prop_net": -54,
+      "total_net": 54
+    },
+    "6799": {
+      "name": "來頡",
+      "foreign_net": -24717,
+      "dealer_net": 0,
+      "prop_net": 372,
+      "total_net": 0
+    },
+    "6525": {
+      "name": "捷敏-KY",
+      "foreign_net": -26753,
+      "dealer_net": -1887,
+      "prop_net": 3976,
+      "total_net": 0
+    },
+    "3701": {
+      "name": "大眾控",
+      "foreign_net": -21774,
+      "dealer_net": 0,
+      "prop_net": -2915,
+      "total_net": 3000
+    },
+    "00783": {
+      "name": "富邦中証500",
+      "foreign_net": -28000,
+      "dealer_net": 0,
+      "prop_net": 3087,
+      "total_net": 0
+    },
+    "2462": {
+      "name": "良得電",
+      "foreign_net": -23000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "2887Z1": {
+      "name": "台新新光己特",
+      "foreign_net": -25000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7788": {
+      "name": "松川精密",
+      "foreign_net": -18000,
+      "dealer_net": 0,
+      "prop_net": -7318,
+      "total_net": 0
+    },
+    "6830": {
+      "name": "汎銓",
+      "foreign_net": -20526,
+      "dealer_net": 0,
+      "prop_net": -5091,
+      "total_net": 0
+    },
+    "8442": {
+      "name": "威宏-KY",
+      "foreign_net": -23000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 3000
+    },
+    "3686": {
+      "name": "達能",
+      "foreign_net": -26000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1733": {
+      "name": "五鼎",
+      "foreign_net": -26000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1471": {
+      "name": "首利",
+      "foreign_net": -24000,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "9136": {
+      "name": "巨騰-DR",
+      "foreign_net": -26000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8271": {
+      "name": "宇瞻",
+      "foreign_net": -22814,
+      "dealer_net": 0,
+      "prop_net": -3386,
+      "total_net": 1572
+    },
+    "6164": {
+      "name": "華興",
+      "foreign_net": -26263,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2608": {
+      "name": "嘉里大榮",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": -10000,
+      "total_net": 0
+    },
+    "2417": {
+      "name": "圓剛",
+      "foreign_net": -27000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6414": {
+      "name": "樺漢",
+      "foreign_net": -28499,
+      "dealer_net": 1000,
+      "prop_net": 384,
+      "total_net": 75
+    },
+    "6192": {
+      "name": "巨路",
+      "foreign_net": -25000,
+      "dealer_net": 0,
+      "prop_net": -2200,
+      "total_net": 2200
+    },
+    "6781": {
+      "name": "AES-KY",
+      "foreign_net": -23991,
+      "dealer_net": 0,
+      "prop_net": -3419,
+      "total_net": 0
+    },
+    "00904": {
+      "name": "台新臺灣半導體30",
+      "foreign_net": 2000,
+      "dealer_net": 0,
+      "prop_net": -30031,
+      "total_net": 0
+    },
+    "1623": {
+      "name": "大東電",
+      "foreign_net": -28060,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4739": {
+      "name": "康普",
+      "foreign_net": -27920,
+      "dealer_net": 0,
+      "prop_net": -146,
+      "total_net": 0
+    },
+    "2038": {
+      "name": "海光",
+      "foreign_net": -27473,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 2000
+    },
+    "2023": {
+      "name": "燁輝",
+      "foreign_net": -28577,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "009809": {
+      "name": "富邦淨零ESG50",
+      "foreign_net": -2000,
+      "dealer_net": 0,
+      "prop_net": -26687,
+      "total_net": 0
+    },
+    "3416": {
+      "name": "融程電",
+      "foreign_net": -27000,
+      "dealer_net": 0,
+      "prop_net": -2017,
+      "total_net": 18
+    },
+    "2376": {
+      "name": "技嘉",
+      "foreign_net": 238536,
+      "dealer_net": -210000,
+      "prop_net": -57620,
+      "total_net": 19967
+    },
+    "4137": {
+      "name": "麗豐-KY",
+      "foreign_net": -29000,
+      "dealer_net": 0,
+      "prop_net": -149,
+      "total_net": 1149
+    },
+    "2107": {
+      "name": "厚生",
+      "foreign_net": -28441,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "2762": {
+      "name": "世界健身-KY",
+      "foreign_net": -30000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4755": {
+      "name": "三福化",
+      "foreign_net": -33000,
+      "dealer_net": 0,
+      "prop_net": 3000,
+      "total_net": 0
+    },
+    "8011": {
+      "name": "台通",
+      "foreign_net": -30000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6282": {
+      "name": "康舒",
+      "foreign_net": -38360,
+      "dealer_net": 0,
+      "prop_net": 7442,
+      "total_net": 11000
+    },
+    "1108": {
+      "name": "幸福",
+      "foreign_net": -31000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2007": {
+      "name": "燁興",
+      "foreign_net": -31000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1321": {
+      "name": "大洋",
+      "foreign_net": -31000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2832": {
+      "name": "台產",
+      "foreign_net": -25096,
+      "dealer_net": 0,
+      "prop_net": -6123,
+      "total_net": 0
+    },
+    "3705": {
+      "name": "永信",
+      "foreign_net": -31987,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9925": {
+      "name": "新保",
+      "foreign_net": -30242,
+      "dealer_net": 0,
+      "prop_net": -2000,
+      "total_net": 2000
+    },
+    "9908": {
+      "name": "大台北",
+      "foreign_net": -32415,
+      "dealer_net": 0,
+      "prop_net": -107,
+      "total_net": 107
+    },
+    "3321": {
+      "name": "同泰",
+      "foreign_net": -33000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00912": {
+      "name": "中信臺灣智慧50",
+      "foreign_net": -10970,
+      "dealer_net": 0,
+      "prop_net": -22054,
+      "total_net": 0
+    },
+    "912000": {
+      "name": "晨訊科-DR",
+      "foreign_net": -34000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2243": {
+      "name": "宏旭-KY",
+      "foreign_net": -34021,
+      "dealer_net": 0,
+      "prop_net": -426,
+      "total_net": 426
+    },
+    "7765": {
+      "name": "中華資安",
+      "foreign_net": -34963,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1235": {
+      "name": "興泰",
+      "foreign_net": -35000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "5706": {
+      "name": "鳳凰",
+      "foreign_net": -26000,
+      "dealer_net": 0,
+      "prop_net": -9576,
+      "total_net": 9576
+    },
+    "006205": {
+      "name": "富邦上証",
+      "foreign_net": -2000,
+      "dealer_net": 99000,
+      "prop_net": -132686,
+      "total_net": 0
+    },
+    "8404": {
+      "name": "百和興業-KY",
+      "foreign_net": -32000,
+      "dealer_net": 0,
+      "prop_net": -4000,
+      "total_net": 4000
+    },
+    "2420": {
+      "name": "新巨",
+      "foreign_net": -24000,
+      "dealer_net": 0,
+      "prop_net": -12210,
+      "total_net": 12000
+    },
+    "5234": {
+      "name": "達興材料",
+      "foreign_net": -33000,
+      "dealer_net": 0,
+      "prop_net": -3273,
+      "total_net": 4000
+    },
+    "1464": {
+      "name": "得力",
+      "foreign_net": -36316,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6412": {
+      "name": "群電",
+      "foreign_net": -23000,
+      "dealer_net": 0,
+      "prop_net": -13602,
+      "total_net": 0
+    },
+    "1604": {
+      "name": "聲寶",
+      "foreign_net": -36997,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6863": {
+      "name": "永道-KY",
+      "foreign_net": -40000,
+      "dealer_net": 0,
+      "prop_net": 3000,
+      "total_net": 0
+    },
+    "3669": {
+      "name": "圓展",
+      "foreign_net": -37000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9935": {
+      "name": "慶豐富",
+      "foreign_net": -37010,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9917": {
+      "name": "中保科",
+      "foreign_net": -36446,
+      "dealer_net": -1000,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4977": {
+      "name": "眾達-KY",
+      "foreign_net": -22628,
+      "dealer_net": 0,
+      "prop_net": -15291,
+      "total_net": 0
+    },
+    "1760": {
+      "name": "寶齡富錦",
+      "foreign_net": -37946,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6988": {
+      "name": "威力暘-創",
+      "foreign_net": -33000,
+      "dealer_net": 0,
+      "prop_net": -5000,
+      "total_net": 0
+    },
+    "1713": {
+      "name": "國化",
+      "foreign_net": -38000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3052": {
+      "name": "夆典",
+      "foreign_net": -39000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1307": {
+      "name": "三芳",
+      "foreign_net": -19000,
+      "dealer_net": -5001,
+      "prop_net": -15000,
+      "total_net": 0
+    },
+    "2460": {
+      "name": "建通",
+      "foreign_net": -38093,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "00675L": {
+      "name": "富邦臺灣加權正2",
+      "foreign_net": 38000,
+      "dealer_net": 0,
+      "prop_net": -77454,
+      "total_net": 0
+    },
+    "6226": {
+      "name": "光鼎",
+      "foreign_net": -39824,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1436": {
+      "name": "華友聯",
+      "foreign_net": -40000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2539": {
+      "name": "櫻花建",
+      "foreign_net": -40976,
+      "dealer_net": 0,
+      "prop_net": -21,
+      "total_net": 4021
+    },
+    "2816": {
+      "name": "旺旺保",
+      "foreign_net": -41093,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3443": {
+      "name": "創意",
+      "foreign_net": 117214,
+      "dealer_net": -252000,
+      "prop_net": 93677,
+      "total_net": 29600
+    },
+    "6120": {
+      "name": "達運",
+      "foreign_net": -40585,
+      "dealer_net": 0,
+      "prop_net": -1099,
+      "total_net": 0
+    },
+    "1582": {
+      "name": "信錦",
+      "foreign_net": -39872,
+      "dealer_net": 0,
+      "prop_net": -2001,
+      "total_net": 0
+    },
+    "1337": {
+      "name": "再生-KY",
+      "foreign_net": -42187,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00640L": {
+      "name": "富邦日本正2",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -41638,
+      "total_net": 0
+    },
+    "6409": {
+      "name": "旭隼",
+      "foreign_net": -38672,
+      "dealer_net": -1000,
+      "prop_net": -3063,
+      "total_net": 0
+    },
+    "9911": {
+      "name": "櫻花",
+      "foreign_net": -44000,
+      "dealer_net": 1000,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1616": {
+      "name": "億泰",
+      "foreign_net": -44000,
+      "dealer_net": 0,
+      "prop_net": 97,
+      "total_net": 903
+    },
+    "1460": {
+      "name": "宏遠",
+      "foreign_net": -44137,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00752": {
+      "name": "中信中國50",
+      "foreign_net": 104000,
+      "dealer_net": 0,
+      "prop_net": -148191,
+      "total_net": 0
+    },
+    "5243": {
+      "name": "乙盛-KY",
+      "foreign_net": -31996,
+      "dealer_net": 0,
+      "prop_net": -12208,
+      "total_net": 7000
+    },
+    "6598": {
+      "name": "ABC-KY",
+      "foreign_net": -42000,
+      "dealer_net": 0,
+      "prop_net": -3000,
+      "total_net": 3000
+    },
+    "3346": {
+      "name": "麗清",
+      "foreign_net": -45000,
+      "dealer_net": 0,
+      "prop_net": -1,
+      "total_net": 1
+    },
+    "009813": {
+      "name": "貝萊德標普卓越50",
+      "foreign_net": 401420,
+      "dealer_net": 0,
+      "prop_net": -446999,
+      "total_net": 0
+    },
+    "6994": {
+      "name": "富威電力",
+      "foreign_net": -46000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6890": {
+      "name": "來億-KY",
+      "foreign_net": -45640,
+      "dealer_net": 0,
+      "prop_net": -644,
+      "total_net": 1000
+    },
+    "2731": {
+      "name": "雄獅",
+      "foreign_net": -47409,
+      "dealer_net": 0,
+      "prop_net": -39,
+      "total_net": 1039
+    },
+    "2739": {
+      "name": "寒舍",
+      "foreign_net": -50000,
+      "dealer_net": 0,
+      "prop_net": 2000,
+      "total_net": 0
+    },
+    "4119": {
+      "name": "旭富",
+      "foreign_net": -48610,
+      "dealer_net": 0,
+      "prop_net": 218,
+      "total_net": 0
+    },
+    "4736": {
+      "name": "泰博",
+      "foreign_net": -43398,
+      "dealer_net": 0,
+      "prop_net": -6000,
+      "total_net": 8000
+    },
+    "6141": {
+      "name": "柏承",
+      "foreign_net": -49480,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "5434": {
+      "name": "崇越",
+      "foreign_net": -41710,
+      "dealer_net": 0,
+      "prop_net": -9156,
+      "total_net": 1018
+    },
+    "2349": {
+      "name": "錸德",
+      "foreign_net": -50902,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "7749": {
+      "name": "意騰-KY",
+      "foreign_net": -69960,
+      "dealer_net": 20000,
+      "prop_net": -994,
+      "total_net": 0
+    },
+    "00653L": {
+      "name": "富邦印度正2",
+      "foreign_net": 4000,
+      "dealer_net": 0,
+      "prop_net": -55079,
+      "total_net": 0
+    },
+    "00706L": {
+      "name": "期元大S&P日圓正2",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": -52359,
+      "total_net": 0
+    },
+    "3005": {
+      "name": "神基",
+      "foreign_net": -54586,
+      "dealer_net": -2632,
+      "prop_net": 5605,
+      "total_net": 208
+    },
+    "1437": {
+      "name": "勤益控",
+      "foreign_net": -51994,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6024": {
+      "name": "群益期",
+      "foreign_net": -52170,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2701": {
+      "name": "萬企",
+      "foreign_net": -53000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00770": {
+      "name": "國泰北美科技",
+      "foreign_net": 12064,
+      "dealer_net": 0,
+      "prop_net": -65126,
+      "total_net": 0
+    },
+    "2206": {
+      "name": "三陽工業",
+      "foreign_net": -54041,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4195": {
+      "name": "基米-創",
+      "foreign_net": 50000,
+      "dealer_net": 0,
+      "prop_net": -104725,
+      "total_net": 102000
+    },
+    "9934": {
+      "name": "成霖",
+      "foreign_net": -55000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3583": {
+      "name": "辛耘",
+      "foreign_net": -51805,
+      "dealer_net": 0,
+      "prop_net": -3742,
+      "total_net": 0
+    },
+    "2597": {
+      "name": "潤弘",
+      "foreign_net": -52415,
+      "dealer_net": 0,
+      "prop_net": -3198,
+      "total_net": 500
+    },
+    "3533": {
+      "name": "嘉澤",
+      "foreign_net": -72537,
+      "dealer_net": 0,
+      "prop_net": 16704,
+      "total_net": 7700
+    },
+    "9955": {
+      "name": "佳龍",
+      "foreign_net": -56000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2506": {
+      "name": "太設",
+      "foreign_net": -56000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2530": {
+      "name": "華建",
+      "foreign_net": -56508,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9939": {
+      "name": "宏全",
+      "foreign_net": -58042,
+      "dealer_net": -1448,
+      "prop_net": 2299,
+      "total_net": 1701
+    },
+    "3515": {
+      "name": "華擎",
+      "foreign_net": -51859,
+      "dealer_net": 0,
+      "prop_net": -6117,
+      "total_net": 1000
+    },
+    "1737": {
+      "name": "臺鹽",
+      "foreign_net": -59000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1309": {
+      "name": "台達化",
+      "foreign_net": -17492,
+      "dealer_net": 0,
+      "prop_net": -43478,
+      "total_net": 41000
+    },
+    "6531": {
+      "name": "愛普*",
+      "foreign_net": -112308,
+      "dealer_net": 66000,
+      "prop_net": -14784,
+      "total_net": 1000
+    },
+    "1104": {
+      "name": "環泥",
+      "foreign_net": -61171,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1773": {
+      "name": "勝一",
+      "foreign_net": -59100,
+      "dealer_net": 0,
+      "prop_net": -3102,
+      "total_net": 534
+    },
+    "2535": {
+      "name": "達欣工",
+      "foreign_net": -56377,
+      "dealer_net": 0,
+      "prop_net": -6018,
+      "total_net": 6018
+    },
+    "6969": {
+      "name": "成信實業*-創",
+      "foreign_net": -68000,
+      "dealer_net": 0,
+      "prop_net": 4885,
+      "total_net": 0
+    },
+    "2637": {
+      "name": "慧洋-KY",
+      "foreign_net": -64832,
+      "dealer_net": -2281,
+      "prop_net": 3154,
+      "total_net": 0
+    },
+    "6215": {
+      "name": "和椿",
+      "foreign_net": -64576,
+      "dealer_net": 0,
+      "prop_net": -257,
+      "total_net": 0
+    },
+    "6415": {
+      "name": "矽力*-KY",
+      "foreign_net": -72004,
+      "dealer_net": 10000,
+      "prop_net": -2842,
+      "total_net": 2000
+    },
+    "00991B": {
+      "name": "貝萊德A級公司債",
+      "foreign_net": 299000,
+      "dealer_net": 0,
+      "prop_net": -364085,
+      "total_net": 0
+    },
+    "00669R": {
+      "name": "國泰美國道瓊反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -65088,
+      "total_net": 0
+    },
+    "1532": {
+      "name": "勤美",
+      "foreign_net": -65451,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "9103": {
+      "name": "美德醫療-DR",
+      "foreign_net": -65000,
+      "dealer_net": 0,
+      "prop_net": -1091,
+      "total_net": 0
+    },
+    "1707": {
+      "name": "葡萄王",
+      "foreign_net": -66205,
+      "dealer_net": 0,
+      "prop_net": -278,
+      "total_net": 0
+    },
+    "00651R": {
+      "name": "復華香港反1",
+      "foreign_net": -26000,
+      "dealer_net": 0,
+      "prop_net": -40600,
+      "total_net": 0
+    },
+    "4989": {
+      "name": "榮科",
+      "foreign_net": -50995,
+      "dealer_net": 0,
+      "prop_net": -15870,
+      "total_net": 0
+    },
+    "3060": {
+      "name": "銘異",
+      "foreign_net": -67884,
+      "dealer_net": 0,
+      "prop_net": -1,
+      "total_net": 0
+    },
+    "3501": {
+      "name": "維熹",
+      "foreign_net": -68000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1110": {
+      "name": "東泥",
+      "foreign_net": -69000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2614": {
+      "name": "東森",
+      "foreign_net": -69000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1726": {
+      "name": "永記",
+      "foreign_net": -70000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1734": {
+      "name": "杏輝",
+      "foreign_net": -70080,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2033": {
+      "name": "佳大",
+      "foreign_net": -70804,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2399": {
+      "name": "映泰",
+      "foreign_net": -68980,
+      "dealer_net": 0,
+      "prop_net": -1919,
+      "total_net": 0
+    },
+    "9914": {
+      "name": "美利達",
+      "foreign_net": -71000,
+      "dealer_net": 0,
+      "prop_net": -478,
+      "total_net": 2000
+    },
+    "00960": {
+      "name": "野村全球航運龍頭",
+      "foreign_net": -1489,
+      "dealer_net": 0,
+      "prop_net": -70457,
+      "total_net": 0
+    },
+    "2485": {
+      "name": "兆赫",
+      "foreign_net": -59710,
+      "dealer_net": 0,
+      "prop_net": -12576,
+      "total_net": 1000
+    },
+    "6854": {
+      "name": "錼創科技-KY創",
+      "foreign_net": -77000,
+      "dealer_net": 0,
+      "prop_net": 3574,
+      "total_net": 0
+    },
+    "2029": {
+      "name": "盛餘",
+      "foreign_net": -73770,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2423": {
+      "name": "固緯",
+      "foreign_net": -73915,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1210": {
+      "name": "大成",
+      "foreign_net": -74058,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2465": {
+      "name": "麗臺",
+      "foreign_net": -73312,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "3504": {
+      "name": "揚明光",
+      "foreign_net": -72697,
+      "dealer_net": 0,
+      "prop_net": -2002,
+      "total_net": 0
+    },
+    "5284": {
+      "name": "jpp-KY",
+      "foreign_net": -87041,
+      "dealer_net": 0,
+      "prop_net": 11733,
+      "total_net": 0
+    },
+    "1907": {
+      "name": "永豐餘",
+      "foreign_net": -81070,
+      "dealer_net": 0,
+      "prop_net": 4000,
+      "total_net": 0
+    },
+    "00986A": {
+      "name": "主動台新龍頭成長",
+      "foreign_net": -1000,
+      "dealer_net": 0,
+      "prop_net": -76781,
+      "total_net": 0
+    },
+    "3704": {
+      "name": "合勤控",
+      "foreign_net": -81000,
+      "dealer_net": 0,
+      "prop_net": 2034,
+      "total_net": 283
+    },
+    "3622": {
+      "name": "洋華",
+      "foreign_net": -21000,
+      "dealer_net": 0,
+      "prop_net": -58000,
+      "total_net": 58000
+    },
+    "1531": {
+      "name": "高林股",
+      "foreign_net": -80000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1503": {
+      "name": "士電",
+      "foreign_net": -77549,
+      "dealer_net": -1000,
+      "prop_net": -2024,
+      "total_net": 0
+    },
+    "0061": {
+      "name": "元大寶滬深",
+      "foreign_net": -12000,
+      "dealer_net": 0,
+      "prop_net": -68780,
+      "total_net": 0
+    },
+    "1590": {
+      "name": "亞德客-KY",
+      "foreign_net": -75676,
+      "dealer_net": 2000,
+      "prop_net": -7539,
+      "total_net": 8000
+    },
+    "2348": {
+      "name": "海悅",
+      "foreign_net": -82950,
+      "dealer_net": 0,
+      "prop_net": -990,
+      "total_net": 0
+    },
+    "00983D": {
+      "name": "主動富邦複合收益",
+      "foreign_net": -72000,
+      "dealer_net": 0,
+      "prop_net": -12618,
+      "total_net": 0
+    },
+    "6558": {
+      "name": "興能高",
+      "foreign_net": -85000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3013": {
+      "name": "晟銘電",
+      "foreign_net": -83531,
+      "dealer_net": 0,
+      "prop_net": -2162,
+      "total_net": 0
+    },
+    "00939": {
+      "name": "統一台灣高息動能",
+      "foreign_net": 29000,
+      "dealer_net": 0,
+      "prop_net": -116841,
+      "total_net": 0
+    },
+    "9927": {
+      "name": "泰銘",
+      "foreign_net": -88000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1711": {
+      "name": "永光",
+      "foreign_net": -20193,
+      "dealer_net": 0,
+      "prop_net": -68125,
+      "total_net": 0
+    },
+    "2109": {
+      "name": "華豐",
+      "foreign_net": -90000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3044": {
+      "name": "健鼎",
+      "foreign_net": -71527,
+      "dealer_net": -4000,
+      "prop_net": -14594,
+      "total_net": 0
+    },
+    "2505": {
+      "name": "國揚",
+      "foreign_net": -66688,
+      "dealer_net": 0,
+      "prop_net": -24000,
+      "total_net": 24000
+    },
+    "4771": {
+      "name": "望隼",
+      "foreign_net": -90630,
+      "dealer_net": 0,
+      "prop_net": -1001,
+      "total_net": 1000
+    },
+    "7855": {
+      "name": "和運租車",
+      "foreign_net": -92000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2258": {
+      "name": "鴻華先進-創",
+      "foreign_net": -88000,
+      "dealer_net": 0,
+      "prop_net": -6000,
+      "total_net": 0
+    },
+    "3023": {
+      "name": "信邦",
+      "foreign_net": -78820,
+      "dealer_net": -2000,
+      "prop_net": -14403,
+      "total_net": 19583
+    },
+    "00952": {
+      "name": "凱基台灣AI50",
+      "foreign_net": -97825,
+      "dealer_net": 0,
+      "prop_net": 2086,
+      "total_net": 0
+    },
+    "2528": {
+      "name": "皇普",
+      "foreign_net": -97000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6449": {
+      "name": "鈺邦",
+      "foreign_net": -95664,
+      "dealer_net": 0,
+      "prop_net": -1582,
+      "total_net": 1057
+    },
+    "2049": {
+      "name": "上銀",
+      "foreign_net": -115364,
+      "dealer_net": 0,
+      "prop_net": 15172,
+      "total_net": 40
+    },
+    "2923": {
+      "name": "鼎固-KY",
+      "foreign_net": -103000,
+      "dealer_net": 0,
+      "prop_net": 2000,
+      "total_net": 0
+    },
+    "2849": {
+      "name": "安泰銀",
+      "foreign_net": -102000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2852": {
+      "name": "第一保",
+      "foreign_net": -103090,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8454": {
+      "name": "富邦媒",
+      "foreign_net": -104080,
+      "dealer_net": 0,
+      "prop_net": 987,
+      "total_net": 0
+    },
+    "1723": {
+      "name": "中碳",
+      "foreign_net": -103000,
+      "dealer_net": 0,
+      "prop_net": -1119,
+      "total_net": 0
+    },
+    "1473": {
+      "name": "台南",
+      "foreign_net": -106000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3653": {
+      "name": "健策",
+      "foreign_net": -338146,
+      "dealer_net": 247000,
+      "prop_net": -16813,
+      "total_net": 34580
+    },
+    "2645": {
+      "name": "長榮航太",
+      "foreign_net": 114000,
+      "dealer_net": 0,
+      "prop_net": -224773,
+      "total_net": 240695
+    },
+    "6451": {
+      "name": "訊芯-KY",
+      "foreign_net": -103850,
+      "dealer_net": 0,
+      "prop_net": -8563,
+      "total_net": 3006
+    },
+    "006208": {
+      "name": "富邦台50",
+      "foreign_net": 123370,
+      "dealer_net": 0,
+      "prop_net": -235875,
+      "total_net": 43000
+    },
+    "1103": {
+      "name": "嘉泥",
+      "foreign_net": -112916,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2903": {
+      "name": "遠百",
+      "foreign_net": -299026,
+      "dealer_net": 185000,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2634": {
+      "name": "漢翔",
+      "foreign_net": -149047,
+      "dealer_net": 0,
+      "prop_net": 33537,
+      "total_net": 45000
+    },
+    "5388": {
+      "name": "中磊",
+      "foreign_net": -446835,
+      "dealer_net": 0,
+      "prop_net": 331189,
+      "total_net": 3436
+    },
+    "8411": {
+      "name": "福貞-KY",
+      "foreign_net": -17000,
+      "dealer_net": 0,
+      "prop_net": -100000,
+      "total_net": 103000
+    },
+    "2359": {
+      "name": "所羅門",
+      "foreign_net": -91000,
+      "dealer_net": 0,
+      "prop_net": -27957,
+      "total_net": 0
+    },
+    "1789": {
+      "name": "神隆",
+      "foreign_net": -119000,
+      "dealer_net": 0,
+      "prop_net": -65,
+      "total_net": 0
+    },
+    "8131": {
+      "name": "福懋科",
+      "foreign_net": -118501,
+      "dealer_net": -1000,
+      "prop_net": 432,
+      "total_net": 0
+    },
+    "1440": {
+      "name": "南紡",
+      "foreign_net": -136488,
+      "dealer_net": 0,
+      "prop_net": 16000,
+      "total_net": 2000
+    },
+    "5534": {
+      "name": "長虹",
+      "foreign_net": -33027,
+      "dealer_net": -86000,
+      "prop_net": -1883,
+      "total_net": 1000
+    },
+    "4164": {
+      "name": "承業醫",
+      "foreign_net": -122000,
+      "dealer_net": 0,
+      "prop_net": 928,
+      "total_net": 2072
+    },
+    "8210": {
+      "name": "勤誠",
+      "foreign_net": -101913,
+      "dealer_net": -20000,
+      "prop_net": -879,
+      "total_net": 40673
+    },
+    "2331": {
+      "name": "精英",
+      "foreign_net": -123000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6405": {
+      "name": "悅城",
+      "foreign_net": -123000,
+      "dealer_net": 0,
+      "prop_net": -34,
+      "total_net": 0
+    },
+    "6689": {
+      "name": "伊雲谷",
+      "foreign_net": -124000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2374": {
+      "name": "佳能",
+      "foreign_net": -114973,
+      "dealer_net": 0,
+      "prop_net": -9536,
+      "total_net": 0
+    },
+    "6472": {
+      "name": "保瑞",
+      "foreign_net": -47844,
+      "dealer_net": -1000,
+      "prop_net": -75765,
+      "total_net": 1000
+    },
+    "00636": {
+      "name": "國泰中國A50",
+      "foreign_net": 4000,
+      "dealer_net": 0,
+      "prop_net": -129112,
+      "total_net": 0
+    },
+    "1444": {
+      "name": "力麗",
+      "foreign_net": 38777,
+      "dealer_net": 0,
+      "prop_net": -164000,
+      "total_net": 164000
+    },
+    "2606": {
+      "name": "裕民",
+      "foreign_net": -209753,
+      "dealer_net": 52000,
+      "prop_net": 31236,
+      "total_net": 6000
+    },
+    "3563": {
+      "name": "牧德",
+      "foreign_net": -149010,
+      "dealer_net": 0,
+      "prop_net": 21458,
+      "total_net": 0
+    },
+    "6838": {
+      "name": "台新藥",
+      "foreign_net": -129000,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 3000
+    },
+    "009812": {
+      "name": "野村日本東證",
+      "foreign_net": -5000,
+      "dealer_net": 0,
+      "prop_net": -126775,
+      "total_net": 0
+    },
+    "2105": {
+      "name": "正新",
+      "foreign_net": -398376,
+      "dealer_net": 111045,
+      "prop_net": 153993,
+      "total_net": 1627
+    },
+    "6805": {
+      "name": "富世達",
+      "foreign_net": 7131,
+      "dealer_net": -121000,
+      "prop_net": -23302,
+      "total_net": 3000
+    },
+    "9933": {
+      "name": "中鼎",
+      "foreign_net": -147555,
+      "dealer_net": 0,
+      "prop_net": 9870,
+      "total_net": 2130
+    },
+    "1529": {
+      "name": "樂事綠能",
+      "foreign_net": -137939,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2323": {
+      "name": "中環",
+      "foreign_net": -73821,
+      "dealer_net": 0,
+      "prop_net": -65000,
+      "total_net": 60000
+    },
+    "6133": {
+      "name": "金橋",
+      "foreign_net": -142000,
+      "dealer_net": 0,
+      "prop_net": 3000,
+      "total_net": 0
+    },
+    "009800": {
+      "name": "中信NASDAQ",
+      "foreign_net": 49000,
+      "dealer_net": 0,
+      "prop_net": -188281,
+      "total_net": 0
+    },
+    "1476": {
+      "name": "儒鴻",
+      "foreign_net": -129898,
+      "dealer_net": -9000,
+      "prop_net": -1712,
+      "total_net": 20431
+    },
+    "1519": {
+      "name": "華城",
+      "foreign_net": -136685,
+      "dealer_net": -1000,
+      "prop_net": -3156,
+      "total_net": 2334
+    },
+    "00915": {
+      "name": "凱基優選高股息30",
+      "foreign_net": 74000,
+      "dealer_net": 0,
+      "prop_net": -215577,
+      "total_net": 0
+    },
+    "8033": {
+      "name": "雷虎",
+      "foreign_net": -141676,
+      "dealer_net": 0,
+      "prop_net": -843,
+      "total_net": 12843
+    },
+    "2472": {
+      "name": "立隆電",
+      "foreign_net": 18453,
+      "dealer_net": -174000,
+      "prop_net": 10745,
+      "total_net": 771
+    },
+    "7795": {
+      "name": "長廣",
+      "foreign_net": -145800,
+      "dealer_net": 0,
+      "prop_net": -391,
+      "total_net": 3391
+    },
+    "1795": {
+      "name": "美時",
+      "foreign_net": -121000,
+      "dealer_net": 0,
+      "prop_net": -25618,
+      "total_net": 7463
+    },
+    "2457": {
+      "name": "飛宏",
+      "foreign_net": -142215,
+      "dealer_net": 0,
+      "prop_net": -4827,
+      "total_net": 3000
+    },
+    "3048": {
+      "name": "益登",
+      "foreign_net": -133921,
+      "dealer_net": 0,
+      "prop_net": -15004,
+      "total_net": 10004
+    },
+    "00670L": {
+      "name": "富邦NASDAQ正2",
+      "foreign_net": -3000,
+      "dealer_net": 0,
+      "prop_net": -148501,
+      "total_net": 0
+    },
+    "00930": {
+      "name": "永豐ESG低碳高息",
+      "foreign_net": 7000,
+      "dealer_net": 0,
+      "prop_net": -158915,
+      "total_net": 0
+    },
+    "1201": {
+      "name": "味全",
+      "foreign_net": -109000,
+      "dealer_net": 0,
+      "prop_net": -43000,
+      "total_net": 43000
+    },
+    "2207": {
+      "name": "和泰車",
+      "foreign_net": -162545,
+      "dealer_net": 6000,
+      "prop_net": 2864,
+      "total_net": 136
+    },
+    "1712": {
+      "name": "興農",
+      "foreign_net": -154000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3661": {
+      "name": "世芯-KY",
+      "foreign_net": -130598,
+      "dealer_net": -19000,
+      "prop_net": -5239,
+      "total_net": 6603
+    },
+    "1417": {
+      "name": "嘉裕",
+      "foreign_net": -155000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6515": {
+      "name": "穎崴",
+      "foreign_net": -115889,
+      "dealer_net": -36001,
+      "prop_net": -5528,
+      "total_net": 57046
+    },
+    "3047": {
+      "name": "訊舟",
+      "foreign_net": -159000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6789": {
+      "name": "采鈺",
+      "foreign_net": -148874,
+      "dealer_net": -2000,
+      "prop_net": -8160,
+      "total_net": 60
+    },
+    "2009": {
+      "name": "第一銅",
+      "foreign_net": -166000,
+      "dealer_net": 0,
+      "prop_net": 6198,
+      "total_net": 0
+    },
+    "4976": {
+      "name": "佳凌",
+      "foreign_net": -164000,
+      "dealer_net": 0,
+      "prop_net": 382,
+      "total_net": 0
+    },
+    "2527": {
+      "name": "宏璟",
+      "foreign_net": -158000,
+      "dealer_net": 0,
+      "prop_net": -5891,
+      "total_net": 5000
+    },
+    "6869": {
+      "name": "雲豹能源",
+      "foreign_net": -159000,
+      "dealer_net": 0,
+      "prop_net": -5290,
+      "total_net": 0
+    },
+    "3312": {
+      "name": "弘憶股",
+      "foreign_net": -140000,
+      "dealer_net": 0,
+      "prop_net": -25000,
+      "total_net": 0
+    },
+    "2511": {
+      "name": "太子",
+      "foreign_net": -165620,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00852L": {
+      "name": "國泰美國道瓊正2",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -165648,
+      "total_net": 0
+    },
+    "6873": {
+      "name": "泓德能源",
+      "foreign_net": -163000,
+      "dealer_net": 0,
+      "prop_net": -3031,
+      "total_net": 0
+    },
+    "2548": {
+      "name": "華固",
+      "foreign_net": -162671,
+      "dealer_net": 0,
+      "prop_net": -3860,
+      "total_net": 3189
+    },
+    "00910": {
+      "name": "第一金太空衛星",
+      "foreign_net": -190000,
+      "dealer_net": 0,
+      "prop_net": 22000,
+      "total_net": 0
+    },
+    "00905": {
+      "name": "FT臺灣Smart",
+      "foreign_net": -73927,
+      "dealer_net": 0,
+      "prop_net": -94508,
+      "total_net": 0
+    },
+    "6861": {
+      "name": "睿生光電",
+      "foreign_net": -159063,
+      "dealer_net": 0,
+      "prop_net": -10748,
+      "total_net": 0
+    },
+    "8215": {
+      "name": "明基材",
+      "foreign_net": -167928,
+      "dealer_net": 0,
+      "prop_net": -3011,
+      "total_net": 0
+    },
+    "00642U": {
+      "name": "期元大S&P石油",
+      "foreign_net": 7000,
+      "dealer_net": 0,
+      "prop_net": -181024,
+      "total_net": 0
+    },
+    "1313": {
+      "name": "聯成",
+      "foreign_net": -157972,
+      "dealer_net": 0,
+      "prop_net": -16939,
+      "total_net": 0
+    },
+    "6901": {
+      "name": "鑽石投資",
+      "foreign_net": -175000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2375": {
+      "name": "凱美",
+      "foreign_net": -175276,
+      "dealer_net": 0,
+      "prop_net": -203,
+      "total_net": 0
+    },
+    "1447": {
+      "name": "力鵬",
+      "foreign_net": -176366,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4934": {
+      "name": "太極",
+      "foreign_net": -179279,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1905": {
+      "name": "華紙",
+      "foreign_net": -194697,
+      "dealer_net": 0,
+      "prop_net": 12445,
+      "total_net": 1000
+    },
+    "6831": {
+      "name": "邁科",
+      "foreign_net": -79780,
+      "dealer_net": -97000,
+      "prop_net": -6198,
+      "total_net": 223
+    },
+    "3356": {
+      "name": "奇偶",
+      "foreign_net": -187197,
+      "dealer_net": 0,
+      "prop_net": 3000,
+      "total_net": 0
+    },
+    "5531": {
+      "name": "鄉林",
+      "foreign_net": -185000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3665": {
+      "name": "貿聯-KY",
+      "foreign_net": -184890,
+      "dealer_net": 2118,
+      "prop_net": -4307,
+      "total_net": 35900
+    },
+    "9802": {
+      "name": "鈺齊-KY",
+      "foreign_net": 91000,
+      "dealer_net": -60000,
+      "prop_net": -218134,
+      "total_net": 220134
+    },
+    "00938": {
+      "name": "凱基優選30",
+      "foreign_net": 13000,
+      "dealer_net": 0,
+      "prop_net": -202090,
+      "total_net": 0
+    },
+    "2836": {
+      "name": "高雄銀",
+      "foreign_net": -189000,
+      "dealer_net": 0,
+      "prop_net": -5045,
+      "total_net": 0
+    },
+    "4746": {
+      "name": "台耀",
+      "foreign_net": -28869,
+      "dealer_net": -166000,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6191": {
+      "name": "精成科",
+      "foreign_net": -122203,
+      "dealer_net": -67000,
+      "prop_net": -6385,
+      "total_net": 3000
+    },
+    "1477": {
+      "name": "聚陽",
+      "foreign_net": -430879,
+      "dealer_net": 225254,
+      "prop_net": 7960,
+      "total_net": 2772
+    },
+    "1611": {
+      "name": "中電",
+      "foreign_net": -194032,
+      "dealer_net": 0,
+      "prop_net": -4000,
+      "total_net": 4000
+    },
+    "2491": {
+      "name": "吉祥全",
+      "foreign_net": -201801,
+      "dealer_net": 0,
+      "prop_net": 2000,
+      "total_net": 0
+    },
+    "1506": {
+      "name": "正道",
+      "foreign_net": -203000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1617": {
+      "name": "榮星",
+      "foreign_net": -204948,
+      "dealer_net": 0,
+      "prop_net": -1296,
+      "total_net": 2712
+    },
+    "1316": {
+      "name": "上曜",
+      "foreign_net": -208000,
+      "dealer_net": 0,
+      "prop_net": -102,
+      "total_net": 102
+    },
+    "00982D": {
+      "name": "主動富邦動態入息",
+      "foreign_net": -2005,
+      "dealer_net": 0,
+      "prop_net": -208850,
+      "total_net": 0
+    },
+    "6592": {
+      "name": "和潤企業",
+      "foreign_net": -212020,
+      "dealer_net": 0,
+      "prop_net": 963,
+      "total_net": 678
+    },
+    "3591": {
+      "name": "艾笛森",
+      "foreign_net": -216392,
+      "dealer_net": 0,
+      "prop_net": 1707,
+      "total_net": 293
+    },
+    "5521": {
+      "name": "工信",
+      "foreign_net": -215000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3596": {
+      "name": "智易",
+      "foreign_net": -214070,
+      "dealer_net": 0,
+      "prop_net": -1415,
+      "total_net": 1365
+    },
+    "00981T": {
+      "name": "平衡凱基雙核收息",
+      "foreign_net": 1000,
+      "dealer_net": 0,
+      "prop_net": -222608,
+      "total_net": 0
+    },
+    "009827": {
+      "name": "玉山未來全球算力",
+      "foreign_net": 8000,
+      "dealer_net": 0,
+      "prop_net": -231007,
+      "total_net": 0
+    },
+    "9907": {
+      "name": "統一實",
+      "foreign_net": -215000,
+      "dealer_net": -8908,
+      "prop_net": -410,
+      "total_net": 410
+    },
+    "2458": {
+      "name": "義隆",
+      "foreign_net": -287246,
+      "dealer_net": 40805,
+      "prop_net": 17289,
+      "total_net": 19000
+    },
+    "1215": {
+      "name": "卜蜂",
+      "foreign_net": -237379,
+      "dealer_net": 0,
+      "prop_net": 3244,
+      "total_net": 7756
+    },
+    "7780": {
+      "name": "大研生醫*",
+      "foreign_net": -232569,
+      "dealer_net": 0,
+      "prop_net": -1756,
+      "total_net": 0
+    },
+    "4967": {
+      "name": "十銓",
+      "foreign_net": -206968,
+      "dealer_net": 0,
+      "prop_net": -30923,
+      "total_net": 0
+    },
+    "6235": {
+      "name": "華孚",
+      "foreign_net": -242000,
+      "dealer_net": 0,
+      "prop_net": -105,
+      "total_net": 0
+    },
+    "5522": {
+      "name": "遠雄",
+      "foreign_net": -322196,
+      "dealer_net": 0,
+      "prop_net": 80000,
+      "total_net": 0
+    },
+    "4938": {
+      "name": "和碩",
+      "foreign_net": -653019,
+      "dealer_net": 22939,
+      "prop_net": 387053,
+      "total_net": 0
+    },
+    "009811": {
+      "name": "統一美國50",
+      "foreign_net": -9000,
+      "dealer_net": 0,
+      "prop_net": -236079,
+      "total_net": 0
+    },
+    "3711": {
+      "name": "日月光投控",
+      "foreign_net": 1906308,
+      "dealer_net": -2167000,
+      "prop_net": 15519,
+      "total_net": 67600
+    },
+    "3703": {
+      "name": "欣陸",
+      "foreign_net": -246000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "8438": {
+      "name": "昶昕",
+      "foreign_net": -254099,
+      "dealer_net": 0,
+      "prop_net": -406,
+      "total_net": 0
+    },
+    "9941": {
+      "name": "裕融",
+      "foreign_net": 7920,
+      "dealer_net": -252184,
+      "prop_net": -10590,
+      "total_net": 13201
+    },
+    "5519": {
+      "name": "隆大",
+      "foreign_net": -262000,
+      "dealer_net": 0,
+      "prop_net": 363,
+      "total_net": 4637
+    },
+    "6541": {
+      "name": "泰福-KY",
+      "foreign_net": -262999,
+      "dealer_net": 0,
+      "prop_net": 93,
+      "total_net": 907
+    },
+    "00902": {
+      "name": "中信電池及儲能",
+      "foreign_net": -174000,
+      "dealer_net": 0,
+      "prop_net": -89120,
+      "total_net": 0
+    },
+    "2536": {
+      "name": "宏普",
+      "foreign_net": -264000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "4306": {
+      "name": "炎洲",
+      "foreign_net": -236112,
+      "dealer_net": 0,
+      "prop_net": -28000,
+      "total_net": 28000
+    },
+    "6757": {
+      "name": "台灣虎航",
+      "foreign_net": -275000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3380": {
+      "name": "明泰",
+      "foreign_net": -271039,
+      "dealer_net": 0,
+      "prop_net": -7214,
+      "total_net": 10000
+    },
+    "3008": {
+      "name": "大立光",
+      "foreign_net": -192162,
+      "dealer_net": -106000,
+      "prop_net": 18596,
+      "total_net": 13990
+    },
+    "2406": {
+      "name": "國碩",
+      "foreign_net": -283950,
+      "dealer_net": 0,
+      "prop_net": 4086,
+      "total_net": 0
+    },
+    "3532": {
+      "name": "台勝科",
+      "foreign_net": -278414,
+      "dealer_net": 10000,
+      "prop_net": -17093,
+      "total_net": 32000
+    },
+    "2442": {
+      "name": "新美齊",
+      "foreign_net": -286000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "6933": {
+      "name": "AMAX-KY",
+      "foreign_net": -246211,
+      "dealer_net": 0,
+      "prop_net": -40930,
+      "total_net": 29540
+    },
+    "00643": {
+      "name": "群益深証中小",
+      "foreign_net": -80000,
+      "dealer_net": 0,
+      "prop_net": -207815,
+      "total_net": 0
+    },
+    "3714": {
+      "name": "富采",
+      "foreign_net": -307402,
+      "dealer_net": 0,
+      "prop_net": 17899,
+      "total_net": 16000
+    },
+    "1514": {
+      "name": "亞力",
+      "foreign_net": -278414,
+      "dealer_net": 0,
+      "prop_net": -12921,
+      "total_net": 1000
+    },
+    "00947": {
+      "name": "台新臺灣IC設計",
+      "foreign_net": -372301,
+      "dealer_net": 0,
+      "prop_net": 72887,
+      "total_net": 0
+    },
+    "2383": {
+      "name": "台光電",
+      "foreign_net": 27808,
+      "dealer_net": -405000,
+      "prop_net": 76991,
+      "total_net": 18660
+    },
+    "2441": {
+      "name": "超豐",
+      "foreign_net": 179743,
+      "dealer_net": -474000,
+      "prop_net": -10486,
+      "total_net": 1000
+    },
+    "00650L": {
+      "name": "復華香港正2",
+      "foreign_net": -145000,
+      "dealer_net": 0,
+      "prop_net": -160867,
+      "total_net": 0
+    },
+    "8039": {
+      "name": "台虹",
+      "foreign_net": -217024,
+      "dealer_net": 0,
+      "prop_net": -98787,
+      "total_net": 167055
+    },
+    "2498": {
+      "name": "宏達電",
+      "foreign_net": -613130,
+      "dealer_net": 0,
+      "prop_net": 295793,
+      "total_net": 20000
+    },
+    "9938": {
+      "name": "百和",
+      "foreign_net": -315000,
+      "dealer_net": -3565,
+      "prop_net": -300,
+      "total_net": 0
+    },
+    "3062": {
+      "name": "建漢",
+      "foreign_net": -317000,
+      "dealer_net": 0,
+      "prop_net": -3642,
+      "total_net": 0
+    },
+    "3032": {
+      "name": "偉訓",
+      "foreign_net": -320946,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 1000
+    },
+    "2352": {
+      "name": "佳世達",
+      "foreign_net": -260973,
+      "dealer_net": 0,
+      "prop_net": -61000,
+      "total_net": 49000
+    },
+    "8110": {
+      "name": "華東",
+      "foreign_net": -379000,
+      "dealer_net": 0,
+      "prop_net": 52754,
+      "total_net": 2000
+    },
+    "3049": {
+      "name": "精金",
+      "foreign_net": -341000,
+      "dealer_net": 0,
+      "prop_net": 6022,
+      "total_net": 0
+    },
+    "2379": {
+      "name": "瑞昱",
+      "foreign_net": -937777,
+      "dealer_net": 461000,
+      "prop_net": 141757,
+      "total_net": 3161
+    },
+    "1718": {
+      "name": "中纖",
+      "foreign_net": -340513,
+      "dealer_net": 0,
+      "prop_net": 3209,
+      "total_net": 2000
+    },
+    "6477": {
+      "name": "安集",
+      "foreign_net": -338214,
+      "dealer_net": 0,
+      "prop_net": -142,
+      "total_net": 142
+    },
+    "3033": {
+      "name": "威健",
+      "foreign_net": -271003,
+      "dealer_net": -4688,
+      "prop_net": -62966,
+      "total_net": 32169
+    },
+    "1909": {
+      "name": "榮成",
+      "foreign_net": -337435,
+      "dealer_net": 0,
+      "prop_net": -5000,
+      "total_net": 5000
+    },
+    "2103": {
+      "name": "台橡",
+      "foreign_net": -324032,
+      "dealer_net": 0,
+      "prop_net": -19034,
+      "total_net": 1000
+    },
+    "3229": {
+      "name": "晟鈦",
+      "foreign_net": -351547,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "00924": {
+      "name": "復華S&P500成長",
+      "foreign_net": 14148,
+      "dealer_net": 0,
+      "prop_net": -366606,
+      "total_net": 0
+    },
+    "3138": {
+      "name": "耀登",
+      "foreign_net": -360169,
+      "dealer_net": 0,
+      "prop_net": -5294,
+      "total_net": 0
+    },
+    "009819": {
+      "name": "中信數據及電力",
+      "foreign_net": -37000,
+      "dealer_net": 0,
+      "prop_net": -333520,
+      "total_net": 0
+    },
+    "3715": {
+      "name": "定穎投控",
+      "foreign_net": -332094,
+      "dealer_net": 0,
+      "prop_net": -38604,
+      "total_net": 1000
+    },
+    "3090": {
+      "name": "日電貿",
+      "foreign_net": -356906,
+      "dealer_net": -22000,
+      "prop_net": 2054,
+      "total_net": 0
+    },
+    "8996": {
+      "name": "高力",
+      "foreign_net": -330877,
+      "dealer_net": -54000,
+      "prop_net": 6625,
+      "total_net": 62698
+    },
+    "6919": {
+      "name": "康霈*",
+      "foreign_net": -362354,
+      "dealer_net": 0,
+      "prop_net": -18232,
+      "total_net": 0
+    },
+    "2101": {
+      "name": "南港",
+      "foreign_net": -378862,
+      "dealer_net": 0,
+      "prop_net": -8409,
+      "total_net": 3000
+    },
+    "2493": {
+      "name": "揚博",
+      "foreign_net": -369145,
+      "dealer_net": 0,
+      "prop_net": -29746,
+      "total_net": 0
+    },
+    "2820": {
+      "name": "華票",
+      "foreign_net": -472400,
+      "dealer_net": 0,
+      "prop_net": 71343,
+      "total_net": 9657
+    },
+    "4960": {
+      "name": "誠美材",
+      "foreign_net": -349000,
+      "dealer_net": 0,
+      "prop_net": -53695,
+      "total_net": 5670
+    },
+    "0055": {
+      "name": "元大MSCI金融",
+      "foreign_net": -10928,
+      "dealer_net": 0,
+      "prop_net": -393246,
+      "total_net": 0
+    },
+    "00934": {
+      "name": "中信成長高股息",
+      "foreign_net": 679000,
+      "dealer_net": 0,
+      "prop_net": -1083475,
+      "total_net": 0
+    },
+    "1710": {
+      "name": "東聯",
+      "foreign_net": -407934,
+      "dealer_net": 0,
+      "prop_net": 782,
+      "total_net": 5000
+    },
+    "2302": {
+      "name": "麗正",
+      "foreign_net": -484475,
+      "dealer_net": 0,
+      "prop_net": 76520,
+      "total_net": 0
+    },
+    "2838": {
+      "name": "聯邦銀",
+      "foreign_net": -415906,
+      "dealer_net": -5000,
+      "prop_net": 11871,
+      "total_net": 57
+    },
+    "9904": {
+      "name": "寶成",
+      "foreign_net": -234445,
+      "dealer_net": 46258,
+      "prop_net": -233019,
+      "total_net": 818
+    },
+    "6112": {
+      "name": "邁達特",
+      "foreign_net": -503306,
+      "dealer_net": 0,
+      "prop_net": 79285,
+      "total_net": 3000
+    },
+    "00907": {
+      "name": "永豐優息存股",
+      "foreign_net": -53000,
+      "dealer_net": 0,
+      "prop_net": -375608,
+      "total_net": 0
+    },
+    "00655L": {
+      "name": "國泰中國A50正2",
+      "foreign_net": -12000,
+      "dealer_net": 0,
+      "prop_net": -418292,
+      "total_net": 0
+    },
+    "8261": {
+      "name": "富鼎",
+      "foreign_net": -485400,
+      "dealer_net": 20000,
+      "prop_net": 30336,
+      "total_net": 0
+    },
+    "6446": {
+      "name": "藥華藥",
+      "foreign_net": -421602,
+      "dealer_net": -16000,
+      "prop_net": 515,
+      "total_net": 40251
+    },
+    "8112": {
+      "name": "至上",
+      "foreign_net": -773585,
+      "dealer_net": 359000,
+      "prop_net": -23094,
+      "total_net": 33486
+    },
+    "2241": {
+      "name": "艾姆勒",
+      "foreign_net": -446511,
+      "dealer_net": 0,
+      "prop_net": 70,
+      "total_net": 930
+    },
+    "2646": {
+      "name": "星宇航空",
+      "foreign_net": -442480,
+      "dealer_net": 0,
+      "prop_net": -6071,
+      "total_net": 520
+    },
+    "2501": {
+      "name": "國建",
+      "foreign_net": -449000,
+      "dealer_net": 0,
+      "prop_net": 185,
+      "total_net": 0
+    },
+    "2338": {
+      "name": "光罩",
+      "foreign_net": -450910,
+      "dealer_net": 0,
+      "prop_net": -2976,
+      "total_net": 3022
+    },
+    "00964": {
+      "name": "中信亞太高股息",
+      "foreign_net": -32000,
+      "dealer_net": 0,
+      "prop_net": -429175,
+      "total_net": 0
+    },
+    "2913": {
+      "name": "農林",
+      "foreign_net": -344000,
+      "dealer_net": 0,
+      "prop_net": -122000,
+      "total_net": 122000
+    },
+    "2208": {
+      "name": "台船",
+      "foreign_net": -466299,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3376": {
+      "name": "新日興",
+      "foreign_net": -462086,
+      "dealer_net": 0,
+      "prop_net": -7910,
+      "total_net": 24000
+    },
+    "6589": {
+      "name": "台康生技",
+      "foreign_net": -472681,
+      "dealer_net": 0,
+      "prop_net": 25,
+      "total_net": 0
+    },
+    "6177": {
+      "name": "達麗",
+      "foreign_net": -468045,
+      "dealer_net": 0,
+      "prop_net": -5602,
+      "total_net": 4602
+    },
+    "6456": {
+      "name": "GIS-KY",
+      "foreign_net": -661230,
+      "dealer_net": 0,
+      "prop_net": 185139,
+      "total_net": 63000
+    },
+    "2345": {
+      "name": "智邦",
+      "foreign_net": -4585,
+      "dealer_net": -485001,
+      "prop_net": 9003,
+      "total_net": 19300
+    },
+    "7799": {
+      "name": "禾榮科",
+      "foreign_net": -444596,
+      "dealer_net": 0,
+      "prop_net": -37562,
+      "total_net": 47562
+    },
+    "4956": {
+      "name": "光鋐",
+      "foreign_net": -392569,
+      "dealer_net": 0,
+      "prop_net": -93315,
+      "total_net": 93000
+    },
+    "6742": {
+      "name": "澤米",
+      "foreign_net": -491000,
+      "dealer_net": 0,
+      "prop_net": 450,
+      "total_net": 2550
+    },
+    "2211": {
+      "name": "長榮鋼",
+      "foreign_net": -495000,
+      "dealer_net": -1613,
+      "prop_net": -268,
+      "total_net": 13268
+    },
+    "1608": {
+      "name": "華榮",
+      "foreign_net": -497862,
+      "dealer_net": -4940,
+      "prop_net": -8425,
+      "total_net": 6575
+    },
+    "2515": {
+      "name": "中工",
+      "foreign_net": -530650,
+      "dealer_net": 0,
+      "prop_net": 1998,
+      "total_net": 2
+    },
+    "2912": {
+      "name": "統一超",
+      "foreign_net": -640006,
+      "dealer_net": 84000,
+      "prop_net": 25000,
+      "total_net": 0
+    },
+    "6669": {
+      "name": "緯穎",
+      "foreign_net": 45539,
+      "dealer_net": -536001,
+      "prop_net": -46587,
+      "total_net": 16251
+    },
+    "7769": {
+      "name": "鴻勁",
+      "foreign_net": -253183,
+      "dealer_net": -277552,
+      "prop_net": -6938,
+      "total_net": 10180
+    },
+    "2801": {
+      "name": "彰銀",
+      "foreign_net": -361961,
+      "dealer_net": -128000,
+      "prop_net": -61596,
+      "total_net": 0
+    },
+    "1504": {
+      "name": "東元",
+      "foreign_net": 196882,
+      "dealer_net": -740000,
+      "prop_net": -17570,
+      "total_net": 8000
+    },
+    "009803": {
+      "name": "玉山市值動能50",
+      "foreign_net": 235050,
+      "dealer_net": 0,
+      "prop_net": -796898,
+      "total_net": 0
+    },
+    "00686R": {
+      "name": "群益臺灣加權反1",
+      "foreign_net": 10000,
+      "dealer_net": 0,
+      "prop_net": -577400,
+      "total_net": 0
+    },
+    "6243": {
+      "name": "迅杰",
+      "foreign_net": -574385,
+      "dealer_net": 0,
+      "prop_net": 219,
+      "total_net": 0
+    },
+    "2329": {
+      "name": "華泰",
+      "foreign_net": -586000,
+      "dealer_net": 0,
+      "prop_net": -2415,
+      "total_net": 4000
+    },
+    "2905": {
+      "name": "三商",
+      "foreign_net": -598000,
+      "dealer_net": 0,
+      "prop_net": -1847,
+      "total_net": 2847
+    },
+    "00945B": {
+      "name": "凱基美國非投等債",
+      "foreign_net": 5000,
+      "dealer_net": 0,
+      "prop_net": -611185,
+      "total_net": 0
+    },
+    "00646": {
+      "name": "元大S&P500",
+      "foreign_net": -9848,
+      "dealer_net": 204000,
+      "prop_net": -815954,
+      "total_net": 0
+    },
+    "6706": {
+      "name": "惠特",
+      "foreign_net": -638806,
+      "dealer_net": 0,
+      "prop_net": -3192,
+      "total_net": 0
+    },
+    "00917": {
+      "name": "中信特選金融",
+      "foreign_net": -4000,
+      "dealer_net": 0,
+      "prop_net": -642155,
+      "total_net": 0
+    },
+    "0052": {
+      "name": "富邦科技",
+      "foreign_net": -938832,
+      "dealer_net": 0,
+      "prop_net": 281081,
+      "total_net": 111998
+    },
+    "2354": {
+      "name": "鴻準",
+      "foreign_net": -445328,
+      "dealer_net": 0,
+      "prop_net": -219976,
+      "total_net": 4000
+    },
+    "00639": {
+      "name": "富邦深100",
+      "foreign_net": -13900,
+      "dealer_net": 0,
+      "prop_net": -665637,
+      "total_net": 0
+    },
+    "2201": {
+      "name": "裕隆",
+      "foreign_net": -681522,
+      "dealer_net": 0,
+      "prop_net": -5638,
+      "total_net": 4000
+    },
+    "6239": {
+      "name": "力成",
+      "foreign_net": -652322,
+      "dealer_net": 0,
+      "prop_net": -46522,
+      "total_net": 98598
+    },
+    "00885": {
+      "name": "富邦越南",
+      "foreign_net": -193970,
+      "dealer_net": 0,
+      "prop_net": -521099,
+      "total_net": 89000
+    },
+    "00865B": {
+      "name": "國泰US短期公債",
+      "foreign_net": -593999,
+      "dealer_net": 0,
+      "prop_net": -124448,
+      "total_net": 0
+    },
+    "6949": {
+      "name": "沛爾生醫*-創",
+      "foreign_net": -620401,
+      "dealer_net": 0,
+      "prop_net": -99143,
+      "total_net": 100000
+    },
+    "2887I": {
+      "name": "台新新光辛特",
+      "foreign_net": -728810,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "3055": {
+      "name": "蔚華科",
+      "foreign_net": -681602,
+      "dealer_net": 0,
+      "prop_net": -75418,
+      "total_net": 1309
+    },
+    "2474": {
+      "name": "可成",
+      "foreign_net": -791083,
+      "dealer_net": 15000,
+      "prop_net": 5665,
+      "total_net": 0
+    },
+    "3014": {
+      "name": "聯陽",
+      "foreign_net": -792621,
+      "dealer_net": 17649,
+      "prop_net": -264,
+      "total_net": 0
+    },
+    "3706": {
+      "name": "神達",
+      "foreign_net": 77406,
+      "dealer_net": -927000,
+      "prop_net": 37098,
+      "total_net": 2000
+    },
+    "6176": {
+      "name": "瑞儀",
+      "foreign_net": -808641,
+      "dealer_net": -17000,
+      "prop_net": -399,
+      "total_net": 882
+    },
+    "2547": {
+      "name": "日勝生",
+      "foreign_net": -886000,
+      "dealer_net": 0,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "1528": {
+      "name": "恩德",
+      "foreign_net": -907733,
+      "dealer_net": 0,
+      "prop_net": 996,
+      "total_net": 0
+    },
+    "009805": {
+      "name": "台新美國電力基建",
+      "foreign_net": -25000,
+      "dealer_net": 0,
+      "prop_net": -886084,
+      "total_net": 0
+    },
+    "00663L": {
+      "name": "國泰臺灣加權正2",
+      "foreign_net": -277000,
+      "dealer_net": 0,
+      "prop_net": -641414,
+      "total_net": 0
+    },
+    "5880": {
+      "name": "合庫金",
+      "foreign_net": -2072029,
+      "dealer_net": 338000,
+      "prop_net": 781030,
+      "total_net": 4015
+    },
+    "2504": {
+      "name": "國產",
+      "foreign_net": -985000,
+      "dealer_net": 0,
+      "prop_net": -496,
+      "total_net": 496
+    },
+    "3042": {
+      "name": "晶技",
+      "foreign_net": -2802910,
+      "dealer_net": 1179000,
+      "prop_net": 633994,
+      "total_net": 219000
+    },
+    "00891": {
+      "name": "中信關鍵半導體",
+      "foreign_net": -440000,
+      "dealer_net": 0,
+      "prop_net": -558555,
+      "total_net": 0
+    },
+    "9945": {
+      "name": "潤泰新",
+      "foreign_net": -917495,
+      "dealer_net": 0,
+      "prop_net": -83572,
+      "total_net": 2000
+    },
+    "00995A": {
+      "name": "主動中信台灣卓越",
+      "foreign_net": 603000,
+      "dealer_net": 0,
+      "prop_net": -1639248,
+      "total_net": 0
+    },
+    "00892": {
+      "name": "富邦台灣半導體",
+      "foreign_net": -89000,
+      "dealer_net": 0,
+      "prop_net": -952452,
+      "total_net": 0
+    },
+    "3450": {
+      "name": "聯鈞",
+      "foreign_net": -796016,
+      "dealer_net": -274000,
+      "prop_net": 5832,
+      "total_net": 3000
+    },
+    "1717": {
+      "name": "長興",
+      "foreign_net": -1037059,
+      "dealer_net": 0,
+      "prop_net": -73360,
+      "total_net": 16000
+    },
+    "1102": {
+      "name": "亞泥",
+      "foreign_net": -1329809,
+      "dealer_net": 120477,
+      "prop_net": 95043,
+      "total_net": 1277
+    },
+    "8422": {
+      "name": "可寧衛*",
+      "foreign_net": -1088330,
+      "dealer_net": 0,
+      "prop_net": -35000,
+      "total_net": 36000
+    },
+    "00665L": {
+      "name": "富邦恒生國企正2",
+      "foreign_net": -965000,
+      "dealer_net": 0,
+      "prop_net": -174746,
+      "total_net": 0
+    },
+    "2388": {
+      "name": "威盛",
+      "foreign_net": -1184388,
+      "dealer_net": 40000,
+      "prop_net": -42358,
+      "total_net": 32916
+    },
+    "00985B": {
+      "name": "群益ESG投等債0-5",
+      "foreign_net": 884001,
+      "dealer_net": 0,
+      "prop_net": -2129550,
+      "total_net": 0
+    },
+    "00913": {
+      "name": "兆豐台灣晶圓製造",
+      "foreign_net": -318900,
+      "dealer_net": 0,
+      "prop_net": -930442,
+      "total_net": 0
+    },
+    "2371": {
+      "name": "大同",
+      "foreign_net": -1040508,
+      "dealer_net": 0,
+      "prop_net": -212363,
+      "total_net": 52000
+    },
+    "3645": {
+      "name": "達邁",
+      "foreign_net": -1258000,
+      "dealer_net": 0,
+      "prop_net": 1265,
+      "total_net": 0
+    },
+    "00935": {
+      "name": "野村臺灣新科技50",
+      "foreign_net": -698393,
+      "dealer_net": -597000,
+      "prop_net": 21263,
+      "total_net": 0
+    },
+    "2845": {
+      "name": "遠東銀",
+      "foreign_net": -822000,
+      "dealer_net": 728000,
+      "prop_net": -1284000,
+      "total_net": 1279000
+    },
+    "1605": {
+      "name": "華新",
+      "foreign_net": -1311504,
+      "dealer_net": 0,
+      "prop_net": -79146,
+      "total_net": 20000
+    },
+    "2332": {
+      "name": "友訊",
+      "foreign_net": -1284120,
+      "dealer_net": 0,
+      "prop_net": -170854,
+      "total_net": 178000
+    },
+    "00963": {
+      "name": "中信全球高股息",
+      "foreign_net": -259000,
+      "dealer_net": 0,
+      "prop_net": -1208799,
+      "total_net": 0
+    },
+    "00962": {
+      "name": "台新AI優息動能",
+      "foreign_net": 19000,
+      "dealer_net": 0,
+      "prop_net": -1496936,
+      "total_net": 0
+    },
+    "1722": {
+      "name": "台肥",
+      "foreign_net": -1509048,
+      "dealer_net": 0,
+      "prop_net": -1000,
+      "total_net": 23000
+    },
+    "6205": {
+      "name": "詮欣",
+      "foreign_net": -1532954,
+      "dealer_net": 0,
+      "prop_net": 449,
+      "total_net": 0
+    },
+    "2897": {
+      "name": "王道銀行",
+      "foreign_net": -1501363,
+      "dealer_net": 0,
+      "prop_net": -33000,
+      "total_net": 33000
+    },
+    "3006": {
+      "name": "晶豪科",
+      "foreign_net": -1549976,
+      "dealer_net": -20000,
+      "prop_net": 34310,
+      "total_net": 27718
+    },
+    "2313": {
+      "name": "華通",
+      "foreign_net": -1419130,
+      "dealer_net": 2000,
+      "prop_net": -128178,
+      "total_net": 102000
+    },
+    "00662": {
+      "name": "富邦NASDAQ",
+      "foreign_net": -159017,
+      "dealer_net": 95000,
+      "prop_net": -1589949,
+      "total_net": 1000
+    },
+    "5871": {
+      "name": "中租-KY",
+      "foreign_net": -1735994,
+      "dealer_net": 2509,
+      "prop_net": 77834,
+      "total_net": 2164
+    },
+    "3717": {
+      "name": "聯嘉投控",
+      "foreign_net": -1659543,
+      "dealer_net": 0,
+      "prop_net": -5292,
+      "total_net": 25000
+    },
+    "00635U": {
+      "name": "期元大S&P黃金",
+      "foreign_net": -63000,
+      "dealer_net": 0,
+      "prop_net": -1662924,
+      "total_net": 0
+    },
+    "00738U": {
+      "name": "期元大道瓊白銀",
+      "foreign_net": -165482,
+      "dealer_net": 0,
+      "prop_net": -1564343,
+      "total_net": 0
+    },
+    "2368": {
+      "name": "金像電",
+      "foreign_net": -2643797,
+      "dealer_net": 659999,
+      "prop_net": 203936,
+      "total_net": 80720
+    },
+    "00633L": {
+      "name": "富邦上証正2",
+      "foreign_net": 60000,
+      "dealer_net": 0,
+      "prop_net": -1854615,
+      "total_net": 0
+    },
+    "2481": {
+      "name": "強茂",
+      "foreign_net": -1624542,
+      "dealer_net": 0,
+      "prop_net": -173602,
+      "total_net": 496000
+    },
+    "4919": {
+      "name": "新唐",
+      "foreign_net": -1994559,
+      "dealer_net": 20000,
+      "prop_net": 109441,
+      "total_net": 156000
+    },
+    "00922": {
+      "name": "國泰台灣領袖50",
+      "foreign_net": -278000,
+      "dealer_net": 0,
+      "prop_net": -1637197,
+      "total_net": 0
+    },
+    "4763": {
+      "name": "材料*-KY",
+      "foreign_net": -1789922,
+      "dealer_net": 1000,
+      "prop_net": -138051,
+      "total_net": 0
+    },
+    "2464": {
+      "name": "盟立",
+      "foreign_net": -2057889,
+      "dealer_net": 0,
+      "prop_net": 6346,
+      "total_net": 13050
+    },
+    "2883": {
+      "name": "凱基金",
+      "foreign_net": -2679288,
+      "dealer_net": -41000,
+      "prop_net": 640525,
+      "total_net": 3847
+    },
+    "2426": {
+      "name": "鼎元",
+      "foreign_net": -2084746,
+      "dealer_net": 0,
+      "prop_net": -15695,
+      "total_net": 4000
+    },
+    "2363": {
+      "name": "矽統",
+      "foreign_net": -2047189,
+      "dealer_net": 20000,
+      "prop_net": -133485,
+      "total_net": 3000
+    },
+    "1216": {
+      "name": "統一",
+      "foreign_net": -2559976,
+      "dealer_net": 103000,
+      "prop_net": 262906,
+      "total_net": 150294
+    },
+    "2633": {
+      "name": "台灣高鐵",
+      "foreign_net": -2711011,
+      "dealer_net": 466000,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2891": {
+      "name": "中信金",
+      "foreign_net": -4929287,
+      "dealer_net": 1768000,
+      "prop_net": 909673,
+      "total_net": 70156
+    },
+    "2605": {
+      "name": "新興",
+      "foreign_net": -2115337,
+      "dealer_net": 0,
+      "prop_net": -142437,
+      "total_net": 173264
+    },
+    "2489": {
+      "name": "瑞軒",
+      "foreign_net": -1530393,
+      "dealer_net": 0,
+      "prop_net": -748983,
+      "total_net": 665312
+    },
+    "00708L": {
+      "name": "期元大S&P黃金正2",
+      "foreign_net": 28000,
+      "dealer_net": 0,
+      "prop_net": -2527346,
+      "total_net": 0
+    },
+    "2882": {
+      "name": "國泰金",
+      "foreign_net": -3351138,
+      "dealer_net": 1604000,
+      "prop_net": -780203,
+      "total_net": 1501
+    },
+    "2382": {
+      "name": "廣達",
+      "foreign_net": -3653591,
+      "dealer_net": 762000,
+      "prop_net": 148968,
+      "total_net": 42904
+    },
+    "3094": {
+      "name": "聯傑",
+      "foreign_net": -2869512,
+      "dealer_net": 0,
+      "prop_net": -10000,
+      "total_net": 16000
+    },
+    "2887": {
+      "name": "台新新光金",
+      "foreign_net": -3763596,
+      "dealer_net": -168000,
+      "prop_net": 1009483,
+      "total_net": 91560
+    },
+    "00713": {
+      "name": "元大台灣高息低波",
+      "foreign_net": -206952,
+      "dealer_net": -150000,
+      "prop_net": -2641678,
+      "total_net": 0
+    },
+    "6443": {
+      "name": "元晶",
+      "foreign_net": -3032400,
+      "dealer_net": 0,
+      "prop_net": -156,
+      "total_net": 578
+    },
+    "2104": {
+      "name": "國際中橡",
+      "foreign_net": -3083980,
+      "dealer_net": 0,
+      "prop_net": 35309,
+      "total_net": 401
+    },
+    "009821": {
+      "name": "野村稀土關鍵資源",
+      "foreign_net": -152000,
+      "dealer_net": 0,
+      "prop_net": -2967979,
+      "total_net": 0
+    },
+    "2881": {
+      "name": "富邦金",
+      "foreign_net": -2939406,
+      "dealer_net": -326000,
+      "prop_net": 130196,
+      "total_net": 1998
+    },
+    "009829": {
+      "name": "大華韓國KOSPI50",
+      "foreign_net": -3446700,
+      "dealer_net": 0,
+      "prop_net": 287943,
+      "total_net": 0
+    },
+    "2885": {
+      "name": "元大金",
+      "foreign_net": -1502680,
+      "dealer_net": -1998000,
+      "prop_net": 335524,
+      "total_net": 19792
+    },
+    "3019": {
+      "name": "亞光",
+      "foreign_net": -3134015,
+      "dealer_net": 0,
+      "prop_net": -34361,
+      "total_net": 51926
+    },
+    "6257": {
+      "name": "矽格",
+      "foreign_net": -3686044,
+      "dealer_net": 0,
+      "prop_net": -249122,
+      "total_net": 115674
+    },
+    "2002": {
+      "name": "中鋼",
+      "foreign_net": -4156707,
+      "dealer_net": -8000,
+      "prop_net": 75495,
+      "total_net": 0
+    },
+    "6005": {
+      "name": "群益證",
+      "foreign_net": -4357856,
+      "dealer_net": -3000,
+      "prop_net": 0,
+      "total_net": 0
+    },
+    "2356": {
+      "name": "英業達",
+      "foreign_net": -4407950,
+      "dealer_net": 21000,
+      "prop_net": -102784,
+      "total_net": 13195
+    },
+    "00664R": {
+      "name": "國泰臺灣加權反1",
+      "foreign_net": 0,
+      "dealer_net": 0,
+      "prop_net": -4590000,
+      "total_net": 0
+    },
+    "3481": {
+      "name": "群創",
+      "foreign_net": -1969313,
+      "dealer_net": 0,
+      "prop_net": -2653402,
+      "total_net": 3894056
+    },
+    "2889": {
+      "name": "國票金",
+      "foreign_net": -4869983,
+      "dealer_net": -3000,
+      "prop_net": -59414,
+      "total_net": 54000
+    },
+    "2834": {
+      "name": "臺企銀",
+      "foreign_net": -5091889,
+      "dealer_net": -7000,
+      "prop_net": -63700,
+      "total_net": 0
+    },
+    "4958": {
+      "name": "臻鼎-KY",
+      "foreign_net": -5333479,
+      "dealer_net": -275000,
+      "prop_net": 74853,
+      "total_net": 62357
+    },
+    "2330": {
+      "name": "台積電",
+      "foreign_net": -4667832,
+      "dealer_net": -1287718,
+      "prop_net": 242701,
+      "total_net": 9000
+    },
+    "2324": {
+      "name": "仁寶",
+      "foreign_net": -6316129,
+      "dealer_net": 108000,
+      "prop_net": 153952,
+      "total_net": 29187
+    },
+    "2342": {
+      "name": "茂矽",
+      "foreign_net": -6140842,
+      "dealer_net": 0,
+      "prop_net": -16512,
+      "total_net": 82976
+    },
+    "009826": {
+      "name": "貝萊德世界股票",
+      "foreign_net": -75956,
+      "dealer_net": 0,
+      "prop_net": -6426716,
+      "total_net": 0
+    },
+    "6116": {
+      "name": "彩晶",
+      "foreign_net": -7763602,
+      "dealer_net": 0,
+      "prop_net": 293529,
+      "total_net": 38000
+    },
+    "00688L": {
+      "name": "國泰20年美債正2",
+      "foreign_net": -1471000,
+      "dealer_net": 0,
+      "prop_net": -6051419,
+      "total_net": 0
+    },
+    "2618": {
+      "name": "長榮航",
+      "foreign_net": -11904982,
+      "dealer_net": 4165419,
+      "prop_net": 95719,
+      "total_net": 178000
+    },
+    "00929": {
+      "name": "復華台灣科技優息",
+      "foreign_net": -4812675,
+      "dealer_net": 1000000,
+      "prop_net": -3866056,
+      "total_net": 0
+    },
+    "00673R": {
+      "name": "期元大S&P原油反1",
+      "foreign_net": -554000,
+      "dealer_net": 0,
+      "prop_net": -7283027,
+      "total_net": 0
+    },
+    "2610": {
+      "name": "華航",
+      "foreign_net": -14209150,
+      "dealer_net": 5571000,
+      "prop_net": -118883,
+      "total_net": 86000
+    },
+    "00753L": {
+      "name": "中信中國50正2",
+      "foreign_net": -364000,
+      "dealer_net": 0,
+      "prop_net": -8535119,
+      "total_net": 0
+    },
+    "00927": {
+      "name": "群益半導體收益",
+      "foreign_net": -7358050,
+      "dealer_net": 0,
+      "prop_net": -1590348,
+      "total_net": 0
+    },
+    "2812": {
+      "name": "台中銀",
+      "foreign_net": -9018717,
+      "dealer_net": -2000,
+      "prop_net": -36679,
+      "total_net": 9
+    },
+    "2337": {
+      "name": "旺宏",
+      "foreign_net": -9082640,
+      "dealer_net": 67000,
+      "prop_net": -105645,
+      "total_net": 159000
+    },
+    "00984D": {
+      "name": "主動聯博全球非投",
+      "foreign_net": 6000,
+      "dealer_net": 0,
+      "prop_net": -10080096,
+      "total_net": 0
+    },
+    "1314": {
+      "name": "中石化",
+      "foreign_net": -11481917,
+      "dealer_net": 0,
+      "prop_net": -308129,
+      "total_net": 404129
+    },
+    "00637L": {
+      "name": "元大滬深300正2",
+      "foreign_net": -790000,
+      "dealer_net": 0,
+      "prop_net": -11768670,
+      "total_net": 0
+    },
+    "1101": {
+      "name": "台泥",
+      "foreign_net": -12698600,
+      "dealer_net": -12000,
+      "prop_net": -450135,
+      "total_net": 168000
+    },
+    "00961": {
+      "name": "FT臺灣永續高息",
+      "foreign_net": 528050,
+      "dealer_net": 0,
+      "prop_net": -14233943,
+      "total_net": 0
+    },
+    "0056": {
+      "name": "元大高股息",
+      "foreign_net": -5370568,
+      "dealer_net": 150000,
+      "prop_net": -9632676,
+      "total_net": 0
+    },
+    "00680L": {
+      "name": "元大美債20正2",
+      "foreign_net": -2985000,
+      "dealer_net": 0,
+      "prop_net": -13120300,
+      "total_net": 0
+    },
+    "2344": {
+      "name": "華邦電",
+      "foreign_net": -17824356,
+      "dealer_net": -162001,
+      "prop_net": -8643,
+      "total_net": 242311
+    },
+    "1709": {
+      "name": "和益",
+      "foreign_net": -19295908,
+      "dealer_net": 0,
+      "prop_net": -90028,
+      "total_net": 107000
+    },
+    "0050": {
+      "name": "元大台灣50",
+      "foreign_net": -31362347,
+      "dealer_net": 0,
+      "prop_net": 10477294,
+      "total_net": 516988
+    },
+    "00918": {
+      "name": "大華優利高填息30",
+      "foreign_net": 1406330,
+      "dealer_net": 0,
+      "prop_net": -23745434,
+      "total_net": 300000
+    },
+    "2408": {
+      "name": "南亞科",
+      "foreign_net": -19952717,
+      "dealer_net": -2388001,
+      "prop_net": -337246,
+      "total_net": 389469
+    },
+    "2317": {
+      "name": "鴻海",
+      "foreign_net": -23872588,
+      "dealer_net": -263000,
+      "prop_net": -95985,
+      "total_net": 296070
+    },
+    "00878": {
+      "name": "國泰永續高股息",
+      "foreign_net": -3122021,
+      "dealer_net": 0,
+      "prop_net": -22290039,
+      "total_net": 0
+    },
+    "00631L": {
+      "name": "元大台灣50正2",
+      "foreign_net": -5520740,
+      "dealer_net": 0,
+      "prop_net": -27653094,
+      "total_net": 85000
+    },
+    "009816": {
+      "name": "凱基台灣TOP50",
+      "foreign_net": -3972783,
+      "dealer_net": 0,
+      "prop_net": -33613410,
+      "total_net": 0
+    },
+    "2303": {
+      "name": "聯電",
+      "foreign_net": -35153207,
+      "dealer_net": -9471000,
+      "prop_net": 443284,
+      "total_net": 843984
+    },
+    "6770": {
+      "name": "力積電",
+      "foreign_net": -42587441,
+      "dealer_net": -4000,
+      "prop_net": -2225365,
+      "total_net": 1385000
+    },
+    "00685L": {
+      "name": "群益臺灣加權正2",
+      "foreign_net": -8007500,
+      "dealer_net": 0,
+      "prop_net": -50455306,
+      "total_net": 4371000
+    },
+    "00919": {
+      "name": "群益台灣精選高息",
+      "foreign_net": -7009630,
+      "dealer_net": 0,
+      "prop_net": -55819890,
+      "total_net": 0
+    },
+    "2409": {
+      "name": "友達",
+      "foreign_net": -79998614,
+      "dealer_net": -6000,
+      "prop_net": 2103828,
+      "total_net": 3000000
+    },
+    "00712": {
+      "name": "復華富時不動產",
+      "foreign_net": -4380000,
+      "dealer_net": 0,
+      "prop_net": -74205949,
+      "total_net": 0
+    },
+    "00406A": {
+      "name": "主動中信台灣收益",
+      "foreign_net": -35897100,
+      "dealer_net": 0,
+      "prop_net": -49846663,
+      "total_net": 0
+    }
+  }
 }
