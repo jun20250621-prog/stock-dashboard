@@ -1,55 +1,47 @@
 {
-  "date": "2026/09/28",
-  "updated": "2026-09-28T15:10:14.843963",
+  "date": "2026/09/29",
+  "updated": "2026-09-29T06:41:39.659239",
   "twii": {
-    "price": 48024.6,
-    "change": -132.7,
-    "change_pct": -0.28
+    "price": 47631.96,
+    "change": -392.64,
+    "change_pct": -0.82
   },
   "nasdaq": {
-    "price": 26817.492,
-    "change": -251.23,
-    "change_pct": -0.93
+    "price": 26820.38,
+    "change": -248.34,
+    "change_pct": -0.92
   },
   "sp500": {
-    "price": 7686.24,
-    "change": -57.17,
-    "change_pct": -0.74
+    "price": 7683.69,
+    "change": -59.72,
+    "change_pct": -0.77
   },
   "vix": {
-    "price": 16.51,
-    "change": 1.64,
-    "change_pct": 11.03
+    "price": 16.07,
+    "change": 1.2,
+    "change_pct": 8.07
   },
   "dji": {
-    "price": 51491.74,
-    "change": -336.88,
-    "change_pct": -0.65
+    "price": 51481.51,
+    "change": -347.09,
+    "change_pct": -0.67
   },
   "tsmc": {
     "price": 2475.0,
-    "change": -25.0,
-    "change_pct": -1.0
+    "change": 0.0,
+    "change_pct": 0.0
   },
   "mediatek": {
-    "price": 5285.0,
-    "change": 100.0,
-    "change_pct": 1.93
+    "price": 4910.0,
+    "change": -375.0,
+    "change_pct": -7.1
   },
   "foxconn": {
     "price": 250.5,
-    "change": -5.5,
-    "change_pct": -2.15
+    "change": 0.0,
+    "change_pct": 0.0
   },
   "history": [
-    {
-      "date": "2026/09/08",
-      "twii": 47117.86,
-      "nasdaq": 26506.99,
-      "sp500": 7718.6,
-      "dji": 53414.25,
-      "vix": 15.3
-    },
     {
       "date": "2026/09/08",
       "twii": 47105.78,
@@ -281,6 +273,14 @@
       "sp500": 7686.24,
       "dji": 51491.74,
       "vix": 16.51
+    },
+    {
+      "date": "2026/09/29",
+      "twii": 47631.96,
+      "nasdaq": 26820.38,
+      "sp500": 7683.69,
+      "dji": 51481.51,
+      "vix": 16.07
     }
   ]
 }
