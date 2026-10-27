@@ -1,5 +1,7 @@
 {
-  "date": "2026/10/27",
+  "date": "20261027",
   "source": "TWSE MI_MARGN",
-  "updated": "2026-10-27T06:05:57.951455"
+  "updated": "2026-10-27T13:04:20.583298",
+  "margin_balance": 9550611,
+  "short_balance": 217708
 }
