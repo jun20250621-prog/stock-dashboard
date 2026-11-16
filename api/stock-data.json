@@ -1,30 +1,30 @@
 {
-  "date": "2026/11/13",
-  "updated": "2026-11-13T07:11:23.700397",
+  "date": "2026/11/16",
+  "updated": "2026-11-16T01:14:12.160636",
   "twii": {
     "price": 43675.12,
-    "change": -581.98,
-    "change_pct": -1.31
+    "change": 583.22,
+    "change_pct": 1.35
   },
   "nasdaq": {
-    "price": 25366.094,
-    "change": -100.1,
-    "change_pct": -0.39
+    "price": 25136.273,
+    "change": -229.83,
+    "change_pct": -0.91
   },
   "sp500": {
-    "price": 7592.4,
-    "change": -26.98,
-    "change_pct": -0.35
+    "price": 7561.67,
+    "change": -30.73,
+    "change_pct": -0.4
   },
   "vix": {
-    "price": 18.7,
-    "change": 1.21,
-    "change_pct": 6.92
+    "price": 19.3,
+    "change": 0.6,
+    "change_pct": 3.21
   },
   "dji": {
-    "price": 52297.09,
-    "change": -189.41,
-    "change_pct": -0.36
+    "price": 52347.55,
+    "change": 50.45,
+    "change_pct": 0.1
   },
   "tsmc": {
     "price": 2350.0,
@@ -42,14 +42,6 @@
     "change_pct": 0.42
   },
   "history": [
-    {
-      "date": "2026/10/21",
-      "twii": 46709.2,
-      "nasdaq": 26424.82,
-      "sp500": 7712.57,
-      "dji": 52495.88,
-      "vix": 17.31
-    },
     {
       "date": "2026/10/21",
       "twii": 46887.77,
@@ -281,6 +273,14 @@
       "sp500": 7592.4,
       "dji": 52297.09,
       "vix": 18.7
+    },
+    {
+      "date": "2026/11/16",
+      "twii": 43675.12,
+      "nasdaq": 25136.27,
+      "sp500": 7561.67,
+      "dji": 52347.55,
+      "vix": 19.3
     }
   ]
 }
